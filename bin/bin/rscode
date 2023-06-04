@@ -1,0 +1,455 @@
+#!/usr/bin/env bash
+
+
+### Colors
+##########
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+
+
+### Funcions
+############
+
+_rmextensions () {
+    CODE="$*"
+    LIST=$($CODE --list-extensions)
+    for EXTENSION in $LIST; do
+        $CODE --uninstall-extension $EXTENSION &>/dev/null
+    done
+}
+
+
+_addmarketplace () {
+cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
+{
+    "extensionsGallery": {
+        "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+        "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+        "itemUrl": "https://marketplace.visualstudio.com/items",
+        "controlUrl": "",
+        "recommendationsUrl": ""
+    }
+}
+EOF
+}
+
+
+_default () {
+if [[ "$*" == "code" ]]; then
+    CODE="code"
+    FOLDER="Code"
+elif [[ "$*" == "code-insiders" ]]; then
+    CODE="code-insiders"
+    FOLDER="Code - Insiders"
+elif [[ "$*" == "codium" ]]; then
+    CODE="codium"
+    FOLDER="VSCodium"
+else
+    exit 1
+fi
+
+_rmextensions "$CODE"
+$CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+
+cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
+{
+    "keyboard.dispatch": "keyCode",
+    "breadcrumbs.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "security.workspace.trust.startupPrompt": "never",
+    "window.restoreWindows": "none",
+    "window.titleBarStyle": "native",
+    "window.menuBarVisibility": "hidden",
+    "window.customMenuBarAltFocus": false,
+    "window.enableMenuBarMnemonics": false,
+    "editor.fontFamily": "'Fira Code', 'monospace'",
+    "editor.fontSize": 11,
+    "editor.lineHeight": 1.3,
+    "editor.lineNumbers": "on",
+    "editor.renderLineHighlight": "none",
+    "editor.fontLigatures": true,
+    "editor.guides.indentation": false,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [],
+    "editor.folding": false,
+    "editor.wordWrap": "off",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "editor.scrollbar.vertical": "auto",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 10,
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.stickyScroll.enabled": true,
+    "debug.terminal.clearBeforeReusing": true,
+    "terminal.explorerKind": "external",
+    "terminal.external.linuxExec": "lxterm",
+    "terminal.integrated.fontFamily": "'Fira Code', 'monospace'",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.lineHeight": 1,
+    "workbench.editor.showTabs": true,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Quiet Light",
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.productIconTheme": "Default",
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 20,
+}
+EOF
+
+cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
+[
+]
+EOF
+}
+
+
+_loaded () {
+if [[ "$*" == "code" ]]; then
+    _rmextensions "code"
+    code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    code --install-extension vscodevim.vim &>/dev/null
+    code --install-extension github.copilot &>/dev/null
+    FOLDER="Code"
+elif [[ "$*" == "code-insiders" ]]; then
+    _rmextensions "code-insiders"
+    code-insiders --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    code-insiders --install-extension vscodevim.vim &>/dev/null
+    code-insiders --install-extension github.copilot-nightly &>/dev/null
+    code-insiders --install-extension github.copilot-chat &>/dev/null
+    FOLDER="Code - Insiders"
+elif [[ "$*" == "codium" ]]; then
+    _rmextensions "codium"
+    codium --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    codium --install-extension vscodevim.vim &>/dev/null
+    codium --install-extension codeium.codeium &>/dev/null
+    FOLDER="VSCodium"
+else
+    exit 1
+fi
+
+cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
+{
+    "keyboard.dispatch": "keyCode",
+    "breadcrumbs.enabled": true,
+    "telemetry.telemetryLevel": "off",
+    "security.workspace.trust.startupPrompt": "never",
+    "window.restoreWindows": "none",
+    "window.titleBarStyle": "native",
+    "window.menuBarVisibility": "hidden",
+    "window.customMenuBarAltFocus": false,
+    "window.enableMenuBarMnemonics": false,
+    "editor.fontFamily": "'Fira Code', 'monospace'",
+    "editor.fontSize": 11,
+    "editor.lineHeight": 1.3,
+    "editor.lineNumbers": "relative",
+    "editor.renderLineHighlight": "none",
+    "editor.fontLigatures": true,
+    "editor.guides.indentation": false,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [],
+    "editor.folding": false,
+    "editor.wordWrap": "off",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "editor.scrollbar.vertical": "auto",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 10,
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.stickyScroll.enabled": true,
+    "debug.terminal.clearBeforeReusing": true,
+    "terminal.explorerKind": "external",
+    "terminal.external.linuxExec": "lxterm",
+    "terminal.integrated.fontFamily": "'Fira Code', 'monospace'",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.lineHeight": 1,
+    "workbench.editor.showTabs": false,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Monokai Pro",
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.productIconTheme": "Default",
+    "workbench.activityBar.visible": false,
+    "workbench.sideBar.location": "left",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 20,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<Tab>"],
+            "commands": ["editor.action.indentLines"]
+        },
+        {
+            "before": ["<S-Tab>"],
+            "commands": ["editor.action.outdentLines"]
+        },
+        {
+            "before": ["J"],
+            "commands": ["editor.action.moveLinesDownAction"]
+        },
+        {
+            "before": ["K"],
+            "commands": ["editor.action.moveLinesUpAction"]
+        },
+        {
+            "before": ["<leader>", "<leader>"],
+            "commands": ["editor.action.commentLine"]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-j>"],
+            "after": ["}"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["{"]
+        },
+        {
+            "before": ["Y"],
+            "after": ["y", "$"]
+        },
+        {
+            "before": ["<leader>","w"],
+            "after": ["<C-w>"]
+        },
+        {
+            "before": ["u"],
+            "commands": ["undo"],
+            "silent": true
+        },
+        {
+            "before": ["C-r"],
+            "commands": ["redo"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "<leader>"],
+            "commands": ["editor.action.commentLine"],
+            "silent": true
+        },
+    ],
+}
+EOF
+
+cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
+[
+    {
+        "key": "alt+shift+q",
+        "command": "workbench.action.quit"
+    },
+    {
+        "key": "alt+shift+w",
+        "command": "workbench.action.closeWindow"
+    },
+    {
+        "key": "alt+a",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
+        "key": "alt+t",
+        "command": "toggleVim"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "alt+shift+h",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "when": "!activeEditorGroupEmpty"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+shift+j",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
+        "when": "!activeEditorGroupEmpty"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+shift+k",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusSideBar",
+        "when": "!sideBarFocus"
+    },
+    {
+        "key": "alt+shift+l",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "alt+shift+l",
+        "command": "workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+    },
+    {
+        "key": "alt+s",
+        "command": "actions.find"
+    },
+    {
+        "key": "alt+i",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "alt+o",
+        "command": "interactiveEditor.start",
+        "when": "interactiveEditorHasProvider && !editorReadonly"
+    },
+    {
+        "key": "alt+n",
+        "command": "editor.action.inlineSuggest.showNext"
+    },
+    {
+        "key": "alt+p",
+        "command": "editor.action.inlineSuggest.showPrevious"
+    },
+    {
+        "key": "alt+space",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "showNextParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "showPrevParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+]
+EOF
+}
+
+
+_addconf () {
+    CODE="$*"
+    printf "${RED}%s${NC} " "Choose CONFIG (default/loaded):"
+    while read response; do
+        case $response in
+            "default")
+                _default "$CODE"
+                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> default"
+                break
+                ;;
+            "loaded")
+                _loaded "$CODE"
+                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> loaded"
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Choose CONFIG (default/loaded):"
+                ;;
+        esac
+    done
+}
+
+
+
+
+### Main
+########
+
+printf "${RED}%s${NC} " "Choose EDITOR (code/insiders/codium):"
+while read response; do
+    case $response in
+        "code")
+            if [[ ! -x "$(command -v code)" ]]; then
+                printf "${YLW}%s${NC}\n" "code is not installed mate!"
+                exit 1
+            fi
+            _addconf "code"
+            break
+            ;;
+        "insiders")
+            if [[ ! -x "$(command -v code-insiders)" ]]; then
+                printf "${YLW}%s${NC}\n" "code-insiders is not installed mate!"
+                exit 1
+            fi
+            _addconf "code-insiders"
+            break
+            ;;
+        "codium")
+            if [[ ! -x "$(command -v codium)" ]]; then
+                printf "${YLW}%s${NC}\n" "codium is not installed mate!"
+                exit 1
+            fi
+            _addmarketplace
+            _addconf "codium"
+            break
+            ;;
+        *)
+            printf "${RED}%s${NC} " "Choose EDITOR (code/insiders/codium):"
+            ;;
+    esac
+done
