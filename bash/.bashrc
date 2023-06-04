@@ -63,10 +63,10 @@ esac
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]'
-    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
+    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ ' || PS1=$PS1'\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
-    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\n ' || PS1=$PS1'\n '
+    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\$ ' || PS1=$PS1'\$ '
 fi
 
 
@@ -162,15 +162,6 @@ export PAGER="/bin/less -~"
 
 
 
-## Fzf vars
-###########
-
-export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
-export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
-
-
-
-
 ## Less colors
 ##############
 
@@ -195,9 +186,6 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 
 [[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 [[ -f $HOME/.xinput.bash ]] && source $HOME/.xinput.bash
-[[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
-[[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
-[[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
 
 
 
@@ -208,18 +196,6 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 
 set -o vi
 PROMPT=${PS1@P}
-
-bind -m vi-command -x '"\C-h": fgit'
-bind -m vi-command -x '"\C-j": fjump'
-bind -m vi-command -x '"\C-k": ffind'
-bind -m vi-command -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT@P}'
-bind -m vi-command -x '"\C-f": ffm'
-
-bind -m vi-insert -x '"\C-h": fgit'
-bind -m vi-insert -x '"\C-j": fjump'
-bind -m vi-insert -x '"\C-k": ffind'
-bind -m vi-insert -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT@P}'
-bind -m vi-insert -x '"\C-f": ffm'
 
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
@@ -232,5 +208,8 @@ bind 'set mark-symlinked-directories on'       # symlink dir completion to have 
 bind 'set visible-stats on'                    # completions appending characters indicating file type
 bind 'set colored-stats on'                    # completions using different colors
 bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
-bind 'set vi-ins-mode-string ">>"'             # vi-mode insert
-bind 'set vi-cmd-mode-string "<<"'             # vi-mode command
+bind 'set vi-ins-mode-string "i|"'             # vi-mode insert
+bind 'set vi-cmd-mode-string "c|"'             # vi-mode command
+
+bind -m vi-command -x '"\C-j": vim .'
+bind -m vi-insert -x '"\C-j": vim .'

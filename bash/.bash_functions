@@ -66,39 +66,3 @@ function _xhide () {
 function _xshow () {
     nohup sh -c "$*" &>/tmp/xshow.out & disown
 }
-
-
-function _tmux () {
-    [[ -f "/bin/tmux" ]] || return 1
-    if [[ -n "$TMUX" ]]; then
-        printf "${YLW}%s${NC}\n" "WTF mate, you're already in a tmux session!"
-        return
-    fi
-    if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
-        printf "${YLW}%s${NC}\n" "Kitty is already a multiplexer mate!"
-        return
-    fi
-    /bin/tmux 2>/dev/null
-}
-
-
-function _ffm () {
-    [[ -f "$HOME/bin/ffm" ]] || return 1
-    PROMPT=${PS1@P}
-    $HOME/bin/ffm "$@"
-    cd "$(cat /tmp/ffm)"
-    NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
-    rm -f /tmp/ffm
-}
-
-
-function _fjump () {
-    [[ -f "$HOME/bin/fjump" ]] || return 1
-    PROMPT=${PS1@P}
-    $HOME/bin/fjump $$
-    cd "$(cat /tmp/fjump$$)"
-    NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
-    rm -f /tmp/fjump$$
-}
