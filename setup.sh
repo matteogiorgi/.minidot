@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This '.udot' setup script will install a minimal environment complete
+# This '.minidot' setup script will install a minimal work environment complete
 # with all the bells and whistles needed to start working properly.
 
 # There are no worries of losing a potential old configuration: il will be
@@ -31,11 +31,11 @@ NC='\033[0m'
 ########################
 
 _banner () {
-    printf "\n${YLW}%s${NC}"          "     _   _ ____   ___ _____"
-    printf "\n${YLW}%s ${RED}%s${NC}" "    | | | |  _ \ / _ \_   _|" "  Matteo Giorgi (Geoteo)"
-    printf "\n${YLW}%s ${RED}%s${NC}" "    | | | | | | | | | || |  " "  https://www.geoteo.net"
-    printf "\n${YLW}%s ${RED}%s${NC}" "    | |_| | |_| | |_| || |  " "  https://github.com/matteogiorgi/.udot"
-    printf "\n${YLW}%s${NC}\n\n"      "     \___/|____/ \___/ |_|"
+    printf "\n${YLW}%s${NC}"          "     __  __ ___ _   _ ___ ____   ___ _____ "
+    printf "\n${YLW}%s ${RED}%s${NC}" "    |  \/  |_ _| \ | |_ _|  _ \ / _ \_   _|" "  Matteo Giorgi (Geoteo)"
+    printf "\n${YLW}%s ${RED}%s${NC}" "    | |\/| || ||  \| || || | | | | | || |  " "  https://www.geoteo.net"
+    printf "\n${YLW}%s ${RED}%s${NC}" "    | |  | || || |\  || || |_| | |_| || |  " "  https://github.com/matteogiorgi/.minidot"
+    printf "\n${YLW}%s${NC}\n\n"      "    |_|  |_|___|_| \_|___|____/ \___/ |_|  "
 }
 
 _warning () {
@@ -47,12 +47,6 @@ _warning () {
         printf "\n${RED}%s${NC}\n\n" "    normal user. You will be asked for a sudo password when necessary."
         exit 1
     fi
-}
-
-_kill_apps () {
-    while read -r app; do
-        wmctrl -i -c "$app"
-    done < <(wmctrl -l | awk '{print $1}')
 }
 
 _error () {
@@ -82,28 +76,12 @@ _backup () {
     # bin
     [[ -d $HOME/bin ]] && _clean $HOME/bin
 
-    # fzf
-    [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
-
-    # i3
-    [[ -d $HOME/.config/i3 ]] && _clean $HOME/.config/i3
-    [[ -d $HOME/.config/i3status ]] && _clean $HOME/.config/i3status
-
-    # kitty
-    [[ -d $HOME/.config/kitty ]] && _clean $HOME/.config/kitty
-
     # tmux
     [[ -f $HOME/.tmux.conf ]] && _clean $HOME/.tmux.conf
 
     # vim
     [[ -d $HOME/.vim ]] && _clean $HOME/.vim
     [[ -f $HOME/.vimrc ]] && _clean $HOME/.vimrc
-
-    # x11
-    [[ -f $HOME/.Xdefaults ]] && _clean $HOME/.Xdefaults
-    [[ -f $HOME/.xinitrc ]] && _clean $HOME/.xinitrc
-    [[ -f $HOME/.Xresources ]] && _clean $HOME/.Xresources
-    [[ -f $HOME/.xsettingsd ]] && _clean $HOME/.xsettingsd
 }
 
 
@@ -116,21 +94,21 @@ clear
 _banner
 _warning
 
-if ! uname -a | grep Ubuntu &> /dev/null; then
-    read -p "    WARNING: this is not a Ubuntu distro (enter to continue)"
-    printf "\n"
+if ! uname -a | grep -qE 'Debian|Ubuntu' &> /dev/null; then
+    read -p "    WARNING: this is not a Debian or Ubuntu distro (enter to continue)"
+    echo
 fi
 
-if [[ ! -d $HOME/.udot-restore ]]; then
-    mkdir $HOME/.udot-restore
-    RESTORE="$HOME/.udot-restore"
+if [[ ! -d $HOME/.minidot-restore ]]; then
+    mkdir $HOME/.minidot-restore
+    RESTORE="$HOME/.minidot-restore"
 else
-    printf "    '.udot' is already setup\n"
+    printf "    '.minidot' is already setup\n"
     printf "    Launch ./restore.sh first\n\n"
     exit 1
 fi
 
-read -p "    Confirm to start the '.udot' setup script (enter to continue)"
+read -p "    Confirm to start the '.minidot' setup script (enter to continue)"
 printf "\n"
 
 
@@ -151,96 +129,25 @@ sudo apt update && sudo apt upgrade -qq -y || _error "syncing repos"
 #############
 
 printf "\n"
-read -p "    Installing utilities (enter to continue)"
+read -p "    Installing packages (enter to continue)"
 printf "\n"
 
 sudo apt install -qq -y \
-    wmctrl \
-    xdotool \
-    autorandr \
-    lxpolkit \
-    mesa-utils \
     git \
     curl \
     wget \
     stow \
     htop \
-    atool \
     trash-cli \
     xclip \
-    fzf \
-    ripgrep \
-    batcat \
-    chafa \
-    feh \
     xdo \
     fonts-firacode \
     wamerican \
     witalian \
-    coreutils \
-    xdg-utils \
-    fbset
-
-
-
-
-### Main packages
-#################
-
-printf "\n"
-read -p "    Installing main packages (enter to continue)"
-printf "\n"
-
-sudo apt install -qq -y \
-    i3-wm \
-    arandr \
-    xterm \
-    kitty \
     bash \
     bash-completion \
     tmux \
-    vim \
-    blueman \
-    network-manager \
-    system-config-printer \
-    pavucontrol \
-    diodon \
-    flameshot \
-    lxappearance \
-    qt5ct \
-    xournalpp \
-    adwaita-icon-theme-full \
-    gnome-themes-extra \
-    adwaita-qt
-
-
-
-
-### Add snap packages
-#####################
-
-printf "\n"
-read -p "    Installing snap (enter to continue)"
-printf "\n"
-
-# snap
-if [[ ! -x "$(command -v snap)" ]]; then
-    sudo apt install -qq -y snapd
-    printf "\n"
-fi
-
-# brave, code
-sudo snap install brave
-sudo snap install --classic code
-
-
-
-
-### Remove xdg-desktop-gnome
-############################
-
-sudo apt remove -qq -y xdg-desktop-portal-gnome
-systemctl --user restart xdg-desktop-portal
+    vim
 
 
 
@@ -252,21 +159,14 @@ _backup
 
 stow bash
 stow bin
-stow fzf
-stow i3
-stow kitty
 stow tmux
 stow vim
-stow x11
 
 
 
 
-### Logout
+### Finish
 ##########
 
-read -p "    Installation completed (enter to logout)"
+read -p "    Installation completed ;)"
 printf "\n"
-
-_kill_apps
-kill $(pgrep X)
