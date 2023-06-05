@@ -1,6 +1,8 @@
-# A very effective GNU/Linux config
+# A super-portable Gnu/Linux setup
 
-This repo contains a minimal configuration of my *dotfiles*, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are meant to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
+This repo contains a micro (and very portable) configuration of my *dotfiles* derived from [.udot](https://github.com/matteogiorgi/.udot). They are meant to be used alongside a vanilla install of [Debian](https://www.debian.org/download) or [Ubuntu](https://ubuntu.com/#download) but they should also work with any Gnu/Linux distribution. The scripts are in good order and well readable but there wont be no more than the bare essentials.
+
+![](vim.png)
 
 
 

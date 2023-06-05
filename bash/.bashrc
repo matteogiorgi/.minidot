@@ -200,16 +200,16 @@ PROMPT=${PS1@P}
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 
-bind 'set show-all-if-ambiguous on'            # completions listed immediately
-bind 'set show-all-if-unmodified on'           # completions with no partial completion
-bind 'set completion-ignore-case on'           # auto completion to ignore cases
-bind 'set completion-prefix-display-length 3'  # 3 char as common prefix in completions
-bind 'set mark-symlinked-directories on'       # symlink dir completion to have a slash
-bind 'set visible-stats on'                    # completions appending characters indicating file type
-bind 'set colored-stats on'                    # completions using different colors
-bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
-bind 'set vi-ins-mode-string "i|"'             # vi-mode insert
-bind 'set vi-cmd-mode-string "c|"'             # vi-mode command
+bind 'set show-all-if-ambiguous on'                   # completions listed immediately
+bind 'set show-all-if-unmodified on'                  # completions with no partial completion
+bind 'set completion-ignore-case on'                  # auto completion to ignore cases
+bind 'set completion-prefix-display-length 3'         # 3 char as common prefix in completions
+bind 'set mark-symlinked-directories on'              # symlink dir completion to have a slash
+bind 'set visible-stats on'                           # completions appending characters indicating file type
+bind 'set colored-stats on'                           # completions using different colors
+bind 'set show-mode-in-prompt on'                     # show vim-mode inside prompt
+bind 'set vi-ins-mode-string "\033[01;90m▘\033[00m"'  # vi-mode insert
+bind 'set vi-cmd-mode-string "\033[01;31m▖\033[00m"'  # vi-mode command
 
-bind -m vi-command -x '"\C-j": vim .'
-bind -m vi-insert -x '"\C-j": vim .'
+bind -m vi-command -x '"\C-l": clear'
+bind -m vi-insert -x '"\C-l": clear'
