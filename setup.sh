@@ -145,6 +145,7 @@ sudo apt install -qq -y \
     fonts-firacode \
     wamerican \
     witalian \
+    gnome-keyring \
     bash \
     bash-completion \
     tmux \
