@@ -71,6 +71,7 @@ _restore () {
     # vim
     [[ -d $RESTORE/.vim ]] && mv $RESTORE/.vim $HOME
     [[ -f $RESTORE/.vimrc ]] && mv $RESTORE/.vimrc $HOME
+    [[ -f $RESTORE/.gvimrc ]] && mv $RESTORE/.gvimrc $HOME
 }
 
 
@@ -138,7 +139,8 @@ sudo apt purge -qq -y \
     fonts-firacode \
     wamerican \
     witalian \
-    tmux
+    tmux \
+    vim-gtk3
 
 
 
