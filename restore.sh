@@ -125,7 +125,7 @@ read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# gnome-keyring, bash, bash-completion.
+# gnome-keyring, dash, bash, bash-completion.
 sudo apt purge -qq -y \
     git \
     curl \

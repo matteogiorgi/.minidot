@@ -146,6 +146,7 @@ sudo apt install -qq -y \
     wamerican \
     witalian \
     gnome-keyring \
+    dash \
     bash \
     bash-completion \
     tmux \

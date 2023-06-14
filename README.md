@@ -10,6 +10,6 @@ This repo contains a micro (and very portable) configuration of my *dotfiles* de
 ## Packages needed
 
 ```
-bash bash-completion tmux vim-gtk3 git curl wget stow htop trash-cli
+dash bash bash-completion tmux vim-gtk3 git curl wget stow htop trash-cli
 xclip xdo xdotool fonts-firacode wamerican witalian gnome-keyring
 ```
