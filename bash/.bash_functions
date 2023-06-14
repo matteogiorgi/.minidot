@@ -55,3 +55,11 @@ function _xhide () {
 function _xshow () {
     nohup sh -c "$*" &>/tmp/xshow.out & disown
 }
+
+
+function _ffm () {
+    [[ -f "$HOME/bin/ffinders/ffm" ]] || return 1
+    $HOME/bin/ffinders/ffm "$@"
+    cd "$(cat /tmp/ffm)"
+    rm -f /tmp/ffm
+}

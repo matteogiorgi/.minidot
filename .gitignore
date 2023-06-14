@@ -38,12 +38,17 @@
 !/bin/bin
 
 /bin/bin
+!/bin/bin/ffinders
 !/bin/bin/md2html
 !/bin/bin/pipes
 !/bin/bin/rscode
 !/bin/bin/rsmime
 !/bin/bin/swallow
 !/bin/bin/ufetch
+
+/bin/bin/ffinders
+!/bin/bin/ffinders/ffm
+!/bin/bin/ffinders/swallow
 
 
 
