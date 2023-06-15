@@ -63,3 +63,22 @@ function _ffm () {
     cd "$(cat /tmp/ffm)"
     rm -f /tmp/ffm
 }
+
+
+function _fjump () {
+    [[ -f "$HOME/bin/ffinders/fjump" ]] || return 1
+    $HOME/bin/ffinders/fjump $$
+    cd "$(cat /tmp/fjump$$)"
+    rm -f /tmp/fjump$$
+}
+
+
+function _fun () {
+    SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
+            sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
+            grep -v _fun | grep -v _ask | sort -k1n | \
+            fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden)
+    [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
+    read -p "$SHFUN: " ARGS
+    "$SHFUN" "$ARGS"
+}

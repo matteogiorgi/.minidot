@@ -18,4 +18,15 @@ alias xcut="xclip-cutfile"
 alias stow="stow -S"
 alias restow="stow -R"
 alias unstow="stow -D"
-alias ff="_ffm"
+
+
+
+
+# FUNCTIONS ALIASES
+###################
+
+alias fun="_fun"
+alias fm="_ffm"
+alias fj="_fjump"
+alias ff="ffind"
+alias fg="fgit"

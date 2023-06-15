@@ -139,8 +139,12 @@ sudo apt install -qq -y \
     wget \
     stow \
     htop \
-    trash-cli \
     xclip \
+    trash-cli \
+    fzf \
+    ripgrep \
+    batcat \
+    chafa \
     xdo \
     fonts-firacode \
     wamerican \
