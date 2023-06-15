@@ -76,6 +76,9 @@ _backup () {
     # bin
     [[ -d $HOME/bin ]] && _clean $HOME/bin
 
+    # fzf
+    [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
+
     # tmux
     [[ -f $HOME/.tmux.conf ]] && _clean $HOME/.tmux.conf
 
@@ -166,6 +169,7 @@ _backup
 
 stow bash
 stow bin
+stow fzf
 stow tmux
 stow vim
 

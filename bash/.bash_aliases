@@ -3,9 +3,7 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
-# SIMPLE ALIASES
-################
-
+# tools
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alFtr'
@@ -19,14 +17,8 @@ alias stow="stow -S"
 alias restow="stow -R"
 alias unstow="stow -D"
 
-
-
-
-# FUNCTIONS ALIASES
-###################
-
+# functions
 alias fun="_fun"
-alias fm="_ffm"
 alias fj="_fjump"
 alias ff="ffind"
 alias fg="fgit"

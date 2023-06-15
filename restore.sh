@@ -65,6 +65,9 @@ _restore () {
     # bin
     [[ -d $RESTORE/bin ]] && mv $RESTORE/bin $HOME
 
+    # fzf
+    [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
+
     # tmux
     [[ -f $RESTORE/.tmux.conf ]] && mv $RESTORE/.tmux.conf $HOME
 
@@ -108,6 +111,7 @@ printf "\n"
 
 stow -D bash
 stow -D bin
+stow -D fzf
 stow -D tmux
 stow -D vim
 
