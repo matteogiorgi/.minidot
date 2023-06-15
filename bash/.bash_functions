@@ -57,7 +57,6 @@ function _xshow () {
 }
 
 
-# no alias
 function _shfm () {
     [[ -f "$HOME/bin/shfm" ]] || return 1
     $HOME/bin/shfm "$@"
