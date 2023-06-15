@@ -57,6 +57,22 @@
 
 
 
+### FZF
+#######
+
+/fzf/*
+!/fzf/.config
+
+/fzf/.config/*
+!/fzf/.config/fzf
+
+/fzf/.config/fzf/*
+!/fzf/.config/fzf/completion.bash
+!/fzf/.config/fzf/key-bindings.bash
+
+
+
+
 ### TMUX
 ########
 

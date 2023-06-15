@@ -162,6 +162,15 @@ export PAGER="/bin/less -~"
 
 
 
+## Fzf vars
+###########
+
+export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
+export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
+
+
+
+
 ## Less colors
 ##############
 
@@ -185,7 +194,9 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 ################
 
 [[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
-[[ -f $HOME/.xinput.bash ]] && source $HOME/.xinput.bash
+[[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
+[[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
+[[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
 
 
 
