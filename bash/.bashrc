@@ -222,5 +222,12 @@ bind 'set show-mode-in-prompt on'                     # show vim-mode inside pro
 bind 'set vi-ins-mode-string "\033[01;90m▘\033[00m"'  # vi-mode insert
 bind 'set vi-cmd-mode-string "\033[01;31m▖\033[00m"'  # vi-mode command
 
+bind -m vi-command -x '"\C-j": fjump'
+bind -m vi-command -x '"\C-f": ffind'
+bind -m vi-command -x '"\C-g": fgit'
 bind -m vi-command -x '"\C-l": clear'
+
+bind -m vi-insert -x '"\C-j": fjump'
+bind -m vi-insert -x '"\C-f": ffind'
+bind -m vi-insert -x '"\C-g": fgit'
 bind -m vi-insert -x '"\C-l": clear'
