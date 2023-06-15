@@ -57,11 +57,12 @@ function _xshow () {
 }
 
 
-function _ffm () {
-    [[ -f "$HOME/bin/ffinders/ffm" ]] || return 1
-    $HOME/bin/ffinders/ffm "$@"
-    cd "$(cat /tmp/ffm)"
-    rm -f /tmp/ffm
+# no alias
+function _shfm () {
+    [[ -f "$HOME/bin/shfm" ]] || return 1
+    $HOME/bin/shfm "$@"
+    cd "$(cat /tmp/shfm)"
+    rm -f /tmp/shfm
 }
 
 
