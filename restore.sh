@@ -168,5 +168,5 @@ sudo apt autoremove -qq -y || _error "autoremove"
 ##########
 
 printf "\n"
-read -p "    Restoring completed (enter to reboot)"
+read -p "    Restoring completed ;)"
 printf "\n"

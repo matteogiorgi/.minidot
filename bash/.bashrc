@@ -63,10 +63,18 @@ esac
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]'
-    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ ' || PS1=$PS1'\$ '
+    if [[ -n "$TMUX" ]]; then
+        [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
+    else
+        [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ ' || PS1=$PS1'\$ '
+    fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
-    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\$ ' || PS1=$PS1'\$ '
+    if [[ -n "$TMUX" ]]; then
+        [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\n ' || PS1=$PS1'\n '
+    else
+        [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\$ ' || PS1=$PS1'\$ '
+    fi
 fi
 
 
@@ -211,16 +219,29 @@ PROMPT=${PS1@P}
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 
-bind 'set show-all-if-ambiguous on'                   # completions listed immediately
-bind 'set show-all-if-unmodified on'                  # completions with no partial completion
-bind 'set completion-ignore-case on'                  # auto completion to ignore cases
-bind 'set completion-prefix-display-length 3'         # 3 char as common prefix in completions
-bind 'set mark-symlinked-directories on'              # symlink dir completion to have a slash
-bind 'set visible-stats on'                           # completions appending characters indicating file type
-bind 'set colored-stats on'                           # completions using different colors
-bind 'set show-mode-in-prompt on'                     # show vim-mode inside prompt
-bind 'set vi-ins-mode-string "\033[01;90m▘\033[00m"'  # vi-mode insert
-bind 'set vi-cmd-mode-string "\033[01;31m▖\033[00m"'  # vi-mode command
+bind 'set show-all-if-ambiguous on'            # completions listed immediately
+bind 'set show-all-if-unmodified on'           # completions with no partial completion
+bind 'set completion-ignore-case on'           # auto completion to ignore cases
+bind 'set completion-prefix-display-length 3'  # 3 char as common prefix in completions
+bind 'set mark-symlinked-directories on'       # symlink dir completion to have a slash
+bind 'set visible-stats on'                    # completions appending characters indicating file type
+bind 'set colored-stats on'                    # completions using different colors
+bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
 
-bind -m vi-command -x '"\C-l": clear'
-bind -m vi-insert -x '"\C-l": clear'
+if [[ -n "$TMUX" ]]; then
+    bind 'set vi-ins-mode-string ">>"'
+    bind 'set vi-cmd-mode-string "<<"'
+    bind -m vi-command -x '"\C-j": fjump'
+    bind -m vi-command -x '"\C-f": ffind'
+    bind -m vi-command -x '"\C-g": fgit'
+    bind -m vi-command -x '"\C-l": clear; echo ${PROMPT@P}'
+    bind -m vi-insert -x '"\C-j": fjump'
+    bind -m vi-insert -x '"\C-f": ffind'
+    bind -m vi-insert -x '"\C-g": fgit'
+    bind -m vi-insert -x '"\C-l": clear; echo ${PROMPT@P}'
+else
+    bind 'set vi-ins-mode-string "\033[01;90m▘\033[00m"'
+    bind 'set vi-cmd-mode-string "\033[01;31m▖\033[00m"'
+    bind -m vi-command -x '"\C-l": clear'
+    bind -m vi-insert -x '"\C-l": clear'
+fi
