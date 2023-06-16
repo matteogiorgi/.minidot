@@ -140,7 +140,7 @@ sudo apt purge -qq -y \
     trash-cli \
     fzf \
     ripgrep \
-    batcat \
+    bat \
     chafa \
     xdo \
     fonts-firacode \

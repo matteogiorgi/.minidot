@@ -146,7 +146,7 @@ sudo apt install -qq -y \
     trash-cli \
     fzf \
     ripgrep \
-    batcat \
+    bat \
     chafa \
     xdo \
     fonts-firacode \
