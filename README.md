@@ -28,5 +28,5 @@ witalian gnome-keyring
 
 ## Need more?
 
-- Need more spice? Install this: `input-remapper`, `gnome-shell-extension-prefs`
+- Need more spice? Install this: `input-remapper`, `gnome-shell-extension-prefs`, `chrome-gnome-shell`
 - Fancy a minimal-lifestile alternative? Check out [.minidot](https://github.com/matteogiorgi/.minidot) then.
