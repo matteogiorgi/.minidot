@@ -19,5 +19,5 @@ alias unstow="stow -D"
 
 # functions
 alias fun="_fun"
-alias shfm="_shfm"
-alias fjump="_fjump"
+alias ff="_shfm"
+alias fj="_fjump"
