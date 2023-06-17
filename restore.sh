@@ -143,6 +143,7 @@ sudo apt purge -qq -y \
     bat \
     chafa \
     xdo \
+    poppler-utils \
     fonts-firacode \
     wamerican \
     witalian \

@@ -10,8 +10,8 @@ This repo contains a micro (and very portable) configuration of my *dotfiles* de
 ## Packages needed
 
 ```
-dash bash bash-completion tmux vim-gtk3 git curl wget stow htop xclip
-trash-cli fzf ripgrep bat chafa xdo xdotool fonts-firacode wamerican
+dash bash bash-completion tmux vim-gtk3 poppler-utils git curl wget stow htop
+xclip trash-cli fzf ripgrep bat chafa xdo xdotool fonts-firacode wamerican
 witalian gnome-keyring
 ```
 
