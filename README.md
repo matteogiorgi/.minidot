@@ -27,6 +27,19 @@ witalian gnome-keyring
 
 
 
+## Vim 9
+
+- Add unofficial [Vim PPA repo](https://launchpad.net/~jonathonf/+archive/ubuntu/vim?ref=itsfoss.com)
+- Upgrade `vim-gtk3` package
+
+```bash
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update && sudo apt install vim-gtk3
+```
+
+
+
+
 ## Need more?
 
 - To seek info an any *Debian* package, check [debian.org/distrib/packages](https://www.debian.org/distrib/packages).
