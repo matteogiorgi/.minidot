@@ -27,7 +27,7 @@ witalian gnome-keyring
 
 
 
-## Vim 9
+## Vim 9 (only Ubuntu)
 
 - Add unofficial [Vim PPA repo](https://launchpad.net/~jonathonf/+archive/ubuntu/vim?ref=itsfoss.com)
 - Upgrade `vim-gtk3` package
