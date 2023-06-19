@@ -13,6 +13,7 @@
 set guifont=Fira\ Code\ 8.5
 set guioptions=i
 set guicursor+=a:blinkon0
+set columns=120 lines=60
 
 " gui colors
 set background=dark
