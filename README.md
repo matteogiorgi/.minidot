@@ -37,9 +37,9 @@ sudo apt update && sudo apt install vim-gtk3
 
 
 
-## Need more?
+## Need something?
 
-- More packages (via package-manager): `gnome-shell-extension-prefs`, `chrome-gnome-shell`, `dconf-editor`, `input-remapper`, `diodon`,  `gparted`, `zim`, `pandoc`.
-- More applications: [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`brave`](https://brave.com/linux/), [`code`](https://code.visualstudio.com/Download).
+- More packages: `gnome-shell-extension-prefs`, `chrome-gnome-shell`, `dconf-editor`, `pandoc`.
+- More applications: `input-remapper`, `diodon`,  `gparted`, `zim`, [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`brave`](https://brave.com/linux/), [`code`](https://code.visualstudio.com/Download).
 - To seek infos and docs on any package, refere to [debian.org/distrib/packages](https://www.debian.org/distrib/packages) or [packages.ubuntu.com](https://packages.ubuntu.com/).
 - Check out manpages at [manpages.debian.org](https://manpages.debian.org/) or [manpages.ubuntu.com](https://manpages.ubuntu.com/).
