@@ -10,9 +10,8 @@ This repo contains a mini (and very portable) configuration of my *dotfiles*. Th
 ## Packages needed
 
 ```
-dash bash bash-completion tmux vim-gtk3 poppler-utils git curl wget stow htop
-xclip trash-cli fzf ripgrep bat chafa xdo xdotool fonts-firacode wamerican
-witalian gnome-keyring
+dash bash bash-completion tmux vim-gtk3 poppler-utils git curl wget stow htop xclip trash-cli
+fzf ripgrep bat chafa xdo xdotool fonts-firacode wamerican witalian gnome-keyring
 ```
 
 
@@ -22,7 +21,6 @@ witalian gnome-keyring
 
 - Bookmarks: [`Startpage Notewiki Drive Mega Gmail Proton Outlook Discord Telegram`](bookmarks.html).
 - Chrome extensions: [`uBlock`](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US), [`Vimium`](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US), [`Player`](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US), [`DeepL`](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj), [`Onion`](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US), [`Veepn`](https://chrome.google.com/webstore/detail/free-vpn-for-chrome-vpn-p/majdfhpaihoncoakbjgbdhglocklcgno/related?hl=en-US), [`Gnome`](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related), [`123Apps`](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle).
-- Gnome packages & more: `gnome-shell-extension-prefs`, `chrome-gnome-shell`, `dconf-editor`, `input-remapper`, `diodon`, `pandoc`.
 
 
 
@@ -41,5 +39,7 @@ sudo apt update && sudo apt install vim-gtk3
 
 ## Need more?
 
+- More packages: `gnome-shell-extension-prefs`, `chrome-gnome-shell`, `dconf-editor`, `input-remapper`, `diodon`,  `gparted`, `zim`, `pandoc`.
+- More applications: [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`brave`](https://brave.com/linux/), [`code`](https://code.visualstudio.com/Download).
 - To seek infos and docs on any package, refere to [debian.org/distrib/packages](https://www.debian.org/distrib/packages) or [packages.ubuntu.com](https://packages.ubuntu.com/).
 - Check out manpages at [manpages.debian.org](https://manpages.debian.org/) or [manpages.ubuntu.com](https://manpages.ubuntu.com/).
