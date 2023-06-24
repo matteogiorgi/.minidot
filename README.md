@@ -25,7 +25,7 @@ wamerican witalian gnome-keyring dash bash bash-completion tmux vim-gtk3 pandoc
 
 
 
-### Vim 9 via Ubuntu PPA
+### [Vim 9](https://www.vim.org/vim90.php) via Ubuntu PPA
 
 If using *Ubuntu*, add the unofficial [Vim PPA repo](https://launchpad.net/~jonathonf/+archive/ubuntu/vim?ref=itsfoss.com) and upgrade `vim-gtk3` package like this:
 
@@ -33,6 +33,15 @@ If using *Ubuntu*, add the unofficial [Vim PPA repo](https://launchpad.net/~jona
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update && sudo apt install vim-gtk3
 ```
+
+
+
+
+### Vim plugins
+
+My Vim configuration does not use any external plugin since [Vim](https://www.vim.org/) is already a very powerful editor by itself. If by any chance you need to install some plugins, you can do so by adding them to the `~/.vim/pack/plugins/start/` directory: the plugins will be loaded automatically at startup and can easily be updated with a `git pull` command inside each plugin directory.
+
+- Some famous plugins: [fugitive](https://github.com/tpope/vim-fugitive), [commentary](https://github.com/tpope/vim-commentary), [surround](https://github.com/tpope/vim-surround), [repeat](https://github.com/tpope/vim-repeat), [context](https://github.com/wellle/context.vim), [auto-pairs](https://github.com/jiangmiao/auto-pairs), [ale](https://github.com/dense-analysis/ale), [copilot](https://github.com/github/copilot.vim).
 
 
 
