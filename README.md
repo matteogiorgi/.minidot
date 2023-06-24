@@ -27,7 +27,7 @@ fonts-firacode wamerican witalian gnome-keyring dash bash bash-completion tmux v
 
 ### Vim 9 via Ubuntu PPA
 
-If using Ubuntu, add the unofficial [Vim PPA repo](https://launchpad.net/~jonathonf/+archive/ubuntu/vim?ref=itsfoss.com) and upgrade `vim-gtk3` package like this:
+If using *Ubuntu*, add the unofficial [Vim PPA repo](https://launchpad.net/~jonathonf/+archive/ubuntu/vim?ref=itsfoss.com) and upgrade `vim-gtk3` package like this:
 
 ```bash
 sudo add-apt-repository ppa:jonathonf/vim
@@ -41,5 +41,5 @@ sudo apt update && sudo apt install vim-gtk3
 
 - More packages: `gnome-shell-extension-prefs`, `dconf-editor`, `chrome-gnome-shell`.
 - More applications: `input-remapper`, `diodon`,  `gparted`, `zim`, [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`brave`](https://brave.com/linux/), [`code`](https://code.visualstudio.com/Download).
-- To seek infos and docs on any package, refere to [debian.org/distrib/packages](https://www.debian.org/distrib/packages) or [packages.ubuntu.com](https://packages.ubuntu.com/).
-- Check out manpages at [manpages.debian.org](https://manpages.debian.org/) or [manpages.ubuntu.com](https://manpages.ubuntu.com/).
+- To seek info on packages, refere to [debian.org/distrib/packages](https://www.debian.org/distrib/packages) or [packages.ubuntu.com](https://packages.ubuntu.com/).
+- Manpages can be found at [manpages.debian.org](https://manpages.debian.org/) or [manpages.ubuntu.com](https://manpages.ubuntu.com/).
