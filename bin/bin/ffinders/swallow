@@ -10,5 +10,5 @@ case $(file --mime-type "${FILE}" -bL) in
         "${EDITOR:=vi}" "$@"
         ;;
     *)
-        "xdg-open '${FILE}'"
+        xdg-open "${FILE}"
 esac
