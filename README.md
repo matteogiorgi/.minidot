@@ -19,15 +19,14 @@ wamerican witalian gnome-keyring dash bash bash-completion tmux vim-gtk3 pandoc
 
 ## Vim Tweaks
 
-With *Ubuntu*, Vim can be easily moved to the latest version by adding the unofficial [Vim PPA repo](https://launchpad.net/~jonathonf/+archive/ubuntu/vim?ref=itsfoss.com) and upgrading `vim-gtk3` package like this:
+With *Ubuntu*, [Vim](https://www.vim.org/) can be easily moved to the latest version by adding the unofficial [Vim PPA repo](https://launchpad.net/~jonathonf/+archive/ubuntu/vim?ref=itsfoss.com) and upgrading `vim-gtk3` package like this:
 
 ```bash
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update && sudo apt install vim-gtk3
 ```
 
-My current configuration does not use any external plugin since [Vim](https://www.vim.org/) is already a very powerful editor by itself. If you need to install some plugins, you can do so by adding them to the `~/.vim/pack/plugins/start/` directory: the plugins will be loaded automatically at startup and can easily be updated with a `git pull` command. \\
-Some famous plugins: [fugitive](https://github.com/tpope/vim-fugitive), [commentary](https://github.com/tpope/vim-commentary), [surround](https://github.com/tpope/vim-surround), [repeat](https://github.com/tpope/vim-repeat), [context](https://github.com/wellle/context.vim), [auto-pairs](https://github.com/jiangmiao/auto-pairs), [ale](https://github.com/dense-analysis/ale), [copilot](https://github.com/github/copilot.vim).
+My current configuration does not use any external plugin since Vim is already a very powerful editor by itself. If you need to install some plugins, you can do so by adding them to the `~/.vim/pack/plugins/start/` directory: the plugins will be loaded automatically at startup and can easily be updated with a `git pull` command. Some famous plugins: [fugitive](https://github.com/tpope/vim-fugitive), [commentary](https://github.com/tpope/vim-commentary), [surround](https://github.com/tpope/vim-surround), [repeat](https://github.com/tpope/vim-repeat), [context](https://github.com/wellle/context.vim), [auto-pairs](https://github.com/jiangmiao/auto-pairs), [ale](https://github.com/dense-analysis/ale), [copilot](https://github.com/github/copilot.vim).
 
 
 
