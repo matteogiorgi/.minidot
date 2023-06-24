@@ -148,7 +148,8 @@ sudo apt purge -qq -y \
     wamerican \
     witalian \
     tmux \
-    vim-gtk3
+    vim-gtk3 \
+    pandoc
 
 
 

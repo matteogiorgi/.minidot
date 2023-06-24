@@ -158,7 +158,8 @@ sudo apt install -qq -y \
     bash \
     bash-completion \
     tmux \
-    vim-gtk3
+    vim-gtk3 \
+    pandoc
 
 
 

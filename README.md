@@ -11,7 +11,7 @@ This repo contains a mini (and very portable) configuration of my *dotfiles*. Th
 
 ```
 dash bash bash-completion tmux vim-gtk3 poppler-utils git curl wget stow htop xclip trash-cli
-fzf ripgrep bat chafa xdo xdotool fonts-firacode wamerican witalian gnome-keyring
+fzf ripgrep bat chafa xdo xdotool fonts-firacode wamerican witalian gnome-keyring pandoc
 ```
 
 
@@ -39,7 +39,7 @@ sudo apt update && sudo apt install vim-gtk3
 
 ## Need something else?
 
-- More packages: `gnome-shell-extension-prefs`, `dconf-editor`, `chrome-gnome-shell`, `pandoc`.
-- More applications: `input-remapper`, `diodon`,  `gparted`, [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`brave`](https://brave.com/linux/), [`code`](https://code.visualstudio.com/Download).
+- More packages: `gnome-shell-extension-prefs`, `dconf-editor`, `chrome-gnome-shell`.
+- More applications: `input-remapper`, `diodon`,  `gparted`, `zig`, [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`brave`](https://brave.com/linux/), [`code`](https://code.visualstudio.com/Download).
 - To seek infos and docs on any package, refere to [debian.org/distrib/packages](https://www.debian.org/distrib/packages) or [packages.ubuntu.com](https://packages.ubuntu.com/).
 - Check out manpages at [manpages.debian.org](https://manpages.debian.org/) or [manpages.ubuntu.com](https://manpages.ubuntu.com/).
