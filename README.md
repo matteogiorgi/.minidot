@@ -26,7 +26,9 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update && sudo apt install vim-gtk3
 ```
 
-My current configuration does not use any external plugin since Vim is already a very powerful editor by itself. If you need to install some plugins, you can do so by adding them to the `~/.vim/pack/plugins/start/` directory: the plugins will be loaded automatically at startup and can easily be updated with a `git pull` command. Some famous plugins: [fugitive](https://github.com/tpope/vim-fugitive), [commentary](https://github.com/tpope/vim-commentary), [surround](https://github.com/tpope/vim-surround), [repeat](https://github.com/tpope/vim-repeat), [context](https://github.com/wellle/context.vim), [auto-pairs](https://github.com/jiangmiao/auto-pairs), [ale](https://github.com/dense-analysis/ale), [copilot](https://github.com/github/copilot.vim).
+My current configuration does not use any external plugin since Vim is already a very powerful editor by itself. If you need to install some plugins, you can do so by adding them to the `~/.vim/pack/plugins/start/` directory: the plugins will be loaded automatically at startup and can be updated with a `git pull` command.
+
+- Some famous plugins: [fugitive](https://github.com/tpope/vim-fugitive), [commentary](https://github.com/tpope/vim-commentary), [surround](https://github.com/tpope/vim-surround), [repeat](https://github.com/tpope/vim-repeat), [context](https://github.com/wellle/context.vim), [auto-pairs](https://github.com/jiangmiao/auto-pairs), [ale](https://github.com/dense-analysis/ale), [copilot](https://github.com/github/copilot.vim).
 
 
 
