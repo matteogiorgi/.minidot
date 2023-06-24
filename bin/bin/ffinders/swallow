@@ -4,22 +4,11 @@
 # https://www.iana.org/assignments/media-types/media-types.xhtml
 
 
-### Functions definition
-########################
-
-[[ -f ~/.bash_functions ]] && . ~/.bash_functions || exit 1
-
-
-
-
-### MIME-type opener
-####################
-
 FILE="$*"
 case $(file --mime-type "${FILE}" -bL) in
     text/* | application/json)
         "${EDITOR:=vi}" "$@"
         ;;
     *)
-        _xshow "xdg-open '${FILE}'"
+        "xdg-open '${FILE}'"
 esac

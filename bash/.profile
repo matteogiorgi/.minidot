@@ -39,8 +39,8 @@ fi
 
 
 
-### sensible-variables
-######################
+### Environment variables
+#########################
 
 export EDITOR="/bin/vim"
 export VISUAL="/bin/vim"

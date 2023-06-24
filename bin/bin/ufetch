@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-## INFO
-#######
+### Info
+########
 
 # user is already defined
 host="$(hostname)"
@@ -16,8 +16,8 @@ shell="$(basename "${SHELL}")"
 
 
 
-## UI DETECTION
-###############
+### UI detection
+################
 
 parse_rcs() {
 	for f in "${@}"; do
@@ -54,8 +54,8 @@ ui="$(basename "${ui}")"
 
 
 
-## DEFINE COLORS
-################
+### Define colors
+#################
 
 # probably don't change these
 if [ -x "$(command -v tput)" ]; then
@@ -79,7 +79,11 @@ c0="${reset}${yellow}"              # first color
 c1="${reset}${white}"               # second color
 c2="${reset}${red}"                 # third color
 
-## OUTPUT
+
+
+
+### Output
+##########
 
 cat <<EOF
 ${c0}      ___     ${nc}${USER}@${host}${reset}

@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
 
+### Info
+########
+
 read -p "Your are going to edit your personal mime-types (enter to continue)"
 MIMEAPPS="$HOME/.local/share/applications/mimeapps.list"
+
+
+
+
+### New mimeapps
+################
 
 if [[ ! -f $MIMEAPPS ]]; then
 cat 2>/dev/null > $MIMEAPPS <<-EOF
@@ -30,5 +39,11 @@ cat 2>/dev/null > $MIMEAPPS <<-EOF
 # image/jpeg=org.gnome.eog.desktop
 EOF
 fi
+
+
+
+
+### Edit mimeapps
+#################
 
 "${EDITOR:=vi}" $MIMEAPPS

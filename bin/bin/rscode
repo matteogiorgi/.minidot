@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 
-### Colors
-##########
+### Define colors
+#################
 
 RED='\033[1;36m'
 YLW='\033[1;35m'
@@ -11,8 +11,8 @@ NC='\033[0m'
 
 
 
-### Funcions
-############
+### Define functions
+####################
 
 _rmextensions () {
     CODE="$*"

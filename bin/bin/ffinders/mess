@@ -4,19 +4,11 @@
 # https://www.iana.org/assignments/media-types/media-types.xhtml
 
 
-### Check arguments
-###################
-
 if [[ "$*" == "" ]]; then
     printf "Missing filename\n"
     exit 1
 fi
 
-
-
-
-### Variables and functions definition
-######################################
 
 FILE="$*"
 LESS="/bin/less -R -~"
@@ -24,13 +16,6 @@ BAT="/bin/batcat --style numbers,changes --color=always"
 CHAFA="/bin/chafa --dither diffusion --dither-grain 1 --dither-intensity 10"
 LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
-[[ -f ~/.bash_functions ]] && . ~/.bash_functions
-
-
-
-
-### Main body
-#############
 
 [[ -L "$FILE" && -d "$FILE" ]] && ${LIST} "$(readlink $FILE)" | ${LESS} && exit
 [[ -d "$FILE" ]] && ${LIST} "$FILE" | ${LESS} && exit

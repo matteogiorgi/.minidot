@@ -19,4 +19,3 @@ alias unstow="stow -D"
 
 # functions
 alias fjump="_fjump"
-alias fun="_fun"
