@@ -169,8 +169,8 @@ fi
 
 
 
-## ENV vars
-###########
+### Environment variables
+#########################
 
 export TERM="xterm-256color"
 export SHELL="/bin/bash"
@@ -180,8 +180,8 @@ export BAT_THEME="base16"
 
 
 
-## Fzf vars
-###########
+### Fzf variables
+#################
 
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
@@ -189,8 +189,8 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
 
 
-## Less colors
-##############
+### Less colors
+###############
 
 # black   = 30        blue    = 34        reset      = 0
 # red     = 31        magenta = 35        bold       = 1
@@ -216,9 +216,6 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
 
-# use .bash_extras to write any other extra config
-[[ -f $HOME/.bash_extras ]] && source $HOME/.bash_extras
-
 # launch system fetcher
 [[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 
@@ -226,8 +223,8 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 
 
 ## Keybindings and set modes (vi mode)
-## I do not use ~/.inputrc in this config
-#########################################
+## I do not use ~/.inputrc for this config
+##########################################
 
 set -o vi
 PROMPT=${PS1@P}
@@ -261,3 +258,11 @@ else
     bind -m vi-command -x '"\C-l": clear'
     bind -m vi-insert -x '"\C-l": clear'
 fi
+
+
+
+
+### Extra configuration to be written inside .bash_extras
+#########################################################
+
+[[ -f $HOME/.bash_extras ]] && source $HOME/.bash_extras

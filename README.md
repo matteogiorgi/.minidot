@@ -28,7 +28,8 @@ sudo apt update && sudo apt install vim-gtk3
 
 My current configuration does not use any external plugin since *Vim* is already a very powerful editor by itself. If you need to install some plugins, you can do so by cloning their repo inside `~/.vim/pack/plugins/start/`: the plugins will be loaded automatically at startup and can be updated with a `git pull` command.
 
-- Some famous plugins: [fugitive](https://github.com/tpope/vim-fugitive), [commentary](https://github.com/tpope/vim-commentary), [surround](https://github.com/tpope/vim-surround), [repeat](https://github.com/tpope/vim-repeat), [context](https://github.com/wellle/context.vim), [auto-pairs](https://github.com/jiangmiao/auto-pairs), [ale](https://github.com/dense-analysis/ale), [copilot](https://github.com/github/copilot.vim).
+- Some oldies: [Fugitive](https://github.com/tpope/vim-fugitive), [Commentary](https://github.com/tpope/vim-commentary), [Surround](https://github.com/tpope/vim-surround), [Repeat](https://github.com/tpope/vim-repeat), [Context](https://github.com/wellle/context.vim), [Auto-pairs](https://github.com/jiangmiao/auto-pairs).
+- More modern ones: [Copilot](https://github.com/github/copilot.vim), [Ale](https://github.com/dense-analysis/ale).
 
 
 
