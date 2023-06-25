@@ -10,11 +10,18 @@
 
 
 
-if exists("g:writer") | finish | endif
+" Check {{{
+if exists("g:writer")
+    finish
+endif
+
 let g:writer = 1
+"}}}
 
 
-" NoteVI{{{
+
+
+" NoteVI {{{
 function! s:NoteVI()
     let l:pathFile    = expand('%:p')
     let l:pathParent  = expand('%:p:h')
@@ -33,7 +40,7 @@ endfunction
 "}}}
 
 
-" ScratchBuffer{{{
+" ScratchBuffer {{{
 function! s:ScratchBuffer()
     let target_buffer = bufnr('/tmp/scratchbuffer')
     let target_window = bufwinnr(target_buffer)
@@ -51,7 +58,7 @@ endfunction
 "}}}
 
 
-" ToggleAccent{{{
+" ToggleAccent {{{
 function! s:ToggleAccent()
     let accentNone  = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
     let accentGrave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
@@ -75,14 +82,34 @@ endfunction
 "}}}
 
 
-augroup AutoWriteScratchBuffer
-    autocmd! TextChanged,TextChangedI /tmp/scratchbuffer silent write
-augroup END
 
 
+" Filetype behavior {{{
+augroup writer_filetype
+    autocmd!
+    autocmd FileType markdown,latex,text
+                \ setlocal wrap conceallevel=2|
+                \ nmap <buffer> j gj|
+                \ nmap <buffer> k gk
+augroup end
+"}}}
+
+
+" Autosave behavior {{{
+augroup scratchbuffer_autosave
+    autocmd!
+    autocmd TextChanged,TextChangedI /tmp/scratchbuffer silent write
+augroup end
+"}}}
+
+
+
+
+" Commands & Keymaps {{{
 command! NoteVI call <SID>NoteVI()
 command! ScratchBuffer call <SID>ScratchBuffer()
 command! ToggleAccent call <SID>ToggleAccent()
 
 nnoremap <localleader>\ :ScratchBuffer<CR>
 nnoremap <silent>' :ToggleAccent<CR>
+"}}}

@@ -9,9 +9,15 @@
 
 
 
-" Some settings to load early {{{
-if exists('+termguicolors') | set termguicolors | endif
-if has('linebreak') | let &showbreak='⤷ ' | endif
+" Some checks {{{
+if exists('+termguicolors')
+    set termguicolors
+endif
+
+if has('linebreak')
+    let &showbreak='⤷ '
+endif
+
 if has('persistent_undo')
     if !isdirectory(expand('~/.vim/undodir'))
         execute "!mkdir ~/.vim/undodir &>/dev/null"
@@ -121,48 +127,85 @@ let &t_EI = "\e[2 q"
 
 
 
-" Linenumber behaviour {{{
-augroup numbertoggle
-    autocmd! WinEnter,BufEnter,FocusGained,InsertLeave *
-                \ if &number ==? 1 | set relativenumber | endif | set cursorline
-    autocmd! WinLeave,BufLeave,FocusLost,InsertEnter *
-                \ if &number ==? 1 | set norelativenumber | endif | set nocursorline
-augroup END
+" Linenumber behavior {{{
+augroup linenumber_toggle
+    autocmd!
+    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
+                \ if &number == 1|
+                \     set relativenumber|
+                \ endif|
+                \ set cursorline
+    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
+                \ if &number == 1|
+                \     set norelativenumber|
+                \ endif|
+                \ set nocursorline
+augroup end
 " }}}
 
 
 
 
-" Overlength behaviour {{{
-augroup overlengthtoggle
-    autocmd! InsertEnter *
-                \ if &filetype !=? 'text' && &filetype !=? 'markdown' && &filetype !=? 'tex' |
-                \     let &colorcolumn = '121,'.join(range(121,999),',') |
+" Overlength behavior {{{
+augroup overlength_toggle
+    autocmd!
+    autocmd InsertEnter *
+                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
+                \     let &colorcolumn = '121,'.join(range(121,999),',')|
                 \ endif
-    autocmd! InsertLeave *
-                \ if &filetype !=? 'text' && &filetype !=? 'markdown' && &filetype !=? 'tex' |
-                \     set colorcolumn= |
+    autocmd InsertLeave *
+                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
+                \     set colorcolumn=|
                 \ endif
-augroup END
+augroup end
 " }}}
 
 
 
 
 " Netrw auto-start {{{
-augroup initnetrw
-    autocmd! VimEnter * if expand("%") == "" | edit . | endif
-augroup END
+augroup netrw_autostart
+    autocmd!
+    autocmd VimEnter *
+                \ if expand("%") == ""|
+                \     edit .|
+                \ endif
+augroup end
 " }}}
 
 
 
 
 " Simple commands {{{
-command! ToggleWordWrap if &wrap | set nowrap | else | set wrap | endif
-command! ToggleBackground if &background ==# 'light' | set background=dark | else | set background=light | endif
-command! ToggleVirtualEdit if &virtualedit ==# 'all' | setlocal virtualedit= | else | setlocal virtualedit=all | endif
-command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
+command! ToggleBackground
+            \ if &background ==# 'light'|
+            \     set background=dark|
+            \ else|
+            \     set background=light|
+            \ endif
+
+command! ToggleWordwrap
+            \ if &wrap|
+            \     setlocal nowrap|
+            \     nunmap <buffer> j|
+            \     nunmap <buffer> k|
+            \ else|
+            \     setlocal wrap|
+            \     nmap <buffer> j gj|
+            \     nmap <buffer> k gk|
+            \ endif
+
+command! ToggleVirtualedit
+            \ if &virtualedit ==# 'all'|
+            \     setlocal virtualedit=|
+            \ else|
+            \     setlocal virtualedit=all|
+            \ endif
+
+command! IndentAll
+            \ exe 'setl ts=4 sts=0 et sw=4 sta'|
+            \ exe "norm gg=G"
+
 command! RemoveSpaces :%s/\s\+$//e
 command! ClearLastSearch :let @/=""
 " }}}
@@ -180,8 +223,8 @@ command! Pasta execute 'normal "+p'
 
 
 " Keymaps {{{
-nnoremap <silent>_ :ToggleWordWrap<CR>
 nnoremap <silent>^ :ToggleBackground<CR>
+nnoremap <silent>_ :ToggleWordwrap<CR>
 xnoremap <silent>K :move '<-2<CR>gv=gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
