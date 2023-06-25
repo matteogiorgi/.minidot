@@ -1,12 +1,5 @@
-" __     ___             _   _      _
-" \ \   / (_)_ __ ___   | \ | | ___| |_ _ ____      __
-"  \ \ / /| | '_ ` _ \  |  \| |/ _ \ __| '__\ \ /\ / /
-"   \ V / | | | | | | | | |\  |  __/ |_| |   \ V  V /
-"    \_/  |_|_| |_| |_| |_| \_|\___|\__|_|    \_/\_/
-"
-" Vim file-navigation tree keyboard mappings.
-
-
+" This vimscript file containers all the Netrw
+" buffer specific keyboard mappings.
 
 
 setlocal bufhidden=wipe

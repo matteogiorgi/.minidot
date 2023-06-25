@@ -1,10 +1,11 @@
-" __     ___            __        __    _ _
-" \ \   / (_)_ __ ___   \ \      / / __(_) |_ ___ _ __
-"  \ \ / /| | '_ ` _ \   \ \ /\ / / '__| | __/ _ \ '__|
-"   \ V / | | | | | | |   \ V  V /| |  | | ||  __/ |
-"    \_/  |_|_| |_| |_|    \_/\_/ |_|  |_|\__\___|_|
+" __        __    _ _
+" \ \      / / __(_) |_ ___ _ __
+"  \ \ /\ / / '__| | __/ _ \ '__|
+"   \ V  V /| |  | | ||  __/ |
+"    \_/\_/ |_|  |_|\__\___|_|
 "
-" Simple functions to easy your life while writing in Vim.
+" Simple utility plugin containings functions
+" that helps writing activity within Vim.
 
 
 
