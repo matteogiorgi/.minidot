@@ -5,60 +5,90 @@
 ########################
 
 read -p "Adding/upgrading Vim plugins (enter to continue)"
+printf "\n"
+
 [[ -d ~/.vim/pack/plugins/start ]] || mkdir -p ~/.vim/pack/plugins/start
 
-if [[ -d ~/.vim/pack/plugins/start/vim-fugitive ]]; then
+if [[ ! -d ~/.vim/pack/plugins/start/vim-fugitive ]]; then
+    printf "INSTALLING VIM-FUGITIVE\n"
     git clone https://github.com/tpope/vim-fugitive ~/.vim/pack/plugins/start
+    printf "\n"
 else
+    printf "UPGRADING VIM-FUGITIVE\n"
     cd ~/.vim/pack/plugins/start/vim-fugitive
     git pull
-    cd -
+    cd - &>/dev/null
+    printf "\n"
 fi
 
-if [[ -d ~/.vim/pack/plugins/start/vim-commentary ]]; then
+if [[ ! -d ~/.vim/pack/plugins/start/vim-commentary ]]; then
+    printf "INSTALLING VIM-COMMENTARY\n"
     git clone https://github.com/tpope/vim-commentary ~/.vim/pack/plugins/start
+    printf "\n"
 else
+    printf "UPGRADING VIM-COMMENTARY\n"
     cd ~/.vim/pack/plugins/start/vim-commentary
     git pull
-    cd -
+    cd - &>/dev/null
+    printf "\n"
 fi
 
-if [[ -d ~/.vim/pack/plugins/start/vim-surround ]]; then
+if [[ ! -d ~/.vim/pack/plugins/start/vim-surround ]]; then
+    printf "INSTALLING VIM-SURROUND\n"
     git clone https://github.com/tpope/vim-surround ~/.vim/pack/plugins/start
+    printf "\n"
 else
+    printf "UPGRADING VIM-SURROUND\n"
     cd ~/.vim/pack/plugins/start/vim-surround
     git pull
-    cd -
+    cd - &>/dev/null
+    printf "\n"
 fi
 
-if [[ -d ~/.vim/pack/plugins/start/vim-repeat ]]; then
+if [[ ! -d ~/.vim/pack/plugins/start/vim-repeat ]]; then
+    printf "INSTALLING VIM-REPEAT\n"
     git clone https://github.com/tpope/vim-repeat ~/.vim/pack/plugins/start
+    printf "\n"
 else
+    printf "UPGRADING VIM-REPEAT\n"
     cd ~/.vim/pack/plugins/start/vim-repeat
     git pull
-    cd -
+    cd - &>/dev/null
+    printf "\n"
 fi
 
-if [[ -d ~/.vim/pack/plugins/start/context.vim ]]; then
+if [[ ! -d ~/.vim/pack/plugins/start/context.vim ]]; then
+    printf "INSTALLING CONTEXT.VIM\n"
     git clone https://github.com/wellle/context.vim ~/.vim/pack/plugins/start
+    printf "\n"
 else
+    printf "UPGRADING CONTEXT.VIM\n"
     cd ~/.vim/pack/plugins/start/context.vim
     git pull
-    cd -
+    cd - &>/dev/null
+    printf "\n"
 fi
 
-if [[ -d ~/.vim/pack/plugins/start/auto-pairs ]]; then
+if [[ ! -d ~/.vim/pack/plugins/start/auto-pairs ]]; then
+    printf "INSTALLING AUTO-PAIRS\n"
     git clone https://github.com/jiangmiao/auto-pairs ~/.vim/pack/plugins/start
+    printf "\n"
 else
+    printf "UPGRADING AUTO-PAIRS\n"
     cd ~/.vim/pack/plugins/start/auto-pairs
     git pull
-    cd -
+    cd - &>/dev/null
+    printf "\n"
 fi
 
-if [[ -d ~/.vim/pack/plugins/start/ale ]]; then
+if [[ ! -d ~/.vim/pack/plugins/start/ale ]]; then
+    printf "INSTALLING ALE\n"
     git clone https://github.com/dense-analysis/ale ~/.vim/pack/plugins/start
+    printf "\n"
 else
+    printf "UPGRADING ALE\n"
     cd ~/.vim/pack/plugins/start/ale
     git pull
-    cd -
+    cd - &>/dev/null
+    printf "\n"
 fi
