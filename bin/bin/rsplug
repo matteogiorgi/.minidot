@@ -5,9 +5,10 @@
 ########################
 
 read -p "Adding/upgrading Vim plugins (enter to continue)"
+[[ -d ~/.vim/pack/plugins/start ]] || mkdir -p ~/.vim/pack/plugins/start
 
 if [[ -d ~/.vim/pack/plugins/start/vim-fugitive ]]; then
-    git clone https://github.com/tpope/vim-fugitive ~/.vim/pack/plugins/start/
+    git clone https://github.com/tpope/vim-fugitive ~/.vim/pack/plugins/start
 else
     cd ~/.vim/pack/plugins/start/vim-fugitive
     git pull
@@ -15,7 +16,7 @@ else
 fi
 
 if [[ -d ~/.vim/pack/plugins/start/vim-commentary ]]; then
-    git clone https://github.com/tpope/vim-commentary ~/.vim/pack/plugins/start/
+    git clone https://github.com/tpope/vim-commentary ~/.vim/pack/plugins/start
 else
     cd ~/.vim/pack/plugins/start/vim-commentary
     git pull
@@ -23,7 +24,7 @@ else
 fi
 
 if [[ -d ~/.vim/pack/plugins/start/vim-surround ]]; then
-    git clone https://github.com/tpope/vim-surround ~/.vim/pack/plugins/start/
+    git clone https://github.com/tpope/vim-surround ~/.vim/pack/plugins/start
 else
     cd ~/.vim/pack/plugins/start/vim-surround
     git pull
@@ -31,7 +32,7 @@ else
 fi
 
 if [[ -d ~/.vim/pack/plugins/start/vim-repeat ]]; then
-    git clone https://github.com/tpope/vim-repeat ~/.vim/pack/plugins/start/
+    git clone https://github.com/tpope/vim-repeat ~/.vim/pack/plugins/start
 else
     cd ~/.vim/pack/plugins/start/vim-repeat
     git pull
@@ -39,7 +40,7 @@ else
 fi
 
 if [[ -d ~/.vim/pack/plugins/start/context.vim ]]; then
-    git clone https://github.com/wellle/context.vim ~/.vim/pack/plugins/start/
+    git clone https://github.com/wellle/context.vim ~/.vim/pack/plugins/start
 else
     cd ~/.vim/pack/plugins/start/context.vim
     git pull
@@ -47,7 +48,7 @@ else
 fi
 
 if [[ -d ~/.vim/pack/plugins/start/auto-pairs ]]; then
-    git clone https://github.com/jiangmiao/auto-pairs ~/.vim/pack/plugins/start/
+    git clone https://github.com/jiangmiao/auto-pairs ~/.vim/pack/plugins/start
 else
     cd ~/.vim/pack/plugins/start/auto-pairs
     git pull
@@ -55,7 +56,7 @@ else
 fi
 
 if [[ -d ~/.vim/pack/plugins/start/ale ]]; then
-    git clone https://github.com/dense-analysis/ale ~/.vim/pack/plugins/start/
+    git clone https://github.com/dense-analysis/ale ~/.vim/pack/plugins/start
 else
     cd ~/.vim/pack/plugins/start/ale
     git pull
