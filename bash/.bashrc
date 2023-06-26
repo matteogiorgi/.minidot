@@ -247,11 +247,11 @@ if [[ -n "$TMUX" ]]; then
     bind -m vi-command -x '"\C-j": fjump'
     bind -m vi-command -x '"\C-f": ffind'
     bind -m vi-command -x '"\C-g": fgit'
-    bind -m vi-command -x '"\C-l": clear; echo ${PROMPT@P}'
+    bind -m vi-command -x '"\C-l": clear; echo ${PS1@P}'
     bind -m vi-insert -x '"\C-j": fjump'
     bind -m vi-insert -x '"\C-f": ffind'
     bind -m vi-insert -x '"\C-g": fgit'
-    bind -m vi-insert -x '"\C-l": clear; echo ${PROMPT@P}'
+    bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
 else
     bind 'set vi-ins-mode-string "\033[01;90m▘\033[00m"'
     bind 'set vi-cmd-mode-string "\033[01;31m▖\033[00m"'
