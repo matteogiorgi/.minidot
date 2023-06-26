@@ -3,8 +3,8 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
-# no alias
-function _show () {
+# detach process
+function _xshow () {
     nohup sh -c "$*" &>/tmp/xshow.out & disown
 }
 

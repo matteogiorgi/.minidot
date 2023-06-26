@@ -18,4 +18,5 @@ alias restow="stow -R"
 alias unstow="stow -D"
 
 # functions
+alias xshow="_xshow"
 alias fjump="_fjump"
