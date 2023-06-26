@@ -4,7 +4,7 @@
 ### Info
 ########
 
-read -p "Your are going to edit your personal mime-types (enter to continue)"
+read -p "Editing personal mime-types (enter to continue)"
 MIMEAPPS="$HOME/.local/share/applications/mimeapps.list"
 
 

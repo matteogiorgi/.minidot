@@ -1,128 +1,51 @@
 #!/usr/bin/env bash
 
 
-### Define colors
+### Select editor
 #################
 
-RED='\033[1;36m'
-YLW='\033[1;35m'
-NC='\033[0m'
+read -p "Resetting VS-Code settings Vim-Syle (enter to continue)"
+
+CODE="code"
+FOLDER="Code"
+
+if [[ -n "$1" ]]; then
+    CODE="$1"
+    if [[ "$CODE" == "code" ]]; then
+        FOLDER="Code"
+    elif [[ "$CODE" == "code-insiders" ]]; then
+        FOLDER="Code - Insiders"
+    else
+        printf "%s is not valid\n" "$CODE"
+        exit 1
+    fi
+    if [[ ! -x "$(command -v "$CODE")" ]]; then
+        printf "%s is not installed\n" "$CODE"
+        exit 1
+    fi
+fi
 
 
 
 
-### Define functions
-####################
+### Remove extensions
+#####################
 
-_rmextensions () {
-    CODE="$*"
-    LIST=$($CODE --list-extensions)
-    for EXTENSION in $LIST; do
-        $CODE --uninstall-extension $EXTENSION &>/dev/null
-    done
-}
+LIST=$("$CODE" --list-extensions)
+for EXTENSION in $LIST; do
+    "$CODE" --uninstall-extension "$EXTENSION" &>/dev/null
+done
 
 
-_addmarketplace () {
-cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
-{
-    "extensionsGallery": {
-        "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-        "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
-        "itemUrl": "https://marketplace.visualstudio.com/items",
-        "controlUrl": "",
-        "recommendationsUrl": ""
-    }
-}
-EOF
-}
 
 
-_default () {
-CODE="$*"
-[[ "$CODE" == "code" ]] && FOLDER="Code"
-[[ "$CODE" == "code-insiders" ]] && FOLDER="Code - Insiders"
-[[ "$CODE" == "codium" ]] && FOLDER="VSCodium"
-[[ -z $FOLDER ]] && exit 1
+### Install config
+##################
 
-_rmextensions "$CODE"
+"$CODE" --install-extension vscodevim.vim &>/dev/null
+"$CODE" --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
-cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
-{
-    "keyboard.dispatch": "keyCode",
-    "breadcrumbs.enabled": false,
-    "telemetry.telemetryLevel": "off",
-    "security.workspace.trust.startupPrompt": "never",
-    "window.restoreWindows": "none",
-    "window.titleBarStyle": "native",
-    "window.menuBarVisibility": "hidden",
-    "window.customMenuBarAltFocus": false,
-    "window.enableMenuBarMnemonics": false,
-    "editor.fontFamily": "'Fira Code', 'monospace'",
-    "editor.fontSize": 11.5,
-    "editor.lineHeight": 1.3,
-    "editor.lineNumbers": "on",
-    "editor.renderLineHighlight": "none",
-    "editor.fontLigatures": true,
-    "editor.guides.indentation": false,
-    "editor.minimap.enabled": false,
-    "editor.rulers": [],
-    "editor.folding": false,
-    "editor.wordWrap": "off",
-    "editor.cursorBlinking": "solid",
-    "editor.cursorStyle": "line",
-    "editor.scrollbar.vertical": "auto",
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.scrollbar.verticalScrollbarSize": 10,
-    "editor.scrollbar.horizontalScrollbarSize": 0,
-    "editor.stickyScroll.enabled": true,
-    "debug.terminal.clearBeforeReusing": true,
-    "terminal.explorerKind": "external",
-    "terminal.external.linuxExec": "lxterm",
-    "terminal.integrated.fontFamily": "'Fira Code', 'monospace'",
-    "terminal.integrated.fontSize": 11.5,
-    "terminal.integrated.lineHeight": 1,
-    "terminal.integrated.allowChords": false,
-    "terminal.integrated.gpuAcceleration": "off",
-    "terminal.integrated.profiles.linux": {
-        "dash": { "path": "/bin/dash" },
-        "bash": { "path": "/bin/bash" },
-    },
-    "terminal.integrated.defaultProfile.linux": "dash",
-    "workbench.editor.showTabs": true,
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Quiet Light",
-    "workbench.iconTheme": "vs-seti",
-    "workbench.productIconTheme": "Default",
-    "workbench.activityBar.visible": true,
-    "workbench.sideBar.location": "left",
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.closeEmptyGroups": true,
-    "workbench.list.openMode": "doubleClick",
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.tree.indent": 20,
-}
-EOF
-
-cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
-[
-]
-EOF
-}
-
-
-_loaded () {
-CODE="$*"
-[[ "$CODE" == "code" ]] && FOLDER="Code"
-[[ "$CODE" == "code-insiders" ]] && FOLDER="Code - Insiders"
-[[ "$CODE" == "codium" ]] && FOLDER="VSCodium"
-[[ -z $FOLDER ]] && exit 1
-
-_rmextensions "$CODE"
-$CODE --install-extension vscodevim.vim &>/dev/null
-$CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-
-cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
+cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
     "breadcrumbs.enabled": true,
@@ -387,48 +310,3 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
     },
 ]
 EOF
-}
-
-
-_addconf () {
-    CODE="$*"
-    [[ "$CODE" == "codium" ]] && _addmarketplace
-
-    printf "${RED}%s${NC} " "Choose CONFIG (default/loaded):"
-    while read response; do
-        case $response in
-            "default" | "loaded")
-                "_"$response "$CODE"
-                break
-                ;;
-            *)
-                printf "${RED}%s${NC} " "Choose CONFIG (default/loaded):"
-                ;;
-        esac
-    done
-
-    printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> $response"
-}
-
-
-
-
-### Main
-########
-
-printf "${RED}%s${NC} " "Choose EDITOR (code/code-insiders/codium):"
-while read response; do
-    case $response in
-        "code" | "code-insiders" | "codium")
-            if [[ ! -x "$(command -v $response)" ]]; then
-                printf "${YLW}%s${NC}\n" "$response is not installed mate!"
-                exit 1
-            fi
-            _addconf "$response"
-            break
-            ;;
-        *)
-            printf "${RED}%s${NC} " "Choose EDITOR (code/code-insiders/codium):"
-            ;;
-    esac
-done
