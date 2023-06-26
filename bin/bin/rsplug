@@ -110,7 +110,7 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
         printf "UPGRADING VIM\n"
         [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list) ]] || sudo add-apt-repository ppa:jonathonf/vim
         sudo apt update
-        sudo apt install vim-gtk3
+        sudo apt install -qq -y vim-gtk3
     else
         printf "\n"
         printf "This is not Ubuntu, you have to manually install Vim 9!\n"
@@ -121,7 +121,7 @@ fi
 printf "\n"
 if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
-    sudo apt install nodejs
+    sudo apt install -qq -y nodejs
     git clone https://github.com/github/copilot.vim copilot
 else
     printf "UPDATING COPILOT\n"
@@ -130,7 +130,7 @@ else
     cd - &>/dev/null
 fi
 
-[[ ! -e "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" ]] || cat 2>/dev/null > "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" <<-EOF
+[[ -e "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" ]] || cat 2>/dev/null > "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" <<-EOF
 " COPILOT CONFIG
 let g:copilot_enabled = v:false
 imap <silent><C-H> <Plug>(copilot-dismiss)
