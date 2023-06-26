@@ -129,7 +129,8 @@ else
     cd - &>/dev/null
 fi
 
-[[ -e "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" ]] || cat 2>/dev/null > "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" <<-EOF
+[[ ! -e "rsplug/plugin/rsplug.vim" ]] && mkdir -p rsplug/plugin || exit 1
+cat 2>/dev/null > rsplug/plugin/rsplug.vim <<-EOF
 " COPILOT CONFIG
 let g:copilot_enabled = v:false
 imap <silent><C-H> <Plug>(copilot-dismiss)
