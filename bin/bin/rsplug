@@ -1,94 +1,144 @@
 #!/usr/bin/env bash
 
 
-### Git your Vim plugins
-########################
+### Info
+########
 
-read -p "Adding/upgrading Vim plugins (enter to continue)"
-printf "\n"
+read -p "Installing/updating your Vim plugins (enter to continue)"
+if [[ ! -x "$(command -v "vim")" ]]; then
+    printf "vim is not installed\n"
+    exit 1
+fi
 
 [[ -d ~/.vim/pack/plugins/start ]] || mkdir -p ~/.vim/pack/plugins/start
+cd ~/.vim/pack/plugins/start
 
-if [[ ! -d ~/.vim/pack/plugins/start/vim-fugitive ]]; then
-    printf "INSTALLING VIM-FUGITIVE\n"
-    git clone https://github.com/tpope/vim-fugitive ~/.vim/pack/plugins/start
-    printf "\n"
+
+
+
+### Plugin install/update
+#########################
+
+printf "\n"
+if [[ ! -d fugitive ]]; then
+    printf "INSTALLING FUGITIVE\n"
+    git clone https://github.com/tpope/vim-fugitive fugitive
 else
-    printf "UPGRADING VIM-FUGITIVE\n"
-    cd ~/.vim/pack/plugins/start/vim-fugitive
+    printf "UPDATING FUGITIVE\n"
+    cd fugitive
     git pull
     cd - &>/dev/null
-    printf "\n"
 fi
 
-if [[ ! -d ~/.vim/pack/plugins/start/vim-commentary ]]; then
-    printf "INSTALLING VIM-COMMENTARY\n"
-    git clone https://github.com/tpope/vim-commentary ~/.vim/pack/plugins/start
-    printf "\n"
+printf "\n"
+if [[ ! -d commentary ]]; then
+    printf "INSTALLING COMMENTARY\n"
+    git clone https://github.com/tpope/vim-commentary commentary
 else
-    printf "UPGRADING VIM-COMMENTARY\n"
-    cd ~/.vim/pack/plugins/start/vim-commentary
+    printf "UPDATING COMMENTARY\n"
+    cd commentary
     git pull
     cd - &>/dev/null
-    printf "\n"
 fi
 
-if [[ ! -d ~/.vim/pack/plugins/start/vim-surround ]]; then
-    printf "INSTALLING VIM-SURROUND\n"
-    git clone https://github.com/tpope/vim-surround ~/.vim/pack/plugins/start
-    printf "\n"
+printf "\n"
+if [[ ! -d surround ]]; then
+    printf "INSTALLING SURROUND\n"
+    git clone https://github.com/tpope/vim-surround surround
 else
-    printf "UPGRADING VIM-SURROUND\n"
-    cd ~/.vim/pack/plugins/start/vim-surround
+    printf "UPDATING SURROUND\n"
+    cd surround
     git pull
     cd - &>/dev/null
-    printf "\n"
 fi
 
-if [[ ! -d ~/.vim/pack/plugins/start/vim-repeat ]]; then
-    printf "INSTALLING VIM-REPEAT\n"
-    git clone https://github.com/tpope/vim-repeat ~/.vim/pack/plugins/start
-    printf "\n"
+printf "\n"
+if [[ ! -d repeat ]]; then
+    printf "INSTALLING REPEAT\n"
+    git clone https://github.com/tpope/vim-repeat repeat
 else
-    printf "UPGRADING VIM-REPEAT\n"
-    cd ~/.vim/pack/plugins/start/vim-repeat
+    printf "UPDATING REPEAT\n"
+    cd repeat
     git pull
     cd - &>/dev/null
-    printf "\n"
 fi
 
-if [[ ! -d ~/.vim/pack/plugins/start/context.vim ]]; then
-    printf "INSTALLING CONTEXT.VIM\n"
-    git clone https://github.com/wellle/context.vim ~/.vim/pack/plugins/start
-    printf "\n"
+printf "\n"
+if [[ ! -d context ]]; then
+    printf "INSTALLING CONTEXT\n"
+    git clone https://github.com/wellle/context.vim context
 else
-    printf "UPGRADING CONTEXT.VIM\n"
-    cd ~/.vim/pack/plugins/start/context.vim
+    printf "UPDATING CONTEXT\n"
+    cd context
     git pull
     cd - &>/dev/null
-    printf "\n"
 fi
 
-if [[ ! -d ~/.vim/pack/plugins/start/auto-pairs ]]; then
-    printf "INSTALLING AUTO-PAIRS\n"
-    git clone https://github.com/jiangmiao/auto-pairs ~/.vim/pack/plugins/start
-    printf "\n"
+printf "\n"
+if [[ ! -d autopairs ]]; then
+    printf "INSTALLING AUTOPAIRS\n"
+    git clone https://github.com/jiangmiao/auto-pairs autopairs
 else
-    printf "UPGRADING AUTO-PAIRS\n"
-    cd ~/.vim/pack/plugins/start/auto-pairs
+    printf "UPDATING AUTOPAIRS\n"
+    cd autopairs
     git pull
     cd - &>/dev/null
-    printf "\n"
 fi
 
-if [[ ! -d ~/.vim/pack/plugins/start/ale ]]; then
+printf "\n"
+if [[ ! -d ale ]]; then
     printf "INSTALLING ALE\n"
-    git clone https://github.com/dense-analysis/ale ~/.vim/pack/plugins/start
+    git clone https://github.com/dense-analysis/ale ale
+else
+    printf "UPDATING ALE\n"
+    cd ale
+    git pull
+    cd - &>/dev/null
+fi
+
+
+
+
+### Copilot install (Ubuntu only)
+#################################
+
+if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
+    if [[ $(uname -a) =~ "Ubuntu" ]]; then
+        [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list /etc/apt/sources.list.d/*) ]] || sudo add-apt-repository ppa:jonathonf/vim
+        sudo apt update
+        sudo apt install vim-gtk3
+    else
+        printf "This is not Ubuntu, you have to manually install Vim 9!\n"
+        exit 1
+    fi
+fi
+
+printf "\n"
+if [[ ! -d copilot ]]; then
+    printf "INSTALLING COPILOT\n"
+    git clone https://github.com/github/copilot.vim copilot
     printf "\n"
 else
-    printf "UPGRADING ALE\n"
-    cd ~/.vim/pack/plugins/start/ale
+    printf "UPDATING COPILOT\n"
+    cd copilot
     git pull
     cd - &>/dev/null
     printf "\n"
 fi
+
+[[ ! -e "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" ]] || cat 2>/dev/null > "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" <<-EOF
+" COPILOT CONFIG
+let g:copilot_enabled = v:false
+imap <silent><C-H> <Plug>(copilot-dismiss)
+imap <silent><C-J> <Plug>(copilot-next)
+imap <silent><C-K> <Plug>(copilot-previous)
+imap <silent><C-L> <Plug>(copilot-suggest)
+EOF
+
+
+
+
+### Bye bye
+###########
+
+printf "Enjoy your Vim-Plugged life!\n"

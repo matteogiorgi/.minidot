@@ -4,7 +4,7 @@
 ### Select editor
 #################
 
-read -p "Resetting VS-Code settings Vim-Syle (enter to continue)"
+read -p "Resetting VS-Code setup Vim-Syle (enter to continue)"
 
 CODE="code"
 FOLDER="Code"
@@ -310,3 +310,11 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
     },
 ]
 EOF
+
+
+
+
+### Bye bye
+###########
+
+printf "Enjoy your Vim-Styled VSCode!\n"
