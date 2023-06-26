@@ -120,7 +120,7 @@ fi
 printf "\n"
 if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
-    sudo apt install -qq -y nodejs
+    [[ -x "$(command -v "node")" ]] || sudo apt install -qq -y nodejs
     git clone https://github.com/github/copilot.vim copilot
 else
     printf "UPDATING COPILOT\n"
