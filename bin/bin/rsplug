@@ -102,12 +102,17 @@ fi
 ### Copilot install (Ubuntu only)
 #################################
 
+[[ -n "$1" && "$1" == "copilot" ]] || exit 1
+
 if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
     if [[ $(uname -a) =~ "Ubuntu" ]]; then
+        printf "\n"
+        printf "UPGRADING VIM\n"
         [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list /etc/apt/sources.list.d/*) ]] || sudo add-apt-repository ppa:jonathonf/vim
         sudo apt update
         sudo apt install vim-gtk3
     else
+        printf "\n"
         printf "This is not Ubuntu, you have to manually install Vim 9!\n"
         exit 1
     fi
@@ -117,13 +122,11 @@ printf "\n"
 if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
     git clone https://github.com/github/copilot.vim copilot
-    printf "\n"
 else
     printf "UPDATING COPILOT\n"
     cd copilot
     git pull
     cd - &>/dev/null
-    printf "\n"
 fi
 
 [[ ! -e "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" ]] || cat 2>/dev/null > "$HOME/.vim/pack/plugins/start/rsplug/plugin/rsplug.vim" <<-EOF

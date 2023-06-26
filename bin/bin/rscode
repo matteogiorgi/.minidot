@@ -42,9 +42,13 @@ done
 ### Install config
 ##################
 
+printf "INSTALLING VSCODE-VIM\n"
 "$CODE" --install-extension vscodevim.vim &>/dev/null
+
+printf "INSTALLING MONOKAI-PRO\n"
 "$CODE" --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
+printf "SETTING UP OPTIONS\n"
 cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
@@ -171,6 +175,7 @@ cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
 }
 EOF
 
+printf "SETTING UP KEYMAPS\n"
 cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
 [
     {
