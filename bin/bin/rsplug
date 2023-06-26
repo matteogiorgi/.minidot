@@ -19,7 +19,6 @@ cd ~/.vim/pack/plugins/start
 ### Plugin install/update
 #########################
 
-printf "\n"
 if [[ ! -d fugitive ]]; then
     printf "INSTALLING FUGITIVE\n"
     git clone https://github.com/tpope/vim-fugitive fugitive
@@ -145,4 +144,5 @@ EOF
 ### Bye bye
 ###########
 
+printf "\n"
 printf "Enjoy your Vim-Plugged life!\n"

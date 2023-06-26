@@ -315,4 +315,5 @@ EOF
 ### Bye bye
 ###########
 
+printf "\n"
 printf "Enjoy your Vim-Styled VSCode!\n"
