@@ -1,28 +1,21 @@
 #!/usr/bin/env bash
 
 
-### Select editor
-#################
+### Info
+########
 
 read -p "Resetting VS-Code setup Vim-Syle (enter to continue)"
+if [[ -n "$1" && "$1" == "insiders" ]]; then
+    CODE="code-insiders"
+    FOLDER="Code - Insiders"
+else
+    CODE="code"
+    FOLDER="Code"
+fi
 
-CODE="code"
-FOLDER="Code"
-
-if [[ -n "$1" ]]; then
-    CODE="$1"
-    if [[ "$CODE" == "code" ]]; then
-        FOLDER="Code"
-    elif [[ "$CODE" == "code-insiders" ]]; then
-        FOLDER="Code - Insiders"
-    else
-        printf "%s is not valid\n" "$CODE"
-        exit 1
-    fi
-    if [[ ! -x "$(command -v "$CODE")" ]]; then
-        printf "%s is not installed\n" "$CODE"
-        exit 1
-    fi
+if [[ ! -x "$(command -v "$CODE")" ]]; then
+    printf "%s is not installed\n" "$CODE"
+    exit 1
 fi
 
 
