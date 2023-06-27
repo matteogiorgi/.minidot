@@ -110,7 +110,6 @@ fi
 if [[ "$1" != "copilot" ]]; then
     printf "\n"
     printf "%s is not a valid option\n" "$1"
-    printf "Enjoy your Vim-Plugged life!\n"
     exit 1
 fi
 
@@ -140,7 +139,13 @@ else
     cd - &>/dev/null
 fi
 
-[[ ! -e "rsplug/plugin/rsplug.vim" ]] && mkdir -p rsplug/plugin || exit 1
+if [[ -e "rsplug/plugin/rsplug.vim" ]]; then
+    printf "\n"
+    printf "Enjoy your Vim-Plugged life!\n"
+    exit 1
+fi
+
+mkdir -p rsplug/plugin
 cat 2>/dev/null > rsplug/plugin/rsplug.vim <<-EOF
 " COPILOT CONFIG
 let g:copilot_enabled = v:false
