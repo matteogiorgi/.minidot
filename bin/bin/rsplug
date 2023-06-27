@@ -98,6 +98,7 @@ fi
 if [[ ! -n "$1" ]]; then
     printf "\n"
     printf "Enjoy your Vim-Plugged life!\n"
+    exit 1
 fi
 
 
