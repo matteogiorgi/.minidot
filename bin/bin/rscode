@@ -5,7 +5,11 @@
 ########
 
 read -p "Resetting VS-Code setup Vim-Syle (enter to continue)"
-if [[ -n "$1" && "$1" == "insiders" ]]; then
+if [[ -n "$1" ]]; then
+    if [[ "$1" != "insiders" ]]; then
+        printf "%s is not a valid option\n" "$1"
+        exit 1
+    fi
     CODE="code-insiders"
     FOLDER="Code - Insiders"
 else

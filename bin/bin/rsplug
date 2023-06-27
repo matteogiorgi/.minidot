@@ -95,13 +95,23 @@ else
     cd - &>/dev/null
 fi
 
+if [[ ! -n "$1" ]]; then
+    printf "\n"
+    printf "Enjoy your Vim-Plugged life!\n"
+fi
+
 
 
 
 ### Copilot install (Ubuntu only)
 #################################
 
-[[ -n "$1" && "$1" == "copilot" ]] || exit 1
+if [[ "$1" != "copilot" ]]; then
+    printf "\n"
+    printf "%s is not a valid option\n" "$1"
+    printf "Enjoy your Vim-Plugged life!\n"
+    exit 1
+fi
 
 if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
     if [[ $(uname -a) =~ "Ubuntu" ]]; then
