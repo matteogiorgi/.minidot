@@ -136,12 +136,12 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
 fi
 
 printf "\n"
-if [[ ! -d fuzzyy ]]; then
-    printf "INSTALLING FUZZYY\n"
+if [[ ! -d minifuzzy ]]; then
+    printf "INSTALLING MINIFUZZY\n"
     git clone https://github.com/hahdookin/minifuzzy.vim
 else
-    printf "UPDATING FUZZYY\n"
-    cd fuzzyy
+    printf "UPDATING MINIFUZZY\n"
+    cd minifuzzy
     git pull
     cd - &>/dev/null
 fi
@@ -171,17 +171,24 @@ fi
 # (mappings and other little things)
 mkdir -p rsplug/plugin
 cat 2>/dev/null > rsplug/plugin/rsplug.vim <<-EOF
-" FUZZYY CONFIG
-let g:enable_fuzzyy_keymaps = 0
-let g:files_respect_gitignore = 1
-let g:fuzzyy_keymaps = {
-        \      'menu_up': ["\<C-k>", "\<Up>"],
-        \      'menu_down': ["\<C-j>", "\<Down>"],
-        \      'menu_select': ["\<CR>"],
-        \      'preview_up': ["\<C-u>"],
-        \      'preview_down': ["\<C-d>"],
-        \      'exit': ["\<Esc>", "\<C-c>"],
-        \ }
+" GVIM CONFIG
+autocmd! GuiEnter * set background=light
+autocmd! GuiEnter * set colorscheme hemisu
+
+
+" MINIFUZZY
+unmap <leader>ff
+unmap <leader>fb
+unmap <leader>fm
+unmap <leader>fl
+unmap <leader>fg
+unmap <silent><C-p>
+" ---
+nmap <leader>f :MinifuzzyFind<CR>
+nmap <leader>h :MinifuzzyMRU<CR>
+nmap <leader>l :MinifuzzyLines<CR>
+nmap <leader>g :MinifuzzyGitFiles<CR>
+nmap <leader><Tab> :MinifuzzyBuffers<CR>
 
 
 " COPILOT CONFIG

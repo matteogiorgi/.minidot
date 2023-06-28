@@ -15,7 +15,6 @@
 if exists("g:jumper")
     finish
 endif
-
 let g:jumper = 1
 "}}}
 
@@ -71,7 +70,7 @@ endfunction
 command! JumpCurrentDir call <SID>JumpCurrentDir()
 command! JumpParentDir call <SID>JumpParentDir()
 command! JumpGitDir call <SID>JumpGitDir()
-
+" ---
 nnoremap <silent><CR> :JumpCurrentDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <leader><Backspace> :JumpGitDir<CR>

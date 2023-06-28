@@ -14,7 +14,6 @@
 if exists("g:writer")
     finish
 endif
-
 let g:writer = 1
 "}}}
 
@@ -109,7 +108,7 @@ augroup end
 command! NoteVI call <SID>NoteVI()
 command! ScratchBuffer call <SID>ScratchBuffer()
 command! ToggleAccent call <SID>ToggleAccent()
-
+" ---
 nnoremap <localleader>\ :ScratchBuffer<CR>
 nnoremap <silent>' :ToggleAccent<CR>
 "}}}

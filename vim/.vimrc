@@ -9,15 +9,15 @@
 
 
 
-" Some checks {{{
+" Checks {{{
 if exists('+termguicolors')
     set termguicolors
 endif
-
+" ---
 if has('linebreak')
     let &showbreak='⤷ '
 endif
-
+" ---
 if has('persistent_undo')
     if !isdirectory(expand('~/.vim/undodir'))
         execute "!mkdir ~/.vim/undodir &>/dev/null"
@@ -40,7 +40,7 @@ colorscheme hembox
 
 
 
-" Set mainstuff {{{
+" Set options {{{
 set exrc
 set title
 set shell=bash
@@ -77,12 +77,7 @@ set laststatus=2
 set showtabline=1
 set nocompatible
 set esckeys
-" }}}
-
-
-
-
-" Set completion {{{
+" ---
 set path+=**
 set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone,longest,noinsert,noselect
@@ -101,7 +96,7 @@ set belloff+=ctrlg
 
 
 
-" Variables to load early {{{
+" Global variables {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = "\\"
 if has('python3')
@@ -176,14 +171,14 @@ augroup end
 
 
 
-" Simple commands {{{
+" Commands {{{
 command! ToggleBackground
             \ if &background ==# 'light'|
             \     set background=dark|
             \ else|
             \     set background=light|
             \ endif
-
+" ---
 command! ToggleWordwrap
             \ if &wrap|
             \     setlocal nowrap|
@@ -194,18 +189,18 @@ command! ToggleWordwrap
             \     nmap <buffer> j gj|
             \     nmap <buffer> k gk|
             \ endif
-
+" ---
 command! ToggleVirtualedit
             \ if &virtualedit ==# 'all'|
             \     setlocal virtualedit=|
             \ else|
             \     setlocal virtualedit=all|
             \ endif
-
+" ---
 command! IndentAll
             \ exe 'setl ts=4 sts=0 et sw=4 sta'|
             \ exe "norm gg=G"
-
+" ---
 command! RemoveSpaces :%s/\s\+$//e
 command! ClearLastSearch :let @/=""
 " }}}
@@ -225,27 +220,28 @@ command! Pasta execute 'normal "+p'
 " Keymaps {{{
 nnoremap <silent>^ :ToggleBackground<CR>
 nnoremap <silent>_ :ToggleWordwrap<CR>
-xnoremap <silent>K :move '<-2<CR>gv=gv
+nnoremap <leader>\ :execute "normal \ggVG"<CR>
+xnoremap <leader>\ :s///gc<Left><Left><Left>
+" ---
+nnoremap <silent>Y y$
+vnoremap <silent>H <gv
+vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
-vnoremap <silent><Tab> >gv
-vnoremap <silent><S-Tab> <gv
+xnoremap <silent>K :move '<-2<CR>gv=gv
+" ---
+tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
-nnoremap <silent><C-n> :bnext<CR>
-nnoremap <silent><C-p> :bprev<CR>
-nnoremap <silent><Tab> :buffer#<CR>
-tnoremap <silent><C-i> <C-\><C-n>
 nnoremap <silent><C-j> }
-nnoremap <silent><C-k> {
 vnoremap <silent><C-j> }
+nnoremap <silent><C-k> {
 vnoremap <silent><C-k> {
-nnoremap <silent>Y y$
-nnoremap <leader>w <C-w>
-nnoremap <leader>a :execute "normal \ggVG"<CR>
-xnoremap <leader>s :s///gc<Left><Left><Left>
-vnoremap <leader>e :!<Space>
+" ---
 nnoremap <leader><Space> :edit ./<Right>
+vnoremap <leader><Space> :!<Space>
 nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
+nnoremap <silent><Tab> :buffer#<CR>
+" ---
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt

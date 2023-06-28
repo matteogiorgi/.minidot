@@ -37,22 +37,22 @@ let s:middleDarkGrey   = { "gui": "#777777", "cterm": "241" }
 let s:middleLightGrey  = { "gui": "#999999", "cterm": "246" }
 let s:lightGrey        = { "gui": "#BBBBBB", "cterm": "249" }
 let s:darkGrey         = { "gui": "#444444", "cterm": "238" }
-
+" ---
 let s:darkPink         = { "gui": "#63001C", "cterm": "88"  }
 let s:middleDarkPink   = { "gui": "#FF0055", "cterm": "197" }
 let s:middleLightPink  = { "gui": "#D65E76", "cterm": "167" }
 let s:lightPink        = { "gui": "#FFAFAF", "cterm": "217" }
-
+" ---
 let s:darkBlue         = { "gui": "#005F87", "cterm": "24"  }
 let s:middleDarkBlue   = { "gui": "#538192", "cterm": "24"  }
 let s:middleLightBlue  = { "gui": "#9FD3E6", "cterm": "116" }
 let s:lightBlue        = { "gui": "#CBE4EE", "cterm": "195" }
-
+" ---
 let s:darkGreen        = { "gui": "#5F5F00", "cterm": "58"  }
 let s:middleDarkGreen  = { "gui": "#739200", "cterm": "64"  }
 let s:middleLightGreen = { "gui": "#B1D631", "cterm": "149" }
 let s:lightGreen       = { "gui": "#BBFFAA", "cterm": "157" }
-
+" ---
 let s:darkTan          = { "gui": "#503D15", "cterm": "52"  }
 let s:lightTan         = { "gui": "#ECE1C8", "cterm": "230" }
 
@@ -166,7 +166,7 @@ call s:h("DiffText",     { "bg": s:faintRed, "gui": "bold", "cterm": "bold" })
 call s:h("User1",        { "fg": s:bg, "bg": s:normGreen })
 call s:h("User2",        { "fg": s:bg, "bg": s:normRed })
 call s:h("User3",        { "fg": s:bg, "bg": s:normBlue })
-
+" ---
 hi! link WildMenu     IncSearch
 hi! link FoldColumn   SignColumn
 hi! link WarningMsg   ErrorMsg
@@ -191,7 +191,7 @@ call s:h("Keyword",    { "fg": s:accent2, "gui": "bold", "cterm": "bold" })
 call s:h("Todo",       { "fg": s:normRed, "gui": "bold", "cterm": "bold" })
 call s:h("Conceal",    { "fg": s:normRed, "gui": "bold", "cterm": "bold" })
 call s:h("Function",   { "gui": "bold", "cterm": "bold" })
-
+" ---
 hi! link Identifier  Function
 hi! link Statement   Type
 hi! link Constant    Directory
