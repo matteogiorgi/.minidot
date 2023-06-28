@@ -10,14 +10,16 @@ if [[ ! -x "$(command -v "vim")" ]]; then
     exit 1
 fi
 
+# create ~/.vim/pack/plugins/start if it doesn't exist
+# (to store our plugins) and jump into it
 [[ -d ~/.vim/pack/plugins/start ]] || mkdir -p ~/.vim/pack/plugins/start
 cd ~/.vim/pack/plugins/start
 
 
 
 
-### Plugin install/update
-#########################
+### Vim 8 plugins
+#################
 
 if [[ ! -d fugitive ]]; then
     printf "INSTALLING FUGITIVE\n"
@@ -95,6 +97,8 @@ else
     cd - &>/dev/null
 fi
 
+# no arguments have been prompted
+# we're done here, enjoy vimming around
 if [[ ! -n "$1" ]]; then
     printf "\n"
     printf "Enjoy your Vim-Plugged life!\n"
@@ -104,15 +108,19 @@ fi
 
 
 
-### Copilot install (Ubuntu only)
-#################################
+### Vim 9 plugins (Ubuntu only)
+###############################
 
-if [[ "$1" != "copilot" ]]; then
+# if the argumnet are wrong,
+# we cannot go no further
+if [[ "$1" != "vim9" ]]; then
     printf "\n"
     printf "%s is not a valid option\n" "$1"
     exit 1
 fi
 
+# if Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
+# if it is not the case we cannot go no further and you have to manually install Vim 9
 if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
     if [[ $(uname -a) =~ "Ubuntu" ]]; then
         printf "\n"
@@ -128,6 +136,17 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
 fi
 
 printf "\n"
+if [[ ! -d minifuzzy ]]; then
+    printf "INSTALLING MINIFUZZY\n"
+    git clone https://github.com/hahdookin/minifuzzy.vim
+else
+    printf "UPDATING MINIFUZZY\n"
+    cd minifuzzy
+    git pull
+    cd - &>/dev/null
+fi
+
+printf "\n"
 if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
     [[ -x "$(command -v "node")" ]] || sudo apt install -qq -y nodejs
@@ -139,12 +158,17 @@ else
     cd - &>/dev/null
 fi
 
+# if you already have the rsplug.vim file
+# (used to configure the pugins we yust installed),
+# we're done here, enjoy vimming around
 if [[ -e "rsplug/plugin/rsplug.vim" ]]; then
     printf "\n"
     printf "Enjoy your Vim-Plugged life!\n"
     exit 1
 fi
 
+# write a simple config-file
+# (mappings and other little things)
 mkdir -p rsplug/plugin
 cat 2>/dev/null > rsplug/plugin/rsplug.vim <<-EOF
 " COPILOT CONFIG

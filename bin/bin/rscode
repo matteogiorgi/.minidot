@@ -17,6 +17,8 @@ else
     FOLDER="Code"
 fi
 
+# after we decide if we wanto to reset code or
+# code-insiders, let's check if it's installed
 if [[ ! -x "$(command -v "$CODE")" ]]; then
     printf "%s is not installed\n" "$CODE"
     exit 1
@@ -25,8 +27,8 @@ fi
 
 
 
-### Remove extensions
-#####################
+### Remove installed extensions
+###############################
 
 LIST=$("$CODE" --list-extensions)
 for EXTENSION in $LIST; do
@@ -45,6 +47,8 @@ printf "INSTALLING VSCODE-VIM\n"
 printf "INSTALLING MONOKAI-PRO\n"
 "$CODE" --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
+# (over)write our personal config-file
+# (~/.config/Code/User/settings.json)
 printf "SETTING UP OPTIONS\n"
 cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
 {
@@ -172,6 +176,8 @@ cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
 }
 EOF
 
+# (over)write our personal kaymaps-file
+# (~/.config/Code/User/keybindings.json)
 printf "SETTING UP KEYMAPS\n"
 cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
 [
