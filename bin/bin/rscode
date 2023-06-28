@@ -112,20 +112,12 @@ cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
     "vim.insertModeKeyBindings": [],
     "vim.visualModeKeyBindings": [
         {
-            "before": ["<C-j>"],
-            "after": ["}"]
-        },
-        {
-            "before": ["<C-k>"],
-            "after": ["{"]
-        },
-        {
-            "before": ["<Tab>"],
-            "commands": ["editor.action.indentLines"]
-        },
-        {
-            "before": ["<S-Tab>"],
+            "before": ["H"],
             "commands": ["editor.action.outdentLines"]
+        },
+        {
+            "before": ["L"],
+            "commands": ["editor.action.indentLines"]
         },
         {
             "before": ["J"],
@@ -136,12 +128,6 @@ cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
             "commands": ["editor.action.moveLinesUpAction"]
         },
         {
-            "before": ["<leader>", "<leader>"],
-            "commands": ["editor.action.commentLine"]
-        },
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
             "before": ["<C-j>"],
             "after": ["}"]
         },
@@ -150,12 +136,14 @@ cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
             "after": ["{"]
         },
         {
+            "before": ["<leader>", "<leader>"],
+            "commands": ["editor.action.commentLine"]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
             "before": ["Y"],
             "after": ["y", "$"]
-        },
-        {
-            "before": ["<leader>","w"],
-            "after": ["<C-w>"]
         },
         {
             "before": ["u"],
@@ -166,6 +154,14 @@ cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
             "before": ["C-r"],
             "commands": ["redo"],
             "silent": true
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["}"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["{"]
         },
         {
             "before": ["<leader>", "<leader>"],
