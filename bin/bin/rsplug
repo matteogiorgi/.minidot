@@ -105,6 +105,9 @@ cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
 " ALE
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
+" ---
+nmap <leader>j :ALENext<CR>
+nmap <leader>k :ALEPrevious<CR>
 EOF
 
 # no arguments have been prompted

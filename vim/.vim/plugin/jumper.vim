@@ -15,6 +15,7 @@
 if exists("g:jumper")
     finish
 endif
+" ---
 let g:jumper = 1
 "}}}
 

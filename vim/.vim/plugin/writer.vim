@@ -14,6 +14,7 @@
 if exists("g:writer")
     finish
 endif
+" ---
 let g:writer = 1
 "}}}
 
