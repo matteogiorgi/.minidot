@@ -136,23 +136,12 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
 fi
 
 printf "\n"
-if [[ ! -d miniterm ]]; then
-    printf "INSTALLING MINITERM\n"
-    git clone https://github.com/hahdookin/miniterm.vim
-else
-    printf "UPDATING MINITERM\n"
-    cd miniterm
-    git pull
-    cd - &>/dev/null
-fi
-
-printf "\n"
-if [[ ! -d minifuzzy ]]; then
-    printf "INSTALLING MINIFUZZY\n"
+if [[ ! -d fuzzyy ]]; then
+    printf "INSTALLING FUZZYY\n"
     git clone https://github.com/hahdookin/minifuzzy.vim
 else
-    printf "UPDATING MINIFUZZY\n"
-    cd minifuzzy
+    printf "UPDATING FUZZYY\n"
+    cd fuzzyy
     git pull
     cd - &>/dev/null
 fi
@@ -182,6 +171,19 @@ fi
 # (mappings and other little things)
 mkdir -p rsplug/plugin
 cat 2>/dev/null > rsplug/plugin/rsplug.vim <<-EOF
+" FUZZYY CONFIG
+let g:enable_fuzzyy_keymaps = 0
+let g:files_respect_gitignore = 1
+let g:fuzzyy_keymaps = {
+        \      'menu_up': ["\<C-k>", "\<Up>"],
+        \      'menu_down': ["\<C-j>", "\<Down>"],
+        \      'menu_select': ["\<CR>"],
+        \      'preview_up': ["\<C-u>"],
+        \      'preview_down': ["\<C-d>"],
+        \      'exit': ["\<Esc>", "\<C-c>"],
+        \ }
+
+
 " COPILOT CONFIG
 let g:copilot_enabled = v:false
 imap <silent><C-H> <Plug>(copilot-dismiss)
