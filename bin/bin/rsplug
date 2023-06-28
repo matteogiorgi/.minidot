@@ -138,7 +138,7 @@ fi
 printf "\n"
 if [[ ! -d minifuzzy ]]; then
     printf "INSTALLING MINIFUZZY\n"
-    git clone https://github.com/hahdookin/minifuzzy.vim
+    git clone https://github.com/hahdookin/minifuzzy.vim minifuzzy
 else
     printf "UPDATING MINIFUZZY\n"
     cd minifuzzy
