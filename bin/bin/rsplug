@@ -97,9 +97,10 @@ else
     cd - &>/dev/null
 fi
 
-# (over)write a simple config-file for Vim 8 plugins:
+# (over)write a simple config-file for Vim8 plugins:
 # mappings and other little things
 [[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
+printf "\nWRITING VIM8-PLUGINS CONFIG. FILE\n"
 cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
 " ALE
 let g:ale_completion_enabled = 1
@@ -167,9 +168,10 @@ else
     cd - &>/dev/null
 fi
 
-# (over)write a simple config-file for Vim 9 plugins:
+# (over)write a simple config-file for Vim9 plugins:
 # mappings and other little things
 [[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
+printf "\nWRITING VIM9-PLUGINS CONFIG. FILE\n"
 cat 2>/dev/null > rsplug/plugin/rsplug9.vim <<-EOF
 " MINIFUZZY
 unmap <leader>ff

@@ -49,7 +49,7 @@ printf "INSTALLING MONOKAI-PRO\n"
 
 # (over)write our personal config-file
 # (~/.config/Code/User/settings.json)
-printf "SETTING UP OPTIONS\n"
+printf "WRITING OPTIONS CONFIG. FILE\n"
 cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
@@ -174,7 +174,7 @@ EOF
 
 # (over)write our personal kaymaps-file
 # (~/.config/Code/User/keybindings.json)
-printf "SETTING UP KEYMAPS\n"
+printf "WRITING KEYMAPS CONFIG. FILE\n"
 cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
 [
     {
