@@ -57,7 +57,7 @@ cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
     "telemetry.telemetryLevel": "off",
     "security.workspace.trust.enabled": false,
     "security.workspace.trust.emptyWindow": false,
-    "security.workspace.trust.banner": "never"
+    "security.workspace.trust.banner": "never",
     "security.workspace.trust.startupPrompt": "never",
     "window.restoreWindows": "none",
     "window.titleBarStyle": "native",
