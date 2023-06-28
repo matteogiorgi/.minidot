@@ -136,6 +136,17 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
 fi
 
 printf "\n"
+if [[ ! -d miniterm ]]; then
+    printf "INSTALLING MINITERM\n"
+    git clone https://github.com/hahdookin/miniterm.vim
+else
+    printf "UPDATING MINITERM\n"
+    cd miniterm
+    git pull
+    cd - &>/dev/null
+fi
+
+printf "\n"
 if [[ ! -d minifuzzy ]]; then
     printf "INSTALLING MINIFUZZY\n"
     git clone https://github.com/hahdookin/minifuzzy.vim
