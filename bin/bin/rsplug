@@ -172,8 +172,10 @@ fi
 mkdir -p rsplug/plugin
 cat 2>/dev/null > rsplug/plugin/rsplug.vim <<-EOF
 " GVIM CONFIG
-autocmd! GuiEnter * set background=light
-autocmd! GuiEnter * set colorscheme hemisu
+augroup guienter
+    autocmd!
+    autocmd GuiEnter * set background=light
+augroup end
 
 
 " MINIFUZZY
