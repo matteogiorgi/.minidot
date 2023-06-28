@@ -170,7 +170,7 @@ fi
 # (over)write a simple config-file for Vim 9 plugins:
 # mappings and other little things
 [[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
-cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
+cat 2>/dev/null > rsplug/plugin/rsplug9.vim <<-EOF
 " MINIFUZZY
 unmap <leader>ff
 unmap <leader>fb
