@@ -97,6 +97,15 @@ else
     cd - &>/dev/null
 fi
 
+# (over)write a simple config-file for Vim 8 plugins:
+# mappings and other little things
+[[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
+cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
+" ALE
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
+EOF
+
 # no arguments have been prompted
 # we're done here, enjoy vimming around
 if [[ ! -n "$1" ]]; then
@@ -158,26 +167,10 @@ else
     cd - &>/dev/null
 fi
 
-# if you already have the rsplug.vim file
-# (used to configure the pugins we yust installed),
-# we're done here, enjoy vimming around
-if [[ -e "rsplug/plugin/rsplug.vim" ]]; then
-    printf "\n"
-    printf "Enjoy your Vim-Plugged life!\n"
-    exit 1
-fi
-
-# write a simple config-file
-# (mappings and other little things)
-mkdir -p rsplug/plugin
-cat 2>/dev/null > rsplug/plugin/rsplug.vim <<-EOF
-" GVIM CONFIG
-augroup guienter
-    autocmd!
-    autocmd GuiEnter * set background=light
-augroup end
-
-
+# (over)write a simple config-file for Vim 9 plugins:
+# mappings and other little things
+[[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
+cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
 " MINIFUZZY
 unmap <leader>ff
 unmap <leader>fb
