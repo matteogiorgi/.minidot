@@ -234,6 +234,7 @@ nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-n> :bnext<CR>
 nnoremap <silent><C-p> :bprev<CR>
 nnoremap <silent><Tab> :buffer#<CR>
+tnoremap <silent><C-i> <C-\><C-n>
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 vnoremap <silent><C-j> }
