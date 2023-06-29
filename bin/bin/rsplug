@@ -106,8 +106,8 @@ cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
 " ---
-nmap <leader>j :ALENext<CR>
-nmap <leader>k :ALEPrevious<CR>
+nmap <silent><C-n> :ALENext<CR>
+nmap <silent><C-p> :ALEPrevious<CR>
 EOF
 
 # no arguments have been prompted
@@ -149,12 +149,12 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
 fi
 
 printf "\n"
-if [[ ! -d minifuzzy ]]; then
-    printf "INSTALLING MINIFUZZY\n"
-    git clone https://github.com/hahdookin/minifuzzy.vim minifuzzy
+if [[ ! -d fuzzyy ]]; then
+    printf "INSTALLING FUZZYY\n"
+    git clone https://github.com/Donaldttt/fuzzyy fuzzyy
 else
-    printf "UPDATING MINIFUZZY\n"
-    cd minifuzzy
+    printf "UPDATING FUZZYY\n"
+    cd fuzzyy
     git pull
     cd - &>/dev/null
 fi
@@ -180,18 +180,22 @@ cat 2>/dev/null > rsplug/plugin/rsplug9.vim <<-EOF
 set wildoptions=fuzzy,pum,tagfile
 
 
-" MINIFUZZY CONFIG
-unmap <leader>ff
-unmap <leader>fb
-unmap <leader>fm
-unmap <leader>fl
-unmap <leader>fg
-" ---
-nmap <leader>f :MinifuzzyFind<CR>
-nmap <leader>h :MinifuzzyMRU<CR>
-nmap <leader>l :MinifuzzyLines<CR>
-nmap <leader>g :MinifuzzyGitFiles<CR>
-nmap <leader><Tab> :MinifuzzyBuffers<CR>
+" FUZZYY CONFIG
+let g:enable_fuzzyy_keymaps = 0
+let g:files_respect_gitignore = 1
+let g:fuzzyy_keymaps = {
+            \      'menu_up': ["\<c-k>", "\<c-p>", "\<Up>"],
+            \      'menu_down': ["\<c-j>", "\<c-n>", "\<Down>"],
+            \      'menu_select': ["\<CR>"],
+            \      'preview_up': ["\<c-u>"],
+            \      'preview_down': ["\<c-d>"],
+            \      'exit': ["\<Esc>", "\<c-c>", "\<c-[>"],
+            \ }
+nnoremap <leader>h :FuzzyCommands<CR>
+nnoremap <leader>j :FuzzyFiles<CR>
+nnoremap <leader>k :FuzzyGrep<CR>
+nnoremap <leader>l :FuzzyInBuffer<CR>
+nnoremap <leader><Tab> :FuzzyBuffers<CR>
 
 
 " COPILOT CONFIG
