@@ -182,7 +182,6 @@ unmap <leader>fb
 unmap <leader>fm
 unmap <leader>fl
 unmap <leader>fg
-unmap <silent><C-p>
 " ---
 nmap <leader>f :MinifuzzyFind<CR>
 nmap <leader>h :MinifuzzyMRU<CR>
