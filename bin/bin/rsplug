@@ -177,7 +177,7 @@ fi
 printf "\nWRITING VIM9-PLUGINS CONFIG. FILE\n"
 cat 2>/dev/null > rsplug/plugin/rsplug9.vim <<-EOF
 " VIM9 CONFIG
-set wildoptions+=fuzzy
+set wildoptions+=fuzzy,pum,tagfile
 
 
 " MINIFUZZY CONFIG
