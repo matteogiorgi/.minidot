@@ -81,14 +81,14 @@ set esckeys
 set path+=**
 set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone,longest,noinsert,noselect
+set complete=.,w,b,u,t,i,kspell
 set complete+=k/usr/share/dict/american-english
 set complete+=k/usr/share/dict/italian
-set complete+=.,w,b,u,t,i,kspell
 set dictionary+=/usr/share/dict/american-english
 set dictionary+=/usr/share/dict/italian
 set wildmenu
 set wildchar=<Tab> wildmode=full
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set wildignore=*/.git/*,*/.hg/*,*/.svn/*
 set shortmess+=c
 set belloff+=ctrlg
 " }}}
