@@ -4,7 +4,7 @@
 ### Ready?
 ##########
 
-read -p "Resetting VSCode Vim-Syle (enter to continue)"
+read -p "Plugging VSCode Vim-Syle (enter to continue)"
 
 
 
@@ -13,6 +13,8 @@ read -p "Resetting VSCode Vim-Syle (enter to continue)"
 ####################
 
 if [[ -x "$(command -v code)" && -d ~/.config/Code/User ]]; then
+    printf "RESETTING VSCODE\n"
+    # ---
     LIST=$(code --list-extensions)
     for EXTENSION in $LIST; do
         code --uninstall-extension "$EXTENSION" &>/dev/null
@@ -23,11 +25,15 @@ if [[ -x "$(command -v code)" && -d ~/.config/Code/User ]]; then
     # ---
     cat ~/bin/resetters/settings.json > ~/.config/Code/User/settings.json
     cat ~/bin/resetters/keybindings.json > ~/.config/Code/User/keybindings.json
+else
+    printf "VSCODE WAS NOT FOUND\n"
 fi
  
 # ---
 
 if [[ -x "$(command -v code-insiders)" && -d ~/.config/Code\ -\ Insiders/User ]]; then
+    printf "RESETTING VSCODE-INSIDERS\n"
+    # ---
     LIST=$(code-insiders --list-extensions)
     for EXTENSION in $LIST; do
         code-insiders --uninstall-extension "$EXTENSION" &>/dev/null
@@ -38,6 +44,8 @@ if [[ -x "$(command -v code-insiders)" && -d ~/.config/Code\ -\ Insiders/User ]]
     # ---
     cat ~/bin/resetters/settings.json > ~/.config/Code\ -\ Insiders/User/settings.json
     cat ~/bin/resetters/keybindings.json > ~/.config/Code\ -\ Insiders/User/keybindings.json
+else
+    printf "VSCODE-INSIDERS WAS NOT FOUND\n"
 fi
 
 
