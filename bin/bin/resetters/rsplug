@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
 
-### Info
-########
+### Ready?
+##########
 
-read -p "Installing/updating your Vim plugins (enter to continue)"
+read -p "Resetting Vim plugins (enter to continue)"
 if [[ ! -x "$(command -v "vim")" ]]; then
     printf "vim is not installed\n"
     exit 1
 fi
+
+# ---
 
 # create ~/.vim/pack/plugins/start if it doesn't exist
 # (to store our plugins) and jump into it
@@ -97,6 +99,8 @@ else
     cd - &>/dev/null
 fi
 
+# ---
+
 # (over)write a simple config-file for Vim8 plugins:
 # mappings and other little things
 [[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
@@ -109,27 +113,11 @@ nmap <silent><C-n> :ALENext<CR>
 nmap <silent><C-p> :ALEPrevious<CR>
 EOF
 
-# no arguments have been prompted
-# we're done here, enjoy vimming around
-if [[ ! -n "$1" ]]; then
-    printf "\n"
-    printf "Enjoy your Vim-Plugged life!\n"
-    exit 1
-fi
-
 
 
 
 ### Vim 9 plugins (Ubuntu only)
 ###############################
-
-# if the argumnet are wrong,
-# we cannot go no further
-if [[ "$1" != "vim9" ]]; then
-    printf "\n"
-    printf "%s is not a valid option\n" "$1"
-    exit 1
-fi
 
 # if Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
 # if it is not the case we cannot go no further and you have to manually install Vim 9
@@ -142,10 +130,13 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
         sudo apt install -qq -y vim-gtk3
     else
         printf "\n"
-        printf "This is not Ubuntu, you have to manually install Vim 9!\n"
+        printf "=========== We're done here ===========\n"
+        printf "Enjoy your Vim-Plugged life with Vim 8!\n"
         exit 1
     fi
 fi
+
+# ---
 
 printf "\n"
 if [[ ! -d fuzzyy ]]; then
@@ -169,6 +160,8 @@ else
     git pull
     cd - &>/dev/null
 fi
+
+# ---
 
 # (over)write a simple config-file for Vim9 plugins:
 # mappings and other little things
@@ -211,4 +204,5 @@ EOF
 ###########
 
 printf "\n"
-printf "Enjoy your Vim-Plugged life!\n"
+printf "=========== We're done here ===========\n"
+printf "Enjoy your Vim-Plugged life with Vim 9!\n"

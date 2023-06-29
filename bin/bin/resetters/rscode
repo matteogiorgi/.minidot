@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+
+### Ready?
+##########
+
+read -p "Resetting VSCode Vim-Syle (enter to continue)"
+
+
+
+
+### Reset extensions
+####################
+
+if [[ -x "$(command -v code)" && -d ~/.config/Code/User ]]; then
+    LIST=$(code --list-extensions)
+    for EXTENSION in $LIST; do
+        code --uninstall-extension "$EXTENSION" &>/dev/null
+    done
+    # ---
+    code --install-extension vscodevim.vim &>/dev/null
+    code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    # ---
+    cat ~/bin/resetters/settings.json > ~/.config/Code/User/settings.json
+    cat ~/bin/resetters/keybindings.json > ~/.config/Code/User/keybindings.json
+fi
+ 
+# ---
+
+if [[ -x "$(command -v code-insiders)" && -d ~/.config/Code\ -\ Insiders/User ]]; then
+    LIST=$(code-insiders --list-extensions)
+    for EXTENSION in $LIST; do
+        code-insiders --uninstall-extension "$EXTENSION" &>/dev/null
+    done
+    # ---
+    code-insiders --install-extension vscodevim.vim &>/dev/null
+    code-insiders --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    # ---
+    cat ~/bin/resetters/settings.json > ~/.config/Code\ -\ Insiders/User/settings.json
+    cat ~/bin/resetters/keybindings.json > ~/.config/Code\ -\ Insiders/User/keybindings.json
+fi
+
+
+
+
+### Bye bye
+###########
+
+printf "\n"
+printf "=========== We're done here ===========\n"
+printf "Enjoy your Vim-Styled life with VSCode!\n"

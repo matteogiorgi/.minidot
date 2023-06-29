@@ -1,0 +1,43 @@
+#!/bin/sh
+
+
+### Info
+########
+
+read -r host < /proc/sys/kernel/hostname
+read -r version < /proc/sys/kernel/osrelease
+# ---
+os=$(. /etc/os-release; echo $NAME)  # ${PRETTY_NAME}
+kernel=${version%%-*}
+packages=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
+
+
+
+
+### Define colors
+#################
+
+# color palette method stolen from pftech
+# (https://github.com/dylanaraps/pfetch)
+c0='[0m';
+c1='[31m'; c2='[32m'
+c3='[33m'; c4='[34m'
+c5='[35m'; c6='[36m'
+c7='[37m'; c8='[38m'
+palette="[7m$c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 $c7 $c7 $c8 $c8 [m"
+
+
+
+
+### Output
+##########
+
+printf '%s\n' "${c5}       .-.      ${USER}${c0}@${c5}${host}"
+printf '%s\n' "${c5}    __/   (     ${c6}os${c0}        ${os}"
+printf '%s\n' "${c5}  , '-.____\\    ${c6}kernel${c0}    ${kernel}"
+printf '%s\n' "${c5}   u=='/  \\     ${c6}packages${c0}  ${packages}"
+printf '%s\n' "${c5}      /_/  \\    ${c6}uptime${c0}    ${uptime}"
+printf '%s\n' "${c5}    .-''   |    ${c6}shell${c0}     ${SHELL##*/}"
+printf '%s\n' "${c5}   (  ${c6}____${c5}/${c6}__   ${palette}"
+printf "\n"

@@ -4,11 +4,12 @@
 ### Info
 ########
 
-# user is already defined
+# user already defined
+# (kernel="$(uname -sr)")
 host="$(hostname)"
-os='GNU/Linux'	# I'd just like to interject for a moment...
+os='GNU/Linux'
 read -r _ _ version _ < /proc/version
-kernel=${version%%-*}  # "$(uname -sr)"
+kernel=${version%%-*}
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 packages=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
 shell="$(basename "${SHELL}")"
@@ -26,7 +27,11 @@ parse_rcs() {
 	done
 }
 
+# ---
+
 rcwm="$(parse_rcs "${HOME}/.xinitrc" "${HOME}/.xsession")"
+
+# ---
 
 ui='unknown'
 uitype='ui'
@@ -49,6 +54,8 @@ elif [ -n "${XDG_SESSION_TYPE}" ]; then
 	ui="${XDG_SESSION_TYPE}"
 fi
 
+# ---
+
 ui="$(basename "${ui}")"
 
 
@@ -57,7 +64,8 @@ ui="$(basename "${ui}")"
 ### Define colors
 #################
 
-# probably don't change these
+# probably it is not convenient
+# to change the following lines
 if [ -x "$(command -v tput)" ]; then
 	bold="$(tput bold)"
 	black="$(tput setaf 0)"
@@ -71,7 +79,10 @@ if [ -x "$(command -v tput)" ]; then
 	reset="$(tput sgr0)"
 fi
 
-# you can change these
+# ---
+
+# you might want to change
+# the following lines instead
 lc="${reset}${bold}${cyan}"     # labels
 nc="${reset}${bold}${magenta}"  # user@hostname
 ic="${reset}"                   # info
@@ -86,12 +97,12 @@ c2="${reset}${red}"             # third color
 ##########
 
 cat <<EOF
-${c0}      ___     ${nc}${USER}@${host}${reset}
-${c0}     (${c1}.. ${c0}\    ${lc}os        ${ic}${os}${reset}
-${c0}     (${c2}<> ${c0}|    ${lc}kernel    ${ic}${kernel}${reset}
-${c0}    /${c1}/  \\ ${c0}\\   ${lc}uptime    ${ic}${uptime}${reset}
-${c0}   ( ${c1}|  | ${c0}/|  ${lc}packages  ${ic}${packages}${reset}
-${c2}  _${c0}/\\ ${c1}__)${c0}/${c2}_${c0})  ${lc}shell     ${ic}${shell}${reset}
-${c2}  \/${c0}-____${c2}\/${reset}   ${lc}${uitype}        ${ic}${ui}${reset}
+${c0}      ___       ${nc}${USER}@${host}${reset}
+${c0}     (${c1}.. ${c0}\      ${lc}os        ${ic}${os}${reset}
+${c0}     (${c2}<> ${c0}|      ${lc}kernel    ${ic}${kernel}${reset}
+${c0}    /${c1}/  \\ ${c0}\\     ${lc}uptime    ${ic}${uptime}${reset}
+${c0}   ( ${c1}|  | ${c0}/|    ${lc}packages  ${ic}${packages}${reset}
+${c2}  _${c0}/\\ ${c1}__)${c0}/${c2}_${c0})    ${lc}shell     ${ic}${shell}${reset}
+${c2}  \/${c0}-____${c2}\/${reset}     ${lc}${uitype}        ${ic}${ui}${reset}
 
 EOF

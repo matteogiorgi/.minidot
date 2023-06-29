@@ -1,0 +1,59 @@
+#!/bin/bash
+
+
+### Info
+########
+
+read -r host < /proc/sys/kernel/hostname
+read -r version < /proc/sys/kernel/osrelease
+# ---
+iam=$(whoami)
+os=$(source /etc/os-release; echo $NAME)
+kernel=${version%%-*}
+host=$(< /etc/hostname)
+sh=$(basename $SHELL)
+
+
+
+
+### Define colors
+#################
+
+# probably it is not convenient
+# to change the following lines
+if [ -x "$(command -v tput)" ]; then
+	bold="$(tput bold)"
+	black="$(tput setaf 0)"
+	red="$(tput setaf 1)"
+	green="$(tput setaf 2)"
+	yellow="$(tput setaf 3)"
+	blue="$(tput setaf 4)"
+	magenta="$(tput setaf 5)"
+	cyan="$(tput setaf 6)"
+	white="$(tput setaf 7)"
+	reset="$(tput sgr0)"
+fi
+
+# ---
+
+# you might want to change
+# the following lines instead
+lc="${reset}${bold}${cyan}"     # labels
+nc="${reset}${bold}${magenta}"  # user, host
+ey="${reset}${bold}${white}"    # eyes, @
+ic="${reset}"                   # info
+c0="${reset}${yellow}"          # color-1
+c1="${reset}${white}"           # color-2
+c2="${reset}${red}"             # color-3
+
+
+
+
+### Output
+##########
+
+printf '%s\n' "${c0}    .-.     ${nc}${iam}${ey}@${nc}${host}"
+printf '%s\n' "${c0}    ${ey}oo${c0}|     ${lc}OS${ic}      ${os}"
+printf '%s\n' "${c0}   /  \     ${lc}Kernel${ic}  ${kernel}"
+printf '%s\n' "${c0}  (\__/)    ${lc}Shell${ic}   ${sh}"
+printf "\n"
