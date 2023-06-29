@@ -102,7 +102,7 @@ fi
 [[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
 printf "\nWRITING VIM8-PLUGINS CONFIG. FILE\n"
 cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
-" ALE
+" ALE CONFIG
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
 " ---
@@ -176,7 +176,11 @@ fi
 [[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
 printf "\nWRITING VIM9-PLUGINS CONFIG. FILE\n"
 cat 2>/dev/null > rsplug/plugin/rsplug9.vim <<-EOF
-" MINIFUZZY
+" VIM9 CONFIG
+set wildoptions+=fuzzy
+
+
+" MINIFUZZY CONFIG
 unmap <leader>ff
 unmap <leader>fb
 unmap <leader>fm
