@@ -167,6 +167,10 @@ cat 2>/dev/null > "${HOME}"/.config/"${FOLDER}"/User/settings.json <<-EOF
             "after": ["{"]
         },
         {
+            "before": ["<leader>","w"],
+            "after": ["<C-w>"]
+        },
+        {
             "before": ["<leader>", "<leader>"],
             "commands": ["editor.action.commentLine"],
             "silent": true

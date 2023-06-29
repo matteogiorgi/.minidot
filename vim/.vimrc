@@ -218,6 +218,7 @@ command! Pasta execute 'normal "+p'
 
 
 " Keymaps {{{
+nnoremap <leader>w <C-w>
 nnoremap <silent>^ :ToggleBackground<CR>
 nnoremap <silent>_ :ToggleWordwrap<CR>
 nnoremap <leader>\ :execute "normal \ggVG"<CR>
