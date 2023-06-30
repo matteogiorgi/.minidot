@@ -218,7 +218,6 @@ command! Pasta execute 'normal "+p'
 
 
 " Keymaps {{{
-nnoremap <leader>w <C-w>
 nnoremap <silent>^ :ToggleBackground<CR>
 nnoremap <silent>_ :ToggleWordwrap<CR>
 nnoremap <leader>\ :execute "normal \ggVG"<CR>
@@ -230,7 +229,6 @@ vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
-tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-j> }

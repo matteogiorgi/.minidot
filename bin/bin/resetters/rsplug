@@ -128,7 +128,8 @@ set omnifunc=ale#completion#OmniFunc
 " ---
 nnoremap <silent><C-n> :ALENext<CR>
 nnoremap <silent><C-p> :ALEPrevious<CR>
-nnoremap <leader>g :ALEGoToDefinition<CR>
+nnoremap <leader>fj :ALEGoToDefinition<CR>
+nnoremap <leader>fk :ALEGoToImplementation<CR>
 EOF
 
 
@@ -202,10 +203,10 @@ let g:fuzzyy_keymaps = {
             \      'preview_down': ["\<c-d>"],
             \      'exit': ["\<Esc>", "\<c-c>", "\<c-[>"],
             \ }
-nnoremap <leader>h :FuzzyCommands<CR>
-nnoremap <leader>j :FuzzyFiles<CR>
-nnoremap <leader>k :FuzzyGrep<CR>
-nnoremap <leader>l :FuzzyInBuffer<CR>
+nnoremap <leader>ff :FuzzyFiles<CR>
+nnoremap <leader>fg :FuzzyGrep<CR>
+nnoremap <leader>fh :FuzzyCommands<CR>
+nnoremap <leader>fl :FuzzyInBuffer<CR>
 nnoremap <leader><Tab> :FuzzyBuffers<CR>
 
 

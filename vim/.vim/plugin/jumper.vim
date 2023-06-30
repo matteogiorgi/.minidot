@@ -6,7 +6,7 @@
 "                       |_|
 "
 " Simple utility plugin containings functions
-" that quickly jump directories within Vim.
+" that quickly jump directories & windows within Vim.
 
 
 
@@ -65,6 +65,23 @@ endfunction
 "}}}
 
 
+" Jump neighbor window {{{
+function! s:JumpWindow(key)
+    let t:curwin = winnr()
+    exec 'wincmd '.a:key
+    if t:curwin ==? winnr()
+        if match(a:key,'[jk]')
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec 'wincmd '.a:key
+    endif
+    return bufname('%')
+endfunction
+"}}}
+
+
 
 
 " Commands & Keymaps {{{
@@ -75,4 +92,12 @@ command! JumpGitDir call <SID>JumpGitDir()
 nnoremap <silent><CR> :JumpCurrentDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <leader><Backspace> :JumpGitDir<CR>
+" ---
+tnoremap <silent><C-q> <C-\><C-n>
+nnoremap <leader>w <C-w>
+" ---
+nnoremap <leader>wh :call <SID>JumpWindow("h")<CR>
+nnoremap <leader>wj :call <SID>JumpWindow("j")<CR>
+nnoremap <leader>wk :call <SID>JumpWindow("k")<CR>
+nnoremap <leader>wl :call <SID>JumpWindow("l")<CR>
 "}}}
