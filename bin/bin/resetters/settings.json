@@ -31,7 +31,7 @@
     "editor.stickyScroll.enabled": true,
     "debug.terminal.clearBeforeReusing": true,
     "terminal.explorerKind": "external",
-    "terminal.external.linuxExec": "lxterm",
+    "terminal.external.linuxExec": "x-terminal-emulator",
     "terminal.integrated.fontFamily": "'Fira Code', 'monospace'",
     "terminal.integrated.fontSize": 11.5,
     "terminal.integrated.lineHeight": 1,
