@@ -5,8 +5,13 @@
 ##########
 
 read -p "Resetting Vim plugins (enter to continue)"
+
+# ---
+
 if [[ ! -x "$(command -v "vim")" ]]; then
-    printf "vim is not installed\n"
+    printf "\n"
+    printf "==================== Warning! ====================\n"
+    printf "Vim is not installed: no operations were executed.\n"
     exit 1
 fi
 
@@ -33,6 +38,8 @@ else
     cd - &>/dev/null
 fi
 
+# ---
+
 printf "\n"
 if [[ ! -d commentary ]]; then
     printf "INSTALLING COMMENTARY\n"
@@ -43,6 +50,8 @@ else
     git pull
     cd - &>/dev/null
 fi
+
+# ---
 
 printf "\n"
 if [[ ! -d surround ]]; then
@@ -55,6 +64,8 @@ else
     cd - &>/dev/null
 fi
 
+# ---
+
 printf "\n"
 if [[ ! -d repeat ]]; then
     printf "INSTALLING REPEAT\n"
@@ -65,6 +76,8 @@ else
     git pull
     cd - &>/dev/null
 fi
+
+# ---
 
 printf "\n"
 if [[ ! -d context ]]; then
@@ -77,6 +90,8 @@ else
     cd - &>/dev/null
 fi
 
+# ---
+
 printf "\n"
 if [[ ! -d autopairs ]]; then
     printf "INSTALLING AUTOPAIRS\n"
@@ -87,6 +102,8 @@ else
     git pull
     cd - &>/dev/null
 fi
+
+# ---
 
 printf "\n"
 if [[ ! -d ale ]]; then
@@ -132,7 +149,7 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
         printf "\n"
         printf "=========== We're done here ===========\n"
         printf "Enjoy your Vim-Plugged life with Vim 8!\n"
-        exit 1
+        exit 0
     fi
 fi
 
@@ -148,6 +165,8 @@ else
     git pull
     cd - &>/dev/null
 fi
+
+# ---
 
 printf "\n"
 if [[ ! -d copilot ]]; then

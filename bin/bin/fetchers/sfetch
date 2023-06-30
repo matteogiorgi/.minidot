@@ -4,14 +4,11 @@
 ### Info
 ########
 
-read -r host < /proc/sys/kernel/hostname
-read -r version < /proc/sys/kernel/osrelease
-# ---
 iam=$(whoami)
-os=$(source /etc/os-release; echo $NAME)
-kernel=${version%%-*}
-host=$(< /etc/hostname)
-sh=$(basename $SHELL)
+host=$(cat /proc/sys/kernel/hostname)
+os=$(. /etc/os-release; echo $NAME)
+kernel=$(awk -F- '{print $1}' /proc/sys/kernel/osrelease)
+shell=$(basename $SHELL)
 
 
 
@@ -19,32 +16,19 @@ sh=$(basename $SHELL)
 ### Define colors
 #################
 
-# probably it is not convenient
-# to change the following lines
-if [ -x "$(command -v tput)" ]; then
-	bold="$(tput bold)"
-	black="$(tput setaf 0)"
-	red="$(tput setaf 1)"
-	green="$(tput setaf 2)"
-	yellow="$(tput setaf 3)"
-	blue="$(tput setaf 4)"
-	magenta="$(tput setaf 5)"
-	cyan="$(tput setaf 6)"
-	white="$(tput setaf 7)"
-	reset="$(tput sgr0)"
-fi
-
+# color palette
+# (normal; bold)
+c0='[0m'
 # ---
-
-# you might want to change
-# the following lines instead
-lc="${reset}${bold}${cyan}"     # labels
-nc="${reset}${bold}${magenta}"  # user, host
-ey="${reset}${bold}${white}"    # eyes, @
-ic="${reset}"                   # info
-c0="${reset}${yellow}"          # color-1
-c1="${reset}${white}"           # color-2
-c2="${reset}${red}"             # color-3
+c1='[30m'; c1b='[1;30m'  # black
+c1='[31m'; c1b='[1;31m'  # red
+c2='[32m'; c2b='[1;32m'  # green
+c3='[33m'; c3b='[1;33m'  # yellow
+c4='[34m'; c4b='[1;34m'  # blue
+c5='[35m'; c5b='[1;35m'  # magenta
+c6='[36m'; c6b='[1;36m'  # cyan
+c7='[37m'; c7b='[1;37m'  # white
+c8='[38m'; c8b='[1;38m'  # default
 
 
 
@@ -52,8 +36,8 @@ c2="${reset}${red}"             # color-3
 ### Output
 ##########
 
-printf '%s\n' "${c0}    .-.     ${nc}${iam}${ey}@${nc}${host}"
-printf '%s\n' "${c0}    ${ey}oo${c0}|     ${lc}OS${ic}      ${os}"
-printf '%s\n' "${c0}   /  \     ${lc}Kernel${ic}  ${kernel}"
-printf '%s\n' "${c0}  (\__/)    ${lc}Shell${ic}   ${sh}"
+printf '%s\n' "${c5b}    .-.     ${c4b}${iam}${c7b}@${c4b}${host}"
+printf '%s\n' "${c5b}    ${c7b}oo${c5b}|     ${c6b}OS${c0}      ${os}"
+printf '%s\n' "${c5b}   /  \     ${c6b}Kernel${c0}  ${kernel}"
+printf '%s\n' "${c5b}  (\__/)    ${c6b}Shell${c0}   ${shell}"
 printf "\n"

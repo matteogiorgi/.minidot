@@ -4,7 +4,7 @@
 ### Ready?
 ##########
 
-read -p "Plugging VSCode Vim-Syle (enter to continue)"
+read -p "Resetting VSCode Vim-Syle (enter to continue)"
 
 
 
@@ -12,40 +12,42 @@ read -p "Plugging VSCode Vim-Syle (enter to continue)"
 ### Reset extensions
 ####################
 
-if [[ -x "$(command -v code)" && -d ~/.config/Code/User ]]; then
-    printf "RESETTING VSCODE\n"
-    # ---
-    LIST=$(code --list-extensions)
-    for EXTENSION in $LIST; do
-        code --uninstall-extension "$EXTENSION" &>/dev/null
-    done
-    # ---
-    code --install-extension vscodevim.vim &>/dev/null
-    code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    # ---
-    cat ~/bin/resetters/settings.json > ~/.config/Code/User/settings.json
-    cat ~/bin/resetters/keybindings.json > ~/.config/Code/User/keybindings.json
-else
-    printf "VSCODE WAS NOT FOUND\n"
+if [[ $# -eq 0 || $1 == "--code" ]]; then
+    if [[ -x "$(command -v code)" && -d ~/.config/Code/User ]]; then
+        printf "RESETTING CODE\n"
+        OPERATION="resetting code"
+        # ---
+        LIST=$(code --list-extensions)
+        for EXTENSION in $LIST; do
+            code --uninstall-extension "$EXTENSION" &>/dev/null
+        done
+        # ---
+        code --install-extension vscodevim.vim &>/dev/null
+        code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+        # ---
+        cat ~/bin/resetters/settings.json > ~/.config/Code/User/settings.json
+        cat ~/bin/resetters/keybindings.json > ~/.config/Code/User/keybindings.json
+    fi
 fi
- 
+
 # ---
 
-if [[ -x "$(command -v code-insiders)" && -d ~/.config/Code\ -\ Insiders/User ]]; then
-    printf "RESETTING VSCODE-INSIDERS\n"
-    # ---
-    LIST=$(code-insiders --list-extensions)
-    for EXTENSION in $LIST; do
-        code-insiders --uninstall-extension "$EXTENSION" &>/dev/null
-    done
-    # ---
-    code-insiders --install-extension vscodevim.vim &>/dev/null
-    code-insiders --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    # ---
-    cat ~/bin/resetters/settings.json > ~/.config/Code\ -\ Insiders/User/settings.json
-    cat ~/bin/resetters/keybindings.json > ~/.config/Code\ -\ Insiders/User/keybindings.json
-else
-    printf "VSCODE-INSIDERS WAS NOT FOUND\n"
+if [[ $# -eq 0 || $1 == "--insiders" ]]; then
+    if [[ -x "$(command -v code-insiders)" && -d ~/.config/Code\ -\ Insiders/User ]]; then
+        printf "RESETTING CODE-INSIDERS\n"
+        OPERATION="resetting code-insiders"
+        # ---
+        LIST=$(code-insiders --list-extensions)
+        for EXTENSION in $LIST; do
+            code-insiders --uninstall-extension "$EXTENSION" &>/dev/null
+        done
+        # ---
+        code-insiders --install-extension vscodevim.vim &>/dev/null
+        code-insiders --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+        # ---
+        cat ~/bin/resetters/settings.json > ~/.config/Code\ -\ Insiders/User/settings.json
+        cat ~/bin/resetters/keybindings.json > ~/.config/Code\ -\ Insiders/User/keybindings.json
+    fi
 fi
 
 
@@ -55,5 +57,10 @@ fi
 ###########
 
 printf "\n"
-printf "=========== We're done here ===========\n"
-printf "Enjoy your Vim-Styled life with VSCode!\n"
+if [[ -z $OPERATION ]]; then
+    printf "==================== Warning! ====================\n"
+    printf "Something went wrong: no operations were executed.\n"
+else
+    printf "=========== We're done here ===========\n"
+    printf "Enjoy your Vim-Styled life with VSCode!\n"
+fi

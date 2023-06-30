@@ -4,13 +4,13 @@
 ### Info
 ########
 
-read -r host < /proc/sys/kernel/hostname
-read -r version < /proc/sys/kernel/osrelease
-# ---
-os=$(. /etc/os-release; echo $NAME)  # ${PRETTY_NAME}
-kernel=${version%%-*}
+iam=$(whoami)
+host=$(cat /proc/sys/kernel/hostname)
+os=$(. /etc/os-release; echo "$NAME $VERSION_ID")
+kernel=$(awk -F- '{print $1}' /proc/sys/kernel/osrelease)
 packages=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
+shell=$(basename $SHELL)
 
 
 
@@ -18,14 +18,21 @@ uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//'
 ### Define colors
 #################
 
-# color palette method stolen from pftech
-# (https://github.com/dylanaraps/pfetch)
-c0='[0m';
-c1='[31m'; c2='[32m'
-c3='[33m'; c4='[34m'
-c5='[35m'; c6='[36m'
-c7='[37m'; c8='[38m'
-palette="[7m$c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 $c7 $c7 $c8 $c8 [m"
+# color palette
+# (normal; bold)
+c0='[0m'
+# ---
+c1='[30m'; c1b='[1;30m'  # black
+c1='[31m'; c1b='[1;31m'  # red
+c2='[32m'; c2b='[1;32m'  # green
+c3='[33m'; c3b='[1;33m'  # yellow
+c4='[34m'; c4b='[1;34m'  # blue
+c5='[35m'; c5b='[1;35m'  # magenta
+c6='[36m'; c6b='[1;36m'  # cyan
+c7='[37m'; c7b='[1;37m'  # white
+c8='[38m'; c8b='[1;38m'  # default
+# ---
+palette="${c1b}▄▄${c2b}▄▄${c3b}▄▄${c4b}▄▄${c5b}▄▄${c6b}▄▄${c7b}▄▄${c0} ${c8b}▄▄ "
 
 
 
@@ -33,11 +40,11 @@ palette="[7m$c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 $c7 $c7 $c8 $c8 [m
 ### Output
 ##########
 
-printf '%s\n' "${c5}       .-.      ${USER}${c0}@${c5}${host}"
-printf '%s\n' "${c5}    __/   (     ${c6}os${c0}        ${os}"
-printf '%s\n' "${c5}  , '-.____\\    ${c6}kernel${c0}    ${kernel}"
-printf '%s\n' "${c5}   u=='/  \\     ${c6}packages${c0}  ${packages}"
-printf '%s\n' "${c5}      /_/  \\    ${c6}uptime${c0}    ${uptime}"
-printf '%s\n' "${c5}    .-''   |    ${c6}shell${c0}     ${SHELL##*/}"
-printf '%s\n' "${c5}   (  ${c6}____${c5}/${c6}__   ${palette}"
+printf '%s\n' "${c5b}       .-.      ${c4b}${iam}${c7b}@${c4b}${host}"
+printf '%s\n' "${c5b}    __/   (     ${c6b}OS${c0}        ${os}"
+printf '%s\n' "${c0b}  ,${c5b} '-.____\\    ${c6b}Kernel${c0}    ${kernel}"
+printf '%s\n' "${c5b}   ${c1b}u==${c5b}'/  \\     ${c6b}Packages${c0}  ${packages}"
+printf '%s\n' "${c5b}      /_/  \\    ${c6b}Uptime${c0}    ${uptime}"
+printf '%s\n' "${c5b}    .-''   |    ${c6b}Shell${c0}     ${shell}"
+printf '%s\n' "${c5b}   (  ${c4b}____${c5b}/${c4b}__   ${palette}"
 printf "\n"

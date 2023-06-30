@@ -46,7 +46,6 @@
 /bin/bin/fetchers
 !/bin/bin/fetchers/mfetch
 !/bin/bin/fetchers/sfetch
-!/bin/bin/fetchers/ufetch
 
 /bin/bin/ffinders
 !/bin/bin/ffinders/ffind
