@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-### Info
-########
+### Info m(ini)fetch
+####################
 
 iam=$(whoami)
 host=$(cat /proc/sys/kernel/hostname)

@@ -217,7 +217,7 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
 
 # launch system fetcher
-[[ -f $HOME/bin/fetchers/sfetch ]] && $HOME/bin/fetchers/sfetch
+[[ -f $HOME/bin/fetchers/mfetch ]] && $HOME/bin/fetchers/mfetch
 
 
 

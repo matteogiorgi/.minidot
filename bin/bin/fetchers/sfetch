@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-### Info
-########
+### Info s(imple)fetch
+######################
 
 iam=$(whoami)
 host=$(cat /proc/sys/kernel/hostname)
