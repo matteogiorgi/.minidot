@@ -9,15 +9,15 @@
 # $FILE   -> current file path
 # $PARENT -> current directory path
 # $PREFIX -> prefix name (titlepage)
-# $NOTEVI -> notevi directory path
+# $NOTES  -> notes directory path
 
 for NOTE in *.md; do
     NAME="${NOTE%.*}"
-    pandoc $NOTE -s --to=html5 -o $NOTEVI/$NAME.html \
+    pandoc $NOTE -s --to=html5 -o $NOTES/$NAME.html \
                 --mathjax \
-                --lua-filter=$NOTEVI/assets/link2html.lua \
-                -H $NOTEVI/assets/header.html \
-                -B $NOTEVI/assets/before.html \
-                -A $NOTEVI/assets/footer.html \
+                --lua-filter=$NOTES/assets/link2html.lua \
+                -H $NOTES/assets/header.html \
+                -B $NOTES/assets/before.html \
+                -A $NOTES/assets/footer.html \
                 -T $PREFIX
 done

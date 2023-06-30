@@ -22,20 +22,20 @@ let g:writer = 1
 
 
 " NoteVI {{{
-function! s:NoteVI()
+function! s:MakeNote()
     let l:pathFile    = expand('%:p')
     let l:pathParent  = expand('%:p:h')
-    let l:pathNoteVI  = l:pathParent . '/notevi'
+    let l:pathNotes   = l:pathParent . '/notes'
 
     let $FILE   = fnamemodify(l:pathFile, ':p')
     let $PARENT = fnamemodify(l:pathParent, ':p')
     let $PREFIX = fnamemodify(l:pathParent, ':t')
-    let $NOTEVI = fnamemodify(l:pathNoteVI, ':p')
+    let $NOTES  = fnamemodify(l:pathNotes, ':p')
 
-    if !isdirectory($NOTEVI)
-        !cp -R $HOME/.vim/plugin/notevi $PARENT
+    if !isdirectory($NOTES)
+        !cp -R $HOME/.vim/plugin/notes $PARENT
     endif
-    !$NOTEVI/assets/makenote %:t:r
+    !$NOTES/assets/makenote %:t:r
 endfunction
 "}}}
 
@@ -106,7 +106,7 @@ augroup end
 
 
 " Commands & Keymaps {{{
-command! NoteVI call <SID>NoteVI()
+command! MakeNote call <SID>MakeNote()
 command! ScratchBuffer call <SID>ScratchBuffer()
 command! ToggleAccent call <SID>ToggleAccent()
 " ---
