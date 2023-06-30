@@ -17,5 +17,5 @@ set columns=120 lines=60
 set vb t_vb=
 
 " gui colors
-set background=dark
+set background=light
 colorscheme hemisu
