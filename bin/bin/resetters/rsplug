@@ -145,8 +145,8 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
         printf "\n"
         printf "UPGRADING VIM\n"
         [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list) ]] || sudo add-apt-repository ppa:jonathonf/vim
-        sudo apt update
-        sudo apt install -qq -y vim-gtk3
+        sudo apt-get update
+        sudo apt-get install -qq -y vim-gtk3
     else
         printf "\n"
         printf "=========== We're done here ===========\n"
@@ -173,7 +173,7 @@ fi
 printf "\n"
 if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
-    [[ -x "$(command -v "node")" ]] || sudo apt install -qq -y nodejs
+    [[ -x "$(command -v "node")" ]] || sudo apt-get install -qq -y nodejs
     git clone https://github.com/github/copilot.vim copilot
 else
     printf "UPDATING COPILOT\n"

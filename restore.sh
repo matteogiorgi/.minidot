@@ -130,7 +130,7 @@ printf "\n"
 
 # the following packages aren't going to be uninstalled:
 # gnome-keyring, dash, bash, bash-completion.
-sudo apt purge -qq -y \
+sudo apt-get purge -qq -y \
     git \
     curl \
     wget \
@@ -161,7 +161,7 @@ printf "\n"
 read -p "    Launching autoremove (enter to continue)"
 printf "\n"
 
-sudo apt autoremove -qq -y || _error "autoremove"
+sudo apt-get autoremove -qq -y || _error "autoremove"
 
 
 

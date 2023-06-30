@@ -124,7 +124,7 @@ printf "\n"
 read -p "    Syncing and updating repos (enter to continue)"
 printf "\n"
 
-sudo apt update && sudo apt upgrade -qq -y || _error "syncing repos"
+sudo apt-get update && sudo apt-get upgrade -qq -y || _error "syncing repos"
 
 
 
@@ -136,7 +136,7 @@ printf "\n"
 read -p "    Installing packages (enter to continue)"
 printf "\n"
 
-sudo apt install -qq -y \
+sudo apt-get install -qq -y \
     git \
     curl \
     wget \

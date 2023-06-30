@@ -125,11 +125,13 @@ let &t_EI = "\e[2 q"
 " Linenumber behavior {{{
 augroup linenumber_toggle
     autocmd!
+    " ---
     autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
                 \ if &number == 1|
                 \     set relativenumber|
                 \ endif|
                 \ set cursorline
+    " ---
     autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
                 \ if &number == 1|
                 \     set norelativenumber|
@@ -144,10 +146,12 @@ augroup end
 " Overlength behavior {{{
 augroup overlength_toggle
     autocmd!
+    " ---
     autocmd InsertEnter *
                 \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
                 \     let &colorcolumn = '121,'.join(range(121,999),',')|
                 \ endif
+    " ---
     autocmd InsertLeave *
                 \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
                 \     set colorcolumn=|
@@ -158,13 +162,53 @@ augroup end
 
 
 
-" Netrw auto-start {{{
-augroup netrw_autostart
+" Netrw behavior {{{
+" h -> upadir
+" l -> opendir
+" . -> (un)hide
+" < -> (de)select
+" > -> deselectall
+" d -> newdir
+" f -> newfile (buffer)
+" R -> rename
+" D -> delete
+" c -> copy
+" m -> move
+" x -> execute
+augroup netrw_prettyfied
     autocmd!
+    " ---
     autocmd VimEnter *
                 \ if expand("%") == ""|
                 \     edit .|
                 \ endif
+    " ---
+    autocmd FileType netrw
+                \ setlocal bufhidden=wipe|
+                \ nmap <buffer> h -<esc>|
+                \ nmap <buffer> l <cr>|
+                \ nmap <buffer> . gh|
+                \ nmap <buffer> < mf|
+                \ nmap <buffer> > mu|
+                \ nmap <buffer> d d|
+                \ nmap <buffer> f %:w<CR>:buffer #<CR>|
+                \ nmap <buffer> R R|
+                \ nmap <buffer> D D|
+                \ nmap <buffer> c mtmc|
+                \ nmap <buffer> m mtmm|
+                \ nmap <buffer> x mx
+    " ---
+    let g:netrw_banner = 0
+    let g:netrw_keepdir = 0
+    let g:netrw_liststyle = 4
+    let g:netrw_sort_options = 'i'
+    let g:netrw_sort_sequence = '[\/]$,*'
+    let g:netrw_browsex_viewer = 'xdg-open'
+    let g:ghregex = '\(^\|\s\s\)\zs\.\S\+'
+    let g:netrw_list_hide = g:ghregex
+    let g:netrw_preview = 0
+    let g:netrw_alto = 1
+    let g:netrw_altv = 0
 augroup end
 " }}}
 
