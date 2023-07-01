@@ -23,7 +23,7 @@ With *Ubuntu*, [Vim](https://www.vim.org/) can be easily moved to the latest ver
 
 ```bash
 sudo add-apt-repository ppa:jonathonf/vim
-sudo apt update && sudo apt install vim-gtk3
+sudo apt-get update && sudo apt-get install vim-gtk3
 ```
 
 My current configuration does not use any external plugin since *Vim* is already a very powerful editor by itself. If you need to install some plugins, you can do so by cloning their repo inside `~/.vim/pack/plugins/start/`: the plugins will be loaded automatically at startup and can be updated with the `git pull` command.
