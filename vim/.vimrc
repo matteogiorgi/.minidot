@@ -123,7 +123,7 @@ let &t_EI = "\e[2 q"
 
 
 " Linenumber behavior {{{
-augroup linenumber_toggle
+augroup linenumber_toggler
     autocmd!
     " ---
     autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
@@ -144,7 +144,7 @@ augroup end
 
 
 " Overlength behavior {{{
-augroup overlength_toggle
+augroup overlength_toggler
     autocmd!
     " ---
     autocmd InsertEnter *
@@ -175,7 +175,7 @@ augroup end
 " c -> copy
 " m -> move
 " x -> execute
-augroup netrw_prettyfied
+augroup netrw_prettyfier
     autocmd!
     " ---
     autocmd VimEnter *

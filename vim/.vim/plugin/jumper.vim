@@ -22,7 +22,7 @@ let g:jumper = 1
 
 
 
-" Jump current directory {{{
+" Jump to current directory {{{
 function! s:JumpCurrentDir()
     echon 'CWD: '
     cd %:p:h
@@ -31,7 +31,7 @@ endfunction
 "}}}
 
 
-" Jump parent directory {{{
+" Jump to parent directory {{{
 function! s:JumpParentDir()
     if getcwd() ==? $HOME
         echon 'No more jumping -- CWD: ' . getcwd()
@@ -46,7 +46,7 @@ endfunction
 "}}}
 
 
-" Jump git directory {{{
+" Jump to git directory {{{
 function! s:JumpGitDir()
     if getcwd() ==? $HOME
         echon 'Not in git repository -- CWD: ' . getcwd()
@@ -65,7 +65,7 @@ endfunction
 "}}}
 
 
-" Jump neighbor window {{{
+" Jump to neighbor window {{{
 function! s:JumpWindow(key)
     let t:curwin = winnr()
     exec 'wincmd '.a:key

@@ -21,7 +21,7 @@ let g:writer = 1
 
 
 
-" NoteVI {{{
+" Notes {{{
 function! s:MakeNote()
     let l:pathFile    = expand('%:p')
     let l:pathParent  = expand('%:p:h')
