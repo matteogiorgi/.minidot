@@ -36,10 +36,10 @@ My current configuration does not use any external plugin since *Vim* is already
 
 ## Need something else?
 
-- Confy bookmarks: [Startpage Devdocs Drive Mega Gmail Proton Outlook Discord Telegram](bookmarks.html).
+
+- Confy bookmarks: <a href="bookmarks.html" download>Startpage Devdocs Drive Mega Gmail Proton Outlook Discord Telegram</a>
 - Chrome extensions: [`uBlock`](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US), [`Vimium`](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US), [`Player`](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US), [`DeepL`](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj), [`Onion`](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US), [`Veepn`](https://chrome.google.com/webstore/detail/free-vpn-for-chrome-vpn-p/majdfhpaihoncoakbjgbdhglocklcgno/related?hl=en-US), [`Gnome`](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related), [`123Apps`](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle).
 - More applications: `gparted`, `vlc`, `input-remapper`, `diodon`, `zim`, [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`brave`](https://brave.com/linux/), [`code`](https://code.visualstudio.com/Download).
-- Gnome applications: `gnome-calendar`, `gnome-contacts`, `geary`, `dconf-editor`.
-- Extensions manager: `gnome-shell-extension-manager`, `gnome-shell-extensions`, `chrome-gnome-shell`.
+- Gnome packages: `dconf-editor`, `gnome-shell-extension-manager` (or `gnome-shell-extensions` + `chrome-gnome-shell`).
 - To seek info on packages, refere to [debian.org/distrib/packages](https://www.debian.org/distrib/packages) or [packages.ubuntu.com](https://packages.ubuntu.com/).
 - Manpages can be found at [manpages.debian.org](https://manpages.debian.org/) or [manpages.ubuntu.com](https://manpages.ubuntu.com/).
