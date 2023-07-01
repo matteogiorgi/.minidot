@@ -14,8 +14,8 @@ read -p "Resetting VSCode Vim-Syle (enter to continue)"
 
 if [[ $# -eq 0 || $1 == "--code" ]]; then
     if [[ -x "$(command -v code)" && -d ~/.config/Code/User ]]; then
-        printf "RESETTING CODE\n"
-        OPERATION="resetting code"
+        OPERATION="RESETTING CODE"
+        printf "%s\n" "$OPERATION"
         # ---
         LIST=$(code --list-extensions)
         for EXTENSION in $LIST; do
@@ -34,8 +34,8 @@ fi
 
 if [[ $# -eq 0 || $1 == "--insiders" ]]; then
     if [[ -x "$(command -v code-insiders)" && -d ~/.config/Code\ -\ Insiders/User ]]; then
-        printf "RESETTING CODE-INSIDERS\n"
-        OPERATION="resetting code-insiders"
+        OPERATION="RESETTING CODE-INSIDERS"
+        printf "%s\n" "$OPERATION"
         # ---
         LIST=$(code-insiders --list-extensions)
         for EXTENSION in $LIST; do
