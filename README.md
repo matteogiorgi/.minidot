@@ -46,5 +46,5 @@ My current configuration does not use any external plugin since *Vim* is already
 
 ## Docs
 
-- Packages: [debian.org/distrib/packages](https://www.debian.org/distrib/packages) / [packages.ubuntu.com](https://packages.ubuntu.com/).
-- Manpages: [manpages.debian.org](https://manpages.debian.org/) / [manpages.ubuntu.com](https://manpages.ubuntu.com/).
+- Packages: [debian.org/distrib/packages](https://www.debian.org/distrib/packages) or [packages.ubuntu.com](https://packages.ubuntu.com/).
+- Manpages: [manpages.debian.org](https://manpages.debian.org/) or [manpages.ubuntu.com](https://manpages.ubuntu.com/).
