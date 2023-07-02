@@ -149,6 +149,7 @@ sudo apt-get purge -qq -y \
     witalian \
     tmux \
     vim-gtk3 \
+    exuberant-ctags \
     pandoc
 
 

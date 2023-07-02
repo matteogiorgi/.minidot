@@ -159,6 +159,7 @@ sudo apt-get install -qq -y \
     bash-completion \
     tmux \
     vim-gtk3 \
+    exuberant-ctags \
     pandoc
 
 

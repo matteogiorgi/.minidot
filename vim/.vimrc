@@ -272,6 +272,7 @@ vnoremap <silent>H <gv
 vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
+nnoremap <silent>T :!ctags -R --exclude=.git<CR>
 " ---
 nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>

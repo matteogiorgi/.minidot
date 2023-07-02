@@ -28,6 +28,19 @@ cd ~/.vim/pack/plugins/start
 ### Vim 8 plugins
 #################
 
+if [[ ! -d ctrlp ]]; then
+    printf "INSTALLING CTRLP\n"
+    git clone https://github.com/ctrlpvim/ctrlp.vim ctrlp
+else
+    printf "UPDATING CTRLP\n"
+    cd ctrlp
+    git pull
+    cd - &>/dev/null
+fi
+
+# ---
+
+printf "\n"
 if [[ ! -d fugitive ]]; then
     printf "INSTALLING FUGITIVE\n"
     git clone https://github.com/tpope/vim-fugitive fugitive
@@ -106,19 +119,6 @@ fi
 # ---
 
 printf "\n"
-if [[ ! -d undotree ]]; then
-    printf "INSTALLING UNDOTREE\n"
-    git clone https://github.com/mbbill/undotree undotree
-else
-    printf "UPDATING UNDOTREE\n"
-    cd undotree
-    git pull
-    cd - &>/dev/null
-fi
-
-# ---
-
-printf "\n"
 if [[ ! -d ale ]]; then
     printf "INSTALLING ALE\n"
     git clone https://github.com/dense-analysis/ale ale
@@ -135,31 +135,33 @@ fi
 # mappings and other little things
 [[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
 cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
-" UNDOTREE CONFIG
-let g:undotree_WindowLayout = 2
-let g:undotree_SetFocusWhenToggle = 1
+" VIM8 CONFIG
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+
+" CTRLP CONFIG
+let g:ctrlp_map = ''
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_user_command = [
+            \      '.git',
+            \      'cd %s && git ls-files -co --exclude-standard'
+            \ ]
+let g:ctrlp_custom_ignore = {
+            \      'dir':  '\v[\/]\.(git|hg|svn)$',
+            \      'file': '\v\.(exe|so|dll)$'
+            \ }
 " ---
-function! s:ToggleUndoTree()
-    if &filetype ==? 'netrw' || buffer_name() =~ '!bash' || buffer_name() =~ '!dash'
-        return
-    endif
-    " ---
-    if !exists('g:toggle_undo_tree')
-        let g:toggle_undo_tree = 0
-    endif
-    " ---
-    if g:toggle_undo_tree ==? 0
-        let g:toggle_undo_tree = 1
-        let g:tabn = tabpagenr()
-        execute 'tabnew % | UndotreeShow'
-    else
-        let g:toggle_undo_tree = 0
-        execute 'UndotreeHide | tabclose |  normal ' . g:tabn . 'gt'
-    endif
-endfunction
-" ---
-command! ToggleUndoTree call <SID>ToggleUndoTree()
-nnoremap <silent>U :ToggleUndoTree<CR>
+nnoremap <leader>f :CtrlPCurWD<CR>
+nnoremap <leader>g :CtrlPRoot<CR>
+nnoremap <leader>h :CtrlPMRU<CR>
+nnoremap <leader>j :CtrlPChangeAll<CR>
+nnoremap <leader>k :CtrlPBufTagAll<CR>
+nnoremap <leader>l :CtrlPLine<CR>
+nnoremap <leader>u :CtrlPUndo<CR>
+nnoremap <leader><Tab> :CtrlPBuffer<CR>
 
 
 " ALE CONFIG
@@ -168,8 +170,8 @@ set omnifunc=ale#completion#OmniFunc
 " ---
 nnoremap <silent><C-n> :ALENext<CR>
 nnoremap <silent><C-p> :ALEPrevious<CR>
-nnoremap <leader>fj :ALEGoToDefinition<CR>
-nnoremap <leader>fk :ALEGoToImplementation<CR>
+nnoremap <leader>d :ALEGoToDefinition<CR>
+nnoremap <leader>i :ALEGoToImplementation<CR>
 EOF
 
 
@@ -198,19 +200,6 @@ fi
 # ---
 
 printf "\n"
-if [[ ! -d fuzzyy ]]; then
-    printf "INSTALLING FUZZYY\n"
-    git clone https://github.com/Donaldttt/fuzzyy fuzzyy
-else
-    printf "UPDATING FUZZYY\n"
-    cd fuzzyy
-    git pull
-    cd - &>/dev/null
-fi
-
-# ---
-
-printf "\n"
 if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
     [[ -x "$(command -v "node")" ]] || sudo apt-get install -qq -y nodejs
@@ -230,24 +219,6 @@ fi
 cat 2>/dev/null > rsplug/plugin/rsplug9.vim <<-EOF
 " VIM9 CONFIG
 set wildoptions=fuzzy,pum,tagfile
-
-
-" FUZZYY CONFIG
-let g:enable_fuzzyy_keymaps = 0
-let g:files_respect_gitignore = 1
-let g:fuzzyy_keymaps = {
-            \      'menu_up': ["\<c-k>", "\<c-p>", "\<Up>"],
-            \      'menu_down': ["\<c-j>", "\<c-n>", "\<Down>"],
-            \      'menu_select': ["\<CR>"],
-            \      'preview_up': ["\<c-u>"],
-            \      'preview_down': ["\<c-d>"],
-            \      'exit': ["\<Esc>", "\<c-c>", "\<c-[>"],
-            \ }
-nnoremap <leader>ff :FuzzyFiles<CR>
-nnoremap <leader>fg :FuzzyGrep<CR>
-nnoremap <leader>fh :FuzzyCommands<CR>
-nnoremap <leader>fl :FuzzyInBuffer<CR>
-nnoremap <leader><Tab> :FuzzyBuffers<CR>
 
 
 " COPILOT CONFIG
