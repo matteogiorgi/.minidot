@@ -110,7 +110,7 @@ if [[ ! -d undotree ]]; then
     printf "INSTALLING UNDOTREE\n"
     git clone https://github.com/mbbill/undotree undotree
 else
-    printf "UPDATING AUTOPAIRS\n"
+    printf "UPDATING UNDOTREE\n"
     cd undotree
     git pull
     cd - &>/dev/null
