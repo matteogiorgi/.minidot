@@ -159,7 +159,7 @@ function! s:ToggleUndoTree()
 endfunction
 " ---
 command! ToggleUndoTree call <SID>ToggleUndoTree()
-nnoremap <silent><S-u> :ToggleUndoTree<CR>
+nnoremap <silent>U :ToggleUndoTree<CR>
 
 
 " ALE CONFIG
