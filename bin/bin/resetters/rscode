@@ -22,7 +22,7 @@ if [[ $# -eq 0 || $1 == "--code" ]]; then
             code --uninstall-extension "$EXTENSION" &>/dev/null
         done
         # ---
-        code --install-extension vscodevim.vim &>/dev/null
+        code --install-extension vspacecode.vspacecode &>/dev/null
         code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
         # ---
         cat ~/bin/resetters/settings.json > ~/.config/Code/User/settings.json
@@ -42,7 +42,7 @@ if [[ $# -eq 0 || $1 == "--insiders" ]]; then
             code-insiders --uninstall-extension "$EXTENSION" &>/dev/null
         done
         # ---
-        code-insiders --install-extension vscodevim.vim &>/dev/null
+        code-insiders --install-extension vspacecode.vspacecode &>/dev/null
         code-insiders --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
         # ---
         cat ~/bin/resetters/settings.json > ~/.config/Code\ -\ Insiders/User/settings.json

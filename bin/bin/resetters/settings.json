@@ -54,13 +54,14 @@
     "workbench.list.openMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
+    "vim.easymotion": true,
     "vim.incsearch": true,
+    "vim.hlsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
     "vim.leader": "<space>",
-    "vim.insertModeKeyBindings": [],
-    "vim.visualModeKeyBindings": [
+    "vim.insertModeKeyBindingsNonRecursive": [],
+    "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": ["H"],
             "commands": ["editor.action.outdentLines"]
@@ -86,8 +87,18 @@
             "after": ["{"]
         },
         {
-            "before": ["<leader>", "<leader>"],
-            "commands": ["editor.action.commentLine"]
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -114,13 +125,18 @@
             "after": ["{"]
         },
         {
-            "before": ["<leader>","w"],
-            "after": ["<C-w>"]
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
         },
         {
-            "before": ["<leader>", "<leader>"],
-            "commands": ["editor.action.commentLine"],
-            "silent": true
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
         }
     ]
 }

@@ -1,99 +1,85 @@
 [
+    // Trigger vspacecode in empty editor group
     {
-        "key": "alt+shift+q",
-        "command": "workbench.action.quit"
+        "key": "space",
+        "command": "vspacecode.space",
+        "when": "activeEditorGroupEmpty && focusedView == '' && !whichkeyActive && !inputFocus"
+    },
+    // Trigger vspacecode when sidebar is in focus
+    {
+        "key": "space",
+        "command": "vspacecode.space",
+        "when": "sideBarFocus && !inputFocus && !whichkeyActive"
+    },
+    // Keybindings required for edamagit
+    // https://github.com/kahole/edamagit#vim-support-vscodevim
+    // Cannot be added to package.json because keybinding replacements
+    {
+        "key": "tab",
+        "command": "extension.vim_tab",
+        "when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && editorLangId != 'magit'"
     },
     {
-        "key": "alt+shift+w",
-        "command": "workbench.action.closeWindow"
+        "key": "tab",
+        "command": "-extension.vim_tab",
+        "when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
     },
     {
-        "key": "alt+a",
-        "command": "workbench.action.toggleActivityBarVisibility"
+        "key": "x",
+        "command": "magit.discard-at-point",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
     },
     {
-        "key": "alt+s",
-        "command": "workbench.action.togglePanel"
+        "key": "k",
+        "command": "-magit.discard-at-point"
     },
     {
-        "key": "alt+v",
-        "command": "toggleVim"
+        "key": "-",
+        "command": "magit.reverse-at-point",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
     },
     {
-        "key": "ctrl+j",
-        "command": "-workbench.action.togglePanel"
+        "key": "v",
+        "command": "-magit.reverse-at-point"
     },
     {
-        "key": "alt+h",
-        "command": "workbench.action.quickOpen"
+        "key": "shift+-",
+        "command": "magit.reverting",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
     },
     {
-        "key": "alt+shift+h",
-        "command": "workbench.action.openRecent"
+        "key": "shift+v",
+        "command": "-magit.reverting"
     },
     {
-        "key": "alt+j",
-        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
-        "when": "!activeEditorGroupEmpty"
+        "key": "shift+o",
+        "command": "magit.resetting",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
     },
     {
-        "key": "alt+j",
-        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
+        "key": "shift+x",
+        "command": "-magit.resetting"
     },
     {
-        "key": "alt+shift+j",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus"
+        "key": "x",
+        "command": "-magit.reset-mixed"
     },
     {
-        "key": "alt+k",
-        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
-        "when": "!activeEditorGroupEmpty"
+        "key": "ctrl+u x",
+        "command": "-magit.reset-hard"
+    },
+    // Extra ref menu support for edamagit with the key "y"
+    // Cannot be added to package.json because keybinding replacements
+    {
+        "key": "y",
+        "command": "-magit.show-refs"
     },
     {
-        "key": "alt+k",
-        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
+        "key": "y",
+        "command": "vspacecode.showMagitRefMenu",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode == 'Normal'"
     },
-    {
-        "key": "alt+shift+k",
-        "command": "editor.action.marker.prev",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+l",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "sideBarFocus"
-    },
-    {
-        "key": "alt+l",
-        "command": "workbench.action.focusSideBar",
-        "when": "!sideBarFocus"
-    },
-    {
-        "key": "alt+shift+l",
-        "command": "actions.find"
-    },
-    {
-        "key": "alt+n",
-        "command": "editor.action.inlineSuggest.showNext",
-        "when": "inlineSuggestionVisible && !editorReadonly"
-    },
-    {
-        "key": "alt+p",
-        "command": "editor.action.inlineSuggest.showPrevious",
-        "when": "inlineSuggestionVisible && !editorReadonly"
-    },
-    {
-        "key": "alt+i",
-        "command": "workbench.action.showCommands"
-    },
-    {
-        "key": "alt+o",
-        "command": "workbench.action.terminal.openNativeConsole",
-        "when": "!terminalFocus"
-    },
+    // Easy navigation in quick open/QuickPick
     {
         "key": "ctrl+j",
         "command": "workbench.action.quickOpenSelectNext",
@@ -104,6 +90,8 @@
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
     },
+    // Easy navigation in suggestion/intellisense
+    // Cannot be added to package.json because of conflict with vim's default bindings
     {
         "key": "ctrl+j",
         "command": "selectNextSuggestion",
@@ -115,6 +103,13 @@
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
+        "key": "ctrl+l",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    // Easy navigation in parameter hint (i.e. traverse the hints when there's multiple overload for one method)
+    // Cannot be added to package.json because of conflict with vim's default bindings
+    {
         "key": "ctrl+j",
         "command": "showNextParameterHint",
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
@@ -124,6 +119,7 @@
         "command": "showPrevParameterHint",
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
     },
+    // Easy navigation in code action
     {
         "key": "ctrl+j",
         "command": "selectNextCodeAction",
@@ -133,6 +129,21 @@
         "key": "ctrl+k",
         "command": "selectPrevCodeAction",
         "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "acceptSelectedCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    // Add ctrl+h/l to navigate in file browser
+    {
+        "key": "ctrl+h",
+        "command": "file-browser.stepOut",
+        "when": "inFileBrowser"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "file-browser.stepIn",
+        "when": "inFileBrowser"
     }
 ]
-
