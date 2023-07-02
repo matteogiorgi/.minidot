@@ -1,4 +1,42 @@
 [
+    {
+        "key": "alt+a",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
+        "key": "alt+s",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "alt+s",
+        "command": "workbench.action.focusSideBar",
+        "when": "!sideBarFocus"
+    },
+    {
+        "key": "alt+d",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "alt+h",
+        "command": "editor.action.inlineSuggest.showNext",
+        "when": "inlineSuggestionVisible && !editorReadonly"
+    },
+    {
+        "key": "alt+l",
+        "command": "editor.action.inlineSuggest.showPrevious",
+        "when": "inlineSuggestionVisible && !editorReadonly"
+    },
+    {
+        "key": "alt+j",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
+    },
     // Trigger vspacecode in empty editor group
     {
         "key": "space",
