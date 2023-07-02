@@ -25,8 +25,7 @@ let g:jumper = 1
 " Jump to current directory {{{
 function! s:JumpCurrentDir()
     cd %:p:h
-    let g:jumper_cwd = getcwd()
-    echon 'CWD: ' . g:jumper_cwd
+    echon 'CWD: ' . getcwd()
 endfunction
 "}}}
 
@@ -34,15 +33,12 @@ endfunction
 " Jump to parent directory {{{
 function! s:JumpParentDir()
     if getcwd() ==? $HOME
-        let g:jumper_cwd = getcwd()
-        echon 'No more jumping -- CWD: ' . g:jumper_cwd
+        echon 'No more jumping -- CWD: ' . getcwd()
         return
     endif
     " ---
-    let l:parent = fnamemodify('getcwd()', ':p:h:h')
-    execute 'cd ' . l:parent
-    let g:jumper_cwd = getcwd()
-    echon 'CWD: ' . g:jumper_cwd
+    execute 'cd ..'
+    echon 'CWD: ' . getcwd()
 endfunction
 "}}}
 
@@ -50,18 +46,15 @@ endfunction
 " Jump to git directory {{{
 function! s:JumpGitDir()
     if getcwd() ==? $HOME
-        let g:jumper_cwd = getcwd()
-        echon 'Not in git repository -- CWD: ' . g:jumper_cwd
+        echon 'Not in git repository -- CWD: ' . getcwd()
         return
     endif
     " ---
     if isdirectory('.git')
-        let g:jumper_cwd = getcwd()
-        echon 'CWD: ' . g:jumper_cwd
+        echon 'CWD: ' . getcwd()
         return
     else
-        let l:parent = fnamemodify('getcwd()', ':p:h:h')
-        execute 'cd ' . l:parent
+        execute 'cd ..'
         execute 'call s:JumpGitDir()'
     endif
 endfunction
