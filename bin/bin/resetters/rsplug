@@ -106,6 +106,19 @@ fi
 # ---
 
 printf "\n"
+if [[ ! -d undotree ]]; then
+    printf "INSTALLING UNDOTREE\n"
+    git clone https://github.com/mbbill/undotree undotree
+else
+    printf "UPDATING AUTOPAIRS\n"
+    cd undotree
+    git pull
+    cd - &>/dev/null
+fi
+
+# ---
+
+printf "\n"
 if [[ ! -d ale ]]; then
     printf "INSTALLING ALE\n"
     git clone https://github.com/dense-analysis/ale ale
@@ -122,6 +135,33 @@ fi
 # mappings and other little things
 [[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
 cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
+" UNDOTREE CONFIG
+let g:undotree_WindowLayout = 2
+let g:undotree_SetFocusWhenToggle = 1
+" ---
+function! s:ToggleUndoTree()
+    if &filetype ==? 'netrw' || buffer_name() =~ '!bash' || buffer_name() =~ '!dash'
+        return
+    endif
+    " ---
+    if !exists('g:toggle_undo_tree')
+        let g:toggle_undo_tree = 0
+    endif
+    " ---
+    if g:toggle_undo_tree ==? 0
+        let g:toggle_undo_tree = 1
+        let g:tabn = tabpagenr()
+        execute 'tabnew % | UndotreeShow'
+    else
+        let g:toggle_undo_tree = 0
+        execute 'UndotreeHide | tabclose |  normal ' . g:tabn . 'gt'
+    endif
+endfunction
+" ---
+command! ToggleUndoTree call <SID>ToggleUndoTree()
+nnoremap <silent><S-u> :ToggleUndoTree<CR>
+
+
 " ALE CONFIG
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc

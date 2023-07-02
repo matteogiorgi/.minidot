@@ -23,14 +23,14 @@ let g:writer = 1
 
 " Notes {{{
 function! s:MakeNote()
-    let l:pathFile    = expand('%:p')
-    let l:pathParent  = expand('%:p:h')
-    let l:pathNotes   = l:pathParent . '/notes'
+    let l:path_file    = expand('%:p')
+    let l:path_parent  = expand('%:p:h')
+    let l:path_notes   = l:path_parent . '/notes'
 
-    let $FILE   = fnamemodify(l:pathFile, ':p')
-    let $PARENT = fnamemodify(l:pathParent, ':p')
-    let $PREFIX = fnamemodify(l:pathParent, ':t')
-    let $NOTES  = fnamemodify(l:pathNotes, ':p')
+    let $FILE   = fnamemodify(l:path_file, ':p')
+    let $PARENT = fnamemodify(l:path_parent, ':p')
+    let $PREFIX = fnamemodify(l:path_parent, ':t')
+    let $NOTES  = fnamemodify(l:path_notes, ':p')
 
     if !isdirectory($NOTES)
         !cp -R $HOME/.vim/plugin/notes $PARENT
@@ -60,23 +60,23 @@ endfunction
 
 " ToggleAccent {{{
 function! s:ToggleAccent()
-    let accentNone  = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
-    let accentGrave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
-    let accentAcute = ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú']
+    let accent_none  = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+    let accent_grave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
+    let accent_acute = ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú']
 
     let character = matchstr(getline('.'), '\%' . col('.') . 'c.')
-    let positionNone  = match(accentNone, character)
-    let positionGrave = match(accentGrave, character)
-    let positionAcute = match(accentAcute, character)
+    let position_none  = match(accent_none, character)
+    let position_grave = match(accent_grave, character)
+    let position_acute = match(accent_acute, character)
 
-    if positionNone != -1
-        execute ':normal! r' . accentGrave[positionNone]
+    if position_none != -1
+        execute ':normal! r' . accent_grave[position_none]
     endif
-    if positionGrave != -1
-        execute ':normal! r' . accentAcute[positionGrave]
+    if position_grave != -1
+        execute ':normal! r' . accent_acute[position_grave]
     endif
-    if positionAcute != -1
-        execute ':normal! r' . accentNone[positionAcute]
+    if position_acute != -1
+        execute ':normal! r' . accent_none[position_acute]
     endif
 endfunction
 "}}}
