@@ -26,8 +26,9 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt-get update && sudo apt-get install vim-gtk3
 ```
 
-My current configuration does not use any external plugin since *Vim* is already a very powerful editor by itself. If you need to install some plugins, you can do so by cloning their repo inside `~/.vim/pack/plugins/start/`: the plugins will be loaded automatically at startup and can be updated with the `git pull` command. Below some of my favorites:
-> [Ctrlp](https://github.com/ctrlpvim/ctrlp.vim), [Fugitive](https://github.com/tpope/vim-fugitive), [Commentary](https://github.com/tpope/vim-commentary), [Surround](https://github.com/tpope/vim-surround), [Repeat](https://github.com/tpope/vim-repeat), [Context](https://github.com/wellle/context.vim), [Auto-pairs](https://github.com/jiangmiao/auto-pairs), [Undotree](https://github.com/mbbill/undotree), [Ale](https://github.com/dense-analysis/ale), [Copilot](https://github.com/github/copilot.vim).
+My current configuration does not use any external plugin since *Vim* is already a very powerful editor by itself. If you need to install some plugins, you can do so by cloning their repo inside `~/.vim/pack/plugins/start/`: the plugins will be loaded automatically at startup and can be updated with the `git pull` command.
+
+- Few old time classics: [Ctrlp](https://github.com/ctrlpvim/ctrlp.vim), [Fugitive](https://github.com/tpope/vim-fugitive), [Commentary](https://github.com/tpope/vim-commentary), [Surround](https://github.com/tpope/vim-surround), [Repeat](https://github.com/tpope/vim-repeat), [Context](https://github.com/wellle/context.vim), [Auto-pairs](https://github.com/jiangmiao/auto-pairs), [Ale](https://github.com/dense-analysis/ale), [Copilot](https://github.com/github/copilot.vim).
 
 
 
