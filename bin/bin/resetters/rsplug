@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script updates vim to version 9 and install the following plugins:
+# ctrlp, fugitive, commentary, surround, repeat, context, autopairs, ale, copilot
+
 
 ### Ready?
 ##########
