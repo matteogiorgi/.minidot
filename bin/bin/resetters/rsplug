@@ -140,6 +140,7 @@ fi
 cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
 " VIM8 CONFIG
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+nnoremap <localleader>k :!ctags -R --exclude=.git<CR>
 
 
 " CTRLP CONFIG
