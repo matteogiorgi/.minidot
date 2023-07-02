@@ -158,7 +158,7 @@ let g:ctrlp_custom_ignore = {
             \      'file': '\v\.(exe|so|dll)$'
             \ }
 " ---
-nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>f :CtrlPCurWD<CR>
 nnoremap <leader>g :CtrlPRoot<CR>
 nnoremap <leader>h :CtrlPMRU<CR>
 nnoremap <leader>j :CtrlPChangeAll<CR>
