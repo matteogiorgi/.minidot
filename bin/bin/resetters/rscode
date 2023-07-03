@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script resets VSCode setting to a more Vim-like experience.
+# Flag --code or no flag resets VSCode, flag --insiders resets VSCode Insiders.
+
 
 ### Ready?
 ##########

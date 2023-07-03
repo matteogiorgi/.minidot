@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script is used to edit personal mime-types for the current user.
+# In case mimeapps.list does not exist, it will be created with some defaults.
+
 
 ### Info
 ########
