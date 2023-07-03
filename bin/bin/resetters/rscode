@@ -28,8 +28,8 @@ if [[ $# -eq 0 || $1 == "--code" ]]; then
         code --install-extension vspacecode.vspacecode &>/dev/null
         code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
         # ---
-        cat ~/bin/resetters/settings.json > ~/.config/Code/User/settings.json
-        cat ~/bin/resetters/keybindings.json > ~/.config/Code/User/keybindings.json
+        cat ~/bin/resetters/vspacecode-settings.json > ~/.config/Code/User/settings.json
+        cat ~/bin/resetters/vspacecode-keybindings.json > ~/.config/Code/User/keybindings.json
     fi
 fi
 
@@ -48,8 +48,8 @@ if [[ $1 == "--insiders" ]]; then
         code-insiders --install-extension vspacecode.vspacecode &>/dev/null
         code-insiders --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
         # ---
-        cat ~/bin/resetters/settings.json > ~/.config/Code\ -\ Insiders/User/settings.json
-        cat ~/bin/resetters/keybindings.json > ~/.config/Code\ -\ Insiders/User/keybindings.json
+        cat ~/bin/resetters/vspacecode-settings.json > ~/.config/Code\ -\ Insiders/User/settings.json
+        cat ~/bin/resetters/vspacecode-keybindings.json > ~/.config/Code\ -\ Insiders/User/keybindings.json
     fi
 fi
 
