@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This script updates vim to version 9 and install the following plugins:
-# ctrlp, fugitive, commentary, surround, repeat, context, lexima, ale, copilot
+# ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale, copilot
 
 
 ### Ready?
@@ -96,12 +96,12 @@ fi
 # ---
 
 printf "\n"
-if [[ ! -d context ]]; then
-    printf "INSTALLING CONTEXT\n"
-    git clone https://github.com/wellle/context.vim context
+if [[ ! -d lexima ]]; then
+    printf "INSTALLING LEXIMA\n"
+    git clone https://github.com/cohama/lexima.vim lexima
 else
-    printf "UPDATING CONTEXT\n"
-    cd context
+    printf "UPDATING LEXIMA\n"
+    cd lexima
     git pull
     cd - &>/dev/null
 fi
@@ -109,12 +109,12 @@ fi
 # ---
 
 printf "\n"
-if [[ ! -d lexima ]]; then
-    printf "INSTALLING LEXIMA\n"
-    git clone https://github.com/cohama/lexima.vim lexima
+if [[ ! -d context ]]; then
+    printf "INSTALLING CONTEXT\n"
+    git clone https://github.com/wellle/context.vim context
 else
-    printf "UPDATING LEXIMA\n"
-    cd lexima
+    printf "UPDATING CONTEXT\n"
+    cd context
     git pull
     cd - &>/dev/null
 fi
@@ -148,7 +148,6 @@ let g:ctrlp_map = ''
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_switch_buffer = 'et'
 let g:ctrlp_user_command = [
             \      '.git',
             \      'cd %s && git ls-files -co --exclude-standard'
