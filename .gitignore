@@ -58,8 +58,16 @@
 !/bin/bin/resetters/rscode
 !/bin/bin/resetters/rsmime
 !/bin/bin/resetters/rsplug
-!/bin/bin/resetters/vspacecode-settings.json
-!/bin/bin/resetters/vspacecode-keybindings.json
+!/bin/bin/resetters/code
+!/bin/bin/resetters/vim
+
+/bin/bin/resetters/code
+!/bin/bin/resetters/code/settings.json
+!/bin/bin/resetters/code/keybindings.json
+
+/bin/bin/resetters/vim
+!/bin/bin/resetters/vim/plug8.vim
+!/bin/bin/resetters/vim/plug9.vim
 
 
 

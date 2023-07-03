@@ -20,10 +20,57 @@ fi
 
 # ---
 
-# create ~/.vim/pack/plugins/start if it doesn't exist
-# (to store our plugins) and jump into it
-[[ -d ~/.vim/pack/plugins/start ]] || mkdir -p ~/.vim/pack/plugins/start
-cd ~/.vim/pack/plugins/start
+_reset () {
+    printf "%s\n" "${OPERATION}"
+    [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone https://github.com/ctrlpvim/ctrlp.vim "${PLUGIN}"
+}
+
+_check () {
+    # if Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
+    # if it is not the case we cannot go no further and you have to manually install Vim 9
+    [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && return
+    # ---
+    if [[ $(uname -a) =~ "Ubuntu" ]]; then
+        printf "\n"
+        printf "UPGRADING VIM\n"
+        [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list) ]] || sudo add-apt-repository ppa:jonathonf/vim
+        sudo apt-get update
+        sudo apt-get install -qq -y vim-gtk3
+    else
+        printf "\n"
+        printf "==================== Warning! ====================\n"
+        printf "Install Vim 9 manually and run this script again.\n"
+        exit 1
+    fi
+}
+
+_node () {
+    # Copilot requires Node.js >= 16 so, if Node.js is not
+    # installed or is older than version 16, we update it.
+    [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]] && return
+    # ---
+    printf "Updating Node.js to the latest LTS version ...\n"
+    case $(uname -a) in
+        *Ubuntu*)
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &>/dev/null
+            sudo apt-get install -qq -y nodejs
+            ;;
+        *Debian*)
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &>/dev/null
+            apt-get install -qq -y nodejs
+            ;;
+        *)
+            printf "?\n"
+            ;;
+    esac
+}
+
+# ---
+
+# vim internal plugins folder (~/.vim/pack/plugins/start)
+# let's crate it if it doesn't exist!
+PLUGINS="~/.vim/pack/plugins/start"
+[[ -d "${START}" ]] || mkdir -p "${START}"
 
 
 
@@ -31,151 +78,67 @@ cd ~/.vim/pack/plugins/start
 ### Vim 8 plugins
 #################
 
-if [[ ! -d ctrlp ]]; then
-    printf "INSTALLING CTRLP\n"
-    git clone https://github.com/ctrlpvim/ctrlp.vim ctrlp
-else
-    printf "UPDATING CTRLP\n"
-    cd ctrlp
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING CTRLP"
+PLUGIN="${START}/ctrlp"
+_reset
 
 # ---
 
 printf "\n"
-if [[ ! -d fugitive ]]; then
-    printf "INSTALLING FUGITIVE\n"
-    git clone https://github.com/tpope/vim-fugitive fugitive
-else
-    printf "UPDATING FUGITIVE\n"
-    cd fugitive
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING FUGITIVE"
+PLUGIN="${START}/fugitive"
+_reset
 
 # ---
 
 printf "\n"
-if [[ ! -d commentary ]]; then
-    printf "INSTALLING COMMENTARY\n"
-    git clone https://github.com/tpope/vim-commentary commentary
-else
-    printf "UPDATING COMMENTARY\n"
-    cd commentary
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING COMMENTARY"
+PLUGIN="${START}/commentary"
+_reset
 
 # ---
 
 printf "\n"
-if [[ ! -d surround ]]; then
-    printf "INSTALLING SURROUND\n"
-    git clone https://github.com/tpope/vim-surround surround
-else
-    printf "UPDATING SURROUND\n"
-    cd surround
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING SURROUND"
+PLUGIN="${START}/surround"
+_reset
 
 # ---
 
 printf "\n"
-if [[ ! -d repeat ]]; then
-    printf "INSTALLING REPEAT\n"
-    git clone https://github.com/tpope/vim-repeat repeat
-else
-    printf "UPDATING REPEAT\n"
-    cd repeat
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING REPEAT"
+PLUGIN="${START}/repeat"
+_reset
 
 # ---
 
 printf "\n"
-if [[ ! -d lexima ]]; then
-    printf "INSTALLING LEXIMA\n"
-    git clone https://github.com/cohama/lexima.vim lexima
-else
-    printf "UPDATING LEXIMA\n"
-    cd lexima
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING LEXIMA"
+PLUGIN="${START}/lexima"
+_reset
 
 # ---
 
 printf "\n"
-if [[ ! -d context ]]; then
-    printf "INSTALLING CONTEXT\n"
-    git clone https://github.com/wellle/context.vim context
-else
-    printf "UPDATING CONTEXT\n"
-    cd context
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING CONTEXT"
+PLUGIN="${START}/context"
+_reset
 
 # ---
 
 printf "\n"
-if [[ ! -d ale ]]; then
-    printf "INSTALLING ALE\n"
-    git clone https://github.com/dense-analysis/ale ale
-else
-    printf "UPDATING ALE\n"
-    cd ale
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING ALE"
+PLUGIN="${START}/ale"
+_reset
 
 # ---
 
-# (over)write a simple config-file for Vim8 plugins:
-# mappings and other little things
-[[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
-cat 2>/dev/null > rsplug/plugin/rsplug8.vim <<-EOF
-" VIM8 CONFIG
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-nnoremap <localleader>k :!ctags -R --exclude=.git<CR>
-
-
-" CTRLP CONFIG
-let g:ctrlp_map = ''
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_user_command = [
-            \      '.git',
-            \      'cd %s && git ls-files -co --exclude-standard'
-            \ ]
-let g:ctrlp_custom_ignore = {
-            \      'dir':  '\v[\/]\.(git|hg|svn)$',
-            \      'file': '\v\.(exe|so|dll)$'
-            \ }
-" ---
-nnoremap <leader>f :CtrlPCurWD<CR>
-nnoremap <leader>g :CtrlPRoot<CR>
-nnoremap <leader>h :CtrlPMRU<CR>
-nnoremap <leader>j :CtrlPChangeAll<CR>
-nnoremap <leader>k :CtrlPBufTagAll<CR>
-nnoremap <leader>l :CtrlPLine<CR>
-nnoremap <leader>u :CtrlPUndo<CR>
-nnoremap <leader><Tab> :CtrlPBuffer<CR>
-
-
-" ALE CONFIG
-let g:ale_completion_enabled = 1
-set omnifunc=ale#completion#OmniFunc
-" ---
-nnoremap <silent><C-n> :ALENext<CR>
-nnoremap <silent><C-p> :ALEPrevious<CR>
-nnoremap <leader>d :ALEGoToDefinition<CR>
-nnoremap <leader>i :ALEGoToImplementation<CR>
-EOF
+# (over)write a simple config-file for Vim 8
+# plugins for keymaps and other little things
+PLUGME="${START}/plugme/plugin"
+RESETTERS="~/bin/resetters/vim"
+[[ -d "${PLUGME}" ]] || mkdir -p "${PLUGME}"
+cat "${RESETTERS}/plug8.vim" > "${PLUGME}/rsplug8.vim"
 
 # ---
 
@@ -192,75 +155,16 @@ fi
 ### Vim 9 plugins
 #################
 
-# if Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
-# if it is not the case we cannot go no further and you have to manually install Vim 9
-if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
-    if [[ $(uname -a) =~ "Ubuntu" ]]; then
-        printf "\n"
-        printf "UPGRADING VIM\n"
-        [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list) ]] || sudo add-apt-repository ppa:jonathonf/vim
-        sudo apt-get update
-        sudo apt-get install -qq -y vim-gtk3
-    else
-        printf "\n"
-        printf "==================== Warning! ====================\n"
-        printf "Install Vim 9 manually and run this script again.\n"
-        exit 1
-    fi
-fi
-
-# ---
-
 printf "\n"
-if [[ ! -d copilot ]]; then
-    printf "INSTALLING COPILOT\n"
-    # ---
-    # Copilot requires Node.js >= 16 so, if Node.js is not
-    # installed or is older than version 16, we update it.
-    if ! [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
-        printf "Updating Node.js to the latest LTS version ...\n"
-        if [[ $(uname -a) =~ "Ubuntu" ]]; then
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &>/dev/null
-            sudo apt-get install -qq -y nodejs
-        elif [[ $(uname -a) =~ "Debian" ]]; then
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &>/dev/null
-            apt-get install -qq -y nodejs
-        fi
-        printf "Node.js updated.\n"
-    fi
-    # ---
-    git clone https://github.com/github/copilot.vim copilot
-else
-    printf "UPDATING COPILOT\n"
-    cd copilot
-    git pull
-    cd - &>/dev/null
-fi
+OPERATION="RESETTING COPILOT"
+PLUGIN="${START}/copilot"
+_reset
 
 # ---
 
-# (over)write a simple config-file for Vim9 plugins:
-# mappings and other little things
-[[ -f rsplug/plugin ]] || mkdir -p rsplug/plugin
-cat 2>/dev/null > rsplug/plugin/rsplug9.vim <<-EOF
-" VIM9 CONFIG
-set wildoptions=fuzzy,pum,tagfile
-
-
-" COPILOT CONFIG
-function! s:SuggestWord()
-    let suggestion = copilot#Accept("")
-    let textsuggested = copilot#TextQueuedForInsertion()
-    return textsuggested ==# '' ? '' : split(textsuggested, '[ .()\[\]{}]\zs')[0]
-endfunction
-" ---
-inoremap <silent><C-s> <Plug>(copilot-suggest)
-inoremap <silent><C-d> <Plug>(copilot-dismiss)
-inoremap <silent><C-h> <C-W>
-inoremap <silent><C-j> <Plug>(copilot-next)
-inoremap <silent><C-k> <Plug>(copilot-previous)
-inoremap <script><expr> <C-l> <SID>SuggestWord()
-EOF
+# (over)write a simple config-file for Vim 9
+# plugins for keymaps and other little things
+cat "${RESETTERS}/plug9.vim" > "${PLUGME}/rsplug9.vim"
 
 
 
