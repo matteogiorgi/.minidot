@@ -216,10 +216,10 @@ if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
     if ! [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
         if [[ $(uname -a) =~ "Ubuntu" ]]; then
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
             sudo apt-get install -y nodejs
         elif [[ $(uname -a) =~ "Debian" ]]; then
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &&\
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
             apt-get install -y nodejs
         fi
     fi
