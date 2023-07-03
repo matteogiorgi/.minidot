@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This script updates vim to version 9 and install the following plugins:
-# ctrlp, fugitive, commentary, surround, repeat, context, autopairs, ale, copilot
+# ctrlp, fugitive, commentary, surround, repeat, context, lexima, ale, copilot
 
 
 ### Ready?
@@ -109,12 +109,12 @@ fi
 # ---
 
 printf "\n"
-if [[ ! -d autopairs ]]; then
-    printf "INSTALLING AUTOPAIRS\n"
-    git clone https://github.com/jiangmiao/auto-pairs autopairs
+if [[ ! -d lexima ]]; then
+    printf "INSTALLING LEXIMA\n"
+    git clone https://github.com/cohama/lexima.vim lexima
 else
-    printf "UPDATING AUTOPAIRS\n"
-    cd autopairs
+    printf "UPDATING LEXIMA\n"
+    cd lexima
     git pull
     cd - &>/dev/null
 fi
@@ -226,11 +226,18 @@ set wildoptions=fuzzy,pum,tagfile
 
 
 " COPILOT CONFIG
-let g:copilot_enabled = v:false
-inoremap <silent><C-H> <Plug>(copilot-dismiss)
-inoremap <silent><C-J> <Plug>(copilot-next)
-inoremap <silent><C-K> <Plug>(copilot-previous)
-inoremap <silent><C-L> <Plug>(copilot-suggest)
+function! s:SuggestWord()
+    let suggestion = copilot#Accept("")
+    let textsuggested = copilot#TextQueuedForInsertion()
+    return textsuggested ==# '' ? '' : split(textsuggested, '[ .()\[\]{}]\zs')[0]
+endfunction
+" ---
+inoremap <silent><C-s> <Plug>(copilot-suggest)
+inoremap <silent><C-d> <Plug>(copilot-dismiss)
+inoremap <silent><C-h> <C-W>
+inoremap <silent><C-j> <Plug>(copilot-next)
+inoremap <silent><C-k> <Plug>(copilot-previous)
+inoremap <script><expr> <C-l> <SID>SuggestWord()
 EOF
 
 
