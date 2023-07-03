@@ -32,7 +32,7 @@ fi
 
 # ---
 
-if [[ $# -eq 0 || $1 == "--insiders" ]]; then
+if [[ $1 == "--insiders" ]]; then
     if [[ -x "$(command -v code-insiders)" && -d ~/.config/Code\ -\ Insiders/User ]]; then
         OPERATION="RESETTING CODE-INSIDERS"
         printf "%s\n" "$OPERATION"

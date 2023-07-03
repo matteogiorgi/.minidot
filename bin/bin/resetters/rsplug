@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# This script updates vim to version 9 and install the following plugins:
-# ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale, copilot
+# This script installs the following plugins: ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale.
+# If launched with the --vim9 flag it also updates Vim to version 9 (via Ubuntu PPA) and installs copilot plugin.
 
 
 ### Ready?
@@ -177,11 +177,20 @@ nnoremap <leader>d :ALEGoToDefinition<CR>
 nnoremap <leader>i :ALEGoToImplementation<CR>
 EOF
 
+# ---
+
+if [[ $# -eq 0 || $1 != "--vim9" ]]; then
+    printf "\n"
+    printf "=========== We're done here ===========\n"
+    printf "Enjoy your Vim-Plugged life with Vim 8!\n"
+    exit 0
+fi
 
 
 
-### Vim 9 plugins (Ubuntu only)
-###############################
+
+### Vim 9 plugins
+#################
 
 # if Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
 # if it is not the case we cannot go no further and you have to manually install Vim 9
@@ -194,9 +203,9 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
         sudo apt-get install -qq -y vim-gtk3
     else
         printf "\n"
-        printf "=========== We're done here ===========\n"
-        printf "Enjoy your Vim-Plugged life with Vim 8!\n"
-        exit 0
+        printf "==================== Warning! ====================\n"
+        printf "Install Vim 9 manually and run this script again.\n"
+        exit 1
     fi
 fi
 
@@ -205,7 +214,15 @@ fi
 printf "\n"
 if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
-    [[ -x "$(command -v "node")" ]] || sudo apt-get install -qq -y nodejs
+    if ! [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
+        if [[ $(uname -a) =~ "Ubuntu" ]]; then
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
+            sudo apt-get install -y nodejs
+        elif [[ $(uname -a) =~ "Debian" ]]; then
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &&\
+            apt-get install -y nodejs
+        fi
+    fi
     git clone https://github.com/github/copilot.vim copilot
 else
     printf "UPDATING COPILOT\n"

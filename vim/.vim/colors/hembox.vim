@@ -129,7 +129,8 @@ if version >= 700
     call s:h("SpellCap",      { "sp": s:accent1, "gui": "undercurl" })
     call s:h("SpellRare",     { "sp": s:normGreen, "gui": "undercurl" })
     call s:h("SpellLocal",    { "sp": s:accent4, "gui": "undercurl" })
-    hi! link CursorColumn	CursorLine
+    " ---
+    hi! link CursorColumn CursorLine
 
     " Use background for cterm Spell*, which does not support undercurl
     execute "hi! SpellBad   ctermbg=" s:faintRed.cterm
@@ -199,6 +200,18 @@ hi! link Number      Constant
 hi! link Special     Constant
 hi! link PreProc     Constant
 hi! link Error       ErrorMsg
+" }}}
+
+
+
+
+" HIGHLIGHTS - ALE {{{
+call s:h("ALEError",              { "fg": s:bg, "bg": s:normRed })
+call s:h("ALEWarning",            { "fg": s:bg, "bg": s:normBlue })
+call s:h("ALEVirtualTextError",   { "fg": s:normRed })
+call s:h("ALEVirtualTextWarning", { "fg": s:normBlue })
+call s:h("ALEErrorSign",          { "fg": s:normRed, "gui": "bold", "cterm": "bold" })
+call s:h("ALEWarningSign",        { "fg": s:normBlue, "gui": "bold", "cterm": "bold" })
 " }}}
 
 

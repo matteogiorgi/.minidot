@@ -15,7 +15,3 @@ set guioptions=i
 set guicursor+=a:blinkon0
 set columns=120 lines=60
 set vb t_vb=
-
-" gui colors
-set background=light
-colorscheme hemisu
