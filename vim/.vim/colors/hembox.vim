@@ -208,10 +208,13 @@ hi! link Error       ErrorMsg
 " HIGHLIGHTS - ALE {{{
 call s:h("ALEError",              { "fg": s:bg, "bg": s:normRed })
 call s:h("ALEWarning",            { "fg": s:bg, "bg": s:normBlue })
+call s:h("ALEInfo",               { "fg": s:norm, "bg": s:subtle })
 call s:h("ALEVirtualTextError",   { "fg": s:normRed })
 call s:h("ALEVirtualTextWarning", { "fg": s:normBlue })
+call s:h("ALEVirtualTextInfo",    { "fg": s:subtle })
 call s:h("ALEErrorSign",          { "fg": s:normRed, "gui": "bold", "cterm": "bold" })
 call s:h("ALEWarningSign",        { "fg": s:normBlue, "gui": "bold", "cterm": "bold" })
+call s:h("ALEInfoSign",           { "fg": s:subtle, "gui": "bold", "cterm": "bold" })
 " }}}
 
 
