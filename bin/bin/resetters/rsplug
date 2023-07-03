@@ -21,12 +21,14 @@ fi
 # ---
 
 _reset () {
+    # If the plugin folder exists, we update it with a git pull;
+    # if it doesn't exist, we clone the plugin from GitHub.
     printf "%s\n" "${OPERATION}"
     [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone https://github.com/ctrlpvim/ctrlp.vim "${PLUGIN}"
 }
 
 _check () {
-    # if Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
+    # If Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
     # if it is not the case we cannot go no further and you have to manually install Vim 9
     [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && return
     # ---
@@ -67,9 +69,9 @@ _node () {
 
 # ---
 
-# vim internal plugins folder (~/.vim/pack/plugins/start)
+# Vim internal plugins folder (~/.vim/pack/plugins/start);
 # let's crate it if it doesn't exist!
-PLUGINS="~/.vim/pack/plugins/start"
+START="${HOME}/.vim/pack/plugins/start"
 [[ -d "${START}" ]] || mkdir -p "${START}"
 
 
@@ -133,10 +135,10 @@ _reset
 
 # ---
 
-# (over)write a simple config-file for Vim 8
-# plugins for keymaps and other little things
+# (Over)write a simple config-file for Vim 8
+# plugins for keymaps and other little things.
 PLUGME="${START}/plugme/plugin"
-RESETTERS="~/bin/resetters/vim"
+RESETTERS="${HOME}/bin/resetters/vim"
 [[ -d "${PLUGME}" ]] || mkdir -p "${PLUGME}"
 cat "${RESETTERS}/plug8.vim" > "${PLUGME}/rsplug8.vim"
 
@@ -162,8 +164,8 @@ _reset
 
 # ---
 
-# (over)write a simple config-file for Vim 9
-# plugins for keymaps and other little things
+# (Over)write a simple config-file for Vim 9
+# plugins for keymaps and other little things.
 cat "${RESETTERS}/plug9.vim" > "${PLUGME}/rsplug9.vim"
 
 
