@@ -214,15 +214,21 @@ fi
 printf "\n"
 if [[ ! -d copilot ]]; then
     printf "INSTALLING COPILOT\n"
+    # ---
+    # Copilot requires Node.js >= 16 so, if Node.js is not
+    # installed or is older than version 16, we update it.
     if ! [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
+        printf "Updating Node.js to the latest LTS version ...\n"
         if [[ $(uname -a) =~ "Ubuntu" ]]; then
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-            sudo apt-get install -y nodejs
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &>/dev/null
+            sudo apt-get install -qq -y nodejs
         elif [[ $(uname -a) =~ "Debian" ]]; then
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
-            apt-get install -y nodejs
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &>/dev/null
+            apt-get install -qq -y nodejs
         fi
+        printf "Node.js updated.\n"
     fi
+    # ---
     git clone https://github.com/github/copilot.vim copilot
 else
     printf "UPDATING COPILOT\n"
