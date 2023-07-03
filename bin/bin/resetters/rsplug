@@ -148,7 +148,7 @@ _reset
 PLUGME="${START}/plugme/plugin"
 RESETTERS="${HOME}/bin/resetters/vim"
 [[ -d "${PLUGME}" ]] || mkdir -p "${PLUGME}"
-cat "${RESETTERS}/plug8.vim" > "${PLUGME}/rsplug8.vim"
+cat "${RESETTERS}/plug8.vim" > "${PLUGME}/plug8.vim"
 
 # ---
 
@@ -179,7 +179,7 @@ _reset
 
 # (Over)write a simple config-file for Vim 9
 # plugins for keymaps and other little things.
-cat "${RESETTERS}/plug9.vim" > "${PLUGME}/rsplug9.vim"
+cat "${RESETTERS}/plug9.vim" > "${PLUGME}/plug9.vim"
 
 
 
