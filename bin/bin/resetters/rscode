@@ -54,7 +54,7 @@ fi
 
 if [[ $1 == "--insiders" ]]; then
     OPERATION="RESETTING CODE-INSIDERS"
-    USER="${HOME}/.config/Code\ -\ Insiders/User"
+    USER="${HOME}/.config/Code - Insiders/User"
     CODE="code-insiders"
     # ---
     _reset
