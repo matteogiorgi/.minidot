@@ -39,6 +39,7 @@ set omnifunc=ale#completion#OmniFunc
 " ---
 nnoremap <silent><C-n> :ALENext<CR>
 nnoremap <silent><C-p> :ALEPrevious<CR>
-nnoremap <leader>d :ALEGoToDefinition<CR>
+nnoremap <leader>a :ALESymbolSearch<Space>
 nnoremap <leader>s :ALEFindReferences<CR>
+nnoremap <leader>d :ALEGoToDefinition<CR>
 " }}}
