@@ -42,12 +42,4 @@ nnoremap <silent><C-p> :ALEPrevious<CR>
 nnoremap <leader>a :ALESymbolSearch<Space>
 nnoremap <leader>s :ALEFindReferences<CR>
 nnoremap <leader>d :ALEGoToDefinition<CR>
-" ---
-hi! link ALEError             User2
-hi! link ALEErrorSign         User2
-hi! link ALEVirtualTextError  User2
-" ---
-hi! link ALEWarning             User3
-hi! link ALEWarningSign         User3
-hi! link ALEVirtualTextWarning  User3
 " }}}
