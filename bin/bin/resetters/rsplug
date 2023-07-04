@@ -4,37 +4,29 @@
 #   noflag -> resets Vim 8 plugins only
 #   --vim9 -> updates Vim to version 9 (via Ubuntu PPA)
 #             and resets both Vim 8 and Vim 9 plugins
+#   --zero -> removes all plugins (rm -rf ~/.vim/pack)
 #
 # Here the full set of plugins installed by this script:
 # ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale, copilot.
 
 
-### Ready?
-##########
-
-read -p "Resetting Vim plugins (enter to continue)"
-
-# ---
-
-if [[ ! -x "$(command -v "vim")" ]]; then
-    printf "\n"
-    printf "==================== Warning! ====================\n"
-    printf "Vim is not installed: no operations were executed.\n"
-    exit 1
-fi
-
-# ---
+### Functions
+#############
 
 _reset () {
     # If the plugin folder exists, we update it with a git pull;
     # if it doesn't exist, we clone the plugin from GitHub.
+    # ---
     printf "%s\n" "${OPERATION}"
     [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone "${REPOSITORY}" "${PLUGIN}"
 }
 
+# ---
+
 _check () {
     # If Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
     # if it is not the case we cannot go no further and you have to manually install Vim 9
+    # ---
     [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && return
     # ---
     if [[ $(uname -a) =~ "Ubuntu" ]]; then
@@ -51,9 +43,12 @@ _check () {
     fi
 }
 
+# ---
+
 _node () {
     # Copilot requires Node.js >= 16 so, if Node.js is not
     # installed or is older than version 16, we update it.
+    # ---
     [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]] && return
     # ---
     printf "Updating Node.js to the latest LTS version ...\n"
@@ -72,7 +67,62 @@ _node () {
     esac
 }
 
+
+
+
+### Ready?
+##########
+
+read -p "Resetting Vim plugins (enter to continue)"
+
+
+
+
+### Check
+#########
+
+if [[ ! -x "$(command -v "vim")" ]]; then
+    printf "\n"
+    printf "==================== Warning! ====================\n"
+    printf "Vim is not installed: no operations were executed.\n"
+    exit 1
+fi
+
 # ---
+
+if [[ $# -gt 1 ]]; then
+    printf "\n"
+    printf "=================== Warning! ===================\n"
+    printf "Too many arguments: no operations were executed.\n"
+    exit 1
+elif [[ $# -eq 1 && $1 != "--vim9" && $1 != "--zero" ]]; then
+    printf "\n"
+    printf "================== Warning! ==================\n"
+    printf "Unknown argument: no operations were executed.\n"
+    exit 1
+fi
+
+
+
+
+### Zero
+########
+
+if [[ $1 == "--zero" ]]; then
+    printf "REMOVING ALL PLUGINS\n"
+    rm -rf "${HOME}/.vim/pack"
+    # ---
+    printf "\n"
+    printf "=========== We're done here ==========\n"
+    printf "Enjoy your vanilla Vim with no plugin.\n"
+    exit 0
+fi
+
+
+
+
+### ~/.vim/pack/plugins/start
+#############################
 
 # Vim internal plugins folder (~/.vim/pack/plugins/start);
 # let's crate it if it doesn't exist!
@@ -82,8 +132,8 @@ START="${HOME}/.vim/pack/plugins/start"
 
 
 
-### Vim 8 plugins
-#################
+### Plug 8
+##########
 
 OPERATION="RESETTING CTRLP"
 REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim"
@@ -157,18 +207,18 @@ cat "${RESETTERS}/plug8.vim" > "${PLUGME}/plug8.vim"
 
 # ---
 
-if [[ $# -eq 0 || $1 != "--vim9" ]]; then
+if [[ $# -eq 0 ]]; then
     printf "\n"
     printf "=========== We're done here ===========\n"
-    printf "Enjoy your Vim-Plugged life with Vim 8!\n"
+    printf "Enjoy your Vim-Plugged life with Vim 8.\n"
     exit 0
 fi
 
 
 
 
-### Vim 9 plugins
-#################
+### Plug 9
+##########
 
 _check
 
@@ -186,12 +236,8 @@ _reset
 # plugins for keymaps and other little things.
 cat "${RESETTERS}/plug9.vim" > "${PLUGME}/plug9.vim"
 
-
-
-
-### Bye bye
-###########
+# ---
 
 printf "\n"
 printf "=========== We're done here ===========\n"
-printf "Enjoy your Vim-Plugged life with Vim 9!\n"
+printf "Enjoy your Vim-Plugged life with Vim 9.\n"

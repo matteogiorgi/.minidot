@@ -1,22 +1,37 @@
 #!/usr/bin/env bash
 
 # This script resets VSCode setting using VSpaceCode extensions pack:
-#   noflag     -> resets VSCode only
-#   --insiders -> resets VSCode Insiders instead of VSCode
+#   noflag          -> resets VSCode only
+#   --insiders      -> resets VSCode Insiders instead of VSCode
+#   --zero          -> removes all VSCode configurations (rm -rf ~/.config/Code/User)
+#   --zero-insiders -> removes all VSCode Insiders configurations (rm -rf ~/.config/Code\ -\ Insiders/User)
 #
 # Here the full set of extensions installed by this script (for more information visit https://vspacecode.github.io/):
 # VSpaceCode, Which Key, Vim, fuzzy-search, File Browser, edamagit, Monokai Pro.
 
 
-### Ready?
-##########
+### Functions
+#############
 
-read -p "Resetting VSCode Vim-Syle (enter to continue)"
+_check () {
+    # If VSCode( Insiders) is not installed, we cannot go no further
+    # and you have to manually install it or just use something else.
+    # ---
+    [[ -x "$(command -v "${CODE}")" ]] && return
+    # ---
+    printf "\n"
+    printf "====================== Warning! ======================\n"
+    printf "${CODE} is not installed: no operations were executed.\n"
+    exit 1
+}
 
 # ---
 
 _reset () {
-    [[ -x "$(command -v "${CODE}")" && -d "${USER}" ]] || return
+    # We remove all the extensions previously installed and install
+    # VSpaceCode and Monokai Pro together with a full configuration.
+    # ---
+    _check
     printf "%s\n" "${OPERATION}"
     # ---
     LIST=$("${CODE}" --list-extensions)
@@ -26,32 +41,112 @@ _reset () {
     # ---
     "${CODE}" --install-extension vspacecode.vspacecode &>/dev/null
     "${CODE}" --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    # ---
     cat "${CONF}/settings.json" > "${USER}/settings.json"
     cat "${CONF}/keybindings.json" > "${USER}/keybindings.json"
-    # ---
-    ((COUNT++))
 }
 
 # ---
 
+_zero () {
+    # We remove all the extensions and configurations
+    # previously installed to get a clean VSCode( Insiders).
+    # ---
+    _check
+    printf "%s\n" "${OPERATION}"
+    # ---
+    LIST=$("${CODE}" --list-extensions)
+    for EXTENSION in $LIST; do
+        "${CODE}" --uninstall-extension "${EXTENSION}" &>/dev/null
+    done
+    # ---
+    [[ -f "${USER}/settings.json" ]] && rm -f "${USER}/settings.json"
+    [[ -f "${USER}/keybindings.json" ]] && rm -f "${USER}/keybindings.json"
+}
+
+
+
+
+### Ready?
+##########
+
+read -p "Resetting VSCode( Insiders) Vim-Syle (enter to continue)"
+
+
+
+
+### Check
+#########
+
+if [[ $# -gt 1 ]]; then
+    printf "\n"
+    printf "=================== Warning! ===================\n"
+    printf "Too many arguments: no operations were executed.\n"
+    exit 1
+elif [[ $# -eq 1 && $1 != "--insiders" && $1 != "--zero" && $1 != "--zero-insiders" ]]; then
+    printf "\n"
+    printf "================== Warning! ==================\n"
+    printf "Unknown argument: no operations were executed.\n"
+    exit 1
+fi
+
+
+
+
+### Zero
+########
+
+if [[ $1 == "--zero" ]]; then
+    OPERATION="REMOVING CODE CONFIGURATIONS"
+    USER="${HOME}/.config/Code/User"
+    CODE="code"
+    _zero
+    # ---
+    printf "\n"
+    printf "============== We're done here =============\n"
+    printf "Enjoy your vanilla VSCode with no extension.\n"
+    exit 0
+fi
+
+# ---
+
+if [[ $1 == "--zero-insiders" ]]; then
+    OPERATION="REMOVING CODE-INSIDERS CONFIGURATIONS"
+    USER="${HOME}/.config/Code - Insiders/User"
+    CODE="code-insiders"
+    _zero
+    # ---
+    printf "\n"
+    printf "================== We're done here ==================\n"
+    printf "Enjoy your vanilla VSCode Insiders with no extension.\n"
+    exit 0
+fi
+
+
+
+
+### ~/bin/resetters/code
+########################
+
 # VSpaceCode configuration files (settings and keybindings) folder
 # and a numeric counter to check if at least one operation was executed.
 CONF="${HOME}/bin/resetters/code"
-COUNT=0
 
 
 
 
-### Reset extensions
-####################
+### Reset configurations
+########################
 
-if [[ $# -eq 0 || $1 == "--code" ]]; then
+if [[ $# -eq 0 ]]; then
     OPERATION="RESETTING CODE"
     USER="${HOME}/.config/Code/User"
     CODE="code"
-    # ---
     _reset
+    # ---
+    printf "\n"
+    printf "=========== We're done here ===========\n"
+    printf "Enjoy your Vim-Styled life with VSCode.\n"
+    exit 0
 fi
 
 # ---
@@ -60,21 +155,16 @@ if [[ $1 == "--insiders" ]]; then
     OPERATION="RESETTING CODE-INSIDERS"
     USER="${HOME}/.config/Code - Insiders/User"
     CODE="code-insiders"
-    # ---
     _reset
+    # ---
+    printf "\n"
+    printf "================ We're done here ===============\n"
+    printf "Enjoy your Vim-Styled life with VSCode Insiders.\n"
+    exit 0
 fi
 
-
-
-
-### Bye bye
-###########
+# ---
 
 printf "\n"
-if [[ $COUNT -eq 0 ]]; then
-    printf "==================== Warning! ====================\n"
-    printf "Something went wrong: no operations were executed.\n"
-else
-    printf "=========== We're done here ===========\n"
-    printf "Enjoy your Vim-Styled life with VSCode!\n"
-fi
+printf "=================== Warning! ===================\n"
+printf "Something went wrong: you should never see this.\n"
