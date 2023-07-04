@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-# This script resets VSCode setting to a more Vim-like experience.
-# Flag --code or no flag resets VSCode, flag --insiders resets VSCode Insiders.
+# This script resets VSCode setting using VSpaceCode extensions pack:
+#   noflag     -> resets VSCode only
+#   --insiders -> resets VSCode Insiders instead of VSCode
+#
+# Here the full set of extensions installed by this script (for more information visit https://vspacecode.github.io/):
+# VSpaceCode, Which Key, Vim, fuzzy-search, File Browser, edamagit, Monokai Pro.
 
 
 ### Ready?

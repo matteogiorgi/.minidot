@@ -12,16 +12,14 @@
 # $NOTES  -> notes directory path
 
 for NOTE in *; do
-    FILETYPE=$(file --mime-type "${NOTE}" -bL)
-    if [[ "${FILETYPE}" == "text/plain" && "${NOTE##*.}" == "md" ]]; then
-        NAME="${NOTE%.*}"
-        pandoc "${NOTE}" -s --to=html5 -o "${NOTES}"/"${NAME}".html \
-                    --mathjax \
-                    --lua-filter="${NOTES}"/assets/link2html.lua \
-                    -H "${NOTES}"/assets/header.html \
-                    -B "${NOTES}"/assets/before.html \
-                    -A "${NOTES}"/assets/footer.html \
-                    -T "${PREFIX}" \
-                    &>/dev/null
-    fi
+    [[ "${NOTE##*.}" == "md" ]] || continue
+    NAME="${NOTE%.*}"
+    pandoc "${NOTE}" -s --to=html5 -o "${NOTES}"/"${NAME}".html \
+                --mathjax \
+                --lua-filter="${NOTES}"/assets/link2html.lua \
+                -H "${NOTES}"/assets/header.html \
+                -B "${NOTES}"/assets/before.html \
+                -A "${NOTES}"/assets/footer.html \
+                -T "${PREFIX}" \
+                &>/dev/null
 done

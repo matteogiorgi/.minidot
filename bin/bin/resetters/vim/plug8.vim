@@ -22,7 +22,9 @@ let g:ctrlp_custom_ignore = {
             \ }
 " ---
 nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>h :CtrlPChangeAll<CR>
+nnoremap <leader>g :CtrlPUndo<CR>
+nnoremap <leader>h :CtrlPMRUFiles<CR>
+nnoremap <leader>j :CtrlPChangeAll<CR>
 nnoremap <leader>k :CtrlPBufTagAll<CR>
 nnoremap <leader>l :CtrlPLine<CR>
 nnoremap <leader><Tab> :CtrlPBuffer<CR>
@@ -38,5 +40,5 @@ set omnifunc=ale#completion#OmniFunc
 nnoremap <silent><C-n> :ALENext<CR>
 nnoremap <silent><C-p> :ALEPrevious<CR>
 nnoremap <leader>d :ALEGoToDefinition<CR>
-nnoremap <leader>j :ALEFindReferences<CR>
+nnoremap <leader>s :ALEFindReferences<CR>
 " }}}

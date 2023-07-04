@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-# This script installs the following plugins: ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale.
-# If launched with the --vim9 flag it also updates Vim to version 9 (via Ubuntu PPA) and installs copilot plugin.
+# This script updates some useful Vim plugins to their latest versions:
+#   noflag -> resets Vim 8 plugins only
+#   --vim9 -> updates Vim to version 9 (via Ubuntu PPA)
+#             and resets both Vim 8 and Vim 9 plugins
+#
+# Here the full set of plugins installed by this script:
+# ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale, copilot.
 
 
 ### Ready?
