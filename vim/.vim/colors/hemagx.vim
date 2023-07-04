@@ -35,28 +35,28 @@ let s:almostBlack      = { "gui": "#111111", "cterm": "233" }
 let s:white            = { "gui": "#FFFFFF", "cterm": "231" }
 let s:almostWhite      = { "gui": "#EEEEEE", "cterm": "255" }
 " ---
-let s:darkGrey         = { "gui": "#444444", "cterm": "238" }
-let s:middleDarkGrey   = { "gui": "#6C6C6C", "cterm": "241" }
-let s:middleLightGrey  = { "gui": "#999999", "cterm": "246" }
-let s:lightGrey        = { "gui": "#BCBCBC", "cterm": "249" }
+let s:darkGrey         = { "gui": "#282828", "cterm": "235" }
+let s:middleDarkGrey   = { "gui": "#504945", "cterm": "239" }
+let s:middleLightGrey  = { "gui": "#665c54", "cterm": "241" }
+let s:lightGrey        = { "gui": "#928374", "cterm": "245" }
 " ---
-let s:darkPink         = { "gui": "#63001C", "cterm": "88"  }
-let s:middleDarkPink   = { "gui": "#FF0055", "cterm": "197" }
-let s:middleLightPink  = { "gui": "#D65E76", "cterm": "167" }
-let s:lightPink        = { "gui": "#FFAFAF", "cterm": "217" }
+let s:darkPink         = { "gui": "#9d0006", "cterm": "88"  }
+let s:middleDarkPink   = { "gui": "#cc241d", "cterm": "124" }
+let s:middleLightPink  = { "gui": "#d3869b", "cterm": "175" }
+let s:lightPink        = { "gui": "#fb4934", "cterm": "167" }
 " ---
-let s:darkBlue         = { "gui": "#5F87AF", "cterm": "24"  }
-let s:middleDarkBlue   = { "gui": "#5F5F87", "cterm": "24"  }
-let s:middleLightBlue  = { "gui": "#8787AF", "cterm": "116" }
-let s:lightBlue        = { "gui": "#87AFD7", "cterm": "195" }
+let s:darkBlue         = { "gui": "#5F87AF", "cterm": "67"  }
+let s:middleDarkBlue   = { "gui": "#5F5F87", "cterm": "60"  }
+let s:middleLightBlue  = { "gui": "#8787AF", "cterm": "103" }
+let s:lightBlue        = { "gui": "#87AFD7", "cterm": "110" }
 " ---
-let s:darkGreen        = { "gui": "#87875F", "cterm": "58"  }
-let s:middleDarkGreen  = { "gui": "#5F875F", "cterm": "64"  }
-let s:middleLightGreen = { "gui": "#87AF87", "cterm": "149" }
-let s:lightGreen       = { "gui": "#FFFFAF", "cterm": "157" }
+let s:darkGreen        = { "gui": "#87875F", "cterm": "101" }
+let s:middleDarkGreen  = { "gui": "#5F875F", "cterm": "65"  }
+let s:middleLightGreen = { "gui": "#87AF87", "cterm": "108" }
+let s:lightGreen       = { "gui": "#FFFFAF", "cterm": "229" }
 " ---
-let s:darkTan          = { "gui": "#AF5F5F", "cterm": "52"  }
-let s:lightTan         = { "gui": "#FF8700", "cterm": "230" }
+let s:darkTan          = { "gui": "#AF5F5F", "cterm": "131" }
+let s:lightTan         = { "gui": "#FF8700", "cterm": "208" }
 
 " Assign to semantic categories based on background color
 if &background == "dark"
