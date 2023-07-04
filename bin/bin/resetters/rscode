@@ -96,7 +96,7 @@ fi
 ########
 
 if [[ $1 == "--zero" ]]; then
-    OPERATION="REMOVING CODE CONFIGURATIONS"
+    OPERATION="REMOVING ALL CODE CONFIGURATIONS"
     USER="${HOME}/.config/Code/User"
     CODE="code"
     _zero
@@ -110,7 +110,7 @@ fi
 # ---
 
 if [[ $1 == "--zero-insiders" ]]; then
-    OPERATION="REMOVING CODE-INSIDERS CONFIGURATIONS"
+    OPERATION="REMOVING ALL CODE-INSIDERS CONFIGURATIONS"
     USER="${HOME}/.config/Code - Insiders/User"
     CODE="code-insiders"
     _zero
