@@ -34,7 +34,7 @@ endif
 syntax on
 filetype plugin indent on
 set background=dark
-colorscheme hemisu
+colorscheme hembox
 " }}}
 
 
