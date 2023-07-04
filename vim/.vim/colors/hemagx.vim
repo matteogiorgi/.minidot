@@ -1,10 +1,10 @@
-"  _   _                _
-" | | | | ___ _ __ ___ (_)___ _   _
-" | |_| |/ _ \ '_ ` _ \| / __| | | |
-" |  _  |  __/ | | | | | \__ \ |_| |
-" |_| |_|\___|_| |_| |_|_|___/\__,_|
-"
-" Noah Frederick (http://noahfrederick.com/)
+"  _   _
+" | | | | ___ _ __ ___   __ _  __ ___  __
+" | |_| |/ _ \ '_ ` _ \ / _` |/ _` \ \/ /
+" |  _  |  __/ | | | | | (_| | (_| |>  <
+" |_| |_|\___|_| |_| |_|\__,_|\__, /_/\_\
+"                             |___/
+" A Hemisu variant with Apprentice colors.
 " Matteo Giorgi  (https://www.geoteo.net/)
 
 
@@ -18,7 +18,7 @@ if exists("syntax_on")
 endif
 
 " Declare theme name
-let g:colors_name = "hemisu"
+let g:colors_name = "hemagx"
 " }}}
 
 
@@ -36,27 +36,27 @@ let s:white            = { "gui": "#FFFFFF", "cterm": "231" }
 let s:almostWhite      = { "gui": "#EEEEEE", "cterm": "255" }
 " ---
 let s:darkGrey         = { "gui": "#444444", "cterm": "238" }
-let s:middleDarkGrey   = { "gui": "#777777", "cterm": "241" }
+let s:middleDarkGrey   = { "gui": "#6C6C6C", "cterm": "241" }
 let s:middleLightGrey  = { "gui": "#999999", "cterm": "246" }
-let s:lightGrey        = { "gui": "#BBBBBB", "cterm": "249" }
+let s:lightGrey        = { "gui": "#BCBCBC", "cterm": "249" }
 " ---
 let s:darkPink         = { "gui": "#63001C", "cterm": "88"  }
 let s:middleDarkPink   = { "gui": "#FF0055", "cterm": "197" }
 let s:middleLightPink  = { "gui": "#D65E76", "cterm": "167" }
 let s:lightPink        = { "gui": "#FFAFAF", "cterm": "217" }
 " ---
-let s:darkBlue         = { "gui": "#005F87", "cterm": "24"  }
-let s:middleDarkBlue   = { "gui": "#538192", "cterm": "24"  }
-let s:middleLightBlue  = { "gui": "#9FD3E6", "cterm": "116" }
-let s:lightBlue        = { "gui": "#CBE4EE", "cterm": "195" }
+let s:darkBlue         = { "gui": "#5F87AF", "cterm": "24"  }
+let s:middleDarkBlue   = { "gui": "#5F5F87", "cterm": "24"  }
+let s:middleLightBlue  = { "gui": "#8787AF", "cterm": "116" }
+let s:lightBlue        = { "gui": "#87AFD7", "cterm": "195" }
 " ---
-let s:darkGreen        = { "gui": "#5F5F00", "cterm": "58"  }
-let s:middleDarkGreen  = { "gui": "#739200", "cterm": "64"  }
-let s:middleLightGreen = { "gui": "#B1D631", "cterm": "149" }
-let s:lightGreen       = { "gui": "#BBFFAA", "cterm": "157" }
+let s:darkGreen        = { "gui": "#87875F", "cterm": "58"  }
+let s:middleDarkGreen  = { "gui": "#5F875F", "cterm": "64"  }
+let s:middleLightGreen = { "gui": "#87AF87", "cterm": "149" }
+let s:lightGreen       = { "gui": "#FFFFAF", "cterm": "157" }
 " ---
-let s:darkTan          = { "gui": "#503D15", "cterm": "52"  }
-let s:lightTan         = { "gui": "#ECE1C8", "cterm": "230" }
+let s:darkTan          = { "gui": "#AF5F5F", "cterm": "52"  }
+let s:lightTan         = { "gui": "#FF8700", "cterm": "230" }
 
 " Assign to semantic categories based on background color
 if &background == "dark"

@@ -30,13 +30,15 @@ let g:colors_name = "hembox"
 
 " Define reusable colors
 let s:black            = { "gui": "#000000", "cterm": "16"  }
+let s:almostBlack      = { "gui": "#111111", "cterm": "233" }
+" ---
 let s:white            = { "gui": "#FFFFFF", "cterm": "231" }
 let s:almostWhite      = { "gui": "#EEEEEE", "cterm": "255" }
-let s:almostBlack      = { "gui": "#111111", "cterm": "233" }
+" ---
+let s:darkGrey         = { "gui": "#282828", "cterm": "235" }
 let s:middleDarkGrey   = { "gui": "#504945", "cterm": "239" }
 let s:middleLightGrey  = { "gui": "#665c54", "cterm": "241" }
 let s:lightGrey        = { "gui": "#928374", "cterm": "245" }
-let s:darkGrey         = { "gui": "#282828", "cterm": "235" }
 " ---
 let s:darkPink         = { "gui": "#9d0006", "cterm": "88"  }
 let s:middleDarkPink   = { "gui": "#cc241d", "cterm": "124" }
