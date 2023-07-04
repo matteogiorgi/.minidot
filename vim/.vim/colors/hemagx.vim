@@ -35,15 +35,15 @@ let s:almostBlack      = { "gui": "#111111", "cterm": "233" }
 let s:white            = { "gui": "#FFFFFF", "cterm": "231" }
 let s:almostWhite      = { "gui": "#EEEEEE", "cterm": "255" }
 " ---
-let s:darkGrey         = { "gui": "#282828", "cterm": "235" }
-let s:middleDarkGrey   = { "gui": "#504945", "cterm": "239" }
-let s:middleLightGrey  = { "gui": "#665c54", "cterm": "241" }
-let s:lightGrey        = { "gui": "#928374", "cterm": "245" }
+let s:darkGrey         = { "gui": "#444444", "cterm": "238" }
+let s:middleDarkGrey   = { "gui": "#777777", "cterm": "241" }
+let s:middleLightGrey  = { "gui": "#999999", "cterm": "246" }
+let s:lightGrey        = { "gui": "#BBBBBB", "cterm": "249" }
 " ---
-let s:darkPink         = { "gui": "#9d0006", "cterm": "88"  }
-let s:middleDarkPink   = { "gui": "#cc241d", "cterm": "124" }
-let s:middleLightPink  = { "gui": "#d3869b", "cterm": "175" }
-let s:lightPink        = { "gui": "#fb4934", "cterm": "167" }
+let s:darkPink         = { "gui": "#63001C", "cterm": "88"  }
+let s:middleDarkPink   = { "gui": "#CC241D", "cterm": "124" }
+let s:middleLightPink  = { "gui": "#D3869B", "cterm": "175" }
+let s:lightPink        = { "gui": "#FFAFAF", "cterm": "217" }
 " ---
 let s:darkBlue         = { "gui": "#5F87AF", "cterm": "67"  }
 let s:middleDarkBlue   = { "gui": "#5F5F87", "cterm": "60"  }

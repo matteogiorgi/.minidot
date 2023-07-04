@@ -38,6 +38,8 @@ _banner () {
     printf "\n${YLW}%s${NC}\n\n"      "    |_|  |_|___|_| \_|___|____/ \___/ |_|  "
 }
 
+# ---
+
 _warning () {
     if [ "$(id -u)" = 0 ]; then
         printf "\n${RED}%s${NC}"     "    This script MUST NOT be run as root user since it makes changes"
@@ -49,11 +51,15 @@ _warning () {
     fi
 }
 
+# ---
+
 _error () {
     clear
     printf "ERROR: %s\n" "$1" >&2
     exit 1
 }
+
+# ---
 
 _clean () {
     if [[ -L $1 ]]; then
@@ -62,6 +68,8 @@ _clean () {
         mv $1 $RESTORE
     fi
 }
+
+# ---
 
 _backup () {
     # bash
@@ -72,16 +80,16 @@ _backup () {
     [[ -f $HOME/.bashrc ]] && _clean $HOME/.bashrc
     [[ -f $HOME/.git-prompt.sh ]] && _clean $HOME/.git-prompt.sh
     [[ -f $HOME/.profile ]] && _clean $HOME/.profile
-
+    # ---
     # bin
     [[ -d $HOME/bin ]] && _clean $HOME/bin
-
+    # ---
     # fzf
     [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
-
+    # ---
     # tmux
     [[ -f $HOME/.tmux.conf ]] && _clean $HOME/.tmux.conf
-
+    # ---
     # vim
     [[ -d $HOME/.vim ]] && _clean $HOME/.vim
     [[ -f $HOME/.vimrc ]] && _clean $HOME/.vimrc
@@ -97,12 +105,12 @@ _backup () {
 clear
 _banner
 _warning
-
+# ---
 if ! uname -a | grep -qE 'Debian|Ubuntu' &> /dev/null; then
     read -p "    WARNING: this is not a Debian or Ubuntu distro (enter to continue)"
     echo
 fi
-
+# ---
 if [[ ! -d $HOME/.minidot-restore ]]; then
     mkdir $HOME/.minidot-restore
     RESTORE="$HOME/.minidot-restore"
@@ -111,7 +119,7 @@ else
     printf "    Launch ./restore.sh first\n\n"
     exit 1
 fi
-
+# ---
 read -p "    Confirm to start the '.minidot' setup script (enter to continue)"
 printf "\n"
 
@@ -123,7 +131,7 @@ printf "\n"
 
 read -p "    Syncing and updating repos (enter to continue)"
 printf "\n"
-
+# ---
 sudo apt-get update && sudo apt-get upgrade -qq -y || _error "syncing repos"
 
 
@@ -135,7 +143,7 @@ sudo apt-get update && sudo apt-get upgrade -qq -y || _error "syncing repos"
 printf "\n"
 read -p "    Installing packages (enter to continue)"
 printf "\n"
-
+# ---
 sudo apt-get install -qq -y \
     git \
     curl \
@@ -169,7 +177,7 @@ sudo apt-get install -qq -y \
 #########################
 
 _backup
-
+# ---
 stow bash
 stow bin
 stow fzf

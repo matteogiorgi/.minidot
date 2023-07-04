@@ -35,6 +35,8 @@ _banner () {
     printf "\n${YLW}%s${NC}\n\n"      "    |_|  |_|___|_| \_|___|____/ \___/ |_|  "
 }
 
+# ---
+
 _warning () {
     if [ "$(id -u)" = 0 ]; then
         printf "\n${RED}%s${NC}"     "    This script MUST NOT be run as root user since it makes changes"
@@ -46,11 +48,15 @@ _warning () {
     fi
 }
 
+# ---
+
 _error () {
     clear
     printf "ERROR: %s\n" "$1" >&2
     exit 1
 }
+
+# ---
 
 _restore () {
     # bash
@@ -61,16 +67,16 @@ _restore () {
     [[ -f $RESTORE/.bashrc ]] && mv $RESTORE/.bashrc $HOME
     [[ -f $RESTORE/.git-prompt.sh ]] && mv $RESTORE/.git-prompt.sh $HOME
     [[ -f $RESTORE/.profile ]] && mv $RESTORE/.profile $HOME
-
+    # ---
     # bin
     [[ -d $RESTORE/bin ]] && mv $RESTORE/bin $HOME
-
+    # ---
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
-
+    # ---
     # tmux
     [[ -f $RESTORE/.tmux.conf ]] && mv $RESTORE/.tmux.conf $HOME
-
+    # ---
     # vim
     [[ -d $RESTORE/.vim ]] && mv $RESTORE/.vim $HOME
     [[ -f $RESTORE/.vimrc ]] && mv $RESTORE/.vimrc $HOME
@@ -86,12 +92,12 @@ _restore () {
 clear
 _banner
 _warning
-
+# ---
 if ! uname -a | grep -qE 'Debian|Ubuntu' &> /dev/null; then
     read -p "    WARNING: this is not a Debian or Ubuntu distro (enter to continue)"
     echo
 fi
-
+# ---
 if [[ -d $HOME/.minidot-restore ]]; then
     RESTORE="$HOME/.minidot-restore"
 else
@@ -99,7 +105,7 @@ else
     printf "    Launch ./setup.sh first\n\n"
     exit 1
 fi
-
+# ---
 read -p "    Confirm to start the '.minidot' restore script (enter to continue)"
 printf "\n"
 
@@ -114,7 +120,7 @@ stow -D bin
 stow -D fzf
 stow -D tmux
 stow -D vim
-
+# ---
 _restore
 [[ -d $RESTORE ]] && rm -rf $RESTORE
 
@@ -127,7 +133,7 @@ _restore
 printf "\n"
 read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
-
+# ---
 # the following packages aren't going to be uninstalled:
 # gnome-keyring, dash, bash, bash-completion.
 sudo apt-get purge -qq -y \
@@ -161,7 +167,7 @@ sudo apt-get purge -qq -y \
 printf "\n"
 read -p "    Launching autoremove (enter to continue)"
 printf "\n"
-
+# ---
 sudo apt-get autoremove -qq -y || _error "autoremove"
 
 
