@@ -113,8 +113,8 @@ if [[ $1 == "--zero" ]]; then
     rm -rf "${HOME}/.vim/pack"
     # ---
     printf "\n"
-    printf "=========== We're done here ==========\n"
-    printf "Enjoy your vanilla Vim with no plugin.\n"
+    printf "============ We're done here ==========\n"
+    printf "Enjoy your vanilla Vim with no plugins.\n"
     exit 0
 fi
 

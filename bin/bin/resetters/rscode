@@ -103,7 +103,7 @@ if [[ $1 == "--zero" ]]; then
     # ---
     printf "\n"
     printf "============== We're done here =============\n"
-    printf "Enjoy your vanilla VSCode with no extension.\n"
+    printf "Enjoy your vanilla VSCode with no extensions.\n"
     exit 0
 fi
 
@@ -117,7 +117,7 @@ if [[ $1 == "--zero-insiders" ]]; then
     # ---
     printf "\n"
     printf "================== We're done here ==================\n"
-    printf "Enjoy your vanilla VSCode Insiders with no extension.\n"
+    printf "Enjoy your vanilla VSCode Insiders with no extensions.\n"
     exit 0
 fi
 
