@@ -5,6 +5,7 @@
 #   --vim9 -> updates Vim to version 9 (via Ubuntu PPA)
 #             and resets both Vim 8 and Vim 9 plugins
 #   --zero -> removes all plugins (rm -rf ~/.vim/pack)
+#   --rice -> rice your plug8.vim and plug9.vim files
 #
 # Here the full set of plugins installed by this script:
 # ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale, copilot.
@@ -37,7 +38,7 @@ _check () {
         sudo apt-get install -qq -y vim-gtk3
     else
         printf "\n"
-        printf "==================== Warning! ====================\n"
+        printf "==================== Warning! ===================\n"
         printf "Install Vim 9 manually and run this script again.\n"
         exit 1
     fi
@@ -95,11 +96,30 @@ if [[ $# -gt 1 ]]; then
     printf "=================== Warning! ===================\n"
     printf "Too many arguments: no operations were executed.\n"
     exit 1
-elif [[ $# -eq 1 && $1 != "--vim9" && $1 != "--zero" ]]; then
+elif [[ $# -eq 1 && $1 != "--vim9" && $1 != "--zero" && $1 != "--rice" ]]; then
     printf "\n"
     printf "================== Warning! ==================\n"
     printf "Unknown argument: no operations were executed.\n"
     exit 1
+fi
+
+
+
+
+### Rice
+########
+
+if [[ $1 == "--rice" ]]; then
+    PLUG8="${HOME}/.vim/pack/plugins/start/plugme/plugin/plug8.vim"
+    PLUG9="${HOME}/.vim/pack/plugins/start/plugme/plugin/plug9.vim"
+    # ---
+    [[ -f "${PLUG8}" ]] && "${EDITOR:=vi}" "${PLUG8}"
+    [[ -f "${PLUG9}" ]] && "${EDITOR:=vi}" "${PLUG9}"
+    # ---
+    printf "\n"
+    printf "============= We're done here ============\n"
+    printf "Are you happy now? Stop wasting your time.\n"
+    exit 0
 fi
 
 
