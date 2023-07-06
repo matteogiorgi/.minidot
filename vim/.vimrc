@@ -220,12 +220,14 @@ command! ToggleHemisu
             \     if &background ==# 'light'|
             \         set background=dark|
             \         so ~/.vim/plugin/hemisu.vim|
+            \         echo 'hemisu dark'|
             \     else|
             \         set background=light|
             \         so ~/.vim/plugin/hemisu.vim|
+            \         echo 'hemisu light'|
             \     endif|
             \ else|
-            \     echo 'hemisu not set'|
+            \     echo 'hemisu not currently set'|
             \ endif
 " ---
 command! ToggleWordwrap
@@ -241,21 +243,17 @@ command! ToggleWordwrap
             \     echo 'set wrap'|
             \ endif
 " ---
+command! RemoveSpaces
+            \ exe '%s/\s\+$//e'|
+            \ echo 'removed trailing spaces'
+" ---
+command! ClearLastSearch
+            \ exe 'let @/=""'|
+            \ echo 'cleared last search'
+" ---
 command! IndentAll
             \ exe 'setl ts=4 sts=0 et sw=4 sta'|
-            \ exe "norm gg=G"
-" ---
-command! RemoveSpaces :%s/\s\+$//e
-command! ClearLastSearch :let @/=""
-" }}}
-
-
-
-
-" Copy/Pasta commands {{{
-"(`apt intall -yy vim-gtk3`)
-command! Copy execute 'visual "+y'
-command! Pasta execute 'normal "+p'
+            \ exe 'norm gg=G'
 " }}}
 
 
