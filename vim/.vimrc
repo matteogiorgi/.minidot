@@ -215,11 +215,13 @@ augroup end
 
 
 " Commands {{{
-command! ToggleBackground
+command! ToggleHemisuBg
             \ if &background ==# 'light'|
             \     set background=dark|
+            \     so ~/.vim/plugin/hemisu.vim|
             \ else|
             \     set background=light|
+            \     so ~/.vim/plugin/hemisu.vim|
             \ endif
 " ---
 command! ToggleWordwrap
@@ -261,7 +263,7 @@ command! Pasta execute 'normal "+p'
 
 
 " Keymaps {{{
-nnoremap <silent>^ :ToggleBackground<CR>
+nnoremap <silent>^ :ToggleHemisuBg<CR>
 nnoremap <silent>_ :ToggleWordwrap<CR>
 nnoremap <leader>\ :execute "normal \ggVG"<CR>
 xnoremap <leader>\ :s///gc<Left><Left><Left>
