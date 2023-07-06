@@ -5,6 +5,7 @@
 
 
 FILE="$*"
+# ---
 case $(file --mime-type "${FILE}" -bL) in
     text/* | application/json)
         "${EDITOR:=vi}" "$@"

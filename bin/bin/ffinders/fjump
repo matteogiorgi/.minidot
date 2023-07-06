@@ -3,11 +3,11 @@
 
 [[ -x "$(command -v fzf)" ]] || exit 1
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
-
+# ---
 PARENTPID="$*"
 CLICOLOR_FORCE=1
 OPENER="swallow"
-
+# ---
 while true; do
     printf '%s\n' "$PWD" > /tmp/fjump${PARENTPID}
     [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""

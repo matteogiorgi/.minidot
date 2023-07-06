@@ -10,6 +10,8 @@
 # ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale, copilot.
 
 
+
+
 ### Functions
 #############
 
@@ -21,7 +23,6 @@ _reset () {
     [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone "${REPOSITORY}" "${PLUGIN}"
 }
 
-# ---
 
 _check () {
     # If Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
@@ -43,7 +44,6 @@ _check () {
     sudo apt-get install -qq -y vim-gtk3
 }
 
-# ---
 
 _node () {
     # Copilot requires Node.js >= 16 so, if Node.js is not
@@ -91,7 +91,6 @@ if [[ ! -x "$(command -v "vim")" ]]; then
     exit 1
 fi
 
-# ---
 
 if [[ $# -gt 1 ]]; then
     printf "\n"
@@ -159,7 +158,6 @@ REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim"
 PLUGIN="${START}/ctrlp"
 _reset
 
-# ---
 
 printf "\n"
 OPERATION="RESETTING FUGITIVE"
@@ -167,7 +165,6 @@ REPOSITORY="https://github.com/tpope/vim-fugitive"
 PLUGIN="${START}/fugitive"
 _reset
 
-# ---
 
 printf "\n"
 OPERATION="RESETTING COMMENTARY"
@@ -175,7 +172,6 @@ REPOSITORY="https://github.com/tpope/vim-commentary"
 PLUGIN="${START}/commentary"
 _reset
 
-# ---
 
 printf "\n"
 OPERATION="RESETTING SURROUND"
@@ -183,7 +179,6 @@ REPOSITORY="https://github.com/tpope/vim-surround"
 PLUGIN="${START}/surround"
 _reset
 
-# ---
 
 printf "\n"
 OPERATION="RESETTING REPEAT"
@@ -191,7 +186,6 @@ REPOSITORY="https://github.com/tpope/vim-repeat"
 PLUGIN="${START}/repeat"
 _reset
 
-# ---
 
 printf "\n"
 OPERATION="RESETTING LEXIMA"
@@ -199,7 +193,6 @@ REPOSITORY="https://github.com/cohama/lexima.vim"
 PLUGIN="${START}/lexima"
 _reset
 
-# ---
 
 printf "\n"
 OPERATION="RESETTING CONTEXT"
@@ -207,7 +200,6 @@ REPOSITORY="https://github.com/wellle/context.vim"
 PLUGIN="${START}/context"
 _reset
 
-# ---
 
 printf "\n"
 OPERATION="RESETTING ALE"
@@ -215,7 +207,6 @@ REPOSITORY="https://github.com/dense-analysis/ale"
 PLUGIN="${START}/ale"
 _reset
 
-# ---
 
 # (Over)write a simple config-file for Vim8 plugins:
 # some keymaps and few more little things.
@@ -224,13 +215,11 @@ RESETTERS="${HOME}/bin/resetters/vim"
 [[ -d "${PLUGME}" ]] || mkdir -p "${PLUGME}"
 cat "${RESETTERS}/plug8.vim" > "${PLUGME}/plugme.vim"
 
-# ---
 
 # If we've come this far, we're updating Vim to version 9 (if it needs to)
 # and proceede with the installation of the plugins that require Vim9.
 _check
 
-# ---
 
 printf "\n"
 OPERATION="RESETTING COPILOT"
@@ -239,13 +228,11 @@ PLUGIN="${START}/copilot"
 _node
 _reset
 
-# ---
 
 # Append a simple config-file for Vim9 plugins:
 # some keymaps and few more little things.
 cat "${RESETTERS}/plug9.vim" >> "${PLUGME}/plugme.vim"
 
-# ---
 
 printf "\n"
 printf "=========== We're done here ==========\n"

@@ -10,6 +10,8 @@
 # VSpaceCode, Which Key, Vim, fuzzy-search, File Browser, edamagit, Monokai Pro.
 
 
+
+
 ### Functions
 #############
 
@@ -25,7 +27,6 @@ _check () {
     exit 1
 }
 
-# ---
 
 _reset () {
     # We remove all the extensions previously installed and install
@@ -46,7 +47,6 @@ _reset () {
     cat "${CONF}/keybindings.json" > "${USER}/keybindings.json"
 }
 
-# ---
 
 _zero () {
     # We remove all the extensions and configurations
@@ -108,7 +108,6 @@ if [[ $1 == "--zero" ]]; then
     exit 0
 fi
 
-# ---
 
 if [[ $1 == "--zero-insiders" ]]; then
     OPERATION="REMOVING ALL CODE-INSIDERS CONFIGURATIONS"
@@ -150,7 +149,6 @@ if [[ $# -eq 0 ]]; then
     exit 0
 fi
 
-# ---
 
 if [[ $1 == "--insiders" ]]; then
     OPERATION="RESETTING CODE-INSIDERS"
@@ -164,7 +162,6 @@ if [[ $1 == "--insiders" ]]; then
     exit 0
 fi
 
-# ---
 
 printf "\n"
 printf "=================== Warning! ===================\n"

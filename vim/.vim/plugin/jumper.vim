@@ -30,6 +30,8 @@ endfunction
 "}}}
 
 
+
+
 " Jump to parent directory {{{
 function! s:JumpParentDir()
     if getcwd() ==? $HOME
@@ -41,6 +43,8 @@ function! s:JumpParentDir()
     echon 'CWD: ' . getcwd()
 endfunction
 "}}}
+
+
 
 
 " Jump to git directory {{{
@@ -61,10 +65,13 @@ endfunction
 "}}}
 
 
+
+
 " Jump to neighbor window {{{
 function! s:JumpWindow(key)
     let t:curwin = winnr()
     exec 'wincmd '.a:key
+    " ---
     if t:curwin ==? winnr()
         if match(a:key,'[jk]')
             wincmd v

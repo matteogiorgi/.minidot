@@ -215,18 +215,20 @@ augroup end
 
 
 " Commands {{{
-command! ClearLastSearch
-            \ exe 'let @/=""'|
-            \ echo 'cleared last search'
+command! ToggleHemisu
+            \ if colors_name ==# 'hemisu'|
+            \     if &background ==# 'light'|
+            \         set background=dark|
+            \         so ~/.vim/plugin/hemisu.vim|
+            \     else|
+            \         set background=light|
+            \         so ~/.vim/plugin/hemisu.vim|
+            \     endif|
+            \ else|
+            \     echo 'hemisu is not set'|
+            \ endif
 " ---
-command! RemoveSpaces
-            \ exe '%s/\s\+$//e'
-" ---
-command! IndentAll
-            \ exe 'setl ts=4 sts=0 et sw=4 sta'|
-            \ exe 'norm gg=G'
-" ---
-command! ToggleWordwrap
+command! ToggleWrap
             \ if &wrap|
             \     setlocal nowrap|
             \     nunmap <buffer> j|
@@ -239,30 +241,20 @@ command! ToggleWordwrap
             \     echo 'set wrap'|
             \ endif
 " ---
-command! ToggleHemisu
-            \ if colors_name ==# 'hemisu'|
-            \     if &background ==# 'light'|
-            \         set background=dark|
-            \         so ~/.vim/plugin/hemisu.vim|
-            \     else|
-            \         set background=light|
-            \         so ~/.vim/plugin/hemisu.vim|
-            \     endif|
-            \ else|
-            \     echo 'hemisu not currently set'|
-            \ endif
+command! ClearSearch
+            \ execute 'let @/=""'|
+            \ echo 'cleared last search'
+" ---
+command! RemoveSpaces
+            \ execute '%s/\s\+$//e'
 " }}}
 
 
 
 
 " Keymaps {{{
-nnoremap <silent>^ :ClearLastSearch<CR>
-nnoremap <silent>_ :RemoveSpaces<CR>
-nnoremap <silent>, :ToggleWordwrap<CR>
-" ---
-nnoremap <leader>\ :execute "normal \ggVG"<CR>
-xnoremap <leader>\ :s///gc<Left><Left><Left>
+nnoremap <silent>^ :ToggleHemisu<CR>
+nnoremap <silent>_ :ToggleWrap<CR>
 " ---
 nnoremap <silent>Y y$
 vnoremap <silent>H <gv
@@ -277,10 +269,13 @@ vnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 vnoremap <silent><C-k> {
 " ---
+nnoremap <silent><Tab> :buffer#<CR>
+nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
 nnoremap <leader><Space> :edit ./<Right>
 vnoremap <leader><Space> :!<Space>
-nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
-nnoremap <silent><Tab> :buffer#<CR>
+" ---
+nnoremap <leader>\ :exe 'normal ggVG'<CR>
+xnoremap <leader>\ :s///gc<Left><Left><Left>
 " ---
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt

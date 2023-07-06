@@ -28,7 +28,7 @@ let g:colors_name = "hemisu"
 
 
 " THE COLORS {{{
-" check more Xterm256 color names for console Vim at:
+" Check more Xterm256 color names for console Vim at:
 " https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
 
 " Define reusable colors

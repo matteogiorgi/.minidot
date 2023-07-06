@@ -8,8 +8,7 @@ if [[ "$*" == "" ]]; then
     printf "Missing filename\n"
     exit 1
 fi
-
-
+# ---
 FILE="$*"
 LESS="/bin/less -R -~"
 BAT="/bin/batcat --style numbers,changes --color=always"
@@ -19,7 +18,7 @@ LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
 [[ -L "$FILE" && -d "$FILE" ]] && ${LIST} "$(readlink $FILE)" | ${LESS} && exit
 [[ -d "$FILE" ]] && ${LIST} "$FILE" | ${LESS} && exit
-
+# ---
 case $(file --mime-type "$FILE" -bL) in
     application/pdf | application/postscript | application/djvu)
         ${LESS} "$FILE" 2>/dev/null

@@ -48,7 +48,7 @@ shopt -s globstar
 ####################################
 
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
-
+# ---
 if [[ -z "${debian_chroot:-}" ]] && [[ -r /etc/debian_chroot ]]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
@@ -196,7 +196,7 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 # red     = 31        magenta = 35        bold       = 1
 # green   = 32        cyan    = 36        faint      = 2
 # yellow  = 33        white   = 37        underlined = 4
-
+# ---
 export LESS_TERMCAP_mb=$'\e[01;31m'     # begin blinking
 export LESS_TERMCAP_md=$'\e[01;31m'     # begin bold
 export LESS_TERMCAP_me=$'\e[0m'         # end mode
@@ -228,10 +228,10 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 
 set -o vi
 PROMPT=${PS1@P}
-
+# ---
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
-
+# ---
 bind 'set show-all-if-ambiguous on'            # completions listed immediately
 bind 'set show-all-if-unmodified on'           # completions with no partial completion
 bind 'set completion-ignore-case on'           # auto completion to ignore cases
@@ -240,7 +240,7 @@ bind 'set mark-symlinked-directories on'       # symlink dir completion to have 
 bind 'set visible-stats on'                    # completions appending characters indicating file type
 bind 'set colored-stats on'                    # completions using different colors
 bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
-
+# ---
 if [[ -n "$TMUX" ]]; then
     bind 'set vi-ins-mode-string ">>"'
     bind 'set vi-cmd-mode-string "<<"'

@@ -21,7 +21,7 @@ let g:writer = 1
 
 
 
-" Notes {{{
+" MakeNote {{{
 function! s:MakeNote()
     let l:path_file    = expand('%:p')
     let l:path_parent  = expand('%:p:h')
@@ -40,6 +40,8 @@ endfunction
 "}}}
 
 
+
+
 " ScratchBuffer {{{
 function! s:ScratchBuffer()
     let target_buffer = bufnr('/tmp/scratchbuffer')
@@ -56,6 +58,8 @@ function! s:ScratchBuffer()
     endif
 endfunction
 "}}}
+
+
 
 
 " ToggleAccent {{{
@@ -93,6 +97,8 @@ augroup writer_filetype
                 \ nmap <buffer> k gk
 augroup end
 "}}}
+
+
 
 
 " Autosave behavior {{{
