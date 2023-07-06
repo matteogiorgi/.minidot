@@ -215,18 +215,16 @@ augroup end
 
 
 " Commands {{{
-command! ToggleHemisu
-            \ if colors_name ==# 'hemisu'|
-            \     if &background ==# 'light'|
-            \         set background=dark|
-            \         so ~/.vim/plugin/hemisu.vim|
-            \     else|
-            \         set background=light|
-            \         so ~/.vim/plugin/hemisu.vim|
-            \     endif|
-            \ else|
-            \     echo 'hemisu not currently set'|
-            \ endif
+command! ClearLastSearch
+            \ exe 'let @/=""'|
+            \ echo 'cleared last search'
+" ---
+command! RemoveSpaces
+            \ exe '%s/\s\+$//e'
+" ---
+command! IndentAll
+            \ exe 'setl ts=4 sts=0 et sw=4 sta'|
+            \ exe 'norm gg=G'
 " ---
 command! ToggleWordwrap
             \ if &wrap|
@@ -241,25 +239,28 @@ command! ToggleWordwrap
             \     echo 'set wrap'|
             \ endif
 " ---
-command! RemoveSpaces
-            \ exe '%s/\s\+$//e'|
-            \ echo 'removed trailing spaces'
-" ---
-command! ClearLastSearch
-            \ exe 'let @/=""'|
-            \ echo 'cleared last search'
-" ---
-command! IndentAll
-            \ exe 'setl ts=4 sts=0 et sw=4 sta'|
-            \ exe 'norm gg=G'
+command! ToggleHemisu
+            \ if colors_name ==# 'hemisu'|
+            \     if &background ==# 'light'|
+            \         set background=dark|
+            \         so ~/.vim/plugin/hemisu.vim|
+            \     else|
+            \         set background=light|
+            \         so ~/.vim/plugin/hemisu.vim|
+            \     endif|
+            \ else|
+            \     echo 'hemisu not currently set'|
+            \ endif
 " }}}
 
 
 
 
 " Keymaps {{{
-nnoremap <silent>^ :ToggleHemisu<CR>
-nnoremap <silent>_ :ToggleWordwrap<CR>
+nnoremap <silent>^ :ClearLastSearch<CR>
+nnoremap <silent>_ :RemoveSpaces<CR>
+nnoremap <silent>, :ToggleWordwrap<CR>
+" ---
 nnoremap <leader>\ :execute "normal \ggVG"<CR>
 xnoremap <leader>\ :s///gc<Left><Left><Left>
 " ---
