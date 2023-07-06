@@ -241,15 +241,6 @@ command! ToggleWordwrap
             \     echo 'set wrap'|
             \ endif
 " ---
-command! ToggleVirtualedit
-            \ if &virtualedit ==# 'all'|
-            \     setlocal virtualedit=|
-            \     echo 'unset virtualedit'|
-            \ else|
-            \     setlocal virtualedit=all|
-            \     echo 'set virtualedit'|
-            \ endif
-" ---
 command! IndentAll
             \ exe 'setl ts=4 sts=0 et sw=4 sta'|
             \ exe "norm gg=G"
