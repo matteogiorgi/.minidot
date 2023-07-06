@@ -4,8 +4,8 @@
 "   \ V  V /| |  | | ||  __/ |
 "    \_/\_/ |_|  |_|\__\___|_|
 "
-" Simple utility plugin containings functions
-" that helps writing activity within Vim.
+" Simple vim-plugin that enhances
+" your writing activity efficiency.
 
 
 

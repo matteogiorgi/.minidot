@@ -109,12 +109,9 @@
 !/vim/.vim/colors
 !/vim/.vim/plugin
 
-/vim/.vim/colors/*
-!/vim/.vim/colors/hembox.vim
-!/vim/.vim/colors/hemisu.vim
-
 /vim/.vim/plugin/*
 !/vim/.vim/plugin/notes
+!/vim/.vim/plugin/hemisu.vim
 !/vim/.vim/plugin/jumper.vim
 !/vim/.vim/plugin/writer.vim
 

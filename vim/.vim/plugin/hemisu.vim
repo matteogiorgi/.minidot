@@ -1,11 +1,14 @@
 "  _   _                _
-" | | | | ___ _ __ ___ | |__   _____  __
-" | |_| |/ _ \ '_ ` _ \| '_ \ / _ \ \/ /
-" |  _  |  __/ | | | | | |_) | (_) >  <
-" |_| |_|\___|_| |_| |_|_.__/ \___/_/\_\
+" | | | | ___ _ __ ___ (_)___ _   _
+" | |_| |/ _ \ '_ ` _ \| / __| | | |
+" |  _  |  __/ | | | | | \__ \ |_| |
+" |_| |_|\___|_| |_| |_|_|___/\__,_|
 "
-" A Hemisu variant with Gruvbox colors.
-" Matteo Giorgi (https://www.geoteo.net/)
+" Noah Frederick (http://noahfrederick.com/)
+" Matteo Giorgi  (https://www.geoteo.net/)
+" ---
+" Simple vim-colorscheme with few colors in high
+" contrast available in both dark and light bg.
 
 
 
@@ -18,7 +21,7 @@ if exists("syntax_on")
 endif
 
 " Declare theme name
-let g:colors_name = "hembox"
+let g:colors_name = "hemisu"
 " }}}
 
 
@@ -35,28 +38,28 @@ let s:almostBlack      = { "gui": "#111111", "cterm": "233" }
 let s:white            = { "gui": "#FFFFFF", "cterm": "231" }
 let s:almostWhite      = { "gui": "#EEEEEE", "cterm": "255" }
 " ---
-let s:darkGrey         = { "gui": "#282828", "cterm": "235" }
-let s:middleDarkGrey   = { "gui": "#504945", "cterm": "239" }
-let s:middleLightGrey  = { "gui": "#665c54", "cterm": "241" }
-let s:lightGrey        = { "gui": "#928374", "cterm": "245" }
+let s:darkGrey         = { "gui": "#444444", "cterm": "238" }
+let s:middleDarkGrey   = { "gui": "#777777", "cterm": "241" }
+let s:middleLightGrey  = { "gui": "#999999", "cterm": "246" }
+let s:lightGrey        = { "gui": "#BBBBBB", "cterm": "249" }
 " ---
-let s:darkPink         = { "gui": "#9D0006", "cterm": "88"  }
-let s:middleDarkPink   = { "gui": "#CC241D", "cterm": "124" }
-let s:middleLightPink  = { "gui": "#D3869B", "cterm": "175" }
-let s:lightPink        = { "gui": "#FB4934", "cterm": "167" }
+let s:darkPink         = { "gui": "#63001C", "cterm": "88"  }
+let s:middleDarkPink   = { "gui": "#FF0055", "cterm": "197" }
+let s:middleLightPink  = { "gui": "#D65E76", "cterm": "167" }
+let s:lightPink        = { "gui": "#FFAFAF", "cterm": "217" }
 " ---
-let s:darkBlue         = { "gui": "#076678", "cterm": "24"  }
-let s:middleDarkBlue   = { "gui": "#458588", "cterm": "66"  }
-let s:middleLightBlue  = { "gui": "#8EC07C", "cterm": "108" }
-let s:lightBlue        = { "gui": "#83A598", "cterm": "109" }
+let s:darkBlue         = { "gui": "#005F87", "cterm": "24"  }
+let s:middleDarkBlue   = { "gui": "#538192", "cterm": "24"  }
+let s:middleLightBlue  = { "gui": "#9FD3E6", "cterm": "116" }
+let s:lightBlue        = { "gui": "#CBE4EE", "cterm": "195" }
 " ---
-let s:darkGreen        = { "gui": "#79740E", "cterm": "100" }
-let s:middleDarkGreen  = { "gui": "#98971A", "cterm": "106" }
-let s:middleLightGreen = { "gui": "#FABD2F", "cterm": "214" }
-let s:lightGreen       = { "gui": "#B8BB26", "cterm": "142" }
+let s:darkGreen        = { "gui": "#5F5F00", "cterm": "58"  }
+let s:middleDarkGreen  = { "gui": "#739200", "cterm": "64"  }
+let s:middleLightGreen = { "gui": "#B1D631", "cterm": "149" }
+let s:lightGreen       = { "gui": "#BBFFAA", "cterm": "157" }
 " ---
-let s:darkTan          = { "gui": "#AF3A03", "cterm": "130" }
-let s:lightTan         = { "gui": "#FE8019", "cterm": "208" }
+let s:darkTan          = { "gui": "#503D15", "cterm": "52"  }
+let s:lightTan         = { "gui": "#ECE1C8", "cterm": "230" }
 
 " Assign to semantic categories based on background color
 if &background == "dark"

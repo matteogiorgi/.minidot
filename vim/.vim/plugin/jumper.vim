@@ -5,8 +5,8 @@
 "  \___/ \__,_|_| |_| |_| .__/ \___|_|
 "                       |_|
 "
-" Simple utility plugin containings functions
-" that quickly jump directories & windows within Vim.
+" Simple vim-plugin that enhances your
+" movements among directories & windows.
 
 
 
