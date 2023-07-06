@@ -70,7 +70,7 @@ _zero () {
 ### Ready?
 ##########
 
-read -p "Resetting VSCode( Insiders) Vim-Syle (enter to continue)"
+read -p "Resetting VSCode Vim-Syle (enter to continue)"
 
 
 

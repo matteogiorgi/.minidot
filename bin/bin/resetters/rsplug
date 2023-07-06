@@ -27,7 +27,8 @@ _check () {
     # If Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
     # if it is not the case we cannot go no further and you have to manually install Vim9
     # ---
-    if ! [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" || $(uname -a) =~ "Ubuntu" ]]; then
+    [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && return
+    if [[ ! $(uname -a) =~ "Ubuntu" ]]; then
         printf "\n"
         printf "====================== Warning! =====================\n"
         printf "You've Plugged your Vim8! To enjoy the magic of Vim9,\n"
