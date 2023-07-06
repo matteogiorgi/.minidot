@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# This script updates some useful Vim plugins to their latest versions:
-#   noflag -> resets Vim 8 plugins only
-#   --vim9 -> updates Vim to version 9 (via Ubuntu PPA)
-#             and resets both Vim 8 and Vim 9 plugins
+# This script updates Vim to version 9 (via Ubuntu PPA).
+# In addition, it updates some useful Vim plugins:
+#   noflag -> resets Vim8 (and Vim9) plugins
 #   --zero -> removes all plugins (rm -rf ~/.vim/pack)
 #   --rice -> rice your plug8.vim and plug9.vim files
 #
@@ -26,22 +25,21 @@ _reset () {
 
 _check () {
     # If Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
-    # if it is not the case we cannot go no further and you have to manually install Vim 9
+    # if it is not the case we cannot go no further and you have to manually install Vim9
     # ---
-    [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && return
-    # ---
-    if [[ $(uname -a) =~ "Ubuntu" ]]; then
+    if ! [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" || $(uname -a) =~ "Ubuntu" ]]; then
         printf "\n"
-        printf "UPGRADING VIM\n"
-        [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list) ]] || sudo add-apt-repository ppa:jonathonf/vim
-        sudo apt-get update
-        sudo apt-get install -qq -y vim-gtk3
-    else
-        printf "\n"
-        printf "==================== Warning! ===================\n"
-        printf "Install Vim 9 manually and run this script again.\n"
-        exit 1
+        printf "====================== Warning! =====================\n"
+        printf "You've Plugged your Vim8! To enjoy the magic of Vim9,\n"
+        printf "install the latest version and run this script again.\n"
+        exit 0
     fi
+    # ---
+    printf "\n"
+    printf "UPGRADING VIM\n"
+    [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list) ]] || sudo add-apt-repository ppa:jonathonf/vim
+    sudo apt-get update
+    sudo apt-get install -qq -y vim-gtk3
 }
 
 # ---
@@ -63,7 +61,10 @@ _node () {
             apt-get install -qq -y nodejs
             ;;
         *)
-            printf "?\n"
+            printf "\n"
+            printf "======================= Warning! =======================\n"
+            printf "You're not on Ubuntu nor Debian: we're going no further.\n"
+            exit 1
             ;;
     esac
 }
@@ -96,30 +97,11 @@ if [[ $# -gt 1 ]]; then
     printf "=================== Warning! ===================\n"
     printf "Too many arguments: no operations were executed.\n"
     exit 1
-elif [[ $# -eq 1 && $1 != "--vim9" && $1 != "--zero" && $1 != "--rice" ]]; then
+elif [[ $# -eq 1 && $1 != "--zero" && $1 != "--rice" ]]; then
     printf "\n"
     printf "================== Warning! ==================\n"
     printf "Unknown argument: no operations were executed.\n"
     exit 1
-fi
-
-
-
-
-### Rice
-########
-
-if [[ $1 == "--rice" ]]; then
-    PLUG8="${HOME}/.vim/pack/plugins/start/plugme/plugin/plug8.vim"
-    PLUG9="${HOME}/.vim/pack/plugins/start/plugme/plugin/plug9.vim"
-    # ---
-    [[ -f "${PLUG8}" ]] && "${EDITOR:=vi}" "${PLUG8}"
-    [[ -f "${PLUG9}" ]] && "${EDITOR:=vi}" "${PLUG9}"
-    # ---
-    printf "\n"
-    printf "============= We're done here ============\n"
-    printf "Are you happy now? Stop wasting your time.\n"
-    exit 0
 fi
 
 
@@ -141,6 +123,22 @@ fi
 
 
 
+### Rice
+########
+
+if [[ $1 == "--rice" ]]; then
+    PLUGME="${HOME}/.vim/pack/plugins/start/plugme/plugin/plugme.vim"
+    [[ -f "${PLUGME}" ]] && "${EDITOR:=vi}" "${PLUGME}"
+    # ---
+    printf "\n"
+    printf "============= We're done here ============\n"
+    printf "Are you happy now? Stop wasting your time.\n"
+    exit 0
+fi
+
+
+
+
 ### ~/.vim/pack/plugins/start
 #############################
 
@@ -152,8 +150,8 @@ START="${HOME}/.vim/pack/plugins/start"
 
 
 
-### Plug 8
-##########
+### Reset configurations
+########################
 
 OPERATION="RESETTING CTRLP"
 REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim"
@@ -218,28 +216,17 @@ _reset
 
 # ---
 
-# (Over)write a simple config-file for Vim 8
-# plugins for keymaps and other little things.
+# (Over)write a simple config-file for Vim8 plugins:
+# some keymaps and few more little things.
 PLUGME="${START}/plugme/plugin"
 RESETTERS="${HOME}/bin/resetters/vim"
 [[ -d "${PLUGME}" ]] || mkdir -p "${PLUGME}"
-cat "${RESETTERS}/plug8.vim" > "${PLUGME}/plug8.vim"
+cat "${RESETTERS}/plug8.vim" > "${PLUGME}/plugme.vim"
 
 # ---
 
-if [[ $# -eq 0 ]]; then
-    printf "\n"
-    printf "=========== We're done here ===========\n"
-    printf "Enjoy your Vim-Plugged life with Vim 8.\n"
-    exit 0
-fi
-
-
-
-
-### Plug 9
-##########
-
+# If we've come this far, we're updating Vim to version 9 (if it needs to)
+# and proceede with the installation of the plugins that require Vim9.
 _check
 
 # ---
@@ -248,16 +235,17 @@ printf "\n"
 OPERATION="RESETTING COPILOT"
 REPOSITORY="https://github.com/github/copilot.vim"
 PLUGIN="${START}/copilot"
+_node
 _reset
 
 # ---
 
-# (Over)write a simple config-file for Vim 9
-# plugins for keymaps and other little things.
-cat "${RESETTERS}/plug9.vim" > "${PLUGME}/plug9.vim"
+# Append a simple config-file for Vim9 plugins:
+# some keymaps and few more little things.
+cat "${RESETTERS}/plug9.vim" >> "${PLUGME}/plugme.vim"
 
 # ---
 
 printf "\n"
-printf "=========== We're done here ===========\n"
-printf "Enjoy your Vim-Plugged life with Vim 9.\n"
+printf "=========== We're done here ==========\n"
+printf "Enjoy your Vim-Plugged life with Vim9.\n"
