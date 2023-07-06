@@ -220,11 +220,9 @@ command! ToggleHemisu
             \     if &background ==# 'light'|
             \         set background=dark|
             \         so ~/.vim/plugin/hemisu.vim|
-            \         echo 'hemisu dark'|
             \     else|
             \         set background=light|
             \         so ~/.vim/plugin/hemisu.vim|
-            \         echo 'hemisu light'|
             \     endif|
             \ else|
             \     echo 'hemisu not currently set'|
