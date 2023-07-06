@@ -216,12 +216,16 @@ augroup end
 
 " Commands {{{
 command! ToggleHemisu
-            \ if &background ==# 'light'|
-            \     set background=dark|
-            \     so ~/.vim/plugin/hemisu.vim|
+            \ if colors_name ==# 'hemisu'|
+            \     if &background ==# 'light'|
+            \         set background=dark|
+            \         so ~/.vim/plugin/hemisu.vim|
+            \     else|
+            \         set background=light|
+            \         so ~/.vim/plugin/hemisu.vim|
+            \     endif|
             \ else|
-            \     set background=light|
-            \     so ~/.vim/plugin/hemisu.vim|
+            \     echo 'hemisu not set'|
             \ endif
 " ---
 command! ToggleWordwrap
@@ -229,17 +233,21 @@ command! ToggleWordwrap
             \     setlocal nowrap|
             \     nunmap <buffer> j|
             \     nunmap <buffer> k|
+            \     echo 'unset wrap'|
             \ else|
             \     setlocal wrap|
             \     nmap <buffer> j gj|
             \     nmap <buffer> k gk|
+            \     echo 'set wrap'|
             \ endif
 " ---
 command! ToggleVirtualedit
             \ if &virtualedit ==# 'all'|
             \     setlocal virtualedit=|
+            \     echo 'unset virtualedit'|
             \ else|
             \     setlocal virtualedit=all|
+            \     echo 'set virtualedit'|
             \ endif
 " ---
 command! IndentAll
