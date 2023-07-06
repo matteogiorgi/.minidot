@@ -110,7 +110,6 @@
 !/vim/.vim/plugin
 
 /vim/.vim/colors/*
-!/vim/.vim/colors/hemagx.vim
 !/vim/.vim/colors/hembox.vim
 !/vim/.vim/colors/hemisu.vim
 
