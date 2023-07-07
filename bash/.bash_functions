@@ -3,6 +3,15 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
+# fetch git branch
+function _parse_git_branch () {
+    function _parse_git_dirty () {
+        [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
+    }
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(_parse_git_dirty))/"
+}
+
+
 # detach process
 function _xshow () {
     nohup sh -c "$*" &>/tmp/xshow.out & disown

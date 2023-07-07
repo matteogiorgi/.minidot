@@ -56,6 +56,15 @@ fi
 
 
 
+### Functions and alias definition
+##################################
+
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+
+
+
+
 ### Fancy prompt
 ################
 
@@ -66,23 +75,22 @@ esac
 
 
 
-### Colored prompt
-##################
+### PS1
+#######
 
-[[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]'
     if [[ -n "$TMUX" ]]; then
-        [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
+        [[ $(type -t _parse_git_branch) == function ]] && PS1=$PS1'\[\033[01;33m\]$(_parse_git_branch " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
     else
-        [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ ' || PS1=$PS1'\$ '
+        [[ $(type -t _parse_git_branch) == function ]] && PS1=$PS1'\[\033[01;33m\]$(_parse_git_branch " (%s)")\[\033[00m\]\$ ' || PS1=$PS1'\$ '
     fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
     if [[ -n "$TMUX" ]]; then
-        [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\n ' || PS1=$PS1'\n '
+        [[ $(type -t _parse_git_branch) == function ]] && PS1=$PS1'$(_parse_git_branch " (%s)")\n ' || PS1=$PS1'\n '
     else
-        [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\$ ' || PS1=$PS1'\$ '
+        [[ $(type -t _parse_git_branch) == function ]] && PS1=$PS1'$(_parse_git_branch " (%s)")\$ ' || PS1=$PS1'\$ '
     fi
 fi
 
@@ -106,6 +114,10 @@ esac
 ### Color support
 #################
 
+# GCC colors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# directory colors
 if [[ -x /usr/bin/dircolors ]]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -114,42 +126,6 @@ if [[ -x /usr/bin/dircolors ]]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-fi
-
-
-
-
-### Colored GCC
-###############
-
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-
-
-
-### Functions definition
-########################
-
-if [[ -f ~/.bash_functions ]]; then
-    . ~/.bash_functions
-fi
-
-
-
-
-### Alert alias for long commands (sleep 10; alert)
-###################################################
-
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-
-
-
-### Aliases definition
-######################
-
-if [[ -f ~/.bash_aliases ]]; then
-    . ~/.bash_aliases
 fi
 
 
@@ -211,8 +187,10 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 ### Source stuff
 ################
 
-# fzf config
+# fzf config (to be added for extra features)
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
+
+# fzf completion and key bindings
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
 
