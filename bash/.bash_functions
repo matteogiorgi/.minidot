@@ -4,17 +4,11 @@
 
 
 # fetch git branch
-function _parse_git_branch () {
-    function _parse_git_dirty () {
-        [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
+function __fetch_git_branch () {
+    function __fetch_git_status () {
+        [[ $(git status --porcelain 2>/dev/null) ]] && echo "*"
     }
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(_parse_git_dirty))/"
-}
-
-
-# detach process
-function _xshow () {
-    nohup sh -c "$*" &>/tmp/xshow.out & disown
+    git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(__fetch_git_status))/"
 }
 
 
@@ -29,4 +23,10 @@ function _fjump () {
         [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
     fi
     rm -f /tmp/fjump$$
+}
+
+
+# detach process
+function _xshow () {
+    nohup sh -c "$*" &>/tmp/xshow.out & disown
 }

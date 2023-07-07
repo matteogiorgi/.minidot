@@ -81,9 +81,9 @@ esac
 if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]'
     if [[ -n "$TMUX" ]]; then
-        [[ $(type -t _parse_git_branch) == function ]] && PS1=$PS1'\[\033[01;33m\]$(_parse_git_branch " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
+        [[ $(type -t __fetch_git_branch) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__fetch_git_branch " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
     else
-        [[ $(type -t _parse_git_branch) == function ]] && PS1=$PS1'\[\033[01;33m\]$(_parse_git_branch " (%s)")\[\033[00m\]\$ ' || PS1=$PS1'\$ '
+        [[ $(type -t __fetch_git_branch) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__fetch_git_branch " (%s)")\[\033[00m\]\$ ' || PS1=$PS1'\$ '
     fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
@@ -222,17 +222,20 @@ bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
 if [[ -n "$TMUX" ]]; then
     bind 'set vi-ins-mode-string ">>"'
     bind 'set vi-cmd-mode-string "<<"'
+    # ---
+    bind -m vi-command -x '"\C-h": fgit'
     bind -m vi-command -x '"\C-j": fjump'
-    bind -m vi-command -x '"\C-f": ffind'
-    bind -m vi-command -x '"\C-g": fgit'
+    bind -m vi-command -x '"\C-k": ffind'
     bind -m vi-command -x '"\C-l": clear; echo ${PS1@P}'
+    # ---
+    bind -m vi-insert -x '"\C-h": fgit'
     bind -m vi-insert -x '"\C-j": fjump'
-    bind -m vi-insert -x '"\C-f": ffind'
-    bind -m vi-insert -x '"\C-g": fgit'
+    bind -m vi-insert -x '"\C-k": ffind'
     bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
 else
     bind 'set vi-ins-mode-string "\033[01;90m▘\033[00m"'
     bind 'set vi-cmd-mode-string "\033[01;31m▖\033[00m"'
+    # ---
     bind -m vi-command -x '"\C-l": clear'
     bind -m vi-insert -x '"\C-l": clear'
 fi

@@ -10,7 +10,7 @@ OPENER="swallow"
 # ---
 while true; do
     printf '%s\n' "$PWD" > /tmp/fjump${PARENTPID}
-    [[ $(type -t _parse_git_branch) == function ]] && GIT_BRANCH=$(_parse_git_branch " (%s)") || GIT_BRANCH=""
+    [[ $(type -t __fetch_git_branch) == function ]] && GIT_BRANCH=$(__fetch_git_branch " (%s)") || GIT_BRANCH=""
     FILE="$(/bin/ls -a --ignore="." --ignore=".git" --group-directories-first --color=always | fzf `
             `--ansi `
             `--preview 'mess {}' `

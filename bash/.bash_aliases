@@ -3,7 +3,7 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
-# notification (sleep 10; alert)
+# notify
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" \
 "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
@@ -22,5 +22,5 @@ alias restow="stow -R"
 alias unstow="stow -D"
 
 # functions
-alias xshow="_xshow"
 alias fjump="_fjump"
+alias xshow="_xshow"
