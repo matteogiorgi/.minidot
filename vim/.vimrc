@@ -233,7 +233,7 @@ command! ToggleWrap
             \     setlocal nowrap|
             \     nunmap <buffer> j|
             \     nunmap <buffer> k|
-            \     echo 'unset wrap'|
+            \     echo 'set nowrap'|
             \ else|
             \     setlocal wrap|
             \     nmap <buffer> j gj|
@@ -246,7 +246,8 @@ command! ClearSearch
             \ echo 'cleared last search'
 " ---
 command! RemoveSpaces
-            \ execute '%s/\s\+$//e'
+            \ execute '%s/\s\+$//e'|
+            \ echo 'removed trailing spaces'
 " }}}
 
 
