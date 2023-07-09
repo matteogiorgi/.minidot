@@ -15,13 +15,10 @@ function __fetch_git_branch () {
 # fjump cd on exit
 function _fjump () {
     [[ -f "$HOME/bin/ffinders/fjump" ]] || return 1
-    PROMPT=${PS1@P}
+    OLD=$PWD
     $HOME/bin/ffinders/fjump $$
     cd "$(cat /tmp/fjump$$)"
-    if [[ -n "$TMUX" ]]; then
-        NEWPROMPT=${PS1@P}
-        [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
-    fi
+    [[ -n "$TMUX" && $PWD != $OLD ]] && echo ${PS1@P}
     rm -f /tmp/fjump$$
 }
 

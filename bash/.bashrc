@@ -5,10 +5,15 @@
 # |____/ \__,_|___/_| |_|
 #
 # Bourne again shell - https://www.gnu.org/software/bash/
-
+# ---
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # See /usr/share/doc/bash/examples/startup-files in the
 # bash-doc package for examples.
+# ---
+# black  = 30    blue    = 34    reset      = 0
+# red    = 31    magenta = 35    bold       = 1
+# green  = 32    cyan    = 36    faint      = 2
+# yellow = 33    white   = 37    underlined = 4
 
 
 
@@ -78,58 +83,14 @@ esac
 ### PS1 (with color support)
 ############################
 
-# colors
-RESET="\[\033[0m\]"
-BLACK="\[\033[0;30m\]"
-WHITE="\[\033[0;97m\]"
-# ---
-RED="\[\033[0;31m\]"
-GREEN="\[\033[0;32m\]"
-YELLOW="\[\033[0;33m\]"
-BLUE="\[\033[0;34m\]"
-MAGENTA="\[\033[0;35m\]"
-CYAN="\[\033[0;36m\]"
-GRAY="\[\033[0;90m\]"
-# ---
-LIGHT_RED="\[\033[0;91m\]"
-LIGHT_GREEN="\[\033[0;92m\]"
-LIGHT_YELLOW="\[\033[0;93m\]"
-LIGHT_BLUE="\[\033[0;94m\]"
-LIGHT_MAGENTA="\[\033[0;95m\]"
-LIGHT_CYAN="\[\033[0;96m\]"
-LIGHT_GRAY="\[\033[0;37m\]"
-# ---
-BOLD_RED="\[\033[1;31m\]"
-BOLD_GREEN="\[\033[1;32m\]"
-BOLD_YELLOW="\[\033[1;33m\]"
-BOLD_BLUE="\[\033[1;34m\]"
-BOLD_MAGENTA="\[\033[1;35m\]"
-BOLD_CYAN="\[\033[1;36m\]"
-BOLD_GRAY="\[\033[1;90m\]"
-# ---
-BOLD_LIGHT_RED="\[\033[1;91m\]"
-BOLD_LIGHT_GREEN="\[\033[1;92m\]"
-BOLD_LIGHT_YELLOW="\[\033[1;93m\]"
-BOLD_LIGHT_BLUE="\[\033[1;94m\]"
-BOLD_LIGHT_MAGENTA="\[\033[1;95m\]"
-BOLD_LIGHT_CYAN="\[\033[1;96m\]"
-BOLD_LIGHT_GRAY="\[\033[1;37m\]"
-
-# prompt
 if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
-    PS1="${debian_chroot:+($debian_chroot)}${BOLD_GRAY}\t${RESET} ${BOLD_GREEN}\u@\h${RESET}:${BOLD_LIGHT_BLUE}\w${RESET}"
-    if [[ -n "$TMUX" ]]; then
-        [[ $(type -t __fetch_git_branch) == function ]] && PS1=$PS1"${BOLD_YELLOW}$(__fetch_git_branch " (%s)")${RESET}\n " || PS1=$PS1"\n "
-    else
-        [[ $(type -t __fetch_git_branch) == function ]] && PS1=$PS1"${BOLD_YELLOW}$(__fetch_git_branch " (%s)")${RESET}\$ " || PS1=$PS1"\$ "
-    fi
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;90m\]\t\[\033[00m\] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]'
+    [[ $(type -t __fetch_git_branch) == function ]] && PS1+='\[\033[01;33m\]$(__fetch_git_branch " (%s)")\[\033[00m\]'
+    [[ -n "$TMUX" ]] && PS1+='\n ' || PS1+='\$ '
 else
-    PS1="${debian_chroot:+($debian_chroot)}\t \u@\h:\w"
-    if [[ -n "$TMUX" ]]; then
-        [[ $(type -t _parse_git_branch) == function ]] && PS1=$PS1'$(_parse_git_branch " (%s)")\n ' || PS1=$PS1'\n '
-    else
-        [[ $(type -t _parse_git_branch) == function ]] && PS1=$PS1'$(_parse_git_branch " (%s)")\$ ' || PS1=$PS1'\$ '
-    fi
+    PS1='${debian_chroot:+($debian_chroot)}\t \u@\h:\w'
+    [[ $(type -t __fetch_git_branch) == function ]] && PS1+='$(__fetch_git_branch " (%s)")'
+    [[ -n "$TMUX" ]] && PS1+='\n ' || PS1+='\$ '
 fi
 
 
@@ -145,26 +106,6 @@ case "$TERM" in
     *)
         ;;
 esac
-
-
-
-
-### GCC and ls (with color support)
-###################################
-
-# GCC colors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# directory colors
-if [[ -x /usr/bin/dircolors ]]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
 
 
 
@@ -203,14 +144,10 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
 
 
-### Less colors
-###############
+### Color support for less, gcc and ls
+######################################
 
-# black   = 30        blue    = 34        reset      = 0
-# red     = 31        magenta = 35        bold       = 1
-# green   = 32        cyan    = 36        faint      = 2
-# yellow  = 33        white   = 37        underlined = 4
-# ---
+# less
 export LESS_TERMCAP_mb=$'\e[01;31m'     # begin blinking
 export LESS_TERMCAP_md=$'\e[01;31m'     # begin bold
 export LESS_TERMCAP_me=$'\e[0m'         # end mode
@@ -218,6 +155,20 @@ export LESS_TERMCAP_so=$'\e[01;44;37m'  # begin standout-mode
 export LESS_TERMCAP_se=$'\e[0m'         # end standout-mode
 export LESS_TERMCAP_us=$'\e[01;33m'     # begin underline
 export LESS_TERMCAP_ue=$'\e[0m'         # end underline
+
+# gcc
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# ls
+if [[ -x /usr/bin/dircolors ]]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 
 
