@@ -246,8 +246,9 @@ command! ClearSearch
             \ echo 'cleared last search'
 " ---
 command! RemoveSpaces
-            \ execute '%s/\s\+$//e'|
-            \ echo 'removed trailing spaces'
+            \ let v:statusmsg = ""|
+            \ execute 'silent verbose %s/\s\+$//e'|
+            \ echo !empty(v:statusmsg) ? v:statusmsg : 'removed trailing spaces'
 " }}}
 
 
