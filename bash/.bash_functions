@@ -15,10 +15,10 @@ function __fetch_git_branch () {
 # fjump cd on exit
 function _fjump () {
     [[ -f "$HOME/bin/ffinders/fjump" ]] || return 1
-    OLD=$PWD
+    OWD=$PWD
     $HOME/bin/ffinders/fjump $$
     cd "$(cat /tmp/fjump$$)"
-    [[ -n "$TMUX" && $PWD != $OLD ]] && echo ${PS1@P}
+    [[ -n "$TMUX" && $PWD != $OWD ]] && echo ${PS1@P}
     rm -f /tmp/fjump$$
 }
 
