@@ -222,8 +222,8 @@ if [[ -n "$TMUX" ]]; then
     bind -m vi-insert -x '"\C-k": ffind'
     bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
 else
-    bind 'set vi-ins-mode-string "\033[01;97m▘\033[00m"'
-    bind 'set vi-cmd-mode-string "\033[01;91m▖\033[00m"'
+    bind 'set vi-ins-mode-string "\033[00m▘\033[00m"'
+    bind 'set vi-cmd-mode-string "\033[91m▖\033[00m"'
     # ---
     bind -m vi-command -x '"\C-l": clear'
     bind -m vi-insert -x '"\C-l": clear'

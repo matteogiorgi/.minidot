@@ -18,7 +18,8 @@ shell=$(basename $SHELL)
 
 # color palette
 # (normal; bold)
-c0='[0m'
+c0='[00m'  # reset
+cb='[01m'  # bold
 # ---
 c1='[30m'; c1b='[1;30m'  # black
 c1='[31m'; c1b='[1;31m'  # red
@@ -37,7 +38,7 @@ c8='[38m'; c8b='[1;38m'  # default
 ##########
 
 printf '%s\n' "${c5b}    .-.     ${c4b}${iam}${c7b}@${c4b}${host}"
-printf '%s\n' "${c5b}    ${c7b}oo${c5b}|     ${c6b}OS${c0}      ${os}"
+printf '%s\n' "${c5b}    ${c0}${cb}OO${c5b}|     ${c6b}OS${c0}      ${os}"
 printf '%s\n' "${c5b}   /  \     ${c6b}Kernel${c0}  ${kernel}"
 printf '%s\n' "${c5b}  (\__/)    ${c6b}Shell${c0}   ${shell}"
 printf "\n"

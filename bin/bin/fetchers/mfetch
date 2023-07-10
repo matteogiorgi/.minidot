@@ -20,7 +20,8 @@ shell=$(basename $SHELL)
 
 # color palette
 # (normal; bold)
-c0='[0m'
+c0='[00m'  # reset
+cb='[01m'  # bold
 # ---
 c1='[30m'; c1b='[1;30m'  # black
 c1='[31m'; c1b='[1;31m'  # red
@@ -42,7 +43,7 @@ palette="${c1b}▄▄${c2b}▄▄${c3b}▄▄${c4b}▄▄${c5b}▄▄${c6b}▄�
 
 printf '%s\n' "${c5b}       .-.      ${c4b}${iam}${c7b}@${c4b}${host}"
 printf '%s\n' "${c5b}    __/   (     ${c6b}OS${c0}        ${os}"
-printf '%s\n' "${c0b}  ,${c5b} '-.____\\    ${c6b}Kernel${c0}    ${kernel}"
+printf '%s\n' "${cb}  ,${c5b} '-.____\\    ${c6b}Kernel${c0}    ${kernel}"
 printf '%s\n' "${c5b}   ${c1b}u==${c5b}'/  \\     ${c6b}Packages${c0}  ${packages}"
 printf '%s\n' "${c5b}      /_/  \\    ${c6b}Uptime${c0}    ${uptime}"
 printf '%s\n' "${c5b}    .-''   |    ${c6b}Shell${c0}     ${shell}"
