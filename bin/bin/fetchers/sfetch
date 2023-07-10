@@ -37,7 +37,7 @@ c8='[38m'; c8b='[1;38m'  # default
 ### Output
 ##########
 
-printf '%s\n' "${c5b}    .-.     ${c4b}${iam}${c7b}@${c4b}${host}"
+printf '%s\n' "${c5b}    .-.     ${c4b}${iam}${c0}${cb}@${c4b}${host}"
 printf '%s\n' "${c5b}    ${c0}${cb}OO${c5b}|     ${c6b}OS${c0}      ${os}"
 printf '%s\n' "${c5b}   /  \     ${c6b}Kernel${c0}  ${kernel}"
 printf '%s\n' "${c5b}  (\__/)    ${c6b}Shell${c0}   ${shell}"
