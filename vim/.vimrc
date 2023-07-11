@@ -33,8 +33,11 @@ endif
 " Syntax and colors {{{
 syntax on
 filetype plugin indent on
-set background=dark
-colorscheme hemisu
+" ---
+if filereadable(expand('~/.vim/colors/hemisu.vim'))
+    set background=dark
+    colorscheme hemisu
+endif
 " }}}
 
 
@@ -225,7 +228,7 @@ command! ToggleHemisu
             \     endif|
             \     colorscheme hemisu|
             \ else|
-            \     echo 'hemisu is not set'|
+            \     echo 'hemisu not set'|
             \ endif
 " ---
 command! ToggleWrap
