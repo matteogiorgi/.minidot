@@ -34,6 +34,7 @@ endif
 syntax on
 filetype plugin indent on
 set background=dark
+colorscheme hemisu
 " }}}
 
 
@@ -219,11 +220,10 @@ command! ToggleHemisu
             \ if colors_name ==# 'hemisu'|
             \     if &background ==# 'light'|
             \         set background=dark|
-            \         so ~/.vim/plugin/hemisu.vim|
             \     else|
             \         set background=light|
-            \         so ~/.vim/plugin/hemisu.vim|
             \     endif|
+            \     colorscheme hemisu|
             \ else|
             \     echo 'hemisu is not set'|
             \ endif
