@@ -7,8 +7,8 @@
 " Noah Frederick (http://noahfrederick.com/)
 " Matteo Giorgi  (https://www.geoteo.net/)
 " ---
-" Simple vim-colorscheme with few colors in high
-" contrast available in both dark and light bg.
+" Simple vim-color with high contrast palette,
+" available in both dark and light background.
 
 
 
