@@ -29,13 +29,16 @@ endif
 " Syntax and colors {{{
 syntax on
 filetype plugin indent on
-set notermguicolors t_Co=16
 " ---
-hi! CursorLine cterm=NONE
-hi! CursorLineNr cterm=NONE
-hi! VertSplit cterm=NONE
-hi! SignColumn cterm=NONE
-hi! TabLine cterm=NONE
+if exists('+termguicolors')
+    set termguicolors
+    set t_Co=256
+endif
+" ---
+if filereadable(expand('~/.vim/colors/hemisu.vim'))
+    set background=dark
+    colorscheme hemisu
+endif
 " }}}
 
 
@@ -217,11 +220,15 @@ augroup end
 
 
 " Commands {{{
-command! ToggleBackground
-            \ if &background ==# 'light'|
-            \     set background=dark|
+command! ToggleHemisu
+            \ if colors_name ==# 'hemisu'|
+            \     if &background ==# 'light'|
+            \         set background=dark|
+            \     else|
+            \         set background=light|
+            \     endif|
             \ else|
-            \     set background=light|
+            \     echo 'hemisu not set'|
             \ endif
 " ---
 command! ToggleWrap
@@ -251,7 +258,7 @@ command! RemoveSpaces
 
 
 " Keymaps {{{
-nnoremap <silent>^ :ToggleBackground<CR>
+nnoremap <silent>^ :ToggleHemisu<CR>
 nnoremap <silent>_ :ToggleWrap<CR>
 " ---
 nnoremap <silent>Y y$
