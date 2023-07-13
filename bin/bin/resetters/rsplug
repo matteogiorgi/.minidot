@@ -211,9 +211,12 @@ _reset
 # (Over)write a simple config-file for Vim8 plugins:
 # some keymaps and few more little things.
 PLUGME="${START}/plugme/plugin"
+COLORS="${START}/plugme/colors"
 RESETTERS="${HOME}/bin/resetters/vim"
 [[ -d "${PLUGME}" ]] || mkdir -p "${PLUGME}"
+[[ -d "${COLORS}" ]] || mkdir -p "${COLORS}"
 cat "${RESETTERS}/plug8.vim" > "${PLUGME}/plugme.vim"
+cat "${RESETTERS}/hemisu.vim" > "${COLORS}/hemisu.vim"
 
 
 # If we've come this far, we're updating Vim to version 9 (if it needs to)

@@ -10,10 +10,6 @@
 
 
 " Checks {{{
-if exists('+termguicolors')
-    set termguicolors
-endif
-" ---
 if has('linebreak')
     let &showbreak='⤷ '
 endif
@@ -33,11 +29,13 @@ endif
 " Syntax and colors {{{
 syntax on
 filetype plugin indent on
+set notermguicolors t_Co=16
 " ---
-if filereadable(expand('~/.vim/colors/hemisu.vim'))
-    set background=dark
-    colorscheme hemisu
-endif
+hi! CursorLine cterm=NONE
+hi! CursorLineNr cterm=NONE
+hi! VertSplit cterm=NONE
+hi! SignColumn cterm=NONE
+hi! TabLine cterm=NONE
 " }}}
 
 
@@ -69,7 +67,7 @@ set hidden
 set updatetime=2000
 set timeoutlen=2000
 set ttimeoutlen=0
-set termencoding=utf-8 encoding=utf-8 t_Co=256 | scriptencoding utf-8
+set termencoding=utf-8 encoding=utf-8 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
@@ -219,16 +217,11 @@ augroup end
 
 
 " Commands {{{
-command! ToggleHemisu
-            \ if colors_name ==# 'hemisu'|
-            \     if &background ==# 'light'|
-            \         set background=dark|
-            \     else|
-            \         set background=light|
-            \     endif|
-            \     colorscheme hemisu|
+command! ToggleBackground
+            \ if &background ==# 'light'|
+            \     set background=dark|
             \ else|
-            \     echo 'hemisu not set'|
+            \     set background=light|
             \ endif
 " ---
 command! ToggleWrap
@@ -258,7 +251,7 @@ command! RemoveSpaces
 
 
 " Keymaps {{{
-nnoremap <silent>^ :ToggleHemisu<CR>
+nnoremap <silent>^ :ToggleBackground<CR>
 nnoremap <silent>_ :ToggleWrap<CR>
 " ---
 nnoremap <silent>Y y$

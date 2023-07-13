@@ -1,4 +1,7 @@
 " VIM8 CONFIG {{{
+set background=dark
+colorscheme hemisu
+" ---
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 nnoremap <localleader>k :!ctags -R --exclude=.git<CR>
 " }}}
