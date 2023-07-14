@@ -241,7 +241,7 @@ _reset
 # Append a simple config-file for copilot:
 # some keymaps and few more little things.
 COPILOT="${HOME}/bin/resetters/vim/copilot.vim"
-cat "${COPILOT}" >> "${PLUGME}/plugin/plugme.vim"
+cat "${COPILOT}" >> "${START}/plugme/plugin/plugme.vim"
 
 
 printf "\n"
