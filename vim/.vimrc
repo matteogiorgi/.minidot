@@ -16,7 +16,7 @@ endif
 " ---
 if has('persistent_undo')
     if !isdirectory(expand('~/.vim/undodir'))
-        execute "!mkdir ~/.vim/undodir &>/dev/null"
+        execute "!mkdir -p ~/.vim/undodir &>/dev/null"
     endif
     set undodir=$HOME/.vim/undodir
     set undofile
@@ -30,15 +30,10 @@ endif
 syntax on
 filetype plugin indent on
 " ---
-if exists('+termguicolors')
-    set termguicolors
-    set t_Co=256
-endif
-" ---
-if filereadable(expand('~/.vim/colors/hemisu.vim'))
-    set background=dark
-    colorscheme hemisu
-endif
+set notermguicolors
+set t_Co=16
+set background=dark
+colorscheme default
 " }}}
 
 
@@ -60,7 +55,8 @@ set nowrap nospell
 set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
-set cursorline noerrorbells novisualbell
+set nocursorline noerrorbells novisualbell
+set cursorlineopt=number,line
 set splitbelow splitright
 set equalalways
 set nofoldenable foldmethod=marker
@@ -75,7 +71,6 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
 set nrformats-=alpha
-set cursorlineopt=number,line
 set fillchars+=vert:\┃
 set laststatus=2
 set showtabline=1
@@ -121,46 +116,6 @@ endif
 " Ps=6 -> steady bar (xterm).
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-" }}}
-
-
-
-
-" Linenumber behavior {{{
-augroup linenumber_toggler
-    autocmd!
-    " ---
-    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
-                \ if &number == 1|
-                \     set relativenumber|
-                \ endif|
-                \ set cursorline
-    " ---
-    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
-                \ if &number == 1|
-                \     set norelativenumber|
-                \ endif|
-                \ set nocursorline
-augroup end
-" }}}
-
-
-
-
-" Overlength behavior {{{
-augroup overlength_toggler
-    autocmd!
-    " ---
-    autocmd InsertEnter *
-                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
-                \     let &colorcolumn = '121,'.join(range(121,999),',')|
-                \ endif
-    " ---
-    autocmd InsertLeave *
-                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
-                \     set colorcolumn=|
-                \ endif
-augroup end
 " }}}
 
 
@@ -219,18 +174,24 @@ augroup end
 
 
 
+" Linenumber behavior {{{
+augroup linenumber_prettyfier
+    autocmd!
+    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
+                \ if &number == 1|
+                \     set relativenumber|
+                \ endif
+    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
+                \ if &number == 1|
+                \     set norelativenumber|
+                \ endif
+augroup end
+" }}}
+
+
+
+
 " Commands {{{
-command! ToggleHemisu
-            \ if colors_name ==# 'hemisu'|
-            \     if &background ==# 'light'|
-            \         set background=dark|
-            \     else|
-            \         set background=light|
-            \     endif|
-            \ else|
-            \     echo 'hemisu not set'|
-            \ endif
-" ---
 command! ToggleWrap
             \ if &wrap|
             \     setlocal nowrap|
@@ -258,7 +219,6 @@ command! RemoveSpaces
 
 
 " Keymaps {{{
-nnoremap <silent>^ :ToggleHemisu<CR>
 nnoremap <silent>_ :ToggleWrap<CR>
 " ---
 nnoremap <silent>Y y$

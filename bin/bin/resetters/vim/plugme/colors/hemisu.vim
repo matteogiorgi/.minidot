@@ -20,8 +20,46 @@ if exists("syntax_on")
     syntax reset
 endif
 
+" Set 256 colors
+if exists('+termguicolors')
+    set termguicolors
+    set t_Co=256
+endif
+
 " Declare theme name
 let g:colors_name = "hemisu"
+" }}}
+
+
+
+
+" PRETTYFIER {{{
+" Cursorline & colorcolumn behavior
+augroup hemisu_prettyfier
+    autocmd!
+    autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set cursorline
+    autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set nocursorline
+    autocmd InsertEnter *
+                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
+                \     let &colorcolumn = '121,'.join(range(121,999),',')|
+                \ endif
+    autocmd InsertLeave *
+                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
+                \     set colorcolumn=|
+                \ endif
+augroup end
+
+" Toggle dark/light mode
+command! ToggleHemisu
+            \ if colors_name ==# 'hemisu'|
+            \     if &background ==# 'light'|
+            \         set background=dark|
+            \     else|
+            \         set background=light|
+            \     endif|
+            \ else|
+            \     echo 'hemisu not set'|
+            \ endif
 " }}}
 
 

@@ -2,7 +2,7 @@
 
 # This script updates Vim to version 9 (via Ubuntu PPA).
 # In addition, it updates some useful Vim plugins:
-#   noflag -> resets Vim8 (and Vim9) plugins
+#   noflag -> resets all Vim plugins (version 8 and 9)
 #   --zero -> removes all plugins (rm -rf ~/.vim/pack)
 #   --rice -> rice your plug8.vim and plug9.vim files
 #
@@ -103,6 +103,16 @@ elif [[ $# -eq 1 && $1 != "--zero" && $1 != "--rice" ]]; then
     printf "Unknown argument: no operations were executed.\n"
     exit 1
 fi
+
+
+
+
+### ~/.vim
+##########
+
+# Vim main folder (~/.vim);
+# let's crate it if it doesn't exist!
+[[ -d "${HOME}/.vim" ]] || mkdir -p "${HOME}/.vim"
 
 
 
@@ -208,12 +218,11 @@ PLUGIN="${START}/ale"
 _reset
 
 
-# (Over)write a simple config-file for Vim8 plugins:
-# some keymaps and few more little things.
-PLUGME="${START}/plugme/plugin"
-RESETTERS="${HOME}/bin/resetters/vim"
-[[ -d "${PLUGME}" ]] || mkdir -p "${PLUGME}"
-cat "${RESETTERS}/plug8.vim" > "${PLUGME}/plugme.vim"
+# Add a simple plugin that add some keymaps
+# and few more little things.
+PLUGME="${HOME}/bin/resetters/vim/plugme"
+rm -rf "${START}/plugme" &>/dev/null
+cp -r "${PLUGME}" "${START}/plugme" &>/dev/null
 
 
 # If we've come this far, we're updating Vim to version 9 (if it needs to)
@@ -229,9 +238,10 @@ _node
 _reset
 
 
-# Append a simple config-file for Vim9 plugins:
+# Append a simple config-file for copilot:
 # some keymaps and few more little things.
-cat "${RESETTERS}/plug9.vim" >> "${PLUGME}/plugme.vim"
+COPILOT="${HOME}/bin/resetters/vim/copilot.vim"
+cat "${COPILOT}" >> "${PLUGME}/plugin/plugme.vim"
 
 
 printf "\n"
