@@ -144,15 +144,15 @@ augroup cursorcolumn_prettyfier
                 \ endif
 augroup end
 " ---
-" [h] upadir      [<] (de)select     [f] newfile    [c] copy
-" [l] opendir     [>] deselectall    [R] rename     [m] move
-" [.] (un)hide    [d] newdir         [D] delete     [x] execute
 augroup netrw_prettyfier
     autocmd!
     autocmd VimEnter *
                 \ if expand("%") == ""|
                 \     edit .|
                 \ endif
+    " [h] upadir      [<] (de)select     [f] newfile    [c] copy
+    " [l] opendir     [>] deselectall    [R] rename     [m] move
+    " [.] (un)hide    [d] newdir         [D] delete     [x] execute
     autocmd FileType netrw
                 \ setlocal bufhidden=wipe|
                 \ nmap <buffer> h -<esc>|

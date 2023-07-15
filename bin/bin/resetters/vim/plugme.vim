@@ -46,7 +46,7 @@ nnoremap <leader><Tab> :CtrlPBuffer<CR>
 
 
 " FUGITIVE CONFIG {{{
-nnoremap <leader>g :Git diff<CR>
+nnoremap <leader>g :execute 'Git diff' <Bar> wincmd T<CR>
 " }}}
 
 
