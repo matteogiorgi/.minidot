@@ -66,7 +66,7 @@
 
 /bin/bin/resetters/vim/*
 !/bin/bin/resetters/vim/plugme
-!/bin/bin/resetters/vim/copilot.vim
+!/bin/bin/resetters/vim/plugv9.vim
 
 /bin/bin/resetters/vim/plugme/*
 !/bin/bin/resetters/vim/plugme/colors

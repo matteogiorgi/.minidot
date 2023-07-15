@@ -238,10 +238,10 @@ _node
 _reset
 
 
-# Append a simple config-file for copilot:
+# Append a simple config-file for vim9 plugins:
 # some keymaps and few more little things.
-COPILOT="${HOME}/bin/resetters/vim/copilot.vim"
-cat "${COPILOT}" >> "${START}/plugme/plugin/plugme.vim"
+PLUGV9="${HOME}/bin/resetters/vim/plugv9.vim"
+cat "${PLUGV9}" >> "${START}/plugme/plugin/plugme.vim"
 
 
 printf "\n"
