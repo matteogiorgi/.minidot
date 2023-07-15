@@ -1,21 +1,20 @@
-" __        __    _ _
-" \ \      / / __(_) |_ ___ _ __
-"  \ \ /\ / / '__| | __/ _ \ '__|
-"   \ V  V /| |  | | ||  __/ |
-"    \_/\_/ |_|  |_|\__\___|_|
+"     _              _ _ _
+"    / \  _   ___  _(_) (_)_   _ _ __ ___
+"   / _ \| | | \ \/ / | | | | | | '_ ` _ \
+"  / ___ \ |_| |>  <| | | | |_| | | | | | |
+" /_/   \_\__,_/_/\_\_|_|_|\__,_|_| |_| |_|
 "
-" Simple vim-plugin that enhances
-" your writing activity efficiency.
-
+" Simple viml-script that enhances your vim
+" writing efficiency, nothindg fancy :)
 
 
 
 " Check {{{
-if exists("g:writer")
+if exists("g:auxilium")
     finish
 endif
 " ---
-let g:writer = 1
+let g:auxilium = 1
 "}}}
 
 
@@ -88,6 +87,26 @@ endfunction
 
 
 
+" Jump to neighbor window {{{
+function! s:JumpWindow(key)
+    let t:curwin = winnr()
+    exec 'wincmd '.a:key
+    " ---
+    if t:curwin ==? winnr()
+        if match(a:key,'[jk]')
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec 'wincmd '.a:key
+    endif
+    return bufname('%')
+endfunction
+"}}}
+
+
+
+
 " Filetype behavior {{{
 augroup writer_filetype
     autocmd!
@@ -118,4 +137,12 @@ command! ToggleAccent call <SID>ToggleAccent()
 " ---
 nnoremap <localleader>\ :ScratchBuffer<CR>
 nnoremap <silent>' :ToggleAccent<CR>
+" ---
+tnoremap <silent><C-q> <C-\><C-n>
+nnoremap <leader>w <C-w>
+" ---
+nnoremap <leader>wh :call <SID>JumpWindow("h")<CR>
+nnoremap <leader>wj :call <SID>JumpWindow("j")<CR>
+nnoremap <leader>wk :call <SID>JumpWindow("k")<CR>
+nnoremap <leader>wl :call <SID>JumpWindow("l")<CR>
 "}}}

@@ -7,7 +7,15 @@
 #   --rice -> rice your plug8.vim and plug9.vim files
 #
 # Here the full set of plugins installed by this script:
-# ctrlp, fugitive, commentary, surround, repeat, lexima, context, ale, copilot.
+#   1.CTRLP      -> https://github.com/ctrlpvim/ctrlp.vim
+#   2.FUGITIVE   -> https://github.com/tpope/vim-fugitive
+#   3.COMMENTARY -> https://github.com/tpope/vim-commentary
+#   4.SURROUND   -> https://github.com/tpope/vim-surround
+#   5.REPEAT     -> https://github.com/tpope/vim-repeat
+#   6.LEXIMA     -> https://github.com/cohama/lexima.vim
+#   7.CONTEXT    -> https://github.com/wellle/context.vim
+#   8.ALE        -> https://github.com/dense-analysis/ale
+#   9.COPILOT    -> https://github.com/github/copilot.vim
 
 
 
@@ -122,7 +130,8 @@ fi
 
 if [[ $1 == "--zero" ]]; then
     printf "REMOVING ALL PLUGINS\n"
-    rm -rf "${HOME}/.vim/pack"
+    rm -rf "${HOME}/.vim/pack" &>/dev/null
+    rm -f "${HOME}/.vim/plugin/plugme.vim" &>/dev/null
     # ---
     printf "\n"
     printf "============ We're done here ==========\n"
@@ -137,8 +146,8 @@ fi
 ########
 
 if [[ $1 == "--rice" ]]; then
-    PLUGME="${HOME}/.vim/pack/plugins/start/plugme/plugin/plugme.vim"
-    [[ -f "${PLUGME}" ]] && "${EDITOR:=vi}" "${PLUGME}"
+    PLUGME="${HOME}/.vim/plugin/plugme.vim"
+    [[ -f "${PLUGME}" ]] && "${EDITOR:=vi}" "${PLUGME}" || echo "Plug me first!"
     # ---
     printf "\n"
     printf "============= We're done here ============\n"
@@ -220,9 +229,8 @@ _reset
 
 # Add a simple plugin that add some keymaps
 # and few more little things.
-PLUGME="${HOME}/bin/resetters/vim/plugme"
-rm -rf "${START}/plugme" &>/dev/null
-cp -r "${PLUGME}" "${START}/plugme" &>/dev/null
+PLUGME="${HOME}/bin/resetters/vim/plugme.vim"
+cat "${PLUGME}" > "${HOME}/.vim/plugin/plugme.vim"
 
 
 # If we've come this far, we're updating Vim to version 9 (if it needs to)
@@ -236,12 +244,6 @@ REPOSITORY="https://github.com/github/copilot.vim"
 PLUGIN="${START}/copilot"
 _node
 _reset
-
-
-# Append a simple config-file for vim9 plugins:
-# some keymaps and few more little things.
-PLUGV9="${HOME}/bin/resetters/vim/plugv9.vim"
-cat "${PLUGV9}" >> "${START}/plugme/plugin/plugme.vim"
 
 
 printf "\n"

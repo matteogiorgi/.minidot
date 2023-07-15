@@ -54,43 +54,18 @@
 !/bin/bin/ffinders/swallow
 
 /bin/bin/resetters/*
+!/bin/bin/resetters/code/*
+!/bin/bin/resetters/vim/*
 !/bin/bin/resetters/rscode
 !/bin/bin/resetters/rsmime
 !/bin/bin/resetters/rsplug
-!/bin/bin/resetters/code
-!/bin/bin/resetters/vim
 
 /bin/bin/resetters/code/*
 !/bin/bin/resetters/code/settings.json
 !/bin/bin/resetters/code/keybindings.json
 
 /bin/bin/resetters/vim/*
-!/bin/bin/resetters/vim/plugme
-!/bin/bin/resetters/vim/plugv9.vim
-
-/bin/bin/resetters/vim/plugme/*
-!/bin/bin/resetters/vim/plugme/colors
-!/bin/bin/resetters/vim/plugme/plugin
-
-/bin/bin/resetters/vim/plugme/colors/*
-!/bin/bin/resetters/vim/plugme/colors/hemisu.vim
-
-/bin/bin/resetters/vim/plugme/plugin/*
-!/bin/bin/resetters/vim/plugme/plugin/notes
-!/bin/bin/resetters/vim/plugme/plugin/jumper.vim
-!/bin/bin/resetters/vim/plugme/plugin/plugme.vim
-!/bin/bin/resetters/vim/plugme/plugin/writer.vim
-
-/bin/bin/resetters/vim/plugme/plugin/notes/*
-!/bin/bin/resetters/vim/plugme/plugin/notes/assets
-
-/bin/bin/resetters/vim/plugme/plugin/notes/assets/*
-!/bin/bin/resetters/vim/plugme/plugin/notes/assets/before.html
-!/bin/bin/resetters/vim/plugme/plugin/notes/assets/footer.html
-!/bin/bin/resetters/vim/plugme/plugin/notes/assets/header.html
-!/bin/bin/resetters/vim/plugme/plugin/notes/assets/link2html.lua
-!/bin/bin/resetters/vim/plugme/plugin/notes/assets/makenote
-
+!/bin/bin/resetters/vim/plugme.vim
 
 
 
@@ -124,5 +99,27 @@
 #######
 
 /vim/*
-!/vim/.vimrc
+!/vim/.vim
 !/vim/.gvimrc
+!/vim/.vimrc
+
+/vim/.vim/*
+!/vim/.vim/colors
+!/vim/.vim/plugin
+
+/vim/.vim/colors/*
+!/vim/.vim/colors/hemisu.vim
+
+/vim/.vim/plugin/*
+!/vim/.vim/plugin/notes
+!/vim/.vim/plugin/auxilium.vim
+
+/vim/.vim/plugin/notes/*
+!/vim/.vim/plugin/notes/assets
+
+/vim/.vim/plugin/notes/assets/*
+!/vim/.vim/plugin/notes/assets/before.html
+!/vim/.vim/plugin/notes/assets/footer.html
+!/vim/.vim/plugin/notes/assets/header.html
+!/vim/.vim/plugin/notes/assets/linked2html.lua
+!/vim/.vim/plugin/notes/assets/makenote

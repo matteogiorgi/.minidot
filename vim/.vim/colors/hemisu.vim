@@ -20,46 +20,8 @@ if exists("syntax_on")
     syntax reset
 endif
 
-" Set 256 colors
-if exists('+termguicolors')
-    set termguicolors
-    set t_Co=256
-endif
-
 " Declare theme name
 let g:colors_name = "hemisu"
-" }}}
-
-
-
-
-" PRETTYFIER {{{
-" Cursorline & colorcolumn behavior
-augroup hemisu_prettyfier
-    autocmd!
-    autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set cursorline
-    autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set nocursorline
-    autocmd InsertEnter *
-                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
-                \     let &colorcolumn = '121,'.join(range(121,999),',')|
-                \ endif
-    autocmd InsertLeave *
-                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
-                \     set colorcolumn=|
-                \ endif
-augroup end
-
-" Toggle dark/light mode
-command! ToggleHemisu
-            \ if colors_name ==# 'hemisu'|
-            \     if &background ==# 'light'|
-            \         set background=dark|
-            \     else|
-            \         set background=light|
-            \     endif|
-            \ else|
-            \     echo 'hemisu not set'|
-            \ endif
 " }}}
 
 
@@ -247,56 +209,5 @@ hi! link Error       ErrorMsg
 
 
 
-
-" HIGHLIGHTS - HTML {{{
-hi! link htmlLink    Underlined
-hi! link htmlTag     Type
-hi! link htmlEndTag  htmlTag
-" }}}
-
-
-
-
-" HIGHLIGHTS - CSS {{{
-hi! link cssBraces      Delimiter
-hi! link cssSelectorOp  cssBraces
-hi! link cssClassName   Normal
-" }}}
-
-
-
-
-" HIGHLIGHTS - MARKDOWN {{{
-hi! link mkdListItem  mkdDelimiter
-" }}}
-
-
-
-
-" HIGHLIGHTS - SHELL {{{
-hi! link shOperator  Delimiter
-hi! link shCaseBar   Delimiter
-" }}}
-
-
-
-
-" HIGHLIGHTS - JAVASCRIPT {{{
-hi! link javaScriptValue   Constant
-hi! link javaScriptNull    Constant
-hi! link javaScriptBraces  Normal
-" }}}
-
-
-
-
-" HIGHLIGHTS - HELP {{{
-hi! link helpExample         String
-hi! link helpHeadline        Title
-hi! link helpSectionDelim    Comment
-hi! link helpHyperTextEntry  Statement
-hi! link helpHyperTextJump   Underlined
-hi! link helpURL             Underlined
-" }}}
 
 " vim: fdm=marker:sw=2:sts=2:et

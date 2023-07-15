@@ -26,14 +26,36 @@ endif
 
 
 
-" Syntax and colors {{{
+" Syntax & colors {{{
 syntax on
 filetype plugin indent on
 " ---
-set notermguicolors
-set t_Co=16
-set background=dark
-colorscheme default
+if exists('+termguicolors')
+    set termguicolors
+    set t_Co=256
+endif
+" ---
+if filereadable(expand('~/.vim/colors/hemisu.vim'))
+    set background=dark
+    colorscheme hemisu
+endif
+" }}}
+
+
+
+
+" Leaders & caret {{{
+let g:mapleader = "\<Space>"
+let g:maplocalleader = "\\"
+" ---
+" [1] blink-block     [3] blink-underline     [5] blink-bar
+" [2] steady-block    [4] steady-underline    [6] steady-bar
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+" ---
+if has('python3')
+    let g:python3_host_prog = '/usr/bin/python3'
+endif
 " }}}
 
 
@@ -55,7 +77,7 @@ set nowrap nospell
 set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
-set nocursorline noerrorbells novisualbell
+set cursorline noerrorbells novisualbell
 set cursorlineopt=number,line
 set splitbelow splitright
 set equalalways
@@ -95,53 +117,42 @@ set belloff+=ctrlg
 
 
 
-" Global variables {{{
-let g:mapleader = "\<Space>"
-let g:maplocalleader = "\\"
-if has('python3')
-    let g:python3_host_prog = '/usr/bin/python3'
-endif
-" }}}
-
-
-
-
-" Cursor mode {{{
-" Ps=0 -> blinking block.
-" Ps=1 -> blinking block (default).
-" Ps=2 -> steady block.
-" Ps=3 -> blinking underline.
-" Ps=4 -> steady underline.
-" Ps=5 -> blinking bar (xterm).
-" Ps=6 -> steady bar (xterm).
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-" }}}
-
-
-
-
-" Netrw behavior {{{
-" h -> upadir
-" l -> opendir
-" . -> (un)hide
-" < -> (de)select
-" > -> deselectall
-" d -> newdir
-" f -> newfile (buffer)
-" R -> rename
-" D -> delete
-" c -> copy
-" m -> move
-" x -> execute
+" Prettyfiers {{{
+augroup linenumber_prettyfier
+    autocmd!
+    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
+                \ if &number == 1|
+                \     set relativenumber|
+                \ endif|
+                \ set cursorline
+    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
+                \ if &number == 1|
+                \     set norelativenumber|
+                \ endif|
+                \ set nocursorline
+augroup end
+" ---
+augroup cursorcolumn_prettyfier
+    autocmd!
+    autocmd InsertEnter *
+                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
+                \     let &colorcolumn = '121,'.join(range(121,999),',')|
+                \ endif
+    autocmd InsertLeave *
+                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
+                \     set colorcolumn=|
+                \ endif
+augroup end
+" ---
+" [h] upadir      [<] (de)select     [f] newfile    [c] copy
+" [l] opendir     [>] deselectall    [R] rename     [m] move
+" [.] (un)hide    [d] newdir         [D] delete     [x] execute
 augroup netrw_prettyfier
     autocmd!
-    " ---
     autocmd VimEnter *
                 \ if expand("%") == ""|
                 \     edit .|
                 \ endif
-    " ---
     autocmd FileType netrw
                 \ setlocal bufhidden=wipe|
                 \ nmap <buffer> h -<esc>|
@@ -156,7 +167,6 @@ augroup netrw_prettyfier
                 \ nmap <buffer> c mtmc|
                 \ nmap <buffer> m mtmm|
                 \ nmap <buffer> x mx
-    " ---
     let g:netrw_banner = 0
     let g:netrw_keepdir = 0
     let g:netrw_liststyle = 4
@@ -174,24 +184,18 @@ augroup end
 
 
 
-" Linenumber behavior {{{
-augroup linenumber_prettyfier
-    autocmd!
-    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
-                \ if &number == 1|
-                \     set relativenumber|
-                \ endif
-    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
-                \ if &number == 1|
-                \     set norelativenumber|
-                \ endif
-augroup end
-" }}}
-
-
-
-
 " Commands {{{
+command! ToggleHemisu
+            \ if colors_name ==# 'hemisu'|
+            \     if &background ==# 'light'|
+            \         set background=dark|
+            \     else|
+            \         set background=light|
+            \     endif|
+            \ else|
+            \     echo 'hemisu not set'|
+            \ endif
+" ---
 command! ToggleWrap
             \ if &wrap|
             \     setlocal nowrap|
@@ -219,6 +223,7 @@ command! RemoveSpaces
 
 
 " Keymaps {{{
+nnoremap <silent>^ :ToggleHemisu<CR>
 nnoremap <silent>_ :ToggleWrap<CR>
 " ---
 nnoremap <silent>Y y$

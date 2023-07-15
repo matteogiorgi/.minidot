@@ -6,8 +6,15 @@
 #   --insiders      -> resets VSCode Insiders instead of VSCode
 #   --zero-insiders -> removes all VSCode Insiders configurations (rm -rf ~/.config/Code\ -\ Insiders/User)
 #
-# Here the full set of extensions installed by this script (for more information visit https://vspacecode.github.io/):
-# VSpaceCode, Which Key, Vim, fuzzy-search, File Browser, edamagit, Monokai Pro.
+# Here the full set of extensions installed by this script:
+# (for more information visit https://vspacecode.github.io/)
+#   1.VSPACECODE   -> https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode
+#   2.WHICH-KEY    -> https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey
+#   3.VIM          -> https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+#   4.FUZZY-SEARCH -> https://marketplace.visualstudio.com/items?itemName=jacobdufault.fuzzy-search
+#   5.FILE-BROWSER -> https://marketplace.visualstudio.com/items?itemName=bodil.file-browser
+#   6.EDAMAGIT     -> https://marketplace.visualstudio.com/items?itemName=kahole.magit
+#   7.MONOKAI-PRO  -> https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
 
 
 
