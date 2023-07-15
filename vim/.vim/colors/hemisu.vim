@@ -207,7 +207,4 @@ hi! link PreProc     Constant
 hi! link Error       ErrorMsg
 " }}}
 
-
-
-
 " vim: fdm=marker:sw=2:sts=2:et
