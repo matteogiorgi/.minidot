@@ -35,18 +35,18 @@ let g:ctrlp_custom_ignore = {
             \ }
 " ---
 nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>h :CtrlPMRUFiles<CR>
 nnoremap <leader>j :CtrlPChangeAll<CR>
 nnoremap <leader>k :CtrlPBufTagAll<CR>
 nnoremap <leader>l :CtrlPLine<CR>
-nnoremap <leader><Tab> :CtrlPBuffer<CR>
+nnoremap <silent><Tab> :CtrlPBuffer<CR>
 " }}}
 
 
 
 
 " FUGITIVE CONFIG {{{
-nnoremap <leader>g :execute 'Git diff' <Bar> wincmd T<CR>
+nnoremap <leader>g :execute 'Gvdiffsplit HEAD'<CR>
+nnoremap <leader>h :execute 'Git log --all --graph --decorate --oneline'<CR>
 " }}}
 
 

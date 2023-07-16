@@ -4,7 +4,7 @@
 " | |_| | \ V / | | | | | | |
 "  \____|  \_/  |_|_| |_| |_|
 "
-" GVim editor - https://www.vim.org.
+" GVim editor - https://www.vim.org
 
 
 

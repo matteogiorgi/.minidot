@@ -134,13 +134,12 @@ augroup end
 " Commands & Keymaps {{{
 command! MakeNote call <SID>MakeNote()
 command! ScratchBuffer call <SID>ScratchBuffer()
-command! ToggleAccent call <SID>ToggleAccent()
 " ---
-nnoremap <localleader>\ :ScratchBuffer<CR>
-nnoremap <silent>' :ToggleAccent<CR>
-" ---
+nnoremap <silent>' :call <SID>ToggleAccent()<CR>
 tnoremap <silent><C-q> <C-\><C-n>
+" ---
 nnoremap <leader>w <C-w>
+nnoremap <leader>wt :tabnew %<CR>
 " ---
 nnoremap <leader>wh :call <SID>JumpWindow("h")<CR>
 nnoremap <leader>wj :call <SID>JumpWindow("j")<CR>

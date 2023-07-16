@@ -4,7 +4,7 @@
 "   \ V / | | | | | | |
 "    \_/  |_|_| |_| |_|
 "
-" Vim editor - https://www.vim.org.
+" Vim editor - https://www.vim.org
 
 
 
@@ -239,13 +239,12 @@ vnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 vnoremap <silent><C-k> {
 " ---
-nnoremap <silent><Tab> :buffer#<CR>
-nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
-nnoremap <leader><Space> :edit ./<Right>
-vnoremap <leader><Space> :!<Space>
+nnoremap <silent><Tab> :buffers<CR>:buffer<Space>
+nnoremap <silent><BS> :buffer#<CR>
+nnoremap <silent><CR> :Explore<CR>
 " ---
-nnoremap <leader>\ :exe 'normal ggVG'<CR>
-xnoremap <leader>\ :s///gc<Left><Left><Left>
+vnoremap <leader><leader> :!<Space>
+xnoremap <localleader><localleader> :s///gc<Left><Left><Left>
 " ---
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
