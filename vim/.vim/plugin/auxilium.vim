@@ -138,9 +138,10 @@ command! ScratchBuffer call <SID>ScratchBuffer()
 nnoremap <silent>' :call <SID>ToggleAccent()<CR>
 tnoremap <silent><C-q> <C-\><C-n>
 " ---
-nnoremap <leader>w <C-w>
-nnoremap <leader>wt :tabnew %<CR>
+nnoremap <leader>tt :tabnew %<CR>
+nnoremap <leader>tq :tabclose<CR>
 " ---
+nnoremap <leader>w <C-w>
 nnoremap <leader>wh :call <SID>JumpWindow("h")<CR>
 nnoremap <leader>wj :call <SID>JumpWindow("j")<CR>
 nnoremap <leader>wk :call <SID>JumpWindow("k")<CR>
