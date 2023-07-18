@@ -210,16 +210,4 @@ hi! link Error       ErrorMsg
 
 
 
-" HIGHLIGHTS - HELP {{{
-hi! link helpExample         String
-hi! link helpHeadline        Title
-hi! link helpSectionDelim    Comment
-hi! link helpHyperTextEntry  Statement
-hi! link helpHyperTextJump   Underlined
-hi! link helpURL             Underlined
-" }}}
-
-
-
-
 " vim: fdm=marker:sw=2:sts=2:et
