@@ -1,4 +1,6 @@
 [
+    // Personal Keybindings
+    // Aside from VSpaceCode
     {
         "key": "alt+a",
         "command": "workbench.action.toggleActivityBarVisibility"
@@ -56,6 +58,10 @@
         "key": "alt+p",
         "command": "editor.action.marker.prev",
         "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
     },
     // Trigger vspacecode in empty editor group
     {

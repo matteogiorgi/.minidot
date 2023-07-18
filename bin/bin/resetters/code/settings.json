@@ -38,8 +38,18 @@
     "terminal.integrated.allowChords": false,
     "terminal.integrated.gpuAcceleration": "off",
     "terminal.integrated.profiles.linux": {
-        "dash": { "path": "/bin/dash" },
-        "bash": { "path": "/bin/bash" }
+        "dash": {
+            "path": "/bin/dash",
+            "icon": "terminal-debian"
+        },
+        "bash": {
+            "path": "/bin/bash",
+            "icon": "terminal-bash"
+        },
+        "tmux": {
+            "path": "/bin/tmux",
+            "icon": "terminal-tmux"
+        }
     },
     "terminal.integrated.defaultProfile.linux": "dash",
     "workbench.editor.showTabs": false,
