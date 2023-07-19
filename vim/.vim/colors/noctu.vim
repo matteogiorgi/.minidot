@@ -38,16 +38,16 @@ set background=dark
 hi Normal        ctermfg=15  ctermbg=NONE
 hi Cursor        ctermfg=0   ctermbg=14
 hi CursorLine                ctermbg=0     cterm=NONE
-hi MatchParen    ctermfg=15  ctermbg=8  cterm=bold
+hi MatchParen    ctermfg=15  ctermbg=8     cterm=bold
 hi Pmenu         ctermfg=15  ctermbg=0
 hi PmenuThumb                ctermbg=7
 hi PmenuSBar                 ctermbg=8
 hi PmenuSel      ctermfg=15  ctermbg=4     cterm=bold
 hi ColorColumn               ctermbg=0
-hi SpellBad      ctermfg=1   ctermbg=NONE  cterm=bold
-hi SpellCap      ctermfg=10  ctermbg=NONE  cterm=bold
-hi SpellRare     ctermfg=11  ctermbg=NONE  cterm=bold
-hi SpellLocal    ctermfg=13  ctermbg=NONE  cterm=bold
+hi SpellBad      ctermfg=15  ctermbg=1
+hi SpellCap      ctermfg=15  ctermbg=8
+hi SpellLocal    ctermfg=15  ctermbg=4
+hi SpellRare     ctermfg=15  ctermbg=5
 hi NonText       ctermfg=8
 hi LineNr        ctermfg=8   ctermbg=NONE
 hi CursorLineNr  ctermfg=11  ctermbg=NONE  cterm=bold
@@ -86,21 +86,21 @@ hi! link SpecialKey    NonText
 
 " Generic syntax {{{
 hi Delimiter   ctermfg=7
-hi Comment     ctermfg=8
-hi Underlined  ctermfg=4              cterm=underline
+hi Comment     ctermfg=8                 cterm=italic
+hi Underlined  ctermfg=4                 cterm=underline
 hi Type        ctermfg=4
 hi String      ctermfg=11
 hi Keyword     ctermfg=2
-hi Todo        ctermfg=0   ctermbg=1  cterm=bold
-hi Function    ctermfg=4              cterm=bold
-hi Identifier  ctermfg=7              cterm=bold
-hi Statement   ctermfg=2              cterm=bold
+hi Todo        ctermfg=1   ctermbg=NONE
+hi Function    ctermfg=4                 cterm=bold
+hi Identifier  ctermfg=7                 cterm=bold
+hi Statement   ctermfg=2                 cterm=bold
 hi Constant    ctermfg=13
 hi Number      ctermfg=12
 hi Boolean     ctermfg=4
 hi Special     ctermfg=13
 hi Ignore      ctermfg=0
-hi PreProc     ctermfg=8              cterm=bold
+hi PreProc     ctermfg=8                 cterm=bold
 " ---
 hi! link Operator  Delimiter
 hi! link Error     ErrorMsg
