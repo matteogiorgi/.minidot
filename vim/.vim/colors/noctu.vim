@@ -38,7 +38,7 @@ set background=dark
 hi Normal        ctermfg=15  ctermbg=NONE
 hi Cursor        ctermfg=0   ctermbg=14
 hi CursorLine                ctermbg=0     cterm=NONE
-hi MatchParen    ctermfg=7   ctermbg=NONE  cterm=bold
+hi MatchParen    ctermfg=15  ctermbg=8  cterm=bold
 hi Pmenu         ctermfg=15  ctermbg=0
 hi PmenuThumb                ctermbg=7
 hi PmenuSBar                 ctermbg=8

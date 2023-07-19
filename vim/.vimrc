@@ -32,9 +32,6 @@ filetype plugin indent on
 " ---
 if filereadable(expand('~/.vim/colors/noctu.vim'))
     colorscheme noctu
-elseif filereadable(expand('~/.vim/colors/hemisu.vim'))
-    set background=dark
-    colorscheme hemisu
 endif
 " }}}
 
