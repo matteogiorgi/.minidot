@@ -7,21 +7,24 @@
 " Noah Frederick (http://noahfrederick.com/)
 " Matteo Giorgi  (https://www.geoteo.net/)
 " ---
-" Simple vim-color with high contrast palette,
-" available in both dark and light background.
+" Simple vim-color with high contrast palette:
+" hemisu has both dark and light background.
 
 
 
 
 " SETUP {{{
-" Reset syntax highlighting
-hi clear
+if exists('+termguicolors')
+    set termguicolors
+    set t_Co=256
+endif
+" ---
+hi! clear
 if exists("syntax_on")
     syntax reset
 endif
-
-" Declare theme name
-let g:colors_name = "hemisu"
+" ---
+let g:colors_name="hemisu"
 " }}}
 
 
@@ -206,8 +209,5 @@ hi! link Special     Constant
 hi! link PreProc     Constant
 hi! link Error       ErrorMsg
 " }}}
-
-
-
 
 " vim: fdm=marker:sw=2:sts=2:et

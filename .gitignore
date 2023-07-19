@@ -109,6 +109,7 @@
 
 /vim/.vim/colors/*
 !/vim/.vim/colors/hemisu.vim
+!/vim/.vim/colors/noctu.vim
 
 /vim/.vim/plugin/*
 !/vim/.vim/plugin/notes

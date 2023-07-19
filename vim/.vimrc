@@ -30,12 +30,9 @@ endif
 syntax on
 filetype plugin indent on
 " ---
-if exists('+termguicolors')
-    set termguicolors
-    set t_Co=256
-endif
-" ---
-if filereadable(expand('~/.vim/colors/hemisu.vim'))
+if filereadable(expand('~/.vim/colors/noctu.vim'))
+    colorscheme noctu
+elseif filereadable(expand('~/.vim/colors/hemisu.vim'))
     set background=dark
     colorscheme hemisu
 endif
