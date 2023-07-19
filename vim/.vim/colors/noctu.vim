@@ -91,7 +91,7 @@ hi Underlined  ctermfg=4                 cterm=underline
 hi Type        ctermfg=4
 hi String      ctermfg=11
 hi Keyword     ctermfg=2
-hi Todo        ctermfg=1   ctermbg=NONE
+hi Todo        ctermfg=1   ctermbg=NONE  cterm=bold
 hi Function    ctermfg=4                 cterm=bold
 hi Identifier  ctermfg=7                 cterm=bold
 hi Statement   ctermfg=2                 cterm=bold
