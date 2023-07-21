@@ -34,11 +34,14 @@ let g:ctrlp_custom_ignore = {
             \      'file': '\v\.(exe|so|dll)$'
             \ }
 " ---
+nnoremap <leader>a :CtrlPMixed<CR>
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>h :CtrlPMRUFiles<CR>
 nnoremap <leader>H :CtrlPUndo<CR>
-nnoremap <leader>j :CtrlPChangeAll<CR>
-nnoremap <leader>k :CtrlPBufTagAll<CR>
+nnoremap <leader>j :CtrlPChange<CR>
+nnoremap <leader>J :CtrlPChangeAll<CR>
+nnoremap <leader>k :CtrlPBufTag<CR>
+nnoremap <leader>K :CtrlPBufTagAll<CR>
 nnoremap <leader>l :CtrlPLine<CR>
 nnoremap <silent><Tab> :CtrlPBuffer<CR>
 " }}}
