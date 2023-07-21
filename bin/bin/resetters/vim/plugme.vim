@@ -35,6 +35,8 @@ let g:ctrlp_custom_ignore = {
             \ }
 " ---
 nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>h :CtrlPMRUFiles<CR>
+nnoremap <leader>H :CtrlPUndo<CR>
 nnoremap <leader>j :CtrlPChangeAll<CR>
 nnoremap <leader>k :CtrlPBufTagAll<CR>
 nnoremap <leader>l :CtrlPLine<CR>
@@ -44,9 +46,9 @@ nnoremap <silent><Tab> :CtrlPBuffer<CR>
 
 
 
-" FUGITIVE CONFIG {{{
-nnoremap <leader>g :execute 'Gvdiffsplit HEAD'<CR>
-nnoremap <leader>h :execute 'Git log --all --graph --decorate --oneline'<CR>
+" FUGITIVE/SIGNIFY CONFIG {{{
+nnoremap <leader>g :execute 'Git blame'<CR>
+nnoremap <leader>G :execute 'SignifyDiff'<CR>
 " }}}
 
 
@@ -58,9 +60,9 @@ set omnifunc=ale#completion#OmniFunc
 " ---
 nnoremap <silent><C-n> :ALENext<CR>
 nnoremap <silent><C-p> :ALEPrevious<CR>
-nnoremap <leader>a :ALESymbolSearch<Space>
-nnoremap <leader>s :ALEFindReferences<CR>
 nnoremap <leader>d :ALEGoToDefinition<CR>
+nnoremap <leader>s :ALEFindReferences<CR>
+nnoremap <leader>S :ALESymbolSearch<Space>
 " }}}
 
 
