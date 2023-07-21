@@ -49,9 +49,9 @@ nnoremap <silent><Tab> :CtrlPBuffer<CR>
 
 
 
-" FUGITIVE/SIGNIFY CONFIG {{{
-nnoremap <leader>g :execute 'Git blame'<CR>
-nnoremap <leader>G :execute 'SignifyDiff'<CR>
+" FUGITIVE CONFIG {{{
+nnoremap <leader>g :Git blame<CR>
+nnoremap <leader>G :Gvdiffsplit<CR>
 " }}}
 
 
