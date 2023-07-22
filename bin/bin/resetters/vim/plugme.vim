@@ -37,8 +37,8 @@ if &rtp =~ 'ctrlp'
                 \      'file': '\v\.(exe|so|dll)$'
                 \ }
     " ---
-    nnoremap <leader>a :CtrlPMixed<CR>
     nnoremap <leader>f :CtrlP<CR>
+    nnoremap <leader>F :CtrlPMixed<CR>
     nnoremap <leader>h :CtrlPMRUFiles<CR>
     nnoremap <leader>H :CtrlPUndo<CR>
     nnoremap <leader>j :CtrlPChange<CR>
@@ -90,6 +90,19 @@ if v:version >= 900
             let textsuggested = copilot#TextQueuedForInsertion()
             return textsuggested ==# '' ? '' : split(textsuggested, '[ .()\[\]{}]\zs')[0]
         endfunction
+        " ---
+        function! s:ToggleCopilot()
+            if g:copilot_enabled
+                let g:copilot_enabled = v:false
+                echo "Copilot disabled"
+            else
+                let g:copilot_enabled = v:true
+                echo "Copilot enabled"
+            endif
+        endfunction
+        " ---
+        let g:copilot_enabled = v:false
+        nnoremap <leader>a :call <SID>ToggleCopilot()<CR>
         " ---
         inoremap <silent><C-s> <Plug>(copilot-suggest)
         inoremap <silent><C-d> <Plug>(copilot-dismiss)
