@@ -141,8 +141,8 @@ augroup end
 augroup netrw_prettyfier
     autocmd!
     autocmd VimEnter *
-                \ if expand("%") == ""|
-                \     edit .|
+                \ if !argc() && exists(':Explore')|
+                \     Explore|
                 \ endif
     " [h] upadir      [<] (de)select     [f] newfile    [c] copy
     " [l] opendir     [>] deselectall    [R] rename     [m] move
