@@ -88,26 +88,6 @@ endfunction
 
 
 
-" Jump to neighbor window {{{
-function! s:JumpWindow(key)
-    let t:curwin = winnr()
-    exec 'wincmd '.a:key
-    " ---
-    if t:curwin ==? winnr()
-        if match(a:key,'[jk]')
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec 'wincmd '.a:key
-    endif
-    return bufname('%')
-endfunction
-"}}}
-
-
-
-
 " Filetype behavior {{{
 augroup writer_filetype
     autocmd!
@@ -136,15 +116,4 @@ command! MakeNote call <SID>MakeNote()
 command! ScratchBuffer call <SID>ScratchBuffer()
 " ---
 nnoremap <silent>' :call <SID>ToggleAccent()<CR>
-tnoremap <silent><C-q> <C-\><C-n>
-" ---
-nnoremap <leader>w <C-w>
-nnoremap <leader>wh :call <SID>JumpWindow("h")<CR>
-nnoremap <leader>wj :call <SID>JumpWindow("j")<CR>
-nnoremap <leader>wk :call <SID>JumpWindow("k")<CR>
-nnoremap <leader>wl :call <SID>JumpWindow("l")<CR>
-" ---
-nnoremap <leader>wd :bdelete<CR>
-nnoremap <leader>we :tabnew %<CR>
-nnoremap <leader>ee :tabclose<CR>
 "}}}

@@ -220,14 +220,19 @@ command! RemoveSpaces
 nnoremap <silent>^ :ToggleHemisu<CR>
 nnoremap <silent>_ :ToggleWrap<CR>
 " ---
+tnoremap <silent><C-q> <C-\><C-n>
+" ---
 nnoremap <silent>Y y$
 vnoremap <silent>H <gv
 vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
+nnoremap <silent><C-w>t :tabnew %<CR>
+nnoremap <silent><C-c> :tabclose<CR>
 nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
+" ---
 nnoremap <silent><C-j> }
 vnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
