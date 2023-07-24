@@ -45,7 +45,8 @@ if &rtp =~ 'ctrlp'
     nnoremap <leader>J :CtrlPChangeAll<CR>
     nnoremap <leader>k :CtrlPBufTag<CR>
     nnoremap <leader>K :CtrlPBufTagAll<CR>
-    nnoremap <leader>l :CtrlPLine<CR>
+    nnoremap <leader>l :CtrlPLine %<CR>
+    nnoremap <leader>L :CtrlPLine<CR>
     nnoremap <silent><Tab> :CtrlPBuffer<CR>
 endif
 " }}}
