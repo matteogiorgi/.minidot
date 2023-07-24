@@ -228,8 +228,8 @@ vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
-nnoremap <silent><C-w>t :tabnew %<CR>
-nnoremap <silent><C-c> :tabclose<CR>
+nnoremap <leader>t :tabnew %<CR>
+nnoremap <leader>T :tabclose<CR>
 nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 " ---
