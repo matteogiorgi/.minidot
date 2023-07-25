@@ -221,6 +221,7 @@ nnoremap <silent>^ :ToggleHemisu<CR>
 nnoremap <silent>_ :ToggleWrap<CR>
 " ---
 tnoremap <silent><C-q> <C-\><C-n>
+nnoremap <leader>w <C-w>
 " ---
 vnoremap <silent>H <gv
 vnoremap <silent>L >gv
