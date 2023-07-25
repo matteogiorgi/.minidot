@@ -18,7 +18,7 @@ MIMEAPPS="$HOME/.local/share/applications/mimeapps.list"
 ### New mimeapps
 ################
 
-if [[ ! -f $MIMEAPPS ]]; then
+if [[ ! -f "$MIMEAPPS" ]]; then
 cat 2>/dev/null > $MIMEAPPS <<-EOF
 # This file stores all personal mime-types for the current user.
 # Check out IANA website for a full list of mime-types at
@@ -51,4 +51,4 @@ fi
 ### Edit mimeapps
 #################
 
-"${EDITOR:=vi}" $MIMEAPPS
+"${EDITOR:=vi}" "$MIMEAPPS"

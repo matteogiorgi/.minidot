@@ -118,9 +118,10 @@ fi
 ### ~/.vim
 ##########
 
-# Vim main folder (~/.vim);
-# let's crate it if it doesn't exist!
-[[ -d "${HOME}/.vim" ]] || mkdir -p "${HOME}/.vim"
+# Vim main folder (~/.vim),
+# let's create it if it doesn't exist!
+VIM=${HOME}/.vim
+[[ -d "${VIM}" ]] || mkdir -p "${VIM}"
 
 
 
@@ -130,8 +131,8 @@ fi
 
 if [[ $1 == "--zero" ]]; then
     printf "REMOVING ALL PLUGINS\n"
-    rm -rf "${HOME}/.vim/pack" &>/dev/null
-    rm -f "${HOME}/.vim/plugin/plugme.vim" &>/dev/null
+    rm -rf "${VIM}/pack" &>/dev/null
+    rm -f "${VIM}/plugin/plugme.vim" &>/dev/null
     # ---
     printf "\n"
     printf "============ We're done here ==========\n"
@@ -146,7 +147,7 @@ fi
 ########
 
 if [[ $1 == "--rice" ]]; then
-    PLUGME="${HOME}/.vim/plugin/plugme.vim"
+    PLUGME="${VIM}/plugin/plugme.vim"
     [[ -f "${PLUGME}" ]] && "${EDITOR:=vi}" "${PLUGME}" || echo "Plug me first!"
     # ---
     printf "\n"
@@ -163,7 +164,7 @@ fi
 
 # Vim internal plugins folder (~/.vim/pack/plugins/start);
 # let's crate it if it doesn't exist!
-START="${HOME}/.vim/pack/plugins/start"
+START="${VIM}/pack/plugins/start"
 [[ -d "${START}" ]] || mkdir -p "${START}"
 
 

@@ -47,7 +47,7 @@ if &rtp =~ 'ctrlp'
     nnoremap <leader>K :CtrlPBufTagAll<CR>
     nnoremap <leader>l :CtrlPLine %<CR>
     nnoremap <leader>L :CtrlPLine<CR>
-    nnoremap <silent><Tab> :CtrlPBuffer<CR>
+    nnoremap <leader><Tab> :CtrlPBuffer<CR>
 endif
 " }}}
 
@@ -69,9 +69,11 @@ if &rtp =~ 'ale'
     let g:ale_completion_enabled = 1
     set omnifunc=ale#completion#OmniFunc
     " ---
-    nnoremap <silent><C-n> :ALENext<CR>
-    nnoremap <silent><C-p> :ALEPrevious<CR>
+    inoremap <silent><C-c> :AleComplete<CR>
+    nnoremap <silent>E :ALENext<CR>
+    nnoremap <silent>W :ALEPrevious<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
+    nnoremap <leader>D :ALEGoToTypeDefinition<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>S :ALESymbolSearch<Space>
 endif
@@ -104,10 +106,11 @@ if v:version >= 900
         " ---
         let g:copilot_enabled = v:false
         nnoremap <leader>a :call <SID>ToggleCopilot()<CR>
+        nnoremap <leader>A :Copilot panel<CR>
         " ---
         inoremap <silent><C-s> <Plug>(copilot-suggest)
         inoremap <silent><C-d> <Plug>(copilot-dismiss)
-        inoremap <silent><C-h> <C-W>
+        inoremap <silent><C-h> <C-w>
         inoremap <silent><C-j> <Plug>(copilot-next)
         inoremap <silent><C-k> <Plug>(copilot-previous)
         inoremap <script><expr> <C-l> <SID>SuggestWord()

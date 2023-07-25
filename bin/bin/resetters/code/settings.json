@@ -89,6 +89,14 @@
             "commands": ["editor.action.moveLinesUpAction"]
         },
         {
+            "before": ["<C-h>"],
+            "after": ["("]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": [")"]
+        },
+        {
             "before": ["<C-j>"],
             "after": ["}"]
         },
@@ -125,6 +133,14 @@
             "before": ["C-r"],
             "commands": ["redo"],
             "silent": true
+        },
+        {
+            "before": ["<C-h>"],
+            "after": ["("]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": [")"]
         },
         {
             "before": ["<C-j>"],

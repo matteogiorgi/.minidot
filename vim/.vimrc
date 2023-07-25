@@ -222,25 +222,24 @@ nnoremap <silent>_ :ToggleWrap<CR>
 " ---
 tnoremap <silent><C-q> <C-\><C-n>
 " ---
-nnoremap <silent>Y y$
 vnoremap <silent>H <gv
 vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
+nnoremap <silent>Y y$
 " ---
-nnoremap <silent><C-h> :tabprev<CR>
-nnoremap <silent><C-l> :tabnext<CR>
-nnoremap <silent><C-c> :tabclose<CR>
-nnoremap <leader><leader> :tabnew %<CR>
+map <silent><C-h> (
+map <silent><C-l> )
+map <silent><C-j> }
+map <silent><C-k> {
 " ---
-nnoremap <silent><C-j> }
-vnoremap <silent><C-j> }
-nnoremap <silent><C-k> {
-vnoremap <silent><C-k> {
+nnoremap <silent><CR> :tabnew %<CR>
+nnoremap <silent><BS> :tabclose<CR>
+nnoremap <silent><C-n> :tabnext<CR>
+nnoremap <silent><C-p> :tabprev<CR>
 " ---
-nnoremap <silent><Tab> :buffers<CR>:buffer<Space>
-nnoremap <silent><BS> :buffer#<CR>
-nnoremap <silent><CR> :Explore<CR>
+nnoremap <silent><Tab> :buffer#<CR>
+nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
 " ---
 vnoremap <leader><leader> :!<Space>
 xnoremap <localleader><localleader> :s///gc<Left><Left><Left>
