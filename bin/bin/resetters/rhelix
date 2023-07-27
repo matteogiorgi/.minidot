@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+# This script just resets your Helix
+# editor config: no options, no nothing.
+
+
+
+
+### Ready?
+##########
+
+read -p "Resetting Helix editor (enter to continue)"
+
+
+
+
+### ~/.config/helix
+###################
+
+HELIX="$HOME/.config/helix"
+[[ -d "$HELIX" ]] || mkdir -p "$HELIX"
+
+
+
+
+### Reset configurations
+########################
+
+if [[ ! -f "$HELIX/config.toml" ]]; then
+cat 2>/dev/null > $HELIX/config.toml <<-EOF
+theme = "amberwood"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+cursorline = true
+color-modes = true
+auto-save = true
+mouse = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+display-signature-help-docs = false
+display-inlay-hints = true
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+EOF
+fi
+
+
+
+
+# Edit Helix config
+[[ -x "$(command -v hx)" ]] && EDITOR="hx"
+"${EDITOR:=vi}" "$HELIX/config.toml"

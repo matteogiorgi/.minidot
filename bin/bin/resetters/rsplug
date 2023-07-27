@@ -1,21 +1,20 @@
 #!/usr/bin/env bash
 
-# This script updates Vim to version 9 (via Ubuntu PPA).
-# In addition, it updates some useful Vim plugins:
-#   noflag -> resets all Vim plugins (version 8 and 9)
-#   --zero -> removes all plugins (rm -rf ~/.vim/pack)
-#   --rice -> rice your plug8.vim and plug9.vim files
+# This script enhances Vim with some useful plugins:
+#     [--vim9] resets all Vim plugins (up to version 9)
+#     [--rice] rice your plugme.vim config
+#     [--zero] remove all plugins (rm -rf ~/.vim/pack)
 #
 # Here the full set of plugins installed by this script:
-#   1.CTRLP      -> https://github.com/ctrlpvim/ctrlp.vim
-#   2.FUGITIVE   -> https://github.com/tpope/vim-fugitive
-#   3.COMMENTARY -> https://github.com/tpope/vim-commentary
-#   4.SURROUND   -> https://github.com/tpope/vim-surround
-#   5.REPEAT     -> https://github.com/tpope/vim-repeat
-#   6.LEXIMA     -> https://github.com/cohama/lexima.vim
-#   7.CONTEXT    -> https://github.com/wellle/context.vim
-#   8.ALE        -> https://github.com/dense-analysis/ale
-#   9.COPILOT    -> https://github.com/github/copilot.vim
+#     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
+#     FUGITIVE   https://github.com/tpope/vim-fugitive
+#     COMMENTARY https://github.com/tpope/vim-commentary
+#     SURROUND   https://github.com/tpope/vim-surround
+#     REPEAT     https://github.com/tpope/vim-repeat
+#     LEXIMA     https://github.com/cohama/lexima.vim
+#     CONTEXT    https://github.com/wellle/context.vim
+#     ALE        https://github.com/dense-analysis/ale
+#     COPILOT    https://github.com/github/copilot.vim
 
 
 
@@ -24,8 +23,8 @@
 #############
 
 _reset () {
-    # If the plugin folder exists, we update it with a git pull;
-    # if it doesn't exist, we clone the plugin from GitHub.
+    # if the plugin exists we git pull,
+    # otherwise we git clone from GitHub
     # ---
     printf "%s\n" "${OPERATION}"
     [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone "${REPOSITORY}" "${PLUGIN}"
@@ -33,58 +32,23 @@ _reset () {
 
 
 _check () {
-    # If Vim is not version 9 and we're on Ubuntu, we add the PPA and upgrade Vim;
-    # if it is not the case we cannot go no further and you have to manually install Vim9
+    # if vim <= 900 or snap pm is not installed,
+    # install this things first and run rsplug again
     # ---
-    [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && return
-    if [[ ! $(uname -a) =~ "Ubuntu" ]]; then
+    if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
         printf "\n"
-        printf "====================== Warning! =====================\n"
-        printf "You've Plugged your Vim8! To enjoy the magic of Vim9,\n"
-        printf "install the latest version and run this script again.\n"
+        printf "================= We're done here =================\n"
+        printf "Upgrade Vim to version 9 and run this script again.\n"
         exit 0
     fi
     # ---
-    printf "\n"
-    printf "UPGRADING VIM\n"
-    [[ $(grep -qr "^deb .*jonathonf/vim" /etc/apt/sources.list) ]] || sudo add-apt-repository ppa:jonathonf/vim
-    sudo apt-get update
-    sudo apt-get install -qq -y vim-gtk3
+    if [[ ! -x "$(command -v "snap")" ]]; then
+        printf "\n"
+        printf "=================== We're done here ===================\n"
+        printf "Install snap pm and run this script again to plug Vim9.\n"
+        exit 0
+    fi
 }
-
-
-_node () {
-    # Copilot requires Node.js >= 16 so, if Node.js is not
-    # installed or is older than version 16, we update it.
-    # ---
-    [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]] && return
-    # ---
-    printf "Updating Node.js to the latest LTS version ...\n"
-    case $(uname -a) in
-        *Ubuntu*)
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &>/dev/null
-            sudo apt-get install -qq -y nodejs
-            ;;
-        *Debian*)
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &>/dev/null
-            apt-get install -qq -y nodejs
-            ;;
-        *)
-            printf "\n"
-            printf "======================= Warning! =======================\n"
-            printf "You're not on Ubuntu nor Debian: we're going no further.\n"
-            exit 1
-            ;;
-    esac
-}
-
-
-
-
-### Ready?
-##########
-
-read -p "Resetting Vim plugins (enter to continue)"
 
 
 
@@ -105,7 +69,14 @@ if [[ $# -gt 1 ]]; then
     printf "=================== Warning! ===================\n"
     printf "Too many arguments: no operations were executed.\n"
     exit 1
-elif [[ $# -eq 1 && $1 != "--zero" && $1 != "--rice" ]]; then
+elif [[ $# -eq 0 ]]; then
+    printf "╔══════════════════════ Help ══════════════════════╗\n"
+    printf "║ [--vim9] reset all Vim plugins (up to version 9) ║\n"
+    printf "║ [--rice] rice your plugme.vim config             ║\n"
+    printf "║ [--zero] remove all plugins (rm -rf ~/.vim/pack) ║\n"
+    printf "╚══════════════════════════════════════════════════╝\n"
+    exit 0
+elif [[ $1 != "--vim9" && $1 != "--rice" && $1 != "--zero" ]]; then
     printf "\n"
     printf "================== Warning! ==================\n"
     printf "Unknown argument: no operations were executed.\n"
@@ -115,11 +86,17 @@ fi
 
 
 
+### Ready?
+##########
+
+read -p "Resetting Vim plugins (enter to continue)"
+
+
+
+
 ### ~/.vim
 ##########
 
-# Vim main folder (~/.vim),
-# let's create it if it doesn't exist!
 VIM=${HOME}/.vim
 [[ -d "${VIM}" ]] || mkdir -p "${VIM}"
 
@@ -162,8 +139,6 @@ fi
 ### ~/.vim/pack/plugins/start
 #############################
 
-# Vim internal plugins folder (~/.vim/pack/plugins/start);
-# let's crate it if it doesn't exist!
 START="${VIM}/pack/plugins/start"
 [[ -d "${START}" ]] || mkdir -p "${START}"
 
@@ -228,22 +203,28 @@ PLUGIN="${START}/ale"
 _reset
 
 
-# Add a simple plugin that add some keymaps
-# and few more little things.
-PLUGME="${HOME}/bin/resetters/vim/plugme.vim"
+# Add a simple vimscript that configure
+# some keymaps and few more little things.
+# ---
+PLUGME="${HOME}/bin/resetters/plug/plugme.vim"
 cat "${PLUGME}" > "${HOME}/.vim/plugin/plugme.vim"
 
 
-# If we've come this far, we're updating Vim to version 9 (if it needs to)
-# and proceede with the installation of the plugins that require Vim9.
+# Now we need to install NodeJS and proceede with
+# the installation of the plugins that require Vim9.
+# ---
 _check
+if [[ ! -x "$(command -v "node")" ]]; then
+    printf "\n"
+    printf "INSTALLING NODE\n"
+    sudo snap install --classic node
+fi
 
 
 printf "\n"
 OPERATION="RESETTING COPILOT"
 REPOSITORY="https://github.com/github/copilot.vim"
 PLUGIN="${START}/copilot"
-_node
 _reset
 
 

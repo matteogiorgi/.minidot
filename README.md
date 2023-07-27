@@ -23,7 +23,8 @@ With Ubuntu, [Vim](https://www.vim.org/) can be easily moved to the latest versi
 
 ```bash
 sudo add-apt-repository ppa:jonathonf/vim
-sudo apt-get update && sudo apt-get install vim-gtk3
+sudo apt-get update
+sudo apt-get install -qq -y vim-gtk3
 ```
 
 My current configuration does not use any external plugin since Vim is already a very powerful editor by itself. If you need to install some plugins, you can do so by cloning their repo inside `~/.vim/pack/plugins/start/`: the plugins will be loaded automatically at startup and can be updated with the `git pull` command.
@@ -33,10 +34,11 @@ My current configuration does not use any external plugin since Vim is already a
 
 ## Need something else?
 
-- Gnome: `dconf-editor`, `gnome-shell-extension-manager`, `gnome-shell-extensions`, `chrome-gnome-shell`.
-- Tools: `gparted`, `input-remapper`, `diodon`, `gitg`, `zim`, [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`brave`](https://brave.com/linux/), [`chrome`](https://www.google.com/chrome/), [`code`](https://code.visualstudio.com/Download), [`insiders`](https://code.visualstudio.com/insiders/).
-- Extensions: [uBlock](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US), [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US), [Player](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US), [DeepL](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj), [Onion](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US), [Veepn](https://chrome.google.com/webstore/detail/free-vpn-for-chrome-vpn-p/majdfhpaihoncoakbjgbdhglocklcgno/related?hl=en-US), [Gnome](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related), [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle).
-- Bookmarks: [Startpage Devdocs Drive Mega Gmail Proton Outlook Discord Telegram](https://raw.githubusercontent.com/matteogiorgi/.minidot/master/bookmarks.html)
+- Gnome: `gnome-shell-extension-manager`, `dconf-editor`.
+- Tools: `gparted`, `gitg`, `input-remapper`, `diodon`, `vlc`.
+- Note-Editors: `zim`, [`xournalpp`](https://xournalpp.github.io/installation/linux/).
+- Code-Editors: [`code`](https://code.visualstudio.com/Download), [`insiders`](https://code.visualstudio.com/insiders/).
+- Browsers: [`brave`](https://brave.com/linux/), [`chrome`](https://www.google.com/chrome/).
 
 
 

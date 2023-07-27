@@ -55,17 +55,20 @@
 
 /bin/bin/resetters/*
 !/bin/bin/resetters/code/*
-!/bin/bin/resetters/vim/*
+!/bin/bin/resetters/plug/*
+!/bin/bin/resetters/rhelix
 !/bin/bin/resetters/rscode
 !/bin/bin/resetters/rsmime
 !/bin/bin/resetters/rsplug
 
 /bin/bin/resetters/code/*
-!/bin/bin/resetters/code/settings.json
-!/bin/bin/resetters/code/keybindings.json
+!/bin/bin/resetters/code/vspacecode-settings.json
+!/bin/bin/resetters/code/vspacecode-keybindings.json
+!/bin/bin/resetters/code/novi-settings.json
+!/bin/bin/resetters/code/novi-keybindings.json
 
-/bin/bin/resetters/vim/*
-!/bin/bin/resetters/vim/plugme.vim
+/bin/bin/resetters/plug/*
+!/bin/bin/resetters/plug/plugme.vim
 
 
 

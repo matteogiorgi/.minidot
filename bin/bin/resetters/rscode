@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
 # This script resets VSCode setting using VSpaceCode extensions pack:
-#   noflag          -> resets VSCode only
-#   --zero          -> removes all VSCode configurations (rm -rf ~/.config/Code/User)
-#   --insiders      -> resets VSCode Insiders instead of VSCode
-#   --zero-insiders -> removes all VSCode Insiders configurations (rm -rf ~/.config/Code\ -\ Insiders/User)
+#     [--code] resets VSCode
+#     [--novi] resets VSCode without Vim goodies
+#     [--zero] removes all VSCode configurations (rm -rf ~/.config/Code/User)
+#     [--code-insiders] resets VSCode Insiders
+#     [--novi-insiders] resets VSCode Insiders without Vim goodies
+#     [--zero-insiders] removes all VSCode Insiders configurations (rm -rf ~/.config/Code\ -\ Insiders/User)
 #
 # Here the full set of extensions installed by this script:
 # (for more information visit https://vspacecode.github.io/)
-#   1.VSPACECODE   -> https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode
-#   2.WHICH-KEY    -> https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey
-#   3.VIM          -> https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
-#   4.FUZZY-SEARCH -> https://marketplace.visualstudio.com/items?itemName=jacobdufault.fuzzy-search
-#   5.FILE-BROWSER -> https://marketplace.visualstudio.com/items?itemName=bodil.file-browser
-#   6.EDAMAGIT     -> https://marketplace.visualstudio.com/items?itemName=kahole.magit
-#   7.MONOKAI-PRO  -> https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
+#     VSPACECODE   https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode
+#     WHICH-KEY    https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey
+#     VIM          https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+#     FUZZY-SEARCH https://marketplace.visualstudio.com/items?itemName=jacobdufault.fuzzy-search
+#     FILE-BROWSER https://marketplace.visualstudio.com/items?itemName=bodil.file-browser
+#     EDAMAGIT     https://marketplace.visualstudio.com/items?itemName=kahole.magit
+#     MONOKAI-PRO  https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
 
 
 
@@ -23,21 +25,22 @@
 #############
 
 _check () {
-    # If VSCode( Insiders) is not installed, we cannot go no further
-    # and you have to manually install it or just use something else.
+    # if snap pm is not installed (or $CODE is non executable),
+    # install snap (or directly install $CODE) and run rscode again.
     # ---
     [[ -x "$(command -v "${CODE}")" ]] && return
-    # ---
-    printf "\n"
-    printf "====================== Warning! ======================\n"
-    printf "${CODE} is not installed: no operations were executed.\n"
-    exit 1
+    if [[ ! -x "$(command -v "snap")" ]]; then
+        printf "\n"
+        printf "============= We're done here ============\n"
+        printf "Install snap pm and run this script again.\n"
+        exit 1
+    fi
 }
 
 
 _reset () {
-    # We remove all the extensions previously installed and install
-    # VSpaceCode and Monokai Pro together with a full configuration.
+    # remove all the extensions present and
+    # install a full mint configuration
     # ---
     _check
     printf "%s\n" "${OPERATION}"
@@ -50,14 +53,33 @@ _reset () {
     "${CODE}" --install-extension vspacecode.vspacecode &>/dev/null
     "${CODE}" --install-extension github.copilot &>/dev/null
     "${CODE}" --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    cat "${CONF}/settings.json" > "${USER}/settings.json"
-    cat "${CONF}/keybindings.json" > "${USER}/keybindings.json"
+    cat "${CONF}/vspacecode-settings.json" > "${USER}/settings.json"
+    cat "${CONF}/vspacecode-keybindings.json" > "${USER}/keybindings.json"
+}
+
+
+_novi () {
+    # remove all the extensions present and install
+    # a simple configuration without Vim goodies
+    # ---
+    _check
+    printf "%s\n" "${OPERATION}"
+    # ---
+    LIST=$("${CODE}" --list-extensions)
+    for EXTENSION in $LIST; do
+        "${CODE}" --uninstall-extension "${EXTENSION}" &>/dev/null
+    done
+    # ---
+    "${CODE}" --install-extension github.copilot &>/dev/null
+    "${CODE}" --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    cat "${CONF}/novi-settings.json" > "${USER}/settings.json"
+    cat "${CONF}/novi-keybindings.json" > "${USER}/keybindings.json"
 }
 
 
 _zero () {
-    # We remove all the extensions and configurations
-    # previously installed to get a clean VSCode( Insiders).
+    # remove all the extensions and configurations
+    # previously installed to get a clean $CODE
     # ---
     _check
     printf "%s\n" "${OPERATION}"
@@ -74,14 +96,6 @@ _zero () {
 
 
 
-### Ready?
-##########
-
-read -p "Resetting VSCode Vim-Syle (enter to continue)"
-
-
-
-
 ### Check
 #########
 
@@ -90,12 +104,30 @@ if [[ $# -gt 1 ]]; then
     printf "=================== Warning! ===================\n"
     printf "Too many arguments: no operations were executed.\n"
     exit 1
-elif [[ $# -eq 1 && $1 != "--zero" && $1 != "--insiders" && $1 != "--zero-insiders" ]]; then
+elif [[ $# -eq 0 ]]; then
+    printf "╔════════════════════════════ Help ═══════════════════════════╗\n"
+    printf "║ [--code] reset VSCode                                       ║\n"
+    printf "║ [--novi] reset VSCode without Vim goodies                   ║\n"
+    printf "║ [--zero] remove all VSCode configurations                   ║\n"
+    printf "║ [--code-insiders] reset VSCode Insiders                     ║\n"
+    printf "║ [--novi-insiders] reset VSCode Insiders without Vim goodies ║\n"
+    printf "║ [--zero-insiders] remove all VSCode Insiders configurations ║\n"
+    printf "╚═════════════════════════════════════════════════════════════╝\n"
+    exit 0
+elif [[ $1 != "--code" && $1 != "--novi" && $1 != "--zero" && $1 != "--code-insiders" && $1 != "--novi-insiders" && $1 != "--zero-insiders" ]]; then
     printf "\n"
     printf "================== Warning! ==================\n"
     printf "Unknown argument: no operations were executed.\n"
     exit 1
 fi
+
+
+
+
+### Ready?
+##########
+
+read -p "Resetting VSCode/VSCode-Insiders (enter to continue)"
 
 
 
@@ -144,7 +176,33 @@ CONF="${HOME}/bin/resetters/code"
 ### Reset configurations
 ########################
 
-if [[ $# -eq 0 ]]; then
+if [[ $1 == "--novi" ]]; then
+    OPERATION="RESETTING CODE"
+    USER="${HOME}/.config/Code/User"
+    CODE="code"
+    _novi
+    # ---
+    printf "\n"
+    printf "====== We're done here =====\n"
+    printf "Enjoy your life with VSCode.\n"
+    exit 0
+fi
+
+
+if [[ $1 == "--novi-insiders" ]]; then
+    OPERATION="RESETTING CODE-INSIDERS"
+    USER="${HOME}/.config/Code - Insiders/User"
+    CODE="code-insiders"
+    _novi
+    # ---
+    printf "\n"
+    printf "========== We're done here ==========\n"
+    printf "Enjoy your life with VSCode Insiders.\n"
+    exit 0
+fi
+
+
+if [[ $1 == "--code" ]]; then
     OPERATION="RESETTING CODE"
     USER="${HOME}/.config/Code/User"
     CODE="code"
@@ -157,7 +215,7 @@ if [[ $# -eq 0 ]]; then
 fi
 
 
-if [[ $1 == "--insiders" ]]; then
+if [[ $1 == "--code-insiders" ]]; then
     OPERATION="RESETTING CODE-INSIDERS"
     USER="${HOME}/.config/Code - Insiders/User"
     CODE="code-insiders"
