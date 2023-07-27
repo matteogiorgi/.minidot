@@ -34,9 +34,9 @@ My current configuration does not use any external plugin since Vim is already a
 
 ## Need something else?
 
-This repo already contains all you need to work proficiently but, if you need [more tools](https://apps.gnome.org/), you can always `apt/snap install` them or download the official deb package and install it through `dpkg -i`:
+This repo already contains all the tools you need to work proficiently but, if you want [more](https://apps.gnome.org/), you can always rely on `apt`/`snap` or download the official deb package and install it through `dpkg`.
 
-> [`code`](https://code.visualstudio.com/Download), [`code-insiders`](https://code.visualstudio.com/insiders/), [`google-chrome`](https://www.google.com/chrome/), [`brave`](https://brave.com/linux/), [`gnome-shell-extension-manager`](https://mattjakeman.com/apps/extension-manager), [`input-remapper`](https://github.com/sezanzeb/input-remapper#installation).
+- [`code`](https://code.visualstudio.com/Download), [`code-insiders`](https://code.visualstudio.com/insiders/), [`google-chrome`](https://www.google.com/chrome/), [`brave`](https://brave.com/linux/), [`gnome-shell-extension-manager`](https://mattjakeman.com/apps/extension-manager), [`input-remapper`](https://github.com/sezanzeb/input-remapper#installation).
 
 
 
