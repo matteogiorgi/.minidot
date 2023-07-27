@@ -34,7 +34,7 @@ My current configuration does not use any external plugin since Vim is already a
 
 ## Need something else?
 
-This repo already contains all you need to work proficiently but, if you need [more tools](https://apps.gnome.org/), you can always install them by yourself through the apt (or snap) package manager. Something usefull could be:
+This repo already contains all you need to work proficiently but, if you need [more tools](https://apps.gnome.org/), you can always install them by yourself through the `apt` (or `snap`) package manager. Something usefull could be:
 
 [`gnome-shell-extension-manager`](https://mattjakeman.com/apps/extension-manager), [`dconf-editor`](https://wiki.gnome.org/Apps/DconfEditor), [`gparted`](https://gparted.org/), [`gitg`](https://wiki.gnome.org/Apps/Gitg/), [`input-remapper`](https://github.com/sezanzeb/input-remapper), [`diodon`](https://github.com/diodon-dev/diodon), [`vlc`](https://www.videolan.org/vlc/), [`zim`](https://zim-wiki.org/), [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`code`](https://code.visualstudio.com/Download), [`insiders`](https://code.visualstudio.com/insiders/), [`brave`](https://brave.com/linux/), [`chrome`](https://www.google.com/chrome/).
 
