@@ -35,6 +35,8 @@ _check () {
         printf "Install snap pm and run this script again.\n"
         exit 1
     fi
+    # ---
+    sudo snap install --classic "${CODE}"
 }
 
 
