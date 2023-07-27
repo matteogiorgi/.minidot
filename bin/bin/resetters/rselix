@@ -28,7 +28,7 @@ HELIX="$HOME/.config/helix"
 
 if [[ ! -f "$HELIX/config.toml" ]]; then
 cat 2>/dev/null > $HELIX/config.toml <<-EOF
-theme = "rasmus"
+theme = "mellow"
 
 [editor]
 line-number = "relative"
