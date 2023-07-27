@@ -34,7 +34,9 @@ My current configuration does not use any external plugin since Vim is already a
 
 ## Need something else?
 
-This repo already contains all you need to work proficiently but, if you need [more tools](https://apps.gnome.org/), you can always install them by yourself through the `apt` (or `snap`) package manager or just downloading the deb package and install it through `dpkg`. Here's a selection of some: `dconf-editor`, `gparted`, `diodon`, `zim`, [`gnome-shell-extension-manager`](https://mattjakeman.com/apps/extension-manager), [`input-remapper`](https://github.com/sezanzeb/input-remapper), [`xournalpp`](https://xournalpp.github.io/installation/linux/), [`code`](https://code.visualstudio.com/Download), [`insiders`](https://code.visualstudio.com/insiders/), [`brave`](https://brave.com/linux/), [`chrome`](https://www.google.com/chrome/).
+This repo already contains all you need to work proficiently but, if you need [more tools](https://apps.gnome.org/), you can always install them by yourself through the `apt` (or `snap`) package manager or just downloading the deb package and install it through `dpkg`.
+
+> Here's a selection of some: `gparted`, `xournalpp`, `zim`, `diodon`, `dconf-editor`, [`gnome-shell-extension-manager`](https://mattjakeman.com/apps/extension-manager), [`input-remapper`](https://github.com/sezanzeb/input-remapper), [`code`](https://code.visualstudio.com/Download), [`insiders`](https://code.visualstudio.com/insiders/), [`brave`](https://brave.com/linux/), [`chrome`](https://www.google.com/chrome/).
 
 
 
