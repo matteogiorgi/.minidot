@@ -56,8 +56,8 @@
 /bin/bin/resetters/*
 !/bin/bin/resetters/code/*
 !/bin/bin/resetters/plug/*
-!/bin/bin/resetters/rhelix
 !/bin/bin/resetters/rscode
+!/bin/bin/resetters/rselix
 !/bin/bin/resetters/rsmime
 !/bin/bin/resetters/rsplug
 
