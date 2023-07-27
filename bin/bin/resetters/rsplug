@@ -42,12 +42,20 @@ _check () {
         exit 0
     fi
     # ---
+    if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
+        return
+    fi
+    # ---
     if [[ ! -x "$(command -v "snap")" ]]; then
         printf "\n"
         printf "=================== We're done here ===================\n"
         printf "Install snap pm and run this script again to plug Vim9.\n"
         exit 0
     fi
+    # ---
+    printf "\n"
+    printf "INSTALLING NODE\n"
+    sodo snap install --classic node
 }
 
 
@@ -214,11 +222,6 @@ cat "${PLUGME}" > "${HOME}/.vim/plugin/plugme.vim"
 # the installation of the plugins that require Vim9.
 # ---
 _check
-if [[ ! -x "$(command -v "node")" ]]; then
-    printf "\n"
-    printf "INSTALLING NODE\n"
-    sudo snap install --classic node
-fi
 
 
 printf "\n"

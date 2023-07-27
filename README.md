@@ -34,9 +34,9 @@ My current configuration does not use any external plugin since Vim is already a
 
 ## Need something else?
 
-This repo already contains all you need to work proficiently but, if you need [more tools](https://apps.gnome.org/), you can always `apt/snap install` them or download the official deb package and install it through `dpkg -i`. Below some useful example:
+This repo already contains all you need to work proficiently but, if you need [more tools](https://apps.gnome.org/), you can always `apt/snap install` them or download the official deb package and install it through `dpkg -i`.
 
-> `gparted`, `xournalpp`, `zim`, `diodon`, `dconf-editor`, [`gnome-shell-extension-manager`](https://mattjakeman.com/apps/extension-manager), [`input-remapper`](https://github.com/sezanzeb/input-remapper), [`code`](https://code.visualstudio.com/Download), [`code-insiders`](https://code.visualstudio.com/insiders/), [`brave`](https://brave.com/linux/), [`google-chrome`](https://www.google.com/chrome/).
+> Some useful applications: `gparted`, `xournalpp`, `zim`, `diodon`, `dconf-editor`, [`gnome-shell-extension-manager`](https://mattjakeman.com/apps/extension-manager), [`input-remapper`](https://github.com/sezanzeb/input-remapper), [`code`](https://code.visualstudio.com/Download), [`code-insiders`](https://code.visualstudio.com/insiders/), [`brave`](https://brave.com/linux/), [`google-chrome`](https://www.google.com/chrome/).
 
 
 
