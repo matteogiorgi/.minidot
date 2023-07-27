@@ -25,18 +25,15 @@
 #############
 
 _check () {
-    # if snap pm is not installed (or $CODE is non executable),
-    # install snap (or directly install $CODE) and run rscode again.
+    # if $CODE is non executable,
+    # install $CODE and run rscode again.
     # ---
-    [[ -x "$(command -v "${CODE}")" ]] && return
-    if [[ ! -x "$(command -v "snap")" ]]; then
+    if [[ ! -x "$(command -v "${CODE}")" ]]; then
         printf "\n"
-        printf "============= We're done here ============\n"
-        printf "Install snap pm and run this script again.\n"
+        printf "═════════════ We're done here ════════════\n"
+        printf "Install ${CODE} and run this script again.\n"
         exit 1
     fi
-    # ---
-    sudo snap install --classic "${CODE}"
 }
 
 
@@ -98,12 +95,12 @@ _zero () {
 
 
 
-### Check
-#########
+### First things first
+######################
 
 if [[ $# -gt 1 ]]; then
     printf "\n"
-    printf "=================== Warning! ===================\n"
+    printf "═══════════════════ Warning! ═══════════════════\n"
     printf "Too many arguments: no operations were executed.\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
@@ -118,7 +115,7 @@ elif [[ $# -eq 0 ]]; then
     exit 0
 elif [[ $1 != "--code" && $1 != "--novi" && $1 != "--zero" && $1 != "--code-insiders" && $1 != "--novi-insiders" && $1 != "--zero-insiders" ]]; then
     printf "\n"
-    printf "================== Warning! ==================\n"
+    printf "══════════════════ Warning! ══════════════════\n"
     printf "Unknown argument: no operations were executed.\n"
     exit 1
 fi
@@ -144,7 +141,7 @@ if [[ $1 == "--zero" ]]; then
     _zero
     # ---
     printf "\n"
-    printf "============== We're done here =============\n"
+    printf "══════════════ We're done here ══════════════\n"
     printf "Enjoy your vanilla VSCode with no extensions.\n"
     exit 0
 fi
@@ -157,7 +154,7 @@ if [[ $1 == "--zero-insiders" ]]; then
     _zero
     # ---
     printf "\n"
-    printf "================== We're done here ==================\n"
+    printf "══════════════════ We're done here ═══════════════════\n"
     printf "Enjoy your vanilla VSCode Insiders with no extensions.\n"
     exit 0
 fi
@@ -185,7 +182,7 @@ if [[ $1 == "--novi" ]]; then
     _novi
     # ---
     printf "\n"
-    printf "====== We're done here =====\n"
+    printf "══════ We're done here ═════\n"
     printf "Enjoy your life with VSCode.\n"
     exit 0
 fi
@@ -198,7 +195,7 @@ if [[ $1 == "--novi-insiders" ]]; then
     _novi
     # ---
     printf "\n"
-    printf "========== We're done here ==========\n"
+    printf "══════════ We're done here ══════════\n"
     printf "Enjoy your life with VSCode Insiders.\n"
     exit 0
 fi
@@ -211,7 +208,7 @@ if [[ $1 == "--code" ]]; then
     _reset
     # ---
     printf "\n"
-    printf "=========== We're done here ===========\n"
+    printf "═══════════ We're done here ═══════════\n"
     printf "Enjoy your Vim-Styled life with VSCode.\n"
     exit 0
 fi
@@ -224,12 +221,12 @@ if [[ $1 == "--code-insiders" ]]; then
     _reset
     # ---
     printf "\n"
-    printf "================ We're done here ===============\n"
+    printf "════════════════ We're done here ═══════════════\n"
     printf "Enjoy your Vim-Styled life with VSCode Insiders.\n"
     exit 0
 fi
 
 
 printf "\n"
-printf "=================== Warning! ===================\n"
+printf "═══════════════════ Warning! ═══════════════════\n"
 printf "Something went wrong: you should never see this.\n"
