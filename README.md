@@ -34,11 +34,17 @@ My current configuration does not use any external plugin since Vim is already a
 
 ## Need something else?
 
-- Gnome: `gnome-shell-extension-manager`, `dconf-editor`.
-- Tools: `gparted`, `gitg`, `input-remapper`, `diodon`, `vlc`.
-- Note-Editors: `zim`, [`xournalpp`](https://xournalpp.github.io/installation/linux/).
-- Code-Editors: [`code`](https://code.visualstudio.com/Download), [`insiders`](https://code.visualstudio.com/insiders/).
-- Browsers: [`brave`](https://brave.com/linux/), [`chrome`](https://www.google.com/chrome/).
+This repo already contains all you need to work proficiently but if you need something more, you can always install it by yourself through `apt` (or `snap`) package manager
+
+```bash
+gnome-shell-extension-manager, dconf-editor, gparted, gitg, input-remapper, diodon, vlc, zim.
+```
+
+or just download the deb pakage from the official website and install it with `dpkg`:
+
+```
+[xournalpp](https://xournalpp.github.io/installation/linux/), [code](https://code.visualstudio.com/Download), [insiders](https://code.visualstudio.com/insiders/), [brave](https://brave.com/linux/), [chrome](https://www.google.com/chrome/).
+```
 
 
 
