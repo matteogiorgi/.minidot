@@ -36,10 +36,10 @@ My current configuration does not use any external plugin since Vim is already a
 
 This repo already contains all the tools you need to work proficiently but, if you want [more](https://apps.gnome.org/), you can always rely on `apt` (or `snap`) or download the official deb package and install it through `dpkg`.
 
-> *few goodies worth mentioning*\
-[`helix`](https://docs.helix-editor.com/install.html), [`code`](https://code.visualstudio.com/Download), [`code-insiders`](https://code.visualstudio.com/insiders/)\
-[`google-chrome`](https://www.google.com/chrome/), [`brave`](https://brave.com/linux/)\
-[`extension-manager`](https://mattjakeman.com/apps/extension-manager), [`input-remapper`](https://github.com/sezanzeb/input-remapper#installation)
+> *few goodies worth mentioning:*\
+[`helix`](https://docs.helix-editor.com/install.html), [`code`](https://code.visualstudio.com/Download), [`code-insiders`](https://code.visualstudio.com/insiders/),\
+[`google-chrome`](https://www.google.com/chrome/), [`brave`](https://brave.com/linux/),\
+[`extension-manager`](https://mattjakeman.com/apps/extension-manager), [`input-remapper`](https://github.com/sezanzeb/input-remapper#installation).
 
 
 
