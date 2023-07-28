@@ -19,13 +19,28 @@
     },
     {
         "key": "alt+n",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus"
+        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
+        "when": "!activeEditorGroupEmpty"
+    },
+    {
+        "key": "alt+n",
+        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
     },
     {
         "key": "alt+p",
-        "command": "editor.action.marker.prev",
-        "when": "editorFocus"
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "when": "!activeEditorGroupEmpty"
+    },
+    {
+        "key": "alt+p",
+        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+shift+a",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
     },
     {
         "key": "alt+shift+s",
@@ -41,6 +56,16 @@
         "key": "alt+shift+p",
         "command": "editor.action.inlineSuggest.showPrevious",
         "when": "inlineSuggestionVisible && !editorReadonly"
+    },
+    {
+        "key": "alt+e",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+b",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
     },
     {
         "key": "ctrl+j",
