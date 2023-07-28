@@ -50,6 +50,11 @@
         "when": "inEditorsPicker && inQuickOpen"
     },
     {
+        "key": "alt+i",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    },
+    {
         "key": "alt+n",
         "command": "editor.action.marker.next",
         "when": "editorFocus"

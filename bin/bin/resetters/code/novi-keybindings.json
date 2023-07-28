@@ -28,6 +28,11 @@
         "when": "editorFocus"
     },
     {
+        "key": "alt+shift+s",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    },
+    {
         "key": "alt+shift+n",
         "command": "editor.action.inlineSuggest.showNext",
         "when": "inlineSuggestionVisible && !editorReadonly"
