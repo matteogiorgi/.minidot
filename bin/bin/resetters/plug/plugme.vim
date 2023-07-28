@@ -71,7 +71,7 @@ if &rtp =~ 'ale'
     " ---
     inoremap <silent><C-c> :AleComplete<CR>
     nnoremap <silent>E :ALENext<CR>
-    nnoremap <silent>W :ALEPrevious<CR>
+    nnoremap <silent>B :ALEPrevious<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
     nnoremap <leader>D :ALEGoToTypeDefinition<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
