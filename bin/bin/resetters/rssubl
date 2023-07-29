@@ -45,6 +45,7 @@ cat 2>/dev/null > $STEXT/Preferences.sublime-settings <<-EOF
     "reveal_menu": false,
     "hot_exit": "only_on_quit",
     "sublime_merge_path": "~/.local/bin/smerge",
+    "preview_on_click": false,
 }
 EOF
 fi
