@@ -76,8 +76,23 @@ cat 2>/dev/null > $SMERGE/Preferences.sublime-settings <<-EOF
     "render_commit_dialog_message_at_top": false,
     "side_bar_layout": "tabs",
     "translate_tabs_to_spaces": true,
+    "editor_path": "~/.local/bin/subl",
 }
 EOF
+
+
+
+
+### Link Text executable
+########################
+
+if [[ ! -f "$HOME/.local/bin/subl" ]]; then
+    if [[ -f "/usr/bin/subl" ]]; then
+        ln -s /usr/bin/subl "$HOME/.local/bin/subl"
+    elif [[ -f "/snap/bin/subl" ]]; then
+        ln -s /snap/bin/subl "$HOME/.local/bin/subl"
+    fi
+fi
 
 
 
