@@ -28,7 +28,6 @@ SMERGE="$HOME/.config/sublime-merge/Packages/User"
 ### Reset Text settings
 #######################
 
-if [[ ! -f "$STEXT/Preferences.sublime-settings" ]]; then
 cat 2>/dev/null > $STEXT/Preferences.sublime-settings <<-EOF
 {
     "theme": "auto",
@@ -49,7 +48,6 @@ cat 2>/dev/null > $STEXT/Preferences.sublime-settings <<-EOF
     "preview_on_click": false,
 }
 EOF
-fi
 
 
 
@@ -57,7 +55,6 @@ fi
 ### Reset Text keybindings
 ##########################
 
-if [[ ! -f "$STEXT/Default (Linux).sublime-keymap" ]]; then
 cat 2>/dev/null > $STEXT/Default\ \(Linux\).sublime-keymap <<-EOF
 [
     { "keys": ["alt+s"], "command": "toggle_side_bar" },
@@ -65,7 +62,6 @@ cat 2>/dev/null > $STEXT/Default\ \(Linux\).sublime-keymap <<-EOF
     { "keys": ["alt+e"], "command": "toggle_comment", "args": { "block": true } },
 ]
 EOF
-fi
 
 
 
@@ -73,7 +69,6 @@ fi
 ### Reset Merge settings
 ########################
 
-if [[ ! -f "$SMERGE/Preferences.sublime-settings" ]]; then
 cat 2>/dev/null > $SMERGE/Preferences.sublime-settings <<-EOF
 {
     "font_face": "Fira Code",
@@ -84,7 +79,6 @@ cat 2>/dev/null > $SMERGE/Preferences.sublime-settings <<-EOF
     "translate_tabs_to_spaces": true,
 }
 EOF
-fi
 
 
 
@@ -106,4 +100,4 @@ fi
 ### Edit Sublime config
 #######################
 
-"${EDITOR:=vi}" -o3 "$STEXT"/* "$SMERGE"/*
+"${EDITOR:=vi}" -o3 "$STEXT/Preferences.sublime-settings" "$STEXT/Default (Linux).sublime-keymap" "$SMERGE/Preferences.sublime-settings"
