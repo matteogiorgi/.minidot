@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+
+# This script just resets your Sublime Text
+# and Merge config: no options, no nothing.
+
+
+
+
+### Ready?
+##########
+
+read -p "Resetting Sublime Text/Merge (enter to continue)"
+
+
+
+
+### Text and Merge settings folder
+##################################
+
+STEXT="$HOME/.config/sublime-text/Packages/User"
+SMERGE="$HOME/.config/sublime-merge/Packages/User"
+[[ -d "$STEXT" ]] || mkdir -p "$STEXT"
+[[ -d "$SMERGE" ]] || mkdir -p "$SMERGE"
+
+
+
+
+### Reset Text settings
+#######################
+
+if [[ ! -f "$STEXT/Preferences.sublime-settings" ]]; then
+cat 2>/dev/null > $STEXT/Preferences.sublime-settings <<-EOF
+{
+    "theme": "auto",
+    "color_scheme": "Mariana.sublime-color-scheme",
+    "font_face": "Fira Code",
+    "font_size": 8.5,
+    "font_options": ["dlig"],
+    "fold_buttons": false,
+    "rulers": [120],
+    "translate_tabs_to_spaces": true,
+    "hide_minimap": true,
+    "caret_extra_top": 1,
+    "caret_extra_bottom": 1,
+    "draw_indent_guides": false,
+    "menu_visible": false,
+    "reveal_menu": false,
+    "hot_exit": "only_on_quit",
+    "sublime_merge_path": "~/.local/bin/smerge",
+}
+EOF
+fi
+
+
+
+
+### Reset Text keybindings
+##########################
+
+if [[ ! -f "$STEXT/Default (Linux).sublime-keymap" ]]; then
+cat 2>/dev/null > $STEXT/Default\ \(Linux\).sublime-keymap <<-EOF
+[
+    { "keys": ["alt+shift+a"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["alt+shift+s"], "command": "toggle_comment", "args": { "block": true } },
+]
+EOF
+fi
+
+
+
+
+### Reset Merge settings
+########################
+
+if [[ ! -f "$SMERGE/Preferences.sublime-settings" ]]; then
+cat 2>/dev/null > $SMERGE/Preferences.sublime-settings <<-EOF
+{
+    "font_face": "Fira Code",
+    "font_size": 8.5,
+    "hide_menu": true,
+    "render_commit_dialog_message_at_top": false,
+    "side_bar_layout": "tabs",
+    "translate_tabs_to_spaces": true,
+}
+EOF
+fi
+
+
+
+
+### Link Merge executable
+#########################
+
+if [[ ! -f "$HOME/.local/bin/smerge" ]]; then
+    if [[ -f "/usr/bin/smerge" ]]; then
+        ln -s /usr/bin/smerge "$HOME/.local/bin/smerge"
+    elif [[ -f "/snap/bin/smerge" ]]; then
+        ln -s /snap/bin/smerge "$HOME/.local/bin/smerge"
+    fi
+fi
+
+
+
+
+### Edit Sublime config
+#######################
+
+"${EDITOR:=vi}" -o3 "$STEXT"/* "$SMERGE"/*

@@ -57,10 +57,9 @@
 !/bin/bin/resetters/code/*
 !/bin/bin/resetters/plug/*
 !/bin/bin/resetters/rscode
-!/bin/bin/resetters/rselix
 !/bin/bin/resetters/rsmime
 !/bin/bin/resetters/rsplug
-!/bin/bin/resetters/rsubli
+!/bin/bin/resetters/rssubl
 
 /bin/bin/resetters/code/*
 !/bin/bin/resetters/code/vspacecode-settings.json
