@@ -39,8 +39,9 @@ cat 2>/dev/null > $STEXT/Preferences.sublime-settings <<-EOF
     "fold_buttons": false,
     "rulers": [120],
     "translate_tabs_to_spaces": true,
+    "line_padding_top": 1,
     "caret_extra_top": 1,
-    "caret_extra_bottom": 1,
+    "caret_extra_bottom": 0,
     "draw_indent_guides": false,
     "reveal_menu": false,
     "hot_exit": "only_on_quit",
@@ -59,8 +60,9 @@ fi
 if [[ ! -f "$STEXT/Default (Linux).sublime-keymap" ]]; then
 cat 2>/dev/null > $STEXT/Default\ \(Linux\).sublime-keymap <<-EOF
 [
-    { "keys": ["alt+shift+a"], "command": "toggle_comment", "args": { "block": false } },
-    { "keys": ["alt+shift+s"], "command": "toggle_comment", "args": { "block": true } },
+    { "keys": ["alt+s"], "command": "toggle_side_bar" },
+    { "keys": ["alt+d"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["alt+e"], "command": "toggle_comment", "args": { "block": true } },
 ]
 EOF
 fi
