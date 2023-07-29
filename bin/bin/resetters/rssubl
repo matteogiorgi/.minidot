@@ -113,4 +113,7 @@ fi
 ### Edit Sublime config
 #######################
 
-"${EDITOR:=vi}" -p "$STEXT/Preferences.sublime-settings" "$STEXT/Default (Linux).sublime-keymap" "$SMERGE/Preferences.sublime-settings"
+"${EDITOR:=vi}" -p \
+    "$STEXT/Preferences.sublime-settings" \
+    "$STEXT/Default (Linux).sublime-keymap" \
+    "$SMERGE/Preferences.sublime-settings"
