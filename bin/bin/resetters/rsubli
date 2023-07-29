@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+# This script just resets your Sublime
+# editor config: no options, no nothing.
+
+
+
+
+### Ready?
+##########
+
+read -p "Resetting Sublime editor (enter to continue)"
+
+
+
+
+### ~/.config/sublime-text/Packages/User
+########################################
+
+SUBLIME="$HOME/.config/sublime-text/Packages/User"
+MERGE="$HOME/.config/sublime-merge/Packages/User"
+[[ -d "$SUBLIME" ]] || mkdir -p "$SUBLIME"
+[[ -d "$MERGE" ]] || mkdir -p "$MERGE"
+
+
+
+
+### Reset settings
+##################
+
+if [[ ! -f "$SUBLIME/Preferences.sublime-settings" ]]; then
+cat 2>/dev/null > $SUBLIME/Preferences.sublime-settings <<-EOF
+{
+    "theme": "auto",
+    "color_scheme": "Mariana.sublime-color-scheme",
+    "font_face": "Fira Code",
+    "font_size": 8.5,
+    "font_options": ["dlig"],
+    "fold_buttons": false,
+    "rulers": [120],
+    "translate_tabs_to_spaces": true,
+    "hide_minimap": true,
+    "caret_extra_top": 1,
+    "caret_extra_bottom": 1,
+    "draw_indent_guides": false,
+    "menu_visible": false,
+    "reveal_menu": false,
+    "hot_exit": "only_on_quit",
+}
+EOF
+fi
+
+
+
+
+### Reset keybindings
+#####################
+
+if [[ ! -f "$SUBLIME/Default\ (Linux).sublime-keymap" ]]; then
+cat 2>/dev/null > $SUBLIME/Default\ \(Linux\).sublime-keymap <<-EOF
+[
+    { "keys": ["alt+shift+a"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["alt+shift+s"], "command": "toggle_comment", "args": { "block": true } },
+]
+EOF
+fi
+
+
+
+
+### Reset Merge settings
+########################
+
+if [[ ! -f "$MERGE/Preferences.sublime-settings" ]]; then
+cat 2>/dev/null > $MERGE/Preferences.sublime-settings <<-EOF
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+
+	"font_face": "Fira Code",
+	"font_size": 8.5,
+	"hide_menu": true,
+	"render_commit_dialog_message_at_top": false,
+	"side_bar_layout": "tabs",
+	"translate_tabs_to_spaces": true,
+}
+EOF
+fi
+
+
+
+
+# Bye bye
+#########
+
+echo "Done!"
