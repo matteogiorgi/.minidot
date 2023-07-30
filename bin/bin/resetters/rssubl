@@ -57,8 +57,9 @@ EOF
 
 cat 2>/dev/null > $STEXT/Default\ \(Linux\).sublime-keymap <<-EOF
 [
-    { "keys": ["alt+s"], "command": "toggle_comment", "args": { "block": false } },
-    { "keys": ["alt+shift+s"], "command": "toggle_comment", "args": { "block": true } },
+    { "keys": ["alt+s"], "command": "toggle_side_bar" },
+    { "keys": ["alt+z"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["alt+shift+z"], "command": "toggle_comment", "args": { "block": true } },
 ]
 EOF
 

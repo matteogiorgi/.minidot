@@ -79,8 +79,8 @@ set nofoldenable foldmethod=marker
 set matchpairs+=<:>
 set autochdir
 set hidden
-set updatetime=2000
-set timeoutlen=2000
+set updatetime=100
+set timeoutlen=1000
 set ttimeoutlen=0
 set termencoding=utf-8 encoding=utf-8 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
