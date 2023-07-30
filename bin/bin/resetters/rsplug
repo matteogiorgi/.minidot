@@ -38,8 +38,8 @@ _check () {
     # ---
     if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
         printf "\n"
-        printf "══════════════ We're done here ══════════════\n"
-        printf "Install vim >= 900 and run this script again.\n"
+        printf "══════════════ We're done here ═════════════\n"
+        printf "Install vim >= 900 and run this script again\n"
         exit 0
     fi
 
@@ -48,8 +48,8 @@ _check () {
     # ---
     if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -lt 16 ]]; then
         printf "\n"
-        printf "══════════════ We're done here ══════════════\n"
-        printf "Install node >= 16 and run this script again.\n"
+        printf "══════════════ We're done here ═════════════\n"
+        printf "Install node >= 16 and run this script again\n"
         exit 0
     fi
 }
@@ -62,16 +62,16 @@ _check () {
 
 if [[ ! -x "$(command -v "vim")" ]]; then
     printf "\n"
-    printf "════════════════════ Warning! ════════════════════\n"
-    printf "Vim is not installed: no operations were executed.\n"
+    printf "════════════════════ Warning ════════════════════\n"
+    printf "Vim is not installed: no operations were executed\n"
     exit 1
 fi
 
 
 if [[ $# -gt 1 ]]; then
     printf "\n"
-    printf "═══════════════════ Warning! ═══════════════════\n"
-    printf "Too many arguments: no operations were executed.\n"
+    printf "═══════════════════ Warning ═══════════════════\n"
+    printf "Too many arguments: no operations were executed\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
     printf "╔══════════════════════ Help ══════════════════════╗\n"
@@ -82,8 +82,8 @@ elif [[ $# -eq 0 ]]; then
     exit 0
 elif [[ $1 != "--vim9" && $1 != "--rice" && $1 != "--zero" ]]; then
     printf "\n"
-    printf "══════════════════ Warning! ══════════════════\n"
-    printf "Unknown argument: no operations were executed.\n"
+    printf "══════════════════ Warning ══════════════════\n"
+    printf "Unknown argument: no operations were executed\n"
     exit 1
 fi
 
@@ -116,8 +116,8 @@ if [[ $1 == "--zero" ]]; then
     rm -f "${VIM}/plugin/plugme.vim" &>/dev/null
     # ---
     printf "\n"
-    printf "════════════ We're done here ══════════\n"
-    printf "Enjoy your vanilla Vim with no plugins.\n"
+    printf "═══════════ We're done here ══════════\n"
+    printf "Enjoy your vanilla Vim with no plugins\n"
     exit 0
 fi
 
@@ -132,8 +132,8 @@ if [[ $1 == "--rice" ]]; then
     [[ -f "${PLUGME}" ]] && "${EDITOR:=vi}" "${PLUGME}" || echo "Plug me first!"
     # ---
     printf "\n"
-    printf "═════════════ We're done here ════════════\n"
-    printf "Are you happy now? Stop wasting your time.\n"
+    printf "════════════ We're done here ════════════\n"
+    printf "Are you happy now? Stop wasting your time\n"
     exit 0
 fi
 
@@ -235,5 +235,5 @@ _reset
 
 
 printf "\n"
-printf "═══════════ We're done here ══════════\n"
-printf "Enjoy your Vim-Plugged life with Vim9.\n"
+printf "══════════ We're done here ══════════\n"
+printf "Enjoy your Vim-Plugged life with Vim9\n"

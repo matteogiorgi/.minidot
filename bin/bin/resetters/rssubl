@@ -73,7 +73,6 @@ cat 2>/dev/null > $SMERGE/Preferences.sublime-settings <<-EOF
 {
     "font_face": "Fira Code",
     "font_size": 8.5,
-    "hide_menu": true,
     "render_commit_dialog_message_at_top": false,
     "side_bar_layout": "tabs",
     "translate_tabs_to_spaces": true,
@@ -126,5 +125,5 @@ if [[ -n "$CTEXT" || -n "$CMERGE" ]]; then
 else
     printf "\n"
     printf "═══════ We're done here ═══════\n"
-    printf "Enjoy your Sublime environment.\n"
+    printf "Enjoy your Sublimes environment\n"
 fi
