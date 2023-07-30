@@ -14,8 +14,8 @@ read -p "Resetting Sublime Text/Merge (enter to continue)"
 
 
 
-### Clear Text and Merge settings folder
-########################################
+### Clear Text and Merge settings folders
+#########################################
 
 STEXT="$HOME/.config/sublime-text/Packages/User"
 SMERGE="$HOME/.config/sublime-merge/Packages/User"
