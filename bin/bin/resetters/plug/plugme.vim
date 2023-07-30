@@ -54,10 +54,18 @@ endif
 
 
 
+" SIGNIFY CONFIG {{{
+if &rtp =~ 'signify'
+    nnoremap <leader>g :SignifyDiff<CR>
+endif
+" }}}
+
+
+
+
 " FUGITIVE CONFIG {{{
 if &rtp =~ 'fugitive'
-    nnoremap <leader>g :Git blame<CR>
-    nnoremap <leader>G :Gvdiffsplit<CR>
+    nnoremap <leader>G :Git log --graph --format="%h%d %s %cr" %<BAR>wincmd T<CR>
 endif
 " }}}
 

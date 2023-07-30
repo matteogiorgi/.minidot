@@ -200,6 +200,13 @@ _reset
 
 
 printf "\n"
+OPERATION="RESETTING SIGNIFY"
+REPOSITORY="https://github.com/mhinz/vim-signify"
+PLUGIN="${START}/signify"
+_reset
+
+
+printf "\n"
 OPERATION="RESETTING ALE"
 REPOSITORY="https://github.com/dense-analysis/ale"
 PLUGIN="${START}/ale"
