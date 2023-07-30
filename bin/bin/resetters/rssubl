@@ -125,5 +125,5 @@ if [[ -n "$CTEXT" || -n "$CMERGE" ]]; then
 else
     printf "\n"
     printf "═══════ We're done here ═══════\n"
-    printf "Enjoy your Sublimes environment\n"
+    printf "Enjoy your Sublime environment!\n"
 fi
