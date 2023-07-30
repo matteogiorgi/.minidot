@@ -14,13 +14,14 @@ read -p "Resetting Sublime Text/Merge (enter to continue)"
 
 
 
-### Text and Merge settings folder
-##################################
+### Clear Text and Merge settings folder
+########################################
 
 STEXT="$HOME/.config/sublime-text/Packages/User"
 SMERGE="$HOME/.config/sublime-merge/Packages/User"
-[[ -d "$STEXT" ]] || mkdir -p "$STEXT"
-[[ -d "$SMERGE" ]] || mkdir -p "$SMERGE"
+# ---
+rm -rf "$STEXT" "$SMERGE"
+mkdir -p "$STEXT" "$SMERGE"
 
 
 
@@ -110,10 +111,19 @@ fi
 
 
 
-### Edit Sublime config
-#######################
+### Final check
+###############
 
-"${EDITOR:=vi}" -p \
-    "$STEXT/Preferences.sublime-settings" \
-    "$STEXT/Default (Linux).sublime-keymap" \
-    "$SMERGE/Preferences.sublime-settings"
+[[ -x "$(command -v subl)" ]] || CTEXT="Sublime Text not yet installed."
+[[ -x "$(command -v smerge)" ]] || CMERGE="Sublime Merge not yet installed"
+# ---
+if [[ -n "$CTEXT" || -n "$CMERGE" ]]; then
+    printf "\n"
+    printf "═══════════ Warning ═══════════\n"
+    [[ -n "$CTEXT" ]] && printf "$CTEXT\n"
+    [[ -n "$CMERGE" ]] && printf "$CMERGE\n"
+else
+    printf "\n"
+    printf "═══════ We're done here ═══════\n"
+    printf "Enjoy your Sublime environment.\n"
+fi
