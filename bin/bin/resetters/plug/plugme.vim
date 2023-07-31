@@ -56,8 +56,14 @@ endif
 
 " FUGITIVE CONFIG {{{
 if &rtp =~ 'fugitive'
+    function! s:GitCheck()
+        return bufname('%') !~ '^fugitive://' &&
+                    \ executable('git') &&
+                    \ systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
+    endfunction
+    " ---
     function! s:GitLog(arg)
-        if executable('git') && systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
+        if <SID>GitCheck()
             execute 'Git log --graph --format="%h%d %s %cr"' . a:arg
             execute 'wincmd T'
         else
@@ -65,10 +71,15 @@ if &rtp =~ 'fugitive'
         endif
     endfunction
     " ---
-    function! s:GitDiff()
-        if executable('git') && systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
-            execute 'tabnew %'
-            execute 'Gvdiffsplit HEAD'
+    function! s:GitDiff(arg)
+        if <SID>GitCheck()
+            if a:arg == ''
+                execute 'Git diff HEAD'
+                execute 'wincmd T'
+            else
+                execute 'tabnew %'
+                execute 'Gvdiffsplit HEAD'
+            endif
         else
             echo "not a git repo"
         endif
@@ -76,7 +87,8 @@ if &rtp =~ 'fugitive'
     " ---
     nnoremap <leader>g :call <SID>GitLog('%')<CR>
     nnoremap <leader>G :call <SID>GitLog('')<CR>
-    nnoremap <localleader>g :call <SID>GitDiff()<CR>
+    nnoremap <localleader>g :call <SID>GitDiff('%')<CR>
+    nnoremap <localleader>G :call <SID>GitDiff('')<CR>
 endif
 " }}}
 
