@@ -242,6 +242,7 @@ nnoremap <silent><C-p> :tabprev<CR>
 nnoremap <silent><Tab> :buffer#<CR>
 nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
 " ---
+nnoremap <leader><leader> :Explore<CR>
 vnoremap <leader><leader> :!<Space>
 xnoremap <localleader><localleader> :s///gc<Left><Left><Left>
 " ---
