@@ -54,18 +54,28 @@ endif
 
 
 
-" SIGNIFY CONFIG {{{
-if &rtp =~ 'signify'
-    nnoremap <leader>g :SignifyDiff<CR>
-endif
-" }}}
-
-
-
-
 " FUGITIVE CONFIG {{{
 if &rtp =~ 'fugitive'
-    nnoremap <leader>G :Git log --graph --format="%h%d %s %cr" %<BAR>wincmd T<CR>
+    function! s:GitDiff()
+        if executable('git') && systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
+            execute 'tabnew %'
+            execute 'Gvdiffsplit HEAD'
+        else
+            echo "not a git repo"
+        endif
+    endfunction
+    " ---
+    function! s:GitLog()
+        if executable('git') && systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
+            execute 'Git log --graph --format="%h%d %s %cr" %'
+            execute 'wincmd T'
+        else
+            echo "not a git repo"
+        endif
+    endfunction
+    " ---
+    nnoremap <leader>g :call <SID>GitDiff()<CR>
+    nnoremap <leader>G :call <SID>GitLog()<CR>
 endif
 " }}}
 
