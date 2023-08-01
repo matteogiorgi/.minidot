@@ -33,9 +33,12 @@ function! s:MakeNote()
     let $NOTES  = fnamemodify(l:path_notes, ':p')
     " ---
     if !isdirectory($NOTES)
-        !cp -R $HOME/.vim/plugin/notes $PARENT
+        execute 'silent !cp -R $HOME/.vim/plugin/notes $PARENT'
+        execute 'silent !$NOTES/assets/makenote %:t:r'
+        redraw!
+        redrawstatus!
+        redrawtabline
     endif
-    !$NOTES/assets/makenote %:t:r
 endfunction
 "}}}
 

@@ -1,5 +1,8 @@
--- use the flag --lua-filter=FILE like this:
--- `--lua-filter=$pandoc/assets/link2html.lua`
+-- #!/usr/bin/env lua
+
+-- This script is used by MakeNote function to convert links inside
+-- *.md files into html links inside the newly created *.html files.
+-- [--lua-filter=$pandoc/assets/link2html.lua]
 
 
 function Link(el)

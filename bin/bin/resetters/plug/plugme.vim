@@ -14,7 +14,20 @@
 " VIM8 CONFIG {{{
 if v:version >= 800
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-    nnoremap <localleader>k :!ctags -R --exclude=.git<CR>
+
+    " CTAGS {{{
+    function s:Ctags()
+        if executable('ctags')
+            execute 'silent !ctags -R --exclude=.git'
+            redraw!
+            redrawstatus!
+            redrawtabline
+        endif
+    endfunction
+    " ---
+    nnoremap <localleader>k :call <SID>Ctags()<CR>
+    " }}}
+
 endif
 " }}}
 
