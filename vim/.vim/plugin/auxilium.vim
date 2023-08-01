@@ -34,11 +34,12 @@ function! s:MakeNote()
     " ---
     if !isdirectory($NOTES)
         execute 'silent !cp -R $HOME/.vim/plugin/notes $PARENT'
-        execute 'silent !$NOTES/assets/makenote %:t:r'
-        redraw!
-        redrawstatus!
-        redrawtabline
     endif
+    " ---
+    execute 'silent !$NOTES/assets/makenote %:t:r'
+    redraw!
+    redrawstatus!
+    redrawtabline
 endfunction
 "}}}
 
