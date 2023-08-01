@@ -120,5 +120,6 @@ command! MakeNote call <SID>MakeNote()
 command! ScratchBuffer call <SID>ScratchBuffer()
 " ---
 nnoremap <silent>' :call <SID>ToggleAccent()<CR>
+nnoremap <localleader>n :MakeNote<CR>
 nnoremap <localleader><localleader> :ScratchBuffer<CR>
 "}}}
