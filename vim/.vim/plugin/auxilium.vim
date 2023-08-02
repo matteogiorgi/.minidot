@@ -32,6 +32,11 @@ function! s:MakeNote()
     let $PREFIX = fnamemodify(l:path_parent, ':t')
     let $NOTES  = fnamemodify(l:path_notes, ':p')
     " ---
+    if empty(glob(l:path_parent . '/*.md'))
+        echo 'no notes found inside ' . l:path_parent
+        return
+    endif
+    " ---
     if !isdirectory($NOTES)
         execute 'silent !cp -R $HOME/.vim/plugin/notes $PARENT'
     endif
