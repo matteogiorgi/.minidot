@@ -149,8 +149,8 @@ if v:version >= 900
         endfunction
         " ---
         let g:copilot_enabled = v:false
-        nnoremap <leader>a :call <SID>ToggleCopilot()<CR>
-        nnoremap <leader>A :Copilot panel<CR>
+        nnoremap <leader>a :Copilot panel<CR>
+        nnoremap <leader>A :call <SID>ToggleCopilot()<CR>
         " ---
         inoremap <silent><C-s> <Plug>(copilot-suggest)
         inoremap <silent><C-d> <Plug>(copilot-dismiss)

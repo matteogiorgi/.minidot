@@ -33,7 +33,7 @@ function! s:MakeNote()
     let $NOTES  = fnamemodify(l:path_notes, ':p')
     " ---
     if empty(glob(l:path_parent . '/*.md'))
-        echo 'no notes found inside ' . l:path_parent
+        echo 'no markdown found inside ' . l:path_parent
         return
     endif
     " ---
@@ -45,6 +45,7 @@ function! s:MakeNote()
     redraw!
     redrawstatus!
     redrawtabline
+    echo 'notes archived in ' . l:path_notes
 endfunction
 "}}}
 
