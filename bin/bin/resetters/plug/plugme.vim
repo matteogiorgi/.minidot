@@ -98,10 +98,10 @@ if &rtp =~ 'fugitive'
         endif
     endfunction
     " ---
-    nnoremap <leader>g :call <SID>GitLog('%')<CR>
-    nnoremap <leader>G :call <SID>GitLog('')<CR>
-    nnoremap <localleader>g :call <SID>GitDiff('%')<CR>
-    nnoremap <localleader>G :call <SID>GitDiff('')<CR>
+    nnoremap <leader>g :call <SID>GitDiff('%')<CR>
+    nnoremap <leader>G :call <SID>GitDiff('')<CR>
+    nnoremap <localleader>g :call <SID>GitLog('%')<CR>
+    nnoremap <localleader>G :call <SID>GitLog('')<CR>
 endif
 " }}}
 
