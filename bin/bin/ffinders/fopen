@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# use `find . -type f \( ! -regex '.*/\.git/.*' \) -print`
-# as a ripgrep search alternative
+# This script searches all executables inside PATH
+# and uses fzf to select one to run a selected file.
 
 
 [[ -x "$(command -v fzf)" ]] || exit 1
@@ -35,5 +35,17 @@ while true; do
             `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/ffind.out & disown)' `
             `--bind 'ctrl-o:execute(nohup xdg-open {} &>/tmp/ffind.out & disown)')"
     [[ -z "$FILE" ]] && exit 1
-    "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
+    # ---
+    CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf `
+            `--ansi `
+            `--prompt='fopen > ' `
+            `--height 100% `
+            `--margin 0% `
+            `--reverse `
+            `--info=hidden `
+            `--bind 'esc:' `
+            `--bind 'ctrl-h:cancel' `
+            `--bind 'ctrl-d:half-page-down' `
+            `--bind 'ctrl-u:half-page-up')
+    [[ -n "$CMD" ]] && nohup "$CMD" "$FILE" &>/tmp/fopen.out & disown || exit 1
 done

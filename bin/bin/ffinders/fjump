@@ -22,13 +22,13 @@ while true; do
             `--info=hidden `
             `--bind 'esc:' `
             `--bind 'ctrl-h:cancel' `
-            `--bind 'ctrl-l:toggle-preview' `
-            `--bind 'ctrl-n:half-page-down' `
-            `--bind 'ctrl-p:half-page-up' `
-            `--bind 'ctrl-d:preview-half-page-down' `
-            `--bind 'ctrl-u:preview-half-page-up' `
-            `--bind 'ctrl-f:execute(nohup subl {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-g:execute(nohup smerge {} &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-t:toggle-preview' `
+            `--bind 'ctrl-d:half-page-down' `
+            `--bind 'ctrl-u:half-page-up' `
+            `--bind 'ctrl-n:preview-half-page-down' `
+            `--bind 'ctrl-p:preview-half-page-up' `
+            `--bind 'ctrl-s:execute(nohup subl {} &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-l:execute(nohup smerge {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-x:execute(nohup code-insiders {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-c:execute(nohup code {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/fjump.out & disown)' `
