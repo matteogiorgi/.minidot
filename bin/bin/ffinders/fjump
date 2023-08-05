@@ -30,7 +30,8 @@ while true; do
             `--bind 'ctrl-s:execute(nohup subl {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-c:execute(nohup code {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-l:execute(nohup xdg-open {} &>/tmp/fjump.out & disown)')"
-    [[ -z "$FILE" ]] && exit 1
+            `--bind 'ctrl-l:execute(nohup xdg-open {} &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-o:execute(nohup xdg-open . &>/tmp/fjump.out & disown)')"
+    [[ -n "$FILE" ]] || exit 1
     [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
 done
