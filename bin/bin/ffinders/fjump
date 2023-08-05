@@ -20,7 +20,7 @@ while true; do
     FILE="$(/bin/ls -a --ignore="." --ignore=".git" --group-directories-first --color=always | fzf `
             `--ansi `
             `--preview 'mess {}' `
-            `--preview-window 'down:80%' `
+            `--preview-window 'down:75%' `
             `--prompt="$PWD$GIT_BRANCH > " `
             `--height 100% `
             `--margin 0% `

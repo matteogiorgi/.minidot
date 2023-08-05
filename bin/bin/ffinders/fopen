@@ -18,7 +18,7 @@ while true; do
     FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
             `--ansi `
             `--preview 'mess {}' `
-            `--preview-window 'down:80%' `
+            `--preview-window 'down:75%' `
             `--prompt="$PWD$GIT_BRANCH > " `
             `--height 100% `
             `--margin 0% `
