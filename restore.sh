@@ -118,7 +118,6 @@ printf "\n"
 stow -D bash
 stow -D bin
 stow -D fzf
-stow -D kak
 stow -D tmux
 stow -D vim
 # ---
@@ -156,7 +155,6 @@ sudo apt-get purge -qq -y \
     wamerican \
     witalian \
     tmux \
-    kakoune \
     vim-gtk3 \
     exuberant-ctags
 

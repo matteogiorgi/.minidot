@@ -167,7 +167,6 @@ sudo apt-get install -qq -y \
     bash \
     bash-completion \
     tmux \
-    kakoune \
     vim-gtk3 \
     exuberant-ctags
 
@@ -182,7 +181,6 @@ _backup
 stow bash
 stow bin
 stow fzf
-stow kak
 stow tmux
 stow vim
 
