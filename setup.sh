@@ -159,6 +159,7 @@ sudo apt-get install -qq -y \
     xdo \
     poppler-utils \
     fonts-firacode \
+    pandoc \
     wamerican \
     witalian \
     gnome-keyring \
@@ -166,9 +167,9 @@ sudo apt-get install -qq -y \
     bash \
     bash-completion \
     tmux \
+    kakoune \
     vim-gtk3 \
-    exuberant-ctags \
-    pandoc
+    exuberant-ctags
 
 
 
@@ -181,6 +182,7 @@ _backup
 stow bash
 stow bin
 stow fzf
+stow kak
 stow tmux
 stow vim
 

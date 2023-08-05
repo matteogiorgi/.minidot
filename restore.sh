@@ -118,6 +118,7 @@ printf "\n"
 stow -D bash
 stow -D bin
 stow -D fzf
+stow -D kak
 stow -D tmux
 stow -D vim
 # ---
@@ -151,12 +152,13 @@ sudo apt-get purge -qq -y \
     xdo \
     poppler-utils \
     fonts-firacode \
+    pandoc \
     wamerican \
     witalian \
     tmux \
+    kakoune \
     vim-gtk3 \
-    exuberant-ctags \
-    pandoc
+    exuberant-ctags
 
 
 

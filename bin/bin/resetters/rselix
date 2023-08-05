@@ -18,8 +18,9 @@ read -p "Resetting Helix editor (enter to continue)"
 ################
 
 HELIX="$HOME/.config/helix"
-[[ -d "$HELIX" ]] || mkdir -p "$HELIX"
-[[ -d "$HELIX/themes" ]] || mkdir -p "$HELIX/themes"
+# ---
+rm -rf "$HELIX"
+mkdir -p "$HELIX/themes"
 
 
 
@@ -28,7 +29,7 @@ HELIX="$HOME/.config/helix"
 ################
 
 cat 2>/dev/null > $HELIX/config.toml <<-EOF
-theme = "rshlix"
+theme = "rselix"
 
 [editor]
 line-number = "relative"
@@ -56,7 +57,7 @@ EOF
 ### Reset theme
 ###############
 
-cat 2>/dev/null > $HELIX/themes/rshlix.toml <<-EOF
+cat 2>/dev/null > $HELIX/themes/rselix.toml <<-EOF
 "ui.background"             = {  }
 "ui.menu"                   = { fg = "my_white", bg = "my_gray2" }
 "ui.menu.selected"          = { fg = "my_gray2", bg = "my_gray5" }
@@ -150,8 +151,8 @@ EOF
 
 if [[ -x "$(command -v hx)" ]]; then
     printf "\n"
-    printf "═════════ We're done here ═════════\n"
-    printf "Enjoy your post-modern text editor!\n"
+    printf "═════════ We're done here ════════\n"
+    printf "Enjoy your post-modern text editor\n"
 else
     printf "\n"
     printf "═════════════ Warning ═════════════\n"

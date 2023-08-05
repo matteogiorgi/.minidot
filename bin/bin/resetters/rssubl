@@ -114,7 +114,7 @@ fi
 ### Final check
 ###############
 
-[[ -x "$(command -v subl)" ]] || CTEXT="Sublime Text  not yet installed"
+[[ -x "$(command -v subl)" ]] || CTEXT="Sublime Text not yet installed -"
 [[ -x "$(command -v smerge)" ]] || CMERGE="Sublime Merge not yet installed"
 # ---
 if [[ -n "$CTEXT" || -n "$CMERGE" ]]; then

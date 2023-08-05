@@ -56,7 +56,7 @@
 !/bin/bin/resetters/code/*
 !/bin/bin/resetters/plug/*
 !/bin/bin/resetters/rscode
-!/bin/bin/resetters/rshlix
+!/bin/bin/resetters/rselix
 !/bin/bin/resetters/rsmime
 !/bin/bin/resetters/rsplug
 !/bin/bin/resetters/rssubl
@@ -85,6 +85,21 @@
 /fzf/.config/fzf/*
 !/fzf/.config/fzf/completion.bash
 !/fzf/.config/fzf/key-bindings.bash
+
+
+
+
+### KAK
+#######
+
+/kak/*
+!/kak/.config
+
+/kak/.config/*
+!/kak/.config/kak
+
+/kak/.config/kak/*
+!/kak/.config/kak/kakrc
 
 
 
