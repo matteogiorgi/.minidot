@@ -2,6 +2,9 @@
 
 # This script searches all executables inside PATH
 # and uses fzf to select one to run a selected file.
+# ---
+# use the following command as a ripgrep alternative:
+# `find . -type f \( ! -regex '.*/\.git/.*' \) -print`
 
 
 [[ -x "$(command -v fzf)" ]] || exit 1
@@ -28,17 +31,15 @@ while true; do
             `--bind 'ctrl-u:half-page-up' `
             `--bind 'ctrl-n:preview-half-page-down' `
             `--bind 'ctrl-p:preview-half-page-up' `
-            `--bind 'ctrl-s:execute(nohup subl {} &>/tmp/ffind.out & disown)' `
-            `--bind 'ctrl-l:execute(nohup smerge {} &>/tmp/ffind.out & disown)' `
-            `--bind 'ctrl-x:execute(nohup code-insiders {} &>/tmp/ffind.out & disown)' `
-            `--bind 'ctrl-c:execute(nohup code {} &>/tmp/ffind.out & disown)' `
-            `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/ffind.out & disown)' `
-            `--bind 'ctrl-o:execute(nohup xdg-open {} &>/tmp/ffind.out & disown)')"
+            `--bind 'ctrl-s:execute(nohup subl {} &>/tmp/fopen.out & disown)' `
+            `--bind 'ctrl-c:execute(nohup code {} &>/tmp/fopen.out & disown)' `
+            `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/fopen.out & disown)' `
+            `--bind 'ctrl-l:execute(nohup xdg-open {} &>/tmp/fopen.out & disown)')"
     [[ -z "$FILE" ]] && exit 1
     # ---
     CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf `
             `--ansi `
-            `--prompt='fopen > ' `
+            `--prompt="$FILE > " `
             `--height 100% `
             `--margin 0% `
             `--reverse `

@@ -24,8 +24,7 @@ while out=$(
             `--bind 'esc:' `
             `--bind 'ctrl-h:cancel' `
             `--bind 'ctrl-n:half-page-down' `
-            `--bind 'ctrl-p:half-page-up' `
-            `--bind 'ctrl-o:execute(nohup smerge . &>/tmp/fgit.out & disown)' ); do
+            `--bind 'ctrl-p:half-page-up' ); do
     q=$(head -1 <<< "$out")
     k=$(head -2 <<< "$out" | tail -1)
     shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')

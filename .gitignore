@@ -47,7 +47,6 @@
 !/bin/bin/fetchers/sfetch
 
 /bin/bin/ffinders/*
-!/bin/bin/ffinders/ffind
 !/bin/bin/ffinders/fgit
 !/bin/bin/ffinders/fjump
 !/bin/bin/ffinders/fopen
