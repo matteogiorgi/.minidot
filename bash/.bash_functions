@@ -21,9 +21,3 @@ function _fjump () {
     [[ -n "$TMUX" && $PWD != $OWD ]] && echo ${PS1@P}
     rm -f /tmp/fjump$$
 }
-
-
-# detach process
-function _xshow () {
-    nohup sh -c "$*" &>/tmp/xshow.out & disown
-}

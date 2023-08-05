@@ -7,7 +7,8 @@
 [[ -x "$(command -v fzf)" && -x "$(command -v git)" ]] || exit 1
 [[ ! $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]] && echo "Not a git repo" && exit 1
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
-# ---
+
+
 [[ $(type -t __fetch_git_branch) == function ]] && GIT_BRANCH=$(__fetch_git_branch " (%s)") || GIT_BRANCH=""
 while out=$(
         git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" | fzf `
@@ -28,6 +29,7 @@ while out=$(
     q=$(head -1 <<< "$out")
     k=$(head -2 <<< "$out" | tail -1)
     shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
+    # ---
     [ -z "$shas" ] && continue
     if [ "$k" = 'ctrl-d' ]; then
         git diff --color=always $shas | less -R -~

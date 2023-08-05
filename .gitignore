@@ -51,7 +51,6 @@
 !/bin/bin/ffinders/fjump
 !/bin/bin/ffinders/fopen
 !/bin/bin/ffinders/mess
-!/bin/bin/ffinders/swallow
 
 /bin/bin/resetters/*
 !/bin/bin/resetters/code/*

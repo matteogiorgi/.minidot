@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# This script searches all executables inside PATH
-# and uses fzf to select one to run a selected file.
+# This script uses fzf to search a specific executable inside PATH
+# and opens a specific file inside the current directory with it.
 # ---
-# use the following command as a ripgrep alternative:
+# Use the following command as a ripgrep alternative:
 # `find . -type f \( ! -regex '.*/\.git/.*' \) -print`
 
 
@@ -11,6 +11,8 @@
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
 # ---
 CLICOLOR_FORCE=1
+
+
 while true; do
     [[ $(type -t __fetch_git_branch) == function ]] && GIT_BRANCH=$(__fetch_git_branch " (%s)") || GIT_BRANCH=""
     FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
@@ -30,6 +32,7 @@ while true; do
             `--bind 'ctrl-d:preview-half-page-down' `
             `--bind 'ctrl-u:preview-half-page-up' `
             `--bind 'ctrl-l:abort')"
+    # ---
     [[ -n "$FILE" ]] || FILE="."
     CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf `
             `--ansi `
@@ -42,5 +45,7 @@ while true; do
             `--bind 'ctrl-h:cancel' `
             `--bind 'ctrl-n:half-page-down' `
             `--bind 'ctrl-p:half-page-up')
-    [[ -n "$CMD" ]] && "${CMD}" "${FILE}" || exit 1
+    # ---
+    [[ -n "$CMD" ]] || exit 1
+    "${CMD}" "${FILE}"
 done
