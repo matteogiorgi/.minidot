@@ -25,10 +25,10 @@ while true; do
             `--bind 'esc:' `
             `--bind 'ctrl-h:clear-query' `
             `--bind 'ctrl-t:toggle-preview' `
-            `--bind 'ctrl-d:half-page-down' `
-            `--bind 'ctrl-u:half-page-up' `
-            `--bind 'ctrl-n:preview-half-page-down' `
-            `--bind 'ctrl-p:preview-half-page-up' `
+            `--bind 'ctrl-n:half-page-down' `
+            `--bind 'ctrl-p:half-page-up' `
+            `--bind 'ctrl-d:preview-half-page-down' `
+            `--bind 'ctrl-u:preview-half-page-up' `
             `--bind 'ctrl-l:abort')"
     [[ -n "$FILE" ]] || FILE="."
     CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf `

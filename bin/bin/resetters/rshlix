@@ -33,7 +33,6 @@ theme = "rshlix"
 [editor]
 line-number = "relative"
 bufferline = "multiple"
-cursorline = true
 color-modes = true
 auto-save = true
 mouse = true
@@ -63,7 +62,7 @@ cat 2>/dev/null > $HELIX/themes/rshlix.toml <<-EOF
 "ui.menu.selected"          = { fg = "my_gray2", bg = "my_gray5" }
 "ui.linenr"                 = { fg = "my_gray3" }
 "ui.popup"                  = { bg = "my_gray2" }
-"ui.window"                 = { fg = "my_gray2", bg = "my_gray0" }
+"ui.window"                 = { fg = "my_gray2" }
 "ui.linenr.selected"        = { fg = "my_gray6" }
 "ui.selection"              = { bg = "my_gray3" }
 "comment"                   = { fg = "my_gray4", modifiers = ["italic"] }
@@ -122,7 +121,7 @@ cat 2>/dev/null > $HELIX/themes/rshlix.toml <<-EOF
 "error"            = "my_red"
 
 [palette]
-my_black      = "#111111"  # Cursorline
+my_black      = "#151515"  # Cursorline
 my_gray0      = "#000000"  # Default Background
 my_gray1      = "#0e0e0e"  # Ruler
 my_gray2      = "#1a1a1a"  # Lighter Background (Used for status bars, line number and folding marks)
