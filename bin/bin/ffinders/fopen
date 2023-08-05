@@ -47,5 +47,5 @@ while true; do
             `--bind 'ctrl-p:half-page-up')
     # ---
     [[ -n "$CMD" ]] || exit 1
-    "${CMD}" "${FILE}"
+    "${CMD}" "${FILE}" 2>/dev/null
 done
