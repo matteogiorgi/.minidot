@@ -19,14 +19,14 @@ pandoc wamerican witalian gnome-keyring dash bash bash-completion tmux vim-gtk3 
 
 ## Snap
 
-Snap comes pre-installed and ready to go on all recent releases of Ubuntu but if, for any reason, it is not, you can follow the instructions on [Snapcraft](https://snapcraft.io/docs/installing-snapd) and intall it with:
+Snap package manager comes pre-installed and ready to go on all recent releases of Ubuntu but if, for any reason, it is not, you can follow the instructions on [Snapcraft](https://snapcraft.io/docs/installing-snapd) and intall it with:
 
 ```bash
 sudo apt-get update
 sudo apt-get install -qq -y snapd
 ```
 
-Then log out and back in again (to ensure snap’s paths are updated correctly), use the following command to install the `core` snap for the latest `snapd` and *Bob's your uncle*.
+Log out and back in again (to ensure snap’s paths are updated correctly), than use the following command to install the `core` snap for the latest `snapd` and Bob's your uncle.
 
 ```bash
 sudo snap install core
