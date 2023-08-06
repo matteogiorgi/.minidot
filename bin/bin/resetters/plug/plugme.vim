@@ -12,7 +12,7 @@
 
 
 " VIM8 CONFIG {{{
-if v:version >= 800 || has('nvim')
+if v:version >= 800
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
     " CTAGS {{{
@@ -35,7 +35,7 @@ endif
 
 
 " CTRLP CONFIG {{{
-if v:version >= 700 || has('nvim')
+if v:version >= 700
 
     if &rtp =~ 'ctrlp'
         let g:ctrlp_map = ''
@@ -72,7 +72,7 @@ endif
 
 
 " FUGITIVE CONFIG {{{
-if v:version >= 700 || has('nvim')
+if v:version >= 700
 
     if &rtp =~ 'fugitive'
         function! s:GitCheck()
@@ -117,7 +117,7 @@ endif
 
 
 " ALE CONFIG {{{
-if v:version >= 800 || has('nvim')
+if v:version >= 800
 
     if &rtp =~ 'ale'
         let g:ale_completion_enabled = 1
@@ -139,7 +139,7 @@ endif
 
 
 " VIM9 CONFIG {{{
-if v:version >= 900 || has('nvim')
+if v:version >= 900
     set wildoptions=fuzzy,pum,tagfile
 
     " COPILOT {{{

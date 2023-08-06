@@ -26,7 +26,7 @@ sudo apt-get update
 sudo apt-get install -qq -y snapd
 ```
 
-Then log out and back in again (to ensure snap’s paths are updated correctly) and install the `core` snap in order to get the latest `snapd`:
+Then log out and back in again (to ensure snap’s paths are updated correctly), install the `core` snap in order to get the latest `snapd` with the following command and *Bob's your uncle*.
 
 ```bash
 sudo snap install core
@@ -46,21 +46,6 @@ sudo apt-get install -qq -y vim-gtk3
 ```
 
 My current configuration does not use any external plugin since Vim is already a very powerful editor by itself. If you need to install some plugins, you can do so by cloning their repo inside `~/.vim/pack/plugins/start/`: the plugins will be loaded automatically at startup and can be updated with the `git pull` command.
-
-Of course Vim-Minidot is full compatible with Neovim too. So, to easily set up your goto configuration, just fire `nvim` and create the `init.vim` (user config) file as specified in the [documentation](https://neovim.io/doc/user/nvim.html):
-
-```
-:exe 'edit '.stdpath('config').'/init.vim'
-:write ++p
-```
-
-Then add the following three lines to the newly created file and *Bob's your uncle*.
-
-```
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-source ~/.vimrc
-```
 
 
 
