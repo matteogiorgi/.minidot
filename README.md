@@ -26,7 +26,7 @@ sudo apt-get update
 sudo apt-get install -qq -y snapd
 ```
 
-Then log out and back in again (to ensure snap’s paths are updated correctly), install the `core` snap in order to get the latest `snapd` with the following command and *Bob's your uncle*.
+Then log out and back in again (to ensure snap’s paths are updated correctly), use the following command to install the `core` snap for the latest `snapd` and *Bob's your uncle*.
 
 ```bash
 sudo snap install core
