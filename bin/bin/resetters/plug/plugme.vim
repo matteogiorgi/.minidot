@@ -12,7 +12,7 @@
 
 
 " VIM8 CONFIG {{{
-if v:version >= 800
+if v:version >= 800 || has('nvim')
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
     " CTAGS {{{
@@ -35,32 +35,36 @@ endif
 
 
 " CTRLP CONFIG {{{
-if &rtp =~ 'ctrlp'
-    let g:ctrlp_map = ''
-    let g:ctrlp_use_caching = 1
-    let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_show_hidden = 1
-    let g:ctrlp_working_path_mode = 'ra'
-    let g:ctrlp_user_command = [
-                \      '.git',
-                \      'cd %s && git ls-files -co --exclude-standard'
-                \ ]
-    let g:ctrlp_custom_ignore = {
-                \      'dir':  '\v[\/]\.(git|hg|svn)$',
-                \      'file': '\v\.(exe|so|dll)$'
-                \ }
-    " ---
-    nnoremap <leader>f :CtrlP<CR>
-    nnoremap <leader>F :CtrlPMixed<CR>
-    nnoremap <leader>h :CtrlPMRUFiles<CR>
-    nnoremap <leader>H :CtrlPUndo<CR>
-    nnoremap <leader>j :CtrlPChange<CR>
-    nnoremap <leader>J :CtrlPChangeAll<CR>
-    nnoremap <leader>k :CtrlPBufTag<CR>
-    nnoremap <leader>K :CtrlPBufTagAll<CR>
-    nnoremap <leader>l :CtrlPLine %<CR>
-    nnoremap <leader>L :CtrlPLine<CR>
-    nnoremap <leader><Tab> :CtrlPBuffer<CR>
+if v:version >= 700 || has('nvim')
+
+    if &rtp =~ 'ctrlp'
+        let g:ctrlp_map = ''
+        let g:ctrlp_use_caching = 1
+        let g:ctrlp_clear_cache_on_exit = 0
+        let g:ctrlp_show_hidden = 1
+        let g:ctrlp_working_path_mode = 'ra'
+        let g:ctrlp_user_command = [
+                    \      '.git',
+                    \      'cd %s && git ls-files -co --exclude-standard'
+                    \ ]
+        let g:ctrlp_custom_ignore = {
+                    \      'dir':  '\v[\/]\.(git|hg|svn)$',
+                    \      'file': '\v\.(exe|so|dll)$'
+                    \ }
+        " ---
+        nnoremap <leader>f :CtrlP<CR>
+        nnoremap <leader>F :CtrlPMixed<CR>
+        nnoremap <leader>h :CtrlPMRUFiles<CR>
+        nnoremap <leader>H :CtrlPUndo<CR>
+        nnoremap <leader>j :CtrlPChange<CR>
+        nnoremap <leader>J :CtrlPChangeAll<CR>
+        nnoremap <leader>k :CtrlPBufTag<CR>
+        nnoremap <leader>K :CtrlPBufTagAll<CR>
+        nnoremap <leader>l :CtrlPLine %<CR>
+        nnoremap <leader>L :CtrlPLine<CR>
+        nnoremap <leader><Tab> :CtrlPBuffer<CR>
+    endif
+
 endif
 " }}}
 
@@ -68,40 +72,44 @@ endif
 
 
 " FUGITIVE CONFIG {{{
-if &rtp =~ 'fugitive'
-    function! s:GitCheck()
-        return bufname('%') !~ '^fugitive://' &&
-                    \ executable('git') &&
-                    \ systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
-    endfunction
-    " ---
-    function! s:GitLog(arg)
-        if <SID>GitCheck()
-            execute 'Git log --graph --format="%h%d %s %cr"' . a:arg
-            execute 'wincmd T'
-        else
-            echo "not a git repo"
-        endif
-    endfunction
-    " ---
-    function! s:GitDiff(arg)
-        if <SID>GitCheck()
-            if a:arg == ''
-                execute 'Git diff HEAD'
+if v:version >= 700 || has('nvim')
+
+    if &rtp =~ 'fugitive'
+        function! s:GitCheck()
+            return bufname('%') !~ '^fugitive://' &&
+                        \ executable('git') &&
+                        \ systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
+        endfunction
+        " ---
+        function! s:GitLog(arg)
+            if <SID>GitCheck()
+                execute 'Git log --graph --format="%h%d %s %cr"' . a:arg
                 execute 'wincmd T'
             else
-                execute 'tabnew %'
-                execute 'Gvdiffsplit HEAD'
+                echo "not a git repo"
             endif
-        else
-            echo "not a git repo"
-        endif
-    endfunction
-    " ---
-    nnoremap <leader>g :call <SID>GitDiff('%')<CR>
-    nnoremap <leader>G :call <SID>GitDiff('')<CR>
-    nnoremap <localleader>g :call <SID>GitLog('%')<CR>
-    nnoremap <localleader>G :call <SID>GitLog('')<CR>
+        endfunction
+        " ---
+        function! s:GitDiff(arg)
+            if <SID>GitCheck()
+                if a:arg == ''
+                    execute 'Git diff HEAD'
+                    execute 'wincmd T'
+                else
+                    execute 'tabnew %'
+                    execute 'Gvdiffsplit HEAD'
+                endif
+            else
+                echo "not a git repo"
+            endif
+        endfunction
+        " ---
+        nnoremap <leader>g :call <SID>GitDiff('%')<CR>
+        nnoremap <leader>G :call <SID>GitDiff('')<CR>
+        nnoremap <localleader>g :call <SID>GitLog('%')<CR>
+        nnoremap <localleader>G :call <SID>GitLog('')<CR>
+    endif
+
 endif
 " }}}
 
@@ -109,17 +117,21 @@ endif
 
 
 " ALE CONFIG {{{
-if &rtp =~ 'ale'
-    let g:ale_completion_enabled = 1
-    set omnifunc=ale#completion#OmniFunc
-    " ---
-    inoremap <silent><C-c> :AleComplete<CR>
-    nnoremap <silent>E :ALENext<CR>
-    nnoremap <silent>B :ALEPrevious<CR>
-    nnoremap <leader>d :ALEGoToDefinition<CR>
-    nnoremap <leader>D :ALEGoToTypeDefinition<CR>
-    nnoremap <leader>s :ALEFindReferences<CR>
-    nnoremap <leader>S :ALESymbolSearch<Space>
+if v:version >= 800 || has('nvim')
+
+    if &rtp =~ 'ale'
+        let g:ale_completion_enabled = 1
+        set omnifunc=ale#completion#OmniFunc
+        " ---
+        inoremap <silent><C-c> :AleComplete<CR>
+        nnoremap <silent>E :ALENext<CR>
+        nnoremap <silent>B :ALEPrevious<CR>
+        nnoremap <leader>d :ALEGoToDefinition<CR>
+        nnoremap <leader>D :ALEGoToTypeDefinition<CR>
+        nnoremap <leader>s :ALEFindReferences<CR>
+        nnoremap <leader>S :ALESymbolSearch<Space>
+    endif
+
 endif
 " }}}
 
@@ -127,7 +139,7 @@ endif
 
 
 " VIM9 CONFIG {{{
-if v:version >= 900
+if v:version >= 900 || has('nvim')
     set wildoptions=fuzzy,pum,tagfile
 
     " COPILOT {{{
