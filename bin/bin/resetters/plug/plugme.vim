@@ -74,33 +74,46 @@ if &rtp =~ 'fugitive'
                     \ systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
     endfunction
     " ---
-    function! s:GitLog(arg)
+    function! s:GitDiffSplit()
         if <SID>GitCheck()
-            execute 'Git log --graph --format="%h%d %s %cr"' . a:arg
+            execute 'tabnew %'
+            execute 'Gvdiffsplit HEAD'
+        else
+            echo "not a git repo"
+        endif
+    endfunction
+    " ---
+    function! s:GitDiff()
+        if <SID>GitCheck()
+            execute 'Git diff HEAD'
             execute 'wincmd T'
         else
             echo "not a git repo"
         endif
     endfunction
     " ---
-    function! s:GitDiff(arg)
+    function! s:GitBlame()
         if <SID>GitCheck()
-            if a:arg == ''
-                execute 'Git diff HEAD'
-                execute 'wincmd T'
-            else
-                execute 'tabnew %'
-                execute 'Gvdiffsplit HEAD'
-            endif
+            execute 'Git blame'
+            execute 'wincmd T'
         else
             echo "not a git repo"
         endif
     endfunction
     " ---
-    nnoremap <leader>g :call <SID>GitDiff('%')<CR>
-    nnoremap <leader>G :call <SID>GitDiff('')<CR>
-    nnoremap <localleader>g :call <SID>GitLog('%')<CR>
-    nnoremap <localleader>G :call <SID>GitLog('')<CR>
+    function! s:GitLog()
+        if <SID>GitCheck()
+            execute 'Git log --graph --format="%h%d %s %cr"'
+            execute 'wincmd T'
+        else
+            echo "not a git repo"
+        endif
+    endfunction
+    " ---
+    nnoremap <leader>g :call <SID>GitDiffSplit()<CR>
+    nnoremap <leader>G :call <SID>GitDiff()<CR>
+    nnoremap <localleader>g :call <SID>GitBlame()<CR>
+    nnoremap <localleader>G :call <SID>GitLog()<CR>
 endif
 " }}}
 
