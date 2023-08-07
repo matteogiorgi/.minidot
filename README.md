@@ -16,5 +16,13 @@ git curl wget stow htop xclip trash-cli fzf ripgrep bat chafa poppler-utils font
 pandoc wamerican witalian gnome-keyring dash bash bash-completion tmux vim-gtk3 exuberant-ctags
 ```
 
-- Debian [packages](https://www.debian.org/distrib/packages) and [manpages](https://manpages.debian.org/)
-- Ubuntu [packages](https://packages.ubuntu.com/) and [manpages](https://manpages.ubuntu.com/)
+- [https://www.debian.org/distrib/packages](https://www.debian.org/distrib/packages)
+- [https://packages.ubuntu.com](https://packages.ubuntu.com)
+
+
+
+
+## Manpages
+
+- [https://manpages.debian.org](https://manpages.debian.org)
+- [https://manpages.ubuntu.com](https://manpages.ubuntu.com)
