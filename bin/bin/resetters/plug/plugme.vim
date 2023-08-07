@@ -68,52 +68,30 @@ endif
 
 " FUGITIVE CONFIG {{{
 if &rtp =~ 'fugitive'
-    function! s:GitCheck()
-        return bufname('%') !~ '^fugitive://' &&
+    function! s:GitMe(arg)
+        if ! (bufname('%') !~ '^fugitive://' &&
                     \ executable('git') &&
-                    \ systemlist('git rev-parse --is-inside-work-tree')[0] == 'true'
-    endfunction
-    " ---
-    function! s:GitDiffSplit()
-        if <SID>GitCheck()
+                    \ systemlist('git rev-parse --is-inside-work-tree')[0] == 'true')
+            echo "not a git repo"
+        elseif a:arg == 'diffsplit'
             execute 'tabnew %'
             execute 'Gvdiffsplit HEAD'
-        else
-            echo "not a git repo"
-        endif
-    endfunction
-    " ---
-    function! s:GitDiff()
-        if <SID>GitCheck()
+        elseif a:arg == 'diff'
             execute 'Git diff HEAD'
             execute 'wincmd T'
-        else
-            echo "not a git repo"
-        endif
-    endfunction
-    " ---
-    function! s:GitBlame()
-        if <SID>GitCheck()
+        elseif a:arg == 'blame'
             execute 'Git blame'
             execute 'wincmd T'
-        else
-            echo "not a git repo"
-        endif
-    endfunction
-    " ---
-    function! s:GitLog()
-        if <SID>GitCheck()
+        elseif a:arg == 'log'
             execute 'Git log --graph --format="%h%d %s %cr"'
             execute 'wincmd T'
-        else
-            echo "not a git repo"
         endif
     endfunction
     " ---
-    nnoremap <leader>g :call <SID>GitDiffSplit()<CR>
-    nnoremap <leader>G :call <SID>GitDiff()<CR>
-    nnoremap <localleader>g :call <SID>GitBlame()<CR>
-    nnoremap <localleader>G :call <SID>GitLog()<CR>
+    nnoremap <leader>g :call <SID>GitMe('diffsplit')<CR>
+    nnoremap <leader>G :call <SID>GitMe('diff')<CR>
+    nnoremap <localleader>g :call <SID>GitMe('blame')<CR>
+    nnoremap <localleader>G :call <SID>GitMe('log')<CR>
 endif
 " }}}
 
