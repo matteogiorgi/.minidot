@@ -18,11 +18,3 @@ pandoc wamerican witalian gnome-keyring dash bash bash-completion tmux vim-gtk3 
 
 - [debian.org/distrib/packages](https://www.debian.org/distrib/packages)
 - [packages.ubuntu.com](https://packages.ubuntu.com)
-
-
-
-
-## Manpages
-
-- [manpages.debian.org](https://manpages.debian.org)
-- [manpages.ubuntu.com](https://manpages.ubuntu.com)
