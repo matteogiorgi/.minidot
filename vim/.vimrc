@@ -103,7 +103,7 @@ set dictionary+=/usr/share/dict/american-english
 set dictionary+=/usr/share/dict/italian
 set wildmenu
 set wildchar=<Tab> wildmode=full
-set wildignore=*/.git/*,*/.hg/*,*/.svn/*
+set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/*,*.so,*.swp,*.zip
 set shortmess+=c
 set belloff+=ctrlg
 " }}}

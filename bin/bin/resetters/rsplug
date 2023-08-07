@@ -32,29 +32,6 @@ _reset () {
 }
 
 
-_check () {
-    # if vim <= 900, upgrade to
-    # Vim9 and run rsplug again
-    # ---
-    if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" != "Vi IMproved 9" ]]; then
-        printf "\n"
-        printf "══════════════ We're done here ═════════════\n"
-        printf "Install vim >= 900 and run this script again\n"
-        exit 0
-    fi
-
-    # if node <= 16, upgrade node
-    # main version and run rsplug again
-    # ---
-    if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -lt 16 ]]; then
-        printf "\n"
-        printf "══════════════ We're done here ═════════════\n"
-        printf "Install node >= 16 and run this script again\n"
-        exit 0
-    fi
-}
-
-
 
 
 ### First things first
@@ -214,24 +191,23 @@ PLUGIN="${START}/ale"
 _reset
 
 
-# Add a simple vimscript that configure
-# some keymaps and few more little things.
+# node >= 16 is a prerequisite
+# for github-copilot plugin
+# ---
+if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
+    printf "\n"
+    OPERATION="RESETTING COPILOT"
+    REPOSITORY="https://github.com/github/copilot.vim"
+    PLUGIN="${START}/copilot"
+    _reset
+fi
+
+
+# add a simple vimscript that configure
+# some keymaps and few more little things
 # ---
 PLUGME="${HOME}/bin/resetters/plug/plugme.vim"
 cat "${PLUGME}" > "${HOME}/.vim/plugin/plugme.vim"
-
-
-# Now we need to install NodeJS and proceede with
-# the installation of the plugins that require Vim9.
-# ---
-_check
-
-
-printf "\n"
-OPERATION="RESETTING COPILOT"
-REPOSITORY="https://github.com/github/copilot.vim"
-PLUGIN="${START}/copilot"
-_reset
 
 
 printf "\n"
