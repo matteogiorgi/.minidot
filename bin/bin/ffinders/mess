@@ -31,13 +31,13 @@ case $(file --mime-type "$FILE" -bL) in
         ;;
     *)
         echo "                                "
-        echo "  ┌──────────────────────────┐  "
+        echo "  ╭──────────────────────────╮  "
         echo "  │  Sorry mate, can't show  │  "
         echo "  │  any bloody preview.     │  "
-        echo "  └───┬──────────────────────┘  "
+        echo "  ╰───┬──────────────────────╯  "
         echo "      │                         "
         echo "      │      (\_/)              "
-        echo "      └───── (O.o)              "
+        echo "      ╰───── (O.o)              "
         echo "             (> <)              "
         echo "                                "
 esac
