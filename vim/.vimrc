@@ -106,6 +106,10 @@ set wildchar=<Tab> wildmode=full
 set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/*,*.so,*.swp,*.zip
 set shortmess+=c
 set belloff+=ctrlg
+" ---
+if v:version >= 900
+    set wildoptions=fuzzy,pum,tagfile
+endif
 " }}}
 
 

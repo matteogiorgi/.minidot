@@ -13,11 +13,7 @@
 
 
 
-" VIM CONFIG {{{
-if v:version >= 900
-    set wildoptions=fuzzy,pum,tagfile
-endif
-" ---
+" CTAGS CONFIG {{{
 function s:Ctags()
     if executable('ctags')
         execute 'silent !ctags -R --exclude=.git'
