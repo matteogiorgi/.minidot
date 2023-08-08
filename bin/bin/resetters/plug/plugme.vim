@@ -15,12 +15,15 @@
 
 " CTAGS CONFIG {{{
 function s:Ctags()
-    if executable('ctags')
-        execute 'silent !ctags -R --exclude=.git'
-        redraw!
-        redrawstatus!
-        redrawtabline
+    if !executable('ctags')
+        echo "ctags not installed"
+        return
     endif
+    " ---
+    execute 'silent !ctags -R --exclude=.git'
+    redraw!
+    redrawstatus!
+    redrawtabline
 endfunction
 " ---
 nnoremap <localleader>k :call <SID>Ctags()<CR>
@@ -65,11 +68,17 @@ endif
 " FUGITIVE CONFIG {{{
 if &rtp =~ 'fugitive'
     function! s:GitMe(arg)
-        if ! (bufname('%') !~ '^fugitive://' &&
-                    \ executable('git') &&
-                    \ systemlist('git rev-parse --is-inside-work-tree')[0] == 'true')
+        if !executable('git')
+            echo "git not installed"
+            return
+        endif
+        " ---
+        if bufname('%') =~ '^fugitive://' || systemlist('git rev-parse --is-inside-work-tree')[0] != 'true'
             echo "not a git repo"
-        elseif a:arg == 'diffsplit'
+            return
+        endif
+        " ---
+        if a:arg == 'diffsplit'
             execute 'tabnew %'
             execute 'Gvdiffsplit HEAD'
         elseif a:arg == 'diff'
@@ -81,6 +90,8 @@ if &rtp =~ 'fugitive'
         elseif a:arg == 'log'
             execute 'Git log --graph --format="%h%d %s %cr"'
             execute 'wincmd T'
+        else
+            echoerr "invalid argument"
         endif
     endfunction
     " ---
