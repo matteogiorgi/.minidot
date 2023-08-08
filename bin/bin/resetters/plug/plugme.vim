@@ -24,6 +24,7 @@ function s:Ctags()
     redraw!
     redrawstatus!
     redrawtabline
+    echo "c-tagged"
 endfunction
 " ---
 nnoremap <localleader>k :call <SID>Ctags()<CR>
