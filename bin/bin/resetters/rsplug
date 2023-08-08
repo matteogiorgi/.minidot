@@ -16,6 +16,8 @@
 #     SIGNIFY    https://github.com/mhinz/vim-signify
 #     ALE        https://github.com/dense-analysis/ale
 #     COPILOT    https://github.com/github/copilot.vim
+#
+# Vim 9.0+ required
 
 
 
