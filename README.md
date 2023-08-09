@@ -2,7 +2,7 @@
 
 This repo contains a streamlined configuration of my dotfiles, designed to work with any [Debian](https://www.debian.org/download)/[Ubuntu](https://ubuntu.com/#download) distribution or within a Linux subsystem, such as the [Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or the [ChromeOS LDE](https://support.google.com/chromebook/answer/9145439?hl=en).
 
-Minidot offers a ready-to-use, batteries-included work environment but if you need [more gear](https://apps.gnome.org/), you can always use `apt`/[`snap`](https://snapcraft.io/docs/installing-snapd) or download any `.deb` package and install it via `dpkg`.
+Minidot offers a ready-to-use, batteries-included work environment but if you need [more gear](https://apps.gnome.org/), you can always use `apt`/[`snap`](https://snapcraft.io/docs/installing-snapd) or download any deb package and install it via `dpkg`.
 
 <img src="vim.png" width="100%">
 
