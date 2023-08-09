@@ -193,10 +193,11 @@ PLUGIN="${START}/ale"
 _reset
 
 
-# node >= 16 is a prerequisite
-# for github-copilot plugin
+# (v:version >= 900) and (node >= 16)
+# are prerequisite for copilot plugin
 # ---
-if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
+if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" &&
+      -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
     printf "\n"
     OPERATION="RESETTING COPILOT"
     REPOSITORY="https://github.com/github/copilot.vim"
