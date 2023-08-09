@@ -21,7 +21,7 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 
 
 
-## More useful tools
+## Other useful tools
 
 - [Sublime-Text](https://www.sublimetext.com/docs/linux_repositories.html)
 - [Sublime-Merge](https://www.sublimemerge.com/docs/linux_repositories)
