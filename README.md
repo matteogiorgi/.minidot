@@ -18,7 +18,7 @@ What is wrong mate, you are not quite comfortable with such a minimal-giga-chad 
 - [Visual-Studio-Code](https://code.visualstudio.com/Download)
 - [Visual-Studio-Code-Insiders](https://code.visualstudio.com/insiders/)
 - [Google-Chrome](https://www.google.com/chrome/)
-- [Brave](https://brave.com/linux/)
+- [Brave-Browser](https://brave.com/linux/)
 - [Extension-Manager](https://github.com/mjakeman/extension-manager#-installing)
 - [Input-Remapper](https://github.com/sezanzeb/input-remapper#installation)
 
