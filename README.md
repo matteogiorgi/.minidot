@@ -1,4 +1,4 @@
-# Super-portable Gnu/Linux setup
+# Your ultimate Gnu/Linux setup
 
 This repo contains a mini configuration of my dotfiles (hence *minidot*). They are meant to be used alongside a vanilla install of [Debian](https://www.debian.org/download)/[Ubuntu](https://ubuntu.com/#download) or inside a linux subsystem such as the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) or the [ChromeOS Linux Development Environment](https://support.google.com/chromebook/answer/9145439?hl=en). All is organized using [GNU Stow](https://www.gnu.org/software/stow/) and the code is in good order and well readable but there wont be no more than the bare essentials.
 
