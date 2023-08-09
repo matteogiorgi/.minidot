@@ -81,7 +81,7 @@ if &rtp =~ 'fugitive'
         " ---
         if a:arg == 'diffsplit'
             execute 'tabnew %'
-            execute 'Gvdiffsplit HEAD'
+            execute 'Gdiffsplit HEAD'
         elseif a:arg == 'diff'
             execute 'Git diff HEAD'
             execute 'wincmd T'
