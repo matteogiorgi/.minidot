@@ -96,6 +96,11 @@ if &rtp =~ 'fugitive'
         endif
     endfunction
     " ---
+    augroup fugitive_maps
+        autocmd!
+        autocmd BufEnter fugitive://* nmap <buffer><expr> <silent><CR> ''
+    augroup end
+    " ---
     nnoremap <leader>g :call <SID>GitMe('diffsplit')<CR>
     nnoremap <leader>G :call <SID>GitMe('diff')<CR>
     nnoremap <localleader>g :call <SID>GitMe('blame')<CR>
