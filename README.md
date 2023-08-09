@@ -1,8 +1,12 @@
 # Your ultimate Gnu/Linux setup
 
-This repo contains a streamlined configuration of my dotfiles, aptly named *minidot*. It's designed to work seamlessly with a fresh install of [Debian](https://www.debian.org/download)/[Ubuntu](https://ubuntu.com/#download) or within a Linux subsystem, such as the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) or the [ChromeOS Linux Development Environment](https://support.google.com/chromebook/answer/9145439?hl=en).
+This repo contains a streamlined configuration of my dotfiles, designed to work with a vanilla install of [Debian](https://www.debian.org/download)/[Ubuntu](https://ubuntu.com/#download) or within a Linux subsystem, such as the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) or the [ChromeOS Linux Development Environment](https://support.google.com/chromebook/answer/9145439?hl=en).
 
-Minidot offers a ready-to-use, batteries-included work environment but if you feel the need to add [more gear](https://apps.gnome.org/), you can always use `apt`/[`snap`](https://snapcraft.io/docs/installing-snapd) or download any `.deb` package and install it via `dpkg`.
+Minidot offers a ready-to-use, batteries-included work environment but if you need [more gear](https://apps.gnome.org/), you can always use `apt`/[`snap`](https://snapcraft.io/docs/installing-snapd) or download any `.deb` package and install it via `dpkg`.
+
+<img src="vim.png" width="100%">
+
+## Extra tools
 
 - [Sublime-Text](https://www.sublimetext.com/docs/linux_repositories.html)
 - [Sublime-Merge](https://www.sublimemerge.com/docs/linux_repositories)
@@ -13,12 +17,10 @@ Minidot offers a ready-to-use, batteries-included work environment but if you fe
 - [Extension-Manager](https://github.com/mjakeman/extension-manager#-installing)
 - [Input-Remapper](https://github.com/sezanzeb/input-remapper#installation)
 
-<img src="vim.png" width="100%">
 
 
 
-
-## Packages
+## Packages included
 
 ```
 git curl wget stow htop xclip trash-cli fzf ripgrep bat chafa poppler-utils fonts-firacode
