@@ -2,9 +2,9 @@
 
 This repo contains a mini configuration of my dotfiles (hence *minidot*). It is meant to be used alongside a vanilla install of [Debian](https://www.debian.org/download)/[Ubuntu](https://ubuntu.com/#download) or inside a linux subsystem such as the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) or the [ChromeOS Linux Development Environment](https://support.google.com/chromebook/answer/9145439?hl=en).
 
-There are setup and restore scripts to quickly install/uninstall the all thing (time is precious), plus all is organized using [GNU Stow](https://www.gnu.org/software/stow/) so you can easily do your customization later. The code is in good order and well readable but take into account there wont be no more than the bare essentials.
+There are setup and restore scripts to quickly install/uninstall (time is precious), plus the all thing is organized using [GNU Stow](https://www.gnu.org/software/stow/) so you can easily do your customization later. The code is in good order and well readable but take into account there wont be no more than the bare essentials.
 
-Minidot is a ready-2-go, batteries-included, blazingly-fast, ultra-lightweight work environment and you do not need any extra bloat to be productive, but if you really feel the urge to add [more gear](https://apps.gnome.org/), you can always rely on `apt` (or [`snap`](https://snapcraft.io/docs/installing-snapd)) or download any deb package and install it through `dpkg`.
+Minidot is a ready-2-go, batteries-included, blazingly-fast, ultra-lightweight work environment and you should not need any extra bloat to be productive, but if you really feel the urge to add [more gear](https://apps.gnome.org/), you can always rely on `apt` (or [`snap`](https://snapcraft.io/docs/installing-snapd)) or download any deb package and install it through `dpkg`.
 
 <img src="vim.png" width="100%">
 
@@ -13,7 +13,7 @@ Minidot is a ready-2-go, batteries-included, blazingly-fast, ultra-lightweight w
 
 ## Happy?
 
-What is wrong mate, you are not quite comfortable with such a minimal-giga-chad workflow? Do you fancy some extra-tools? All right then, do not choke on your double-soy-latte-macchiato! Put it down and take a look at this stuff, you might find them useful:
+Do not tell me you are not comfortable with such a minimal-giga-chad workflow. You are? Keep calm and do not choke on your double-soy-latte-macchiato, take a look at this stuff, you might find them useful:
 
 - [Sublime-Text](https://www.sublimetext.com/docs/linux_repositories.html)
 - [Sublime-Merge](https://www.sublimemerge.com/docs/linux_repositories)
