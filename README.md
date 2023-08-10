@@ -23,4 +23,4 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 
 ## Other useful tools
 
-[Sublime-Text](https://www.sublimetext.com/docs/linux_repositories.html), [Sublime-Merge](https://www.sublimemerge.com/docs/linux_repositories), [Visual-Studio-Code](https://code.visualstudio.com/Download), [Visual-Studio-Code-Insiders](https://code.visualstudio.com/insiders/), [Google-Chrome](https://www.google.com/chrome/), [Brave-Browser](https://brave.com/linux/), [Extension-Manager](https://github.com/mjakeman/extension-manager#-installing), [Input-Remapper](https://github.com/sezanzeb/input-remapper#installation).
+[Sublime-Text](https://www.sublimetext.com/docs/linux_repositories.html) - [Sublime-Merge](https://www.sublimemerge.com/docs/linux_repositories) - [Visual-Studio-Code](https://code.visualstudio.com/Download) - [Visual-Studio-Code-Insiders](https://code.visualstudio.com/insiders/) - [Google-Chrome](https://www.google.com/chrome/) - [Brave-Browser](https://brave.com/linux/) - [Extension-Manager](https://github.com/mjakeman/extension-manager#-installing) - [Input-Remapper](https://github.com/sezanzeb/input-remapper#installation)
