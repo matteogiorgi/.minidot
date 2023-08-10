@@ -147,7 +147,7 @@ if &rtp =~ 'copilot'
         endif
     endfunction
     " ---
-    let g:copilot_enabled = v:false
+    let g:copilot_enabled = v:true
     nnoremap <leader>a :Copilot panel<CR>
     nnoremap <leader>A :call <SID>ToggleCopilot()<CR>
     " ---
