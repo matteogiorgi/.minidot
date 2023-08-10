@@ -4,12 +4,12 @@
 /*
 !/bash
 !/bin
+!/fzf
 !/tmux
 !/vim
-!/bookmarks.html
+!/DOCS.md
 !/.gitignore
 !/LICENSE
-!/MANUAL
 !/README.md
 !/restore.sh
 !/setup.sh
