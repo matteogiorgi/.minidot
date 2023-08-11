@@ -23,4 +23,3 @@ alias unstow="stow -D"
 
 # functions
 alias fjump="_fjump"
-alias xshow="_xshow"
