@@ -65,6 +65,8 @@ O = ["open_above", "normal_mode"]
 # Muscle memory
 "{" = ["goto_prev_paragraph", "collapse_selection"]
 "}" = ["goto_next_paragraph", "collapse_selection"]
+"C-p" = ["goto_prev_paragraph", "collapse_selection"]
+"C-n" = ["goto_next_paragraph", "collapse_selection"]
 0 = "goto_line_start"
 "$" = "goto_line_end"
 "^" = "goto_first_nonwhitespace"
@@ -192,7 +194,7 @@ EOF
 ###############
 
 cat 2>/dev/null > $HELIX/themes/vlix.toml <<-EOF
-"ui.background"             = {  }
+"ui.background"             = { bg = "my_black" }
 "ui.menu"                   = { fg = "my_white", bg = "my_gray2" }
 "ui.menu.selected"          = { fg = "my_gray2", bg = "my_gray5" }
 "ui.linenr"                 = { fg = "my_gray3" }
@@ -256,7 +258,7 @@ cat 2>/dev/null > $HELIX/themes/vlix.toml <<-EOF
 "error"            = "my_red"
 
 [palette]
-my_black      = "#151515"  # Cursorline
+my_black      = "#111111"  # Cursorline
 my_gray0      = "#000000"  # Default Background
 my_gray1      = "#0e0e0e"  # Ruler
 my_gray2      = "#1a1a1a"  # Lighter Background (Used for status bars, line number and folding marks)
@@ -284,14 +286,10 @@ EOF
 ###############
 
 if [[ -x "$(command -v hx)" ]]; then
-    hx "$HELIX/config.toml" "$HELIX/themes/vlix.toml"
-    # ---
     printf "\n"
     printf "═════════ We're done here ════════\n"
     printf "Enjoy your post-modern text editor\n"
 else
-    "${EDITOR:=vi}" -p "$HELIX/config.toml" "$HELIX/themes/vlix.toml"
-    # ---
     printf "\n"
     printf "═══════ Warning ═══════\n"
     printf "Helix not yet installed\n"
