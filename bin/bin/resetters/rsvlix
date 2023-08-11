@@ -290,7 +290,7 @@ if [[ -x "$(command -v hx)" ]]; then
     printf "═════════ We're done here ════════\n"
     printf "Enjoy your post-modern text editor\n"
 else
-    "{$EDITOR:=vi}" "$HELIX/config.toml" "$HELIX/themes/vielix.toml"
+    "${EDITOR:=vi}" "$HELIX/config.toml" "$HELIX/themes/vielix.toml"
     # ---
     printf "\n"
     printf "═══════ Warning ═══════\n"
