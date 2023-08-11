@@ -221,7 +221,7 @@ command! RemoveSpaces
 
 
 " Keymaps {{{
-nnoremap <silent>^ :ToggleHemisu<CR>
+nnoremap <localleader>h :ToggleHemisu<CR>
 nnoremap <localleader>w :ToggleWrap<CR>
 nnoremap <localleader>c :ClearSearch<CR>
 nnoremap <localleader>r :RemoveSpaces<CR>

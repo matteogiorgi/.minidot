@@ -60,6 +60,7 @@
 !/bin/bin/resetters/rsmime
 !/bin/bin/resetters/rsplug
 !/bin/bin/resetters/rssubl
+!/bin/bin/resetters/vielix
 
 /bin/bin/resetters/code/*
 !/bin/bin/resetters/code/vspacecode-settings.json
