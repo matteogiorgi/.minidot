@@ -29,7 +29,7 @@ mkdir -p "$HELIX/themes"
 ################
 
 cat 2>/dev/null > $HELIX/config.toml <<-EOF
-theme = "vielix"
+theme = "vlix"
 
 [editor]
 line-number = "relative"
@@ -191,7 +191,7 @@ EOF
 ### Reset theme
 ###############
 
-cat 2>/dev/null > $HELIX/themes/vielix.toml <<-EOF
+cat 2>/dev/null > $HELIX/themes/vlix.toml <<-EOF
 "ui.background"             = {  }
 "ui.menu"                   = { fg = "my_white", bg = "my_gray2" }
 "ui.menu.selected"          = { fg = "my_gray2", bg = "my_gray5" }
