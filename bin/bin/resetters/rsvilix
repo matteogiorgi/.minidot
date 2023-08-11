@@ -194,7 +194,7 @@ EOF
 ###############
 
 cat 2>/dev/null > $HELIX/themes/vilix.toml <<-EOF
-"ui.background"             = { bg = "my_black" }
+"ui.background"             = { bg = "my_gray0" }
 "ui.menu"                   = { fg = "my_white", bg = "my_gray2" }
 "ui.menu.selected"          = { fg = "my_gray2", bg = "my_gray5" }
 "ui.linenr"                 = { fg = "my_gray3" }
@@ -258,8 +258,8 @@ cat 2>/dev/null > $HELIX/themes/vilix.toml <<-EOF
 "error"            = "my_red"
 
 [palette]
-my_black      = "#111111"  # Cursorline
-my_gray0      = "#000000"  # Default Background
+my_black      = "#151515"  # Cursorline
+my_gray0      = "#111111"  # Default Background
 my_gray1      = "#0e0e0e"  # Ruler
 my_gray2      = "#1a1a1a"  # Lighter Background (Used for status bars, line number and folding marks)
 my_gray3      = "#323232"  # Selection Background
