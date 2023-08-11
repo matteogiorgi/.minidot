@@ -284,13 +284,13 @@ EOF
 ###############
 
 if [[ -x "$(command -v hx)" ]]; then
-    hx "$HELIX/config.toml" "$HELIX/themes/vielix.toml"
+    hx "$HELIX/config.toml" "$HELIX/themes/vlix.toml"
     # ---
     printf "\n"
     printf "═════════ We're done here ════════\n"
     printf "Enjoy your post-modern text editor\n"
 else
-    "${EDITOR:=vi}" "$HELIX/config.toml" "$HELIX/themes/vielix.toml"
+    "${EDITOR:=vi}" -p "$HELIX/config.toml" "$HELIX/themes/vlix.toml"
     # ---
     printf "\n"
     printf "═══════ Warning ═══════\n"
