@@ -51,6 +51,7 @@ display-inlay-hints = true
 # Quick iteration on config changes
 C-o = ":config-open"
 C-r = ":config-reload"
+C-m = ":open ~/.config/helix/themes/vilix.toml"
 
 # Some nice Helix stuff
 C-h = "select_prev_sibling"
