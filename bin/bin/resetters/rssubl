@@ -46,11 +46,6 @@ cat 2>/dev/null > $STEXT/Preferences.sublime-settings <<-EOF
     "hot_exit": "only_on_quit",
     "sublime_merge_path": "~/.local/bin/smerge",
     "preview_on_click": false,
-    "vintage_start_in_command_mode": true,
-    "vintage_use_clipboard": true,
-    "vintage_ctrl_keys": true,
-    "relative_line_numbers": true,
-    "ignored_packages": [],
 }
 EOF
 
