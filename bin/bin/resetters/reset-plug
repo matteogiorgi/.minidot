@@ -4,7 +4,7 @@
 #     [--vim9] resets all Vim plugins (up to version 9)
 #     [--rice] rice your plugme.vim config
 #     [--zero] remove all plugins (rm -rf ~/.vim/pack)
-#
+
 # Here the full set of plugins installed by this script:
 #     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
 #     FUGITIVE   https://github.com/tpope/vim-fugitive

@@ -7,7 +7,7 @@
 #     [--code-insiders] resets VSCode Insiders
 #     [--novi-insiders] resets VSCode Insiders without Vim goodies
 #     [--zero-insiders] removes all VSCode Insiders configurations (rm -rf ~/.config/Code\ -\ Insiders/User)
-#
+
 # Here the full set of extensions installed by this script:
 # (for more information visit https://vspacecode.github.io/)
 #     VSPACECODE   https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode

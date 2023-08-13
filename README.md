@@ -2,7 +2,7 @@
 
 This repo contains a streamlined configuration of my dotfiles, designed to work with any Linux distribution based on [Debian](https://www.debian.org/download)/[Ubuntu](https://ubuntu.com/#download) or within a Linux subsystem, such as [Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or [ChromeOS LDE](https://support.google.com/chromebook/answer/9145439?hl=en).
 
-Minidot offers a ready-to-use, batteries-included work environment but if you need [more gear](https://apps.gnome.org/), you can always rely on `apt`/[`snap`](https://snapcraft.io/docs/installing-snapd)/[`brew`](https://docs.brew.sh/Homebrew-on-Linux) or download any deb package and install it via `dpkg`.
+Minidot offers a ready-to-use, batteries-included work environment but if you need more gear, you can always rely on `apt` or download any deb package and install it via `dpkg`.
 
 <img src="vim.png" width="100%">
 
@@ -21,6 +21,56 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 
 
 
-## Other useful tools
+#### Gnome-tools
 
-[`sublime-text`](https://www.sublimetext.com/docs/linux_repositories.html), [`sublime-merge`](https://www.sublimemerge.com/docs/linux_repositories), [`visual-studio-code`](https://code.visualstudio.com/Download), [`visual-studio-code-insiders`](https://code.visualstudio.com/insiders/), [`helix`](https://docs.helix-editor.com/install.html#linux), [`brave`](https://brave.com/linux/), [`chromium`](https://www.chromium.org/getting-involved/download-chromium/), [`google-chrome`](https://www.google.com/chrome/), [`tabby`](https://github.com/Eugeny/tabby/releases), [`terminator`](https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md), [`extension-manager`](https://github.com/mjakeman/extension-manager#-installing), [`input-remapper`](https://github.com/sezanzeb/input-remapper#installation).
+- [GNOME Core Apps](https://apps.gnome.org/)
+- [Extension Manager](https://github.com/mjakeman/extension-manager#-installing)
+- [Input Remapper](https://github.com/sezanzeb/input-remapper#installation)
+
+
+
+
+#### Package-managers
+
+- [Snap](https://snapcraft.io/docs/installing-snapd)
+- [Nix](https://nixos.org/download)
+- [Brew](https://docs.brew.sh/Homebrew-on-Linux)
+
+
+
+
+#### Terminals
+
+- [Tabby](https://github.com/Eugeny/tabby/releases)
+- [Byobu](https://www.byobu.org/downloads)
+- [Zellij](https://zellij.dev/documentation/installation)
+
+
+
+
+#### Text-editors
+
+- [Visual Studio Code](https://code.visualstudio.com/Download)
+- [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/)
+- [VSCodium](https://vscodium.com/#install)
+- [Sublime Text](https://www.sublimetext.com/docs/linux_repositories.html)
+- [Helix](https://docs.helix-editor.com/install.html#linux)
+- [Neovim](https://github.com/nvim-lua/kickstart.nvim#installation)/[Lazyvim](https://www.lazyvim.org/installation)
+
+
+
+
+#### Git-clients
+
+- [Gitkraken](https://www.gitkraken.com/download)
+- [Sublime Merge](https://www.sublimemerge.com/docs/linux_repositories)
+- [Lazygit](https://github.com/jesseduffield/lazygit#installation)
+
+
+
+
+#### Web-browsers
+
+- [Brave](https://brave.com/linux/)
+- [Google Chrome](https://www.google.com/chrome/)
+- [Chromium](https://www.chromium.org/getting-involved/download-chromium/),
