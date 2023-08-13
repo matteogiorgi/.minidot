@@ -21,34 +21,26 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 
 
 
-#### Gnome-tools
+### Package-managers
 
-- [GNOME Core Apps](https://apps.gnome.org/)
-- [Extension Manager](https://github.com/mjakeman/extension-manager#-installing)
-- [Input Remapper](https://github.com/sezanzeb/input-remapper#installation)
-
-
-
-
-#### Package-managers
-
-- [Snap](https://snapcraft.io/docs/installing-snapd)
 - [Nix](https://nixos.org/download)
-- [Brew](https://docs.brew.sh/Homebrew-on-Linux)
+- [Snapcraft](https://snapcraft.io/docs/installing-snapd)
+- [Homebrew](https://docs.brew.sh/Homebrew-on-Linux)
 
 
 
 
-#### Terminals
+### Terminals
 
 - [Tabby](https://github.com/Eugeny/tabby/releases)
+- [Hyper](https://hyper.is/#installation)
 - [Byobu](https://www.byobu.org/downloads)
 - [Zellij](https://zellij.dev/documentation/installation)
 
 
 
 
-#### Text-editors
+### Text-editors
 
 - [Visual Studio Code](https://code.visualstudio.com/Download)
 - [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/)
@@ -60,7 +52,7 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 
 
 
-#### Git-clients
+### Git-clients
 
 - [Gitkraken](https://www.gitkraken.com/download)
 - [Sublime Merge](https://www.sublimemerge.com/docs/linux_repositories)
@@ -69,8 +61,17 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 
 
 
-#### Web-browsers
+### Web-browsers
 
 - [Brave](https://brave.com/linux/)
 - [Google Chrome](https://www.google.com/chrome/)
-- [Chromium](https://www.chromium.org/getting-involved/download-chromium/),
+- [Chromium](https://www.chromium.org/getting-involved/download-chromium/)
+
+
+
+
+### Gnome-tools
+
+- [GNOME Core Apps](https://apps.gnome.org/)
+- [Extension Manager](https://github.com/mjakeman/extension-manager#-installing)
+- [Input Remapper](https://github.com/sezanzeb/input-remapper#installation)
