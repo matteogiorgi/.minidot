@@ -12,8 +12,9 @@ Minidot offers a ready-to-use, batteries-included work environment but if you ne
 ## Packages included
 
 ```
-git curl wget stow xclip trash-cli fzf ripgrep bat chafa poppler-utils pandoc wamerican witalian htop
-gnome-keyring dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-mononoki fonts-firacode
+git curl wget stow xclip trash-cli fzf ripgrep bat chafa poppler-utils pandoc wamerican witalian
+dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-mononoki fonts-firacode htop
+gnome-keyring
 ```
 
 For a detailed list of all the available packages, check out Debian and Ubuntu related pages [here](https://www.debian.org/distrib/packages) and [here](https://packages.ubuntu.com).

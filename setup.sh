@@ -159,8 +159,6 @@ sudo apt-get install -qq -y \
     pandoc \
     wamerican \
     witalian \
-    htop \
-    gnome-keyring \
     dash \
     bash \
     bash-completion \
@@ -168,7 +166,9 @@ sudo apt-get install -qq -y \
     vim-gtk3 \
     exuberant-ctags \
     fonts-mononoki \
-    fonts-firacode
+    fonts-firacode \
+    htop \
+    gnome-keyring
 
 
 

@@ -151,12 +151,12 @@ sudo apt-get purge -qq -y \
     pandoc \
     wamerican \
     witalian \
-    htop \
     tmux \
     vim-gtk3 \
     exuberant-ctags \
     fonts-mononoki \
-    fonts-firacode
+    fonts-firacode \
+    htop
 
 
 
