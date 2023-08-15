@@ -159,8 +159,8 @@ sudo apt-get install -qq -y \
     pandoc \
     wamerican \
     witalian \
-    gnome-keyring \
     htop \
+    gnome-keyring \
     dash \
     bash \
     bash-completion \

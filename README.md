@@ -12,9 +12,8 @@ Minidot offers a ready-to-use, batteries-included work environment but if you ne
 ## Packages included
 
 ```
-git curl wget stow xclip trash-cli fzf ripgrep bat chafa poppler-utils pandoc
-wamerican witalian gnome-keyring htop dash bash bash-completion tmux vim-gtk3
-exuberant-ctags fonts-mononoki fonts-firacode
+git curl wget stow xclip trash-cli fzf ripgrep bat chafa poppler-utils pandoc wamerican witalian htop
+gnome-keyring dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-mononoki fonts-firacode
 ```
 
 For a detailed list of all the available packages, check out Debian and Ubuntu related pages [here](https://www.debian.org/distrib/packages) and [here](https://packages.ubuntu.com).
@@ -24,4 +23,4 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 
 ## More tools
 
-[`tilix`](https://gnunn1.github.io/tilix-web/), [`terminator`](https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md), [`helix-editor`](https://docs.helix-editor.com/install.html#linux), [`visual-studio-code`](https://code.visualstudio.com/Download), [`visual-studio-code-insiders`](https://code.visualstudio.com/insiders/), [`sublime-text`](https://www.sublimetext.com/docs/linux_repositories.html), [`sublime-merge`](https://www.sublimemerge.com/docs/linux_repositories), [`gitkraken`](https://www.gitkraken.com/download), [`brave-browser`](https://brave.com/linux/), [`chromium-browser`](https://chromium.woolyss.com/download/en/#linux), [`google-chrome`](https://www.google.com/chrome/), [`extension-manager`](https://github.com/mjakeman/extension-manager#-installing), [`input-remapper`](https://github.com/sezanzeb/input-remapper#installation).
+[`helix-editor`](https://docs.helix-editor.com/install.html#linux), [`visual-studio-code`](https://code.visualstudio.com/Download), [`visual-studio-code-insiders`](https://code.visualstudio.com/insiders/), [`sublime-text`](https://www.sublimetext.com/docs/linux_repositories.html), [`sublime-merge`](https://www.sublimemerge.com/docs/linux_repositories), [`gitkraken`](https://www.gitkraken.com/download), [`brave-browser`](https://brave.com/linux/), [`chromium-browser`](https://chromium.woolyss.com/download/en/#linux), [`google-chrome`](https://www.google.com/chrome/), [`extension-manager`](https://github.com/mjakeman/extension-manager#-installing), [`input-remapper`](https://github.com/sezanzeb/input-remapper#installation), [`tilix`](https://gnunn1.github.io/tilix-web/), [`terminator`](https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md).
