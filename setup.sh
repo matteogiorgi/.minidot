@@ -149,26 +149,26 @@ sudo apt-get install -qq -y \
     curl \
     wget \
     stow \
-    htop \
     xclip \
     trash-cli \
     fzf \
     ripgrep \
     bat \
     chafa \
-    xdo \
     poppler-utils \
-    fonts-firacode \
     pandoc \
     wamerican \
     witalian \
     gnome-keyring \
+    htop \
     dash \
     bash \
     bash-completion \
     tmux \
     vim-gtk3 \
-    exuberant-ctags
+    exuberant-ctags \
+    fonts-mononoki \
+    fonts-firacode
 
 
 
