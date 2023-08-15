@@ -74,7 +74,8 @@ if &rtp =~ 'fugitive'
             return
         endif
         " ---
-        if bufname('%') =~ '^fugitive://' || systemlist('git rev-parse --is-inside-work-tree')[0] != 'true'
+        if bufname('%') =~ '^fugitive://' || bufname('%') =~ '^copilot://'
+                    \ || systemlist('git rev-parse --is-inside-work-tree')[0] != 'true'
             echo "not a git repo"
             return
         endif
