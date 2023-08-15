@@ -151,12 +151,12 @@ sudo apt-get install -qq -y \
     stow \
     xclip \
     trash-cli \
+    htop \
     fzf \
     ripgrep \
     bat \
     chafa \
     poppler-utils \
-    pandoc \
     wamerican \
     witalian \
     dash \
@@ -167,7 +167,7 @@ sudo apt-get install -qq -y \
     exuberant-ctags \
     fonts-mononoki \
     fonts-firacode \
-    htop \
+    pandoc \
     gnome-keyring
 
 

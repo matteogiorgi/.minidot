@@ -143,12 +143,12 @@ sudo apt-get purge -qq -y \
     stow \
     xclip \
     trash-cli \
+    htop \
     fzf \
     ripgrep \
     bat \
     chafa \
     poppler-utils \
-    pandoc \
     wamerican \
     witalian \
     tmux \
@@ -156,7 +156,7 @@ sudo apt-get purge -qq -y \
     exuberant-ctags \
     fonts-mononoki \
     fonts-firacode \
-    htop
+    pandoc
 
 
 

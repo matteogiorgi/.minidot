@@ -12,8 +12,8 @@ Minidot offers a ready-to-use, batteries-included work environment but if you ne
 ## Packages included
 
 ```
-git curl wget stow xclip trash-cli fzf ripgrep bat chafa poppler-utils pandoc wamerican witalian
-dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-mononoki fonts-firacode htop
+git curl wget stow xclip trash-cli htop fzf ripgrep bat chafa poppler-utils wamerican witalian
+dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-mononoki fonts-firacode pandoc
 gnome-keyring
 ```
 
