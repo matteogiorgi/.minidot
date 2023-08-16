@@ -7,7 +7,6 @@
 "
 " Simple viml-script that sets basic
 " configuration for installed plugins.
-"
 " Vim 9.0+ required
 
 
@@ -34,6 +33,8 @@ if &rtp =~ 'undotree'
     let g:undotree_SetFocusWhenToggle = 1
     let g:undotree_RelativeTimestamp = 0
     let g:undotree_HelpLine = 0
+    " ---
+    nnoremap <localleader>u :UndotreeToggle<CR>
 endif
 " }}}
 
@@ -46,6 +47,7 @@ if &rtp =~ 'tagbar'
     let g:tagbar_autoclose = 1
     " ---
     command! Ctags execute 'silent !ctags -R --exclude=.git'
+    nnoremap <localleader>t :TagbarToggle<CR>
 endif
 " }}}
 
