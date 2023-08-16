@@ -226,9 +226,6 @@ nnoremap <localleader>w :ToggleWrap<CR>
 nnoremap <localleader>c :ClearSearch<CR>
 nnoremap <localleader>r :RemoveSpaces<CR>
 " ---
-tnoremap <silent><C-q> <C-\><C-n>
-nnoremap <leader>w <C-w>
-" ---
 vnoremap <silent>H <gv
 vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
@@ -245,12 +242,11 @@ nnoremap <silent><BS> :tabclose<CR>
 nnoremap <silent><C-n> :tabnext<CR>
 nnoremap <silent><C-p> :tabprev<CR>
 " ---
+tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><Tab> :buffer#<CR>
 nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
-" ---
 nnoremap <leader><leader> :Explore<CR>
-vnoremap <leader><leader> :!<Space>
-xnoremap <localleader><localleader> :s///gc<Left><Left><Left>
+nnoremap <leader>w <C-w>
 " ---
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt

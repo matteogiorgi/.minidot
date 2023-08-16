@@ -6,7 +6,7 @@
 "                |___/
 "
 " Simple viml-script that sets a basic
-" configuration for all the plugins, let's go!
+" configuration for all the plugins.
 "
 " Vim 9.0+ required
 
@@ -27,40 +27,7 @@ function s:Ctags()
     echo "c-tagged"
 endfunction
 " ---
-nnoremap <localleader>k :call <SID>Ctags()<CR>
-" }}}
-
-
-
-
-" CTRLP CONFIG {{{
-if &rtp =~ 'ctrlp'
-    let g:ctrlp_map = ''
-    let g:ctrlp_use_caching = 1
-    let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_show_hidden = 1
-    let g:ctrlp_working_path_mode = 'ra'
-    let g:ctrlp_user_command = [
-                \      '.git',
-                \      'cd %s && git ls-files -co --exclude-standard'
-                \ ]
-    let g:ctrlp_custom_ignore = {
-                \      'dir':  '\v[\/]\.(git|hg|svn)$',
-                \      'file': '\v\.(exe|so|dll)$'
-                \ }
-    " ---
-    nnoremap <leader>f :CtrlP<CR>
-    nnoremap <leader>F :CtrlPMixed<CR>
-    nnoremap <leader>h :CtrlPMRUFiles<CR>
-    nnoremap <leader>H :CtrlPUndo<CR>
-    nnoremap <leader>j :CtrlPChange<CR>
-    nnoremap <leader>J :CtrlPChangeAll<CR>
-    nnoremap <leader>k :CtrlPBufTag<CR>
-    nnoremap <leader>K :CtrlPBufTagAll<CR>
-    nnoremap <leader>l :CtrlPLine %<CR>
-    nnoremap <leader>L :CtrlPLine<CR>
-    nnoremap <leader><Tab> :CtrlPBuffer<CR>
-endif
+command! Ctags call <SID>Ctags()
 " }}}
 
 
@@ -102,10 +69,10 @@ if &rtp =~ 'fugitive'
         autocmd BufEnter fugitive://* nmap <buffer><expr> <silent><CR> ''
     augroup end
     " ---
-    nnoremap <leader>g :call <SID>GitMe('diffsplit')<CR>
-    nnoremap <leader>G :call <SID>GitMe('diff')<CR>
-    nnoremap <localleader>g :call <SID>GitMe('blame')<CR>
-    nnoremap <localleader>G :call <SID>GitMe('log')<CR>
+    nnoremap <leader>gg :call <SID>GitMe('diffsplit')<CR>
+    nnoremap <leader>gd :call <SID>GitMe('diff')<CR>
+    nnoremap <leader>gb :call <SID>GitMe('blame')<CR>
+    nnoremap <leader>gl :call <SID>GitMe('log')<CR>
 endif
 " }}}
 
@@ -114,16 +81,43 @@ endif
 
 " ALE CONFIG {{{
 if &rtp =~ 'ale'
+    function! s:ToggleALE()
+        if g:ale_enabled
+            execute 'ALEDisable'
+            echo "ALE disabled"
+        else
+            execute 'ALEEnable'
+            echo "ALE enabled"
+        endif
+    endfunction
+    " ---
     let g:ale_completion_enabled = 1
     set omnifunc=ale#completion#OmniFunc
     " ---
     inoremap <silent><C-c> :AleComplete<CR>
     nnoremap <silent>E :ALENext<CR>
     nnoremap <silent>B :ALEPrevious<CR>
-    nnoremap <leader>d :ALEGoToDefinition<CR>
-    nnoremap <leader>D :ALEGoToTypeDefinition<CR>
-    nnoremap <leader>s :ALEFindReferences<CR>
-    nnoremap <leader>S :ALESymbolSearch<Space>
+    nnoremap <leader>aa :call <SID>ToggleALE()<CR>
+    nnoremap <leader>as :ALEFindReferences<CR>
+    nnoremap <leader>ad :ALEGoToDefinition<CR>
+endif
+" }}}
+
+
+
+
+" FUZZYY CONFIG {{{
+if &rtp =~ 'fuzzyy'
+    let g:fuzzyy_menu_matched_hl = 'cursearch'
+    let g:enable_fuzzyy_MRU_files = 1
+    let g:enable_fuzzyy_keymaps = 0
+    " ---
+    nnoremap <silent> <leader>ff :FuzzyFiles<CR>
+    nnoremap <silent> <leader>fg :FuzzyGrep<CR>
+    nnoremap <silent> <leader>fh :FuzzyMRUFiles<CR>
+    nnoremap <silent> <leader>fl :FuzzyInBuffer<CR>
+    nnoremap <silent> <leader>fc :FuzzyCommands<CR>
+    nnoremap <silent> <leader><Tab> :FuzzyBuffers<CR>
 endif
 " }}}
 
@@ -149,8 +143,8 @@ if &rtp =~ 'copilot'
     endfunction
     " ---
     let g:copilot_enabled = v:true
-    nnoremap <leader>a :Copilot panel<CR>
-    nnoremap <leader>A :call <SID>ToggleCopilot()<CR>
+    nnoremap <leader>cc :call <SID>ToggleCopilot()<CR>
+    nnoremap <leader>cs :Copilot panel<CR>
     " ---
     inoremap <silent><C-s> <Plug>(copilot-suggest)
     inoremap <silent><C-d> <Plug>(copilot-dismiss)

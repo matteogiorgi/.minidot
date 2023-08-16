@@ -6,7 +6,6 @@
 #     [--zero] remove all plugins (rm -rf ~/.vim/pack)
 
 # Here the full set of plugins installed by this script:
-#     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
 #     FUGITIVE   https://github.com/tpope/vim-fugitive
 #     COMMENTARY https://github.com/tpope/vim-commentary
 #     SURROUND   https://github.com/tpope/vim-surround
@@ -15,6 +14,7 @@
 #     CONTEXT    https://github.com/wellle/context.vim
 #     SIGNIFY    https://github.com/mhinz/vim-signify
 #     ALE        https://github.com/dense-analysis/ale
+#     FUZZYY     https://github.com/Donaldttt/fuzzyy
 #     COPILOT    https://github.com/github/copilot.vim
 #
 # Vim 9.0+ required
@@ -131,13 +131,6 @@ START="${VIM}/pack/plugins/start"
 ### Reset configurations
 ########################
 
-OPERATION="RESETTING CTRLP"
-REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim"
-PLUGIN="${START}/ctrlp"
-_reset
-
-
-printf "\n"
 OPERATION="RESETTING FUGITIVE"
 REPOSITORY="https://github.com/tpope/vim-fugitive"
 PLUGIN="${START}/fugitive"
@@ -193,16 +186,24 @@ PLUGIN="${START}/ale"
 _reset
 
 
-# (v:version >= 900) and (node >= 16)
-# are prerequisite for copilot plugin
+# if v:version >= 900
 # ---
-if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" &&
-      -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
+if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]]; then
     printf "\n"
-    OPERATION="RESETTING COPILOT"
-    REPOSITORY="https://github.com/github/copilot.vim"
-    PLUGIN="${START}/copilot"
+    OPERATION="RESETTING FUZZYY"
+    REPOSITORY="https://github.com/Donaldttt/fuzzyy"
+    PLUGIN="${START}/fuzzyy"
     _reset
+
+    # if node >= 16
+    # ---
+    if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
+        printf "\n"
+        OPERATION="RESETTING COPILOT"
+        REPOSITORY="https://github.com/github/copilot.vim"
+        PLUGIN="${START}/copilot"
+        _reset
+    fi
 fi
 
 
