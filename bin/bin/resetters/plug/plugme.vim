@@ -5,8 +5,8 @@
 " |_|   |_|\__,_|\__, |_| |_| |_|\___|
 "                |___/
 "
-" Simple viml-script that sets a basic
-" configuration for all the plugins.
+" Simple viml-script that sets basic
+" configuration for installed plugins.
 "
 " Vim 9.0+ required
 
@@ -15,45 +15,10 @@
 
 " FUGITIVE CONFIG {{{
 if &rtp =~ 'fugitive'
-    function! s:GitMe(arg)
-        if !executable('git')
-            echo "git not installed"
-            return
-        endif
-        " ---
-        if bufname('%') =~ '^fugitive://' || bufname('%') =~ '^copilot://' || bufname('%') =~ '^!bash'
-                    \ || bufname('%') =~ '^undotree_' || bufname('%') =~ '^diffpanel_' || &filetype ==? 'netrw'
-                    \ || systemlist('git rev-parse --is-inside-work-tree')[0] != 'true'
-            echo "not a git repo"
-            return
-        endif
-        " ---
-        if a:arg == 'diffsplit'
-            execute 'tabnew %'
-            execute 'Gdiffsplit'
-        elseif a:arg == 'diff'
-            execute 'Git diff'
-            execute 'wincmd T'
-        elseif a:arg == 'blame'
-            execute 'Git blame'
-            execute 'wincmd T'
-        elseif a:arg == 'log'
-            execute 'Git log --graph --format="%h%d %s %cr"'
-            execute 'wincmd T'
-        else
-            echoerr "invalid argument"
-        endif
-    endfunction
-    " ---
     augroup fugitive_maps
         autocmd!
         autocmd BufEnter fugitive://* nmap <buffer><expr> <silent><CR> ''
     augroup end
-    " ---
-    nnoremap <leader>gg :call <SID>GitMe('diffsplit')<CR>
-    nnoremap <leader>gd :call <SID>GitMe('diff')<CR>
-    nnoremap <leader>gb :call <SID>GitMe('blame')<CR>
-    nnoremap <leader>gl :call <SID>GitMe('log')<CR>
 endif
 " }}}
 
@@ -62,17 +27,6 @@ endif
 
 " UNDOTREE CONFIG {{{
 if &rtp =~ 'undotree'
-    function! s:ToggleUndo()
-        if bufname('%') =~ '^fugitive://' || bufname('%') =~ '^copilot://' || bufname('%') =~ '^!bash'
-                    \ || bufname('%') =~ '^undotree_' || bufname('%') =~ '^diffpanel_' || &filetype ==? 'netrw'
-            echo "not undoable"
-            return
-        endif
-        " ---
-        execute 'tabnew %'
-        execute 'UndotreeShow'
-    endfunction
-    " ---
     let g:undotree_WindowLayout = 2
     let g:undotree_SplitWidth = 40
     let g:undotree_DiffpanelHeight = 15
@@ -80,8 +34,6 @@ if &rtp =~ 'undotree'
     let g:undotree_SetFocusWhenToggle = 1
     let g:undotree_RelativeTimestamp = 0
     let g:undotree_HelpLine = 0
-    " ---
-    command! ToggleUndo call <SID>ToggleUndo()
 endif
 " }}}
 
@@ -90,23 +42,10 @@ endif
 
 " TAGBAR CONFIG {{{
 if &rtp =~ 'tagbar'
-    function s:Ctags()
-        if !executable('ctags')
-            echo "ctags not installed"
-            return
-        endif
-        " ---
-        execute 'silent !ctags -R --exclude=.git'
-        redraw!
-        redrawstatus!
-        redrawtabline
-        echo "c-tagged"
-    endfunction
-    " ---
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
     " ---
-    command! Ctags call <SID>Ctags()
+    command! Ctags execute 'silent !ctags -R --exclude=.git'
 endif
 " }}}
 
@@ -115,25 +54,14 @@ endif
 
 " ALE CONFIG {{{
 if &rtp =~ 'ale'
-    function! s:ToggleALE()
-        if g:ale_enabled
-            execute 'ALEDisable'
-            echo "ALE disabled"
-        else
-            execute 'ALEEnable'
-            echo "ALE enabled"
-        endif
-    endfunction
-    " ---
     let g:ale_completion_enabled = 1
     set omnifunc=ale#completion#OmniFunc
     " ---
     inoremap <silent><C-c> :AleComplete<CR>
     nnoremap <silent>E :ALENext<CR>
     nnoremap <silent>B :ALEPrevious<CR>
-    nnoremap <leader>aa :call <SID>ToggleALE()<CR>
-    nnoremap <leader>as :ALEFindReferences<CR>
-    nnoremap <leader>ad :ALEGoToDefinition<CR>
+    nnoremap <leader>s :ALEFindReferences<CR>
+    nnoremap <leader>d :ALEGoToDefinition<CR>
 endif
 " }}}
 
@@ -146,12 +74,12 @@ if &rtp =~ 'fuzzyy'
     let g:enable_fuzzyy_MRU_files = 1
     let g:enable_fuzzyy_keymaps = 0
     " ---
-    nnoremap <silent> <leader>ff :FuzzyFiles<CR>
-    nnoremap <silent> <leader>fg :FuzzyGrep<CR>
-    nnoremap <silent> <leader>fh :FuzzyMRUFiles<CR>
-    nnoremap <silent> <leader>fl :FuzzyInBuffer<CR>
-    nnoremap <silent> <leader>fc :FuzzyCommands<CR>
-    nnoremap <silent> <leader><Tab> :FuzzyBuffers<CR>
+    nnoremap <silent><leader>f :FuzzyFiles<CR>
+    nnoremap <silent><leader>g :FuzzyGrep<CR>
+    nnoremap <silent><leader>h :FuzzyMRUFiles<CR>
+    nnoremap <silent><leader>j :FuzzyBuffers<CR>
+    nnoremap <silent><leader>k :FuzzyCommands<CR>
+    nnoremap <silent><leader>l :FuzzyInBuffer<CR>
 endif
 " }}}
 
@@ -166,19 +94,8 @@ if &rtp =~ 'copilot'
         return textsuggested ==# '' ? '' : split(textsuggested, '[ .()\[\]{}]\zs')[0]
     endfunction
     " ---
-    function! s:ToggleCopilot()
-        if g:copilot_enabled
-            let g:copilot_enabled = v:false
-            echo "Copilot disabled"
-        else
-            let g:copilot_enabled = v:true
-            echo "Copilot enabled"
-        endif
-    endfunction
-    " ---
     let g:copilot_enabled = v:true
-    nnoremap <leader>cc :call <SID>ToggleCopilot()<CR>
-    nnoremap <leader>cs :Copilot panel<CR>
+    nnoremap <leader>a :Copilot panel<CR>
     " ---
     inoremap <silent><C-s> <Plug>(copilot-suggest)
     inoremap <silent><C-d> <Plug>(copilot-dismiss)
@@ -188,3 +105,5 @@ if &rtp =~ 'copilot'
     inoremap <script><expr> <C-l> <SID>SuggestWord()
 endif
 " }}}
+
+" vim: fdm=marker:sw=2:sts=2:et

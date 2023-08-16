@@ -221,11 +221,6 @@ command! RemoveSpaces
 
 
 " Keymaps {{{
-nnoremap <localleader>h :ToggleHemisu<CR>
-nnoremap <localleader>w :ToggleWrap<CR>
-nnoremap <localleader>c :ClearSearch<CR>
-nnoremap <localleader>r :RemoveSpaces<CR>
-" ---
 vnoremap <silent>H <gv
 vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
@@ -244,8 +239,7 @@ nnoremap <silent><C-p> :tabprev<CR>
 " ---
 tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><Tab> :buffer#<CR>
-nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
-nnoremap <leader><leader> :Explore<CR>
+nnoremap <leader>j :buffers<CR>:buffer<Space>
 nnoremap <leader>w <C-w>
 " ---
 nnoremap <leader>0 0gt
@@ -278,3 +272,5 @@ if has('gui_running')
     endif
 endif
 " }}}
+
+" vim: fdm=marker:sw=2:sts=2:et
