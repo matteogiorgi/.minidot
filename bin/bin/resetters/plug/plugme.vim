@@ -13,26 +13,6 @@
 
 
 
-" CTAGS CONFIG {{{
-function s:Ctags()
-    if !executable('ctags')
-        echo "ctags not installed"
-        return
-    endif
-    " ---
-    execute 'silent !ctags -R --exclude=.git'
-    redraw!
-    redrawstatus!
-    redrawtabline
-    echo "c-tagged"
-endfunction
-" ---
-command! Ctags call <SID>Ctags()
-" }}}
-
-
-
-
 " FUGITIVE CONFIG {{{
 if &rtp =~ 'fugitive'
     function! s:GitMe(arg)
@@ -41,7 +21,8 @@ if &rtp =~ 'fugitive'
             return
         endif
         " ---
-        if bufname('%') =~ '^fugitive://' || bufname('%') =~ '^copilot://'
+        if bufname('%') =~ '^fugitive://' || bufname('%') =~ '^copilot://' || bufname('%') =~ '^!bash'
+                    \ || bufname('%') =~ '^undotree_' || bufname('%') =~ '^diffpanel_' || &filetype ==? 'netrw'
                     \ || systemlist('git rev-parse --is-inside-work-tree')[0] != 'true'
             echo "not a git repo"
             return
@@ -73,6 +54,59 @@ if &rtp =~ 'fugitive'
     nnoremap <leader>gd :call <SID>GitMe('diff')<CR>
     nnoremap <leader>gb :call <SID>GitMe('blame')<CR>
     nnoremap <leader>gl :call <SID>GitMe('log')<CR>
+endif
+" }}}
+
+
+
+
+" UNDOTREE CONFIG {{{
+if &rtp =~ 'undotree'
+    function! s:ToggleUndo()
+        if bufname('%') =~ '^fugitive://' || bufname('%') =~ '^copilot://' || bufname('%') =~ '^!bash'
+                    \ || bufname('%') =~ '^undotree_' || bufname('%') =~ '^diffpanel_' || &filetype ==? 'netrw'
+            echo "not undoable"
+            return
+        endif
+        " ---
+        execute 'tabnew %'
+        execute 'UndotreeShow'
+    endfunction
+    " ---
+    let g:undotree_WindowLayout = 2
+    let g:undotree_SplitWidth = 40
+    let g:undotree_DiffpanelHeight = 15
+    let g:undotree_ShortIndicators = 1
+    let g:undotree_SetFocusWhenToggle = 1
+    let g:undotree_RelativeTimestamp = 0
+    let g:undotree_HelpLine = 0
+    " ---
+    command! ToggleUndo call <SID>ToggleUndo()
+endif
+" }}}
+
+
+
+
+" TAGBAR CONFIG {{{
+if &rtp =~ 'tagbar'
+    function s:Ctags()
+        if !executable('ctags')
+            echo "ctags not installed"
+            return
+        endif
+        " ---
+        execute 'silent !ctags -R --exclude=.git'
+        redraw!
+        redrawstatus!
+        redrawtabline
+        echo "c-tagged"
+    endfunction
+    " ---
+    let g:tagbar_autofocus = 1
+    let g:tagbar_autoclose = 1
+    " ---
+    command! Ctags call <SID>Ctags()
 endif
 " }}}
 

@@ -13,6 +13,8 @@
 #     LEXIMA     https://github.com/cohama/lexima.vim
 #     CONTEXT    https://github.com/wellle/context.vim
 #     SIGNIFY    https://github.com/mhinz/vim-signify
+#     UNDOTREE   https://github.com/mbbill/undotree
+#     TAGBAR     https://github.com/preservim/tagbar
 #     ALE        https://github.com/dense-analysis/ale
 #     FUZZYY     https://github.com/Donaldttt/fuzzyy
 #     COPILOT    https://github.com/github/copilot.vim
@@ -176,6 +178,20 @@ printf "\n"
 OPERATION="RESETTING SIGNIFY"
 REPOSITORY="https://github.com/mhinz/vim-signify"
 PLUGIN="${START}/signify"
+_reset
+
+
+printf "\n"
+OPERATION="RESETTING UNDOTREE"
+REPOSITORY="https://github.com/mbbill/undotree"
+PLUGIN="${START}/undotree"
+_reset
+
+
+printf "\n"
+OPERATION="RESETTING TAGBAR"
+REPOSITORY="https://github.com/preservim/tagbar"
+PLUGIN="${START}/tagbar"
 _reset
 
 
