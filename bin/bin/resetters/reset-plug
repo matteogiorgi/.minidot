@@ -59,11 +59,11 @@ if [[ $# -gt 1 ]]; then
     printf "Too many arguments: no operations were executed\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
-    printf "╔══════════════════════ Help ══════════════════════╗\n"
-    printf "║ [--vim9] reset all Vim plugins (up to version 9) ║\n"
-    printf "║ [--rice] rice your plugme.vim config             ║\n"
-    printf "║ [--zero] remove all plugins (rm -rf ~/.vim/pack) ║\n"
-    printf "╚══════════════════════════════════════════════════╝\n"
+    printf "╔═══════════════════════ Help ═══════════════════════╗\n"
+    printf "║ [ --vim9 ] reset all Vim plugins (up to version 9) ║\n"
+    printf "║ [ --rice ] rice your plugme.vim config             ║\n"
+    printf "║ [ --zero ] remove all plugins (rm -rf ~/.vim/pack) ║\n"
+    printf "╚════════════════════════════════════════════════════╝\n"
     exit 0
 elif [[ $1 != "--vim9" && $1 != "--rice" && $1 != "--zero" ]]; then
     printf "\n"
