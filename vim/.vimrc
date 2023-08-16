@@ -221,11 +221,11 @@ command! RemoveSpaces
 
 
 " Keymaps {{{
+nnoremap <silent>Y y$
 vnoremap <silent>H <gv
 vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
-nnoremap <silent>Y y$
 " ---
 map <silent><C-h> (
 map <silent><C-l> )
@@ -234,11 +234,12 @@ map <silent><C-k> {
 " ---
 nnoremap <silent><CR> :tabnew %<CR>
 nnoremap <silent><BS> :tabclose<CR>
+nnoremap <silent><Tab> :buffer#<CR>
 nnoremap <silent><C-n> :tabnext<CR>
 nnoremap <silent><C-p> :tabprev<CR>
-" ---
 tnoremap <silent><C-q> <C-\><C-n>
-nnoremap <silent><Tab> :buffer#<CR>
+" ---
+nnoremap <localleader>e :Explore<CR>
 nnoremap <leader>j :buffers<CR>:buffer<Space>
 nnoremap <leader>w <C-w>
 " ---
