@@ -70,6 +70,28 @@ endif
 
 
 
+" CTRLP CONFIG {{{
+if &rtp =~ 'ctrlp'
+    let g:ctrlp_map = ''
+    let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_show_hidden = 1
+    let g:ctrlp_custom_ignore = {
+                \      'dir':  '\v[\/]\.(git|hg|svn)$',
+                \      'file': '\v\.(exe|so|dll)$'
+                \ }
+    " ---
+    nnoremap <leader>f :CtrlP<CR>
+    nnoremap <leader>g :CtrlPChange<CR>
+    nnoremap <leader>h :CtrlPMRUFiles<CR>
+    nnoremap <leader>j :CtrlPBuffer<CR>
+    nnoremap <leader>k :CtrlPMixed<CR>
+    nnoremap <leader>l :CtrlPLine<CR>
+endif
+" }}}
+
+
+
+
 " FUZZYY CONFIG {{{
 if &rtp =~ 'fuzzyy'
     let g:fuzzyy_menu_matched_hl = 'cursearch'
