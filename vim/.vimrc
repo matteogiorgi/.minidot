@@ -230,18 +230,7 @@ tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <localleader>w :ToggleWrap<CR>
 nnoremap <localleader>c :ClearSearch<CR>
 nnoremap <localleader>r :RemoveSpaces<CR>
-nnoremap <silent>E :Explore<CR>
-" ---
-nnoremap <leader>0 0gt
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
+nnoremap <localleader>f :Explore<CR>
 " }}}
 
 
