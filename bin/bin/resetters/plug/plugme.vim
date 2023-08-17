@@ -43,10 +43,23 @@ endif
 
 " TAGBAR CONFIG {{{
 if &rtp =~ 'tagbar'
+    function s:Ctags()
+        if !executable('ctags')
+            echo "ctags not installed"
+            return
+        endif
+        " ---
+        execute 'silent !ctags -R --exclude=.git'
+        redraw!
+        redrawstatus!
+        redrawtabline
+        echo "ctags executed"
+    endfunction
+    " ---
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
     " ---
-    command! Ctags execute 'silent !ctags -R --exclude=.git'
+    command! Ctags call s:Ctags()
     nnoremap <localleader>t :TagbarToggle<CR>
 endif
 " }}}
