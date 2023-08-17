@@ -58,7 +58,7 @@
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
-        "key": "alt+e",
+        "key": "alt+w",
         "command": "editor.action.marker.next",
         "when": "editorFocus"
     },

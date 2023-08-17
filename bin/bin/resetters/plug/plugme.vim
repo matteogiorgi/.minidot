@@ -89,7 +89,7 @@ if &rtp =~ 'ctrlp'
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_show_hidden = 1
     let g:ctrlp_custom_ignore = {
-                \      'dir':  '\v[\/]\.(git|hg|svn)$',
+                \      'dir': '\v[\/]\.(git|hg|svn)$',
                 \      'file': '\v\.(exe|so|dll)$'
                 \ }
     " ---
@@ -110,6 +110,14 @@ if &rtp =~ 'fuzzyy'
     let g:fuzzyy_menu_matched_hl = 'cursearch'
     let g:enable_fuzzyy_MRU_files = 1
     let g:enable_fuzzyy_keymaps = 0
+    let g:fuzzyy_keymaps = {
+          \      'menu_up': ["\<C-p>", "\<C-k>", "\<Up>"],
+          \      'menu_down': ["\<C-n>", "\<C-j>", "\<Down>"],
+          \      'preview_up': ["\<C-u>", "\<PageUp>"],
+          \      'preview_down': ["\<C-d>", "\<PageDown>"],
+          \      'menu_select': ["\<CR>", "\<C-l>"],
+          \      'exit': ["\<Esc>", "\<C-h>"]
+          \ }
     " ---
     augroup netrw_prettyfier
         autocmd FileType netrw nmap <buffer> <silent><leader>f :cd<space>%:p:h<bar>FuzzyFiles<CR>
