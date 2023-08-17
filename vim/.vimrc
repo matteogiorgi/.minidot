@@ -183,17 +183,6 @@ augroup end
 
 
 " Commands {{{
-command! ToggleHemisu
-            \ if colors_name ==# 'hemisu'|
-            \     if &background ==# 'light'|
-            \         set background=dark|
-            \     else|
-            \         set background=light|
-            \     endif|
-            \ else|
-            \     echo 'hemisu not set'|
-            \ endif
-" ---
 command! ToggleWrap
             \ if &wrap|
             \     setlocal nowrap|
@@ -239,13 +228,10 @@ nnoremap <silent><C-n> :tabnext<CR>
 nnoremap <silent><C-p> :tabprev<CR>
 tnoremap <silent><C-q> <C-\><C-n>
 " ---
-nnoremap <localleader>e :Explore<CR>
-nnoremap <localleader>h :ToggleHemisu<CR>
 nnoremap <localleader>w :ToggleWrap<CR>
 nnoremap <localleader>c :ClearSearch<CR>
 nnoremap <localleader>r :RemoveSpaces<CR>
-nnoremap <leader>j :buffers<CR>:buffer<Space>
-nnoremap <leader>w <C-w>
+nnoremap <silent>E :Explore<CR>
 " ---
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt

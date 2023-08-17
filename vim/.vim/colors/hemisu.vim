@@ -210,4 +210,20 @@ hi! link PreProc     Constant
 hi! link Error       ErrorMsg
 " }}}
 
+
+
+
+" TOGGLE HEMISU BACKGROUND {{{
+command! ToggleHemisuBackground
+            \ if colors_name ==# 'hemisu'|
+            \     if &background ==# 'light'|
+            \         set background=dark|
+            \     else|
+            \         set background=light|
+            \     endif|
+            \ else|
+            \     echo 'hemisu not set'|
+            \ endif
+" }}}
+
 " vim: fdm=marker:sw=2:sts=2:et

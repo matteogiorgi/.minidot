@@ -60,7 +60,7 @@ if &rtp =~ 'ale'
     set omnifunc=ale#completion#OmniFunc
     " ---
     inoremap <silent><C-c> :AleComplete<CR>
-    nnoremap <silent>E :ALENext<CR>
+    nnoremap <silent>W :ALENext<CR>
     nnoremap <silent>B :ALEPrevious<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
@@ -81,10 +81,10 @@ if &rtp =~ 'ctrlp'
                 \ }
     " ---
     nnoremap <leader>f :CtrlP<CR>
-    nnoremap <leader>g :CtrlPChange<CR>
+    nnoremap <leader>g :CtrlPMixed<CR>
     nnoremap <leader>h :CtrlPMRUFiles<CR>
     nnoremap <leader>j :CtrlPBuffer<CR>
-    nnoremap <leader>k :CtrlPMixed<CR>
+    nnoremap <leader>k :CtrlPChange<CR>
     nnoremap <leader>l :CtrlPLine<CR>
 endif
 " }}}
