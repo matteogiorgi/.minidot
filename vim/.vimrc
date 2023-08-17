@@ -240,6 +240,10 @@ nnoremap <silent><C-p> :tabprev<CR>
 tnoremap <silent><C-q> <C-\><C-n>
 " ---
 nnoremap <localleader>e :Explore<CR>
+nnoremap <localleader>h :ToggleHemisu<CR>
+nnoremap <localleader>w :ToggleWrap<CR>
+nnoremap <localleader>c :ClearSearch<CR>
+nnoremap <localleader>r :RemoveSpaces<CR>
 nnoremap <leader>j :buffers<CR>:buffer<Space>
 nnoremap <leader>w <C-w>
 " ---
