@@ -111,6 +111,10 @@ if &rtp =~ 'fuzzyy'
     let g:enable_fuzzyy_MRU_files = 1
     let g:enable_fuzzyy_keymaps = 0
     " ---
+    augroup netrw_prettyfier
+        autocmd FileType netrw nmap <buffer> <silent><leader>f :cd<space>%:p:h<bar>FuzzyFiles<CR>
+    augroup end
+    " ---
     nnoremap <silent><leader>f :FuzzyFiles<CR>
     nnoremap <silent><leader>g :FuzzyGrep<CR>
     nnoremap <silent><leader>h :FuzzyMRUFiles<CR>
