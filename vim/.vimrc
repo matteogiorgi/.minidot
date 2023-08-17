@@ -182,6 +182,17 @@ augroup end
 
 
 " Commands {{{
+command! ToggleBackground
+            \ let colorscheme_name = get(g:, 'colors_name', '')|
+            \ if &background ==# 'light'|
+            \     set background=dark|
+            \ else|
+            \     set background=light|
+            \ endif|
+            \ execute "colorscheme " . colorscheme_name|
+            \ redraw!|redrawstatus!|redrawtabline|
+            \ echo colorscheme_name . ' ' . &background
+" ---
 command! ToggleWrap
             \ if &wrap|
             \     setlocal nowrap|
@@ -236,7 +247,7 @@ nnoremap <localleader>f :Explore<CR>
 
 
 
-" Gui setup {{{
+" GUI setup {{{
 if has('gui_running')
     set guifont=Fira\ Code\ 8.5
     set guioptions=i

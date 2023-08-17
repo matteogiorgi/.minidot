@@ -50,9 +50,7 @@ if &rtp =~ 'tagbar'
         endif
         " ---
         execute 'silent !ctags -R --exclude=.git'
-        redraw!
-        redrawstatus!
-        redrawtabline
+        redraw!|redrawstatus!|redrawtabline
         echo "ctags executed"
     endfunction
     " ---
