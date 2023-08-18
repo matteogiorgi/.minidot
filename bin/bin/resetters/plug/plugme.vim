@@ -14,6 +14,11 @@
 
 " SIGNIFY CONFIG {{{
 if &rtp =~ 'signify'
+    augroup signify_prettyfier
+        autocmd FileType netrw,ale-preview-selection,copilot.vim,tagbar,undotree,diff
+              \ nmap <buffer> <localleader>g :echo<space>"signify unavailable in " . &ft<CR>
+    augroup end
+    " ---
     nnoremap <localleader>g :SignifyDiff<CR>
 endif
 " }}}
@@ -30,6 +35,11 @@ if &rtp =~ 'undotree'
     let g:undotree_SetFocusWhenToggle = 1
     let g:undotree_RelativeTimestamp = 0
     let g:undotree_HelpLine = 0
+    " ---
+    augroup undotree_prettyfier
+        autocmd FileType netrw,ale-preview-selection,copilot.vim,tagbar,undotree,diff
+              \ nmap <buffer> <localleader>u :echo<space>"undotree unavailable in " . &ft<CR>
+    augroup end
     " ---
     nnoremap <localleader>u :tabnew<space>%<bar>UndotreeToggle<CR>
 endif
@@ -53,6 +63,11 @@ if &rtp =~ 'tagbar'
     " ---
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
+    " ---
+    augroup tagbar_prettyfier
+        autocmd FileType netrw,ale-preview-selection,copilot.vim,undotree,diff
+              \ nmap <buffer> <localleader>u :echo<space>"tagbar unavailable in " . &ft<CR>
+    augroup end
     " ---
     command! Ctags call s:Ctags()
     nnoremap <localleader>t :TagbarToggle<CR>
