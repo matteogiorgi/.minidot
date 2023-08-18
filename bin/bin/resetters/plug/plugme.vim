@@ -14,11 +14,6 @@
 
 " SIGNIFY CONFIG {{{
 if &rtp =~ 'signify'
-    augroup signify_prettyfier
-        autocmd FileType netrw,ale-preview-selection,copilot.vim,tagbar,undotree,diff
-              \ nmap <buffer> <localleader>g :echo<space>"signify unavailable in " . &ft<CR>
-    augroup end
-    " ---
     nnoremap <localleader>g :SignifyDiff<CR>
 endif
 " }}}
@@ -66,7 +61,7 @@ if &rtp =~ 'tagbar'
     " ---
     augroup tagbar_prettyfier
         autocmd FileType netrw,ale-preview-selection,copilot.vim,undotree,diff
-              \ nmap <buffer> <localleader>u :echo<space>"tagbar unavailable in " . &ft<CR>
+              \ nmap <buffer> <localleader>t :echo<space>"tagbar unavailable in " . &ft<CR>
     augroup end
     " ---
     command! Ctags call s:Ctags()
