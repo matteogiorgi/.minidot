@@ -12,12 +12,9 @@
 
 
 
-" FUGITIVE CONFIG {{{
-if &rtp =~ 'fugitive'
-    augroup fugitive_maps
-        autocmd!
-        autocmd BufEnter fugitive://* nmap <buffer><expr> <silent><CR> ''
-    augroup end
+" SIGNIFY CONFIG {{{
+if &rtp =~ 'signify'
+    nnoremap <localleader>g :SignifyDiff<CR>
 endif
 " }}}
 
@@ -34,7 +31,7 @@ if &rtp =~ 'undotree'
     let g:undotree_RelativeTimestamp = 0
     let g:undotree_HelpLine = 0
     " ---
-    nnoremap <localleader>u :UndotreeToggle<CR>
+    nnoremap <localleader>u :tabnew<space>%<bar>UndotreeToggle<CR>
 endif
 " }}}
 
@@ -43,7 +40,7 @@ endif
 
 " TAGBAR CONFIG {{{
 if &rtp =~ 'tagbar'
-    function s:Ctags()
+    function! s:Ctags()
         if !executable('ctags')
             echo "ctags not installed"
             return
@@ -90,6 +87,10 @@ if &rtp =~ 'ctrlp'
                 \      'dir': '\v[\/]\.(git|hg|svn)$',
                 \      'file': '\v\.(exe|so|dll)$'
                 \ }
+    " ---
+    augroup netrw_prettyfier
+        autocmd FileType netrw nmap <buffer> <silent><leader>f :CtrlP<space>%:p:h<CR>
+    augroup end
     " ---
     nnoremap <leader>f :CtrlP<CR>
     nnoremap <leader>g :CtrlPMixed<CR>

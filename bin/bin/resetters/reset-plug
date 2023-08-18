@@ -6,24 +6,22 @@
 #     [ --vim9 ] resets all Vim plugins (up to version 9)
 #     [ --rice ] rice your plugme.vim config
 #     [ --zero ] remove all plugins (rm -rf ~/.vim/pack)
-#
-#     ┌╴                       Vim8                       ╶┐
-#     │ FUGITIVE   https://github.com/tpope/vim-fugitive   │
-#     │ COMMENTARY https://github.com/tpope/vim-commentary │
-#     │ SURROUND   https://github.com/tpope/vim-surround   │
-#     │ REPEAT     https://github.com/tpope/vim-repeat     │
-#     │ LEXIMA     https://github.com/cohama/lexima.vim    │
-#     │ CONTEXT    https://github.com/wellle/context.vim   │
-#     │ SIGNIFY    https://github.com/mhinz/vim-signify    │
-#     │ UNDOTREE   https://github.com/mbbill/undotree      │
-#     │ TAGBAR     https://github.com/preservim/tagbar     │
-#     │ ALE        https://github.com/dense-analysis/ale   │
-#     │ CTRLP      https://github.com/ctrlpvim/ctrlp.vim   │
-#     └╴                                                  ╶┘
-#     ┌╴                       Vim9                       ╶┐
-#     │ FUZZYY     https://github.com/Donaldttt/fuzzyy     │
-#     │ COPILOT    https://github.com/github/copilot.vim   │
-#     └╴                                                  ╶┘
+
+# Vim8-plugins:
+#     COMMENTARY https://github.com/tpope/vim-commentary
+#     SURROUND   https://github.com/tpope/vim-surround
+#     REPEAT     https://github.com/tpope/vim-repeat
+#     LEXIMA     https://github.com/cohama/lexima.vim
+#     CONTEXT    https://github.com/wellle/context.vim
+#     SIGNIFY    https://github.com/mhinz/vim-signify
+#     UNDOTREE   https://github.com/mbbill/undotree
+#     TAGBAR     https://github.com/preservim/tagbar
+#     ALE        https://github.com/dense-analysis/ale
+#     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
+
+# Vim9-plugins:
+#     FUZZYY  https://github.com/Donaldttt/fuzzyy
+#     COPILOT https://github.com/github/copilot.vim
 
 
 
@@ -137,13 +135,6 @@ START="${VIM}/pack/plugins/start"
 ### Reset configurations
 ########################
 
-OPERATION="RESETTING FUGITIVE"
-REPOSITORY="https://github.com/tpope/vim-fugitive"
-PLUGIN="${START}/fugitive"
-_reset
-
-
-printf "\n"
 OPERATION="RESETTING COMMENTARY"
 REPOSITORY="https://github.com/tpope/vim-commentary"
 PLUGIN="${START}/commentary"
