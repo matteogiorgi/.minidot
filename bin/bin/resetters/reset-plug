@@ -33,6 +33,7 @@ _reset () {
     # if the plugin exists we git pull,
     # otherwise we git clone from GitHub
     # ---
+    printf "\n"
     printf "%s\n" "${OPERATION}"
     [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone "${REPOSITORY}" "${PLUGIN}"
 }
@@ -141,56 +142,48 @@ PLUGIN="${START}/commentary"
 _reset
 
 
-printf "\n"
 OPERATION="RESETTING SURROUND"
 REPOSITORY="https://github.com/tpope/vim-surround"
 PLUGIN="${START}/surround"
 _reset
 
 
-printf "\n"
 OPERATION="RESETTING REPEAT"
 REPOSITORY="https://github.com/tpope/vim-repeat"
 PLUGIN="${START}/repeat"
 _reset
 
 
-printf "\n"
 OPERATION="RESETTING LEXIMA"
 REPOSITORY="https://github.com/cohama/lexima.vim"
 PLUGIN="${START}/lexima"
 _reset
 
 
-printf "\n"
 OPERATION="RESETTING CONTEXT"
 REPOSITORY="https://github.com/wellle/context.vim"
 PLUGIN="${START}/context"
 _reset
 
 
-printf "\n"
 OPERATION="RESETTING SIGNIFY"
 REPOSITORY="https://github.com/mhinz/vim-signify"
 PLUGIN="${START}/signify"
 _reset
 
 
-printf "\n"
 OPERATION="RESETTING UNDOTREE"
 REPOSITORY="https://github.com/mbbill/undotree"
 PLUGIN="${START}/undotree"
 _reset
 
 
-printf "\n"
 OPERATION="RESETTING TAGBAR"
 REPOSITORY="https://github.com/preservim/tagbar"
 PLUGIN="${START}/tagbar"
 _reset
 
 
-printf "\n"
 OPERATION="RESETTING ALE"
 REPOSITORY="https://github.com/dense-analysis/ale"
 PLUGIN="${START}/ale"
@@ -201,7 +194,6 @@ _reset
 # Fuzzyy FF
 # ---
 if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]]; then
-    printf "\n"
     OPERATION="RESETTING FUZZYY"
     REPOSITORY="https://github.com/Donaldttt/fuzzyy"
     PLUGIN="${START}/fuzzyy"
@@ -211,7 +203,6 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]]; then
     # Copilot LLM
     # ---
     if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
-        printf "\n"
         OPERATION="RESETTING COPILOT"
         REPOSITORY="https://github.com/github/copilot.vim"
         PLUGIN="${START}/copilot"
@@ -222,7 +213,6 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]]; then
 # CtrlP FF
 # ---
 else
-    printf "\n"
     OPERATION="RESETTING CTRLP"
     REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim"
     PLUGIN="${START}/ctrlp"
