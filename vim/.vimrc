@@ -238,6 +238,7 @@ nnoremap <silent><C-n> :tabnext<CR>
 nnoremap <silent><C-p> :tabprev<CR>
 tnoremap <silent><C-q> <C-\><C-n>
 " ---
+nnoremap <localleader>b :ToggleBackground<CR>
 nnoremap <localleader>w :ToggleWrap<CR>
 nnoremap <localleader>c :ClearSearch<CR>
 nnoremap <localleader>r :RemoveSpaces<CR>
