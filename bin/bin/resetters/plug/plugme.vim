@@ -112,7 +112,7 @@ if &rtp =~ 'fuzzyy'
     nnoremap <silent><leader>j :FuzzyBuffers<CR>
     nnoremap <silent><leader>k :FuzzyCommands<CR>
     nnoremap <silent><leader>l :FuzzyInBuffer<CR>
-" ---
+
 " CTRLP CONFIG
 elseif &rtp =~ 'ctrlp'
     let g:ctrlp_map = ''
