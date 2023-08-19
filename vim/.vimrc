@@ -182,6 +182,20 @@ augroup end
 
 
 " Commands {{{
+command! ToggleLineNumbers
+            \ if &number|
+            \     if &relativenumber|
+            \         setlocal nonumber norelativenumber|
+            \         echo 'set nonumber'|
+            \     else|
+            \         setlocal relativenumber|
+            \         echo 'set relativenumber'|
+            \     endif|
+            \ else|
+            \     setlocal number|
+            \     echo 'set number'|
+            \ endif
+" ---
 command! ToggleBackground
             \ let colorscheme_name = get(g:, 'colors_name', '')|
             \ if &background ==# 'light'|
@@ -238,6 +252,7 @@ nnoremap <silent><C-n> :tabnext<CR>
 nnoremap <silent><C-p> :tabprev<CR>
 tnoremap <silent><C-q> <C-\><C-n>
 " ---
+nnoremap <localleader>l :ToggleLineNumbers<CR>
 nnoremap <localleader>b :ToggleBackground<CR>
 nnoremap <localleader>w :ToggleWrap<CR>
 nnoremap <localleader>c :ClearSearch<CR>
