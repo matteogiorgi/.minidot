@@ -14,7 +14,7 @@
 
 " SIGNIFY CONFIG {{{
 if &rtp =~ 'signify'
-    nnoremap <localleader>g :SignifyDiff<CR>
+    nnoremap <leader>i :SignifyDiff<CR>
 endif
 " }}}
 
@@ -33,10 +33,10 @@ if &rtp =~ 'undotree'
     " ---
     augroup undotree_prettyfier
         autocmd FileType netrw,ale-preview-selection,copilot.vim,tagbar
-              \ nmap <buffer> <localleader>u :echo<space>"undotree unavailable in " . &ft<CR>
+              \ nmap <buffer> <leader>u :echo<space>"undotree unavailable in " . &ft<CR>
     augroup end
     " ---
-    nnoremap <localleader>u :UndotreeToggle<CR>
+    nnoremap <leader>u :UndotreeToggle<CR>
 endif
 " }}}
 
@@ -61,11 +61,11 @@ if &rtp =~ 'tagbar'
     " ---
     augroup tagbar_prettyfier
         autocmd FileType netrw,ale-preview-selection,copilot.vim,undotree,diff
-              \ nmap <buffer> <localleader>i :echo<space>"tagbar unavailable in " . &ft<CR>
+              \ nmap <buffer> <leader>t :echo<space>"tagbar unavailable in " . &ft<CR>
     augroup end
     " ---
     command! Ctags call s:Ctags()
-    nnoremap <localleader>i :TagbarToggle<CR>
+    nnoremap <leader>t :TagbarToggle<CR>
 endif
 " }}}
 
@@ -103,15 +103,15 @@ if &rtp =~ 'fuzzyy'
           \ }
     " ---
     augroup netrw_prettyfier
-        autocmd FileType netrw nmap <buffer> <silent><leader>f :cd<space>%:p:h<bar>FuzzyFiles<CR>
+        autocmd FileType netrw nmap <buffer> <leader>f :cd<space>%:p:h<bar>FuzzyFiles<CR>
     augroup end
     " ---
-    nnoremap <silent><leader>f :FuzzyFiles<CR>
-    nnoremap <silent><leader>g :FuzzyGrep<CR>
-    nnoremap <silent><leader>h :FuzzyMRUFiles<CR>
-    nnoremap <silent><leader>j :FuzzyBuffers<CR>
-    nnoremap <silent><leader>k :FuzzyCommands<CR>
-    nnoremap <silent><leader>l :FuzzyInBuffer<CR>
+    nnoremap <leader>f :FuzzyFiles<CR>
+    nnoremap <leader>g :FuzzyGrep<CR>
+    nnoremap <leader>h :FuzzyMRUFiles<CR>
+    nnoremap <leader>j :FuzzyBuffers<CR>
+    nnoremap <leader>k :FuzzyCommands<CR>
+    nnoremap <leader>l :FuzzyInBuffer<CR>
 
 " CTRLP CONFIG
 elseif &rtp =~ 'ctrlp'
@@ -124,7 +124,7 @@ elseif &rtp =~ 'ctrlp'
                 \ }
     " ---
     augroup netrw_prettyfier
-        autocmd FileType netrw nmap <buffer> <silent><leader>f :CtrlP<space>%:p:h<CR>
+        autocmd FileType netrw nmap <buffer> <leader>f :CtrlP<space>%:p:h<CR>
     augroup end
     " ---
     nnoremap <leader>f :CtrlP<CR>
