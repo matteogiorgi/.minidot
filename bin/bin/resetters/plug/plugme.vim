@@ -32,7 +32,7 @@ if &rtp =~ 'undotree'
     let g:undotree_HelpLine = 0
     " ---
     augroup undotree_prettyfier
-        autocmd FileType netrw,ale-preview-selection,copilot.vim,tagbar,undotree,diff
+        autocmd FileType netrw,ale-preview-selection,copilot.vim,tagbar
               \ nmap <buffer> <localleader>u :echo<space>"undotree unavailable in " . &ft<CR>
     augroup end
     " ---
