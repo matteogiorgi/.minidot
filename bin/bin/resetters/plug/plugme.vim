@@ -36,7 +36,7 @@ if &rtp =~ 'undotree'
               \ nmap <buffer> <localleader>u :echo<space>"undotree unavailable in " . &ft<CR>
     augroup end
     " ---
-    nnoremap <localleader>u :tabnew<space>%<bar>UndotreeToggle<CR>
+    nnoremap <localleader>u :UndotreeToggle<CR>
 endif
 " }}}
 
@@ -61,11 +61,11 @@ if &rtp =~ 'tagbar'
     " ---
     augroup tagbar_prettyfier
         autocmd FileType netrw,ale-preview-selection,copilot.vim,undotree,diff
-              \ nmap <buffer> <localleader>t :echo<space>"tagbar unavailable in " . &ft<CR>
+              \ nmap <buffer> <localleader>i :echo<space>"tagbar unavailable in " . &ft<CR>
     augroup end
     " ---
     command! Ctags call s:Ctags()
-    nnoremap <localleader>t :TagbarToggle<CR>
+    nnoremap <localleader>i :TagbarToggle<CR>
 endif
 " }}}
 

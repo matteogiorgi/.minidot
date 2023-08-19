@@ -87,7 +87,7 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
 set nrformats-=alpha
-set fillchars+=vert:\┃
+set fillchars+=eob:\ ,vert:\┃
 set laststatus=2
 set showtabline=1
 set nocompatible
@@ -252,7 +252,7 @@ nnoremap <silent><C-n> :tabnext<CR>
 nnoremap <silent><C-p> :tabprev<CR>
 tnoremap <silent><C-q> <C-\><C-n>
 " ---
-nnoremap <localleader>l :ToggleLineNumbers<CR>
+nnoremap <localleader>y :ToggleLineNumbers<CR>
 nnoremap <localleader>b :ToggleBackground<CR>
 nnoremap <localleader>w :ToggleWrap<CR>
 nnoremap <localleader>c :ClearSearch<CR>
