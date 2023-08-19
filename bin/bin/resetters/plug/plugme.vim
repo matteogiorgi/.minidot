@@ -14,7 +14,7 @@
 
 " SIGNIFY CONFIG {{{
 if &rtp =~ 'signify'
-    nnoremap <leader>i :SignifyDiff<CR>
+    nnoremap <localleader>g :SignifyDiff<CR>
 endif
 " }}}
 
