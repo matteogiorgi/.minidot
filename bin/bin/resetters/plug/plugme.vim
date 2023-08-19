@@ -58,6 +58,7 @@ if &rtp =~ 'tagbar'
     " ---
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
+    let g:tagbar_map_showproto = "<Tab>"
     " ---
     augroup tagbar_prettyfier
         autocmd FileType netrw,ale-preview-selection,copilot.vim,undotree,diff
