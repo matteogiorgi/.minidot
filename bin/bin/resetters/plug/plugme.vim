@@ -12,15 +12,6 @@
 
 
 
-" SIGNIFY CONFIG {{{
-if &rtp =~ 'signify'
-    nnoremap <localleader>g :SignifyDiff<CR>
-endif
-" }}}
-
-
-
-
 " UNDOTREE CONFIG {{{
 if &rtp =~ 'undotree'
     let g:undotree_WindowLayout = 2
