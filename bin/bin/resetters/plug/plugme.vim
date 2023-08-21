@@ -70,8 +70,8 @@ if &rtp =~ 'ale'
     set omnifunc=ale#completion#OmniFunc
     " ---
     inoremap <silent><C-c> :AleComplete<CR>
-    nnoremap <silent>W :ALENext<CR>
-    nnoremap <silent>B :ALEPrevious<CR>
+    nnoremap <silent>W :ALENextWrap<CR>
+    nnoremap <silent>B :ALEPreviousWrap<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
 endif

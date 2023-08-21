@@ -182,52 +182,44 @@ augroup end
 
 
 
-" Commands {{{
-command! ToggleLineNumbers
-            \ if &number|
-            \     if &relativenumber|
-            \         setlocal nonumber norelativenumber|
-            \         echo 'set nonumber'|
-            \     else|
-            \         setlocal relativenumber|
-            \         echo 'set relativenumber'|
-            \     endif|
-            \ else|
-            \     setlocal number|
-            \     echo 'set number'|
-            \ endif
+" Funcions {{{
+function! s:ToggleQF()
+    let g:quickfix = !exists('g:quickfix') ? 'cclose' : g:quickfix
+    let g:quickfix = g:quickfix ==# 'cclose' ? 'copen' : 'cclose'
+    silent execute g:quickfix
+endfunction
 " ---
-command! ToggleBackground
-            \ let colorscheme_name = get(g:, 'colors_name', '')|
-            \ if &background ==# 'light'|
-            \     set background=dark|
-            \ else|
-            \     set background=light|
-            \ endif|
-            \ execute "colorscheme " . colorscheme_name|
+function! s:ToggleLL()
+    let g:loclist = !exists('g:loclist') ? 'cclose' : g:loclist
+    let g:loclist = g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
+    silent execute g:loclist
+endfunction
+" }}}
+
+
+
+
+" Commands {{{
+command! ToggleLN
+            \ silent execute &rnu ? 'set nonu nornu' : &nu ? 'set rnu' : 'set nu'|
+            \ echo &rnu ? 'relativenumbers' : &nu ? 'numbers' : 'no-numbers'
+" ---
+command! ToggleBG
+            \ silent execute &bg ==# 'light' ? 'set bg=dark' : 'set bg=light'|
+            \ silent execute "colorscheme " . get(g:, 'colors_name', '')|
             \ redraw!|redrawstatus!|redrawtabline|
-            \ echo colorscheme_name . ' ' . &background
+            \ echo colors_name . ' ' . &background
 " ---
 command! ToggleWrap
-            \ if &wrap|
-            \     setlocal nowrap|
-            \     nunmap <buffer> j|
-            \     nunmap <buffer> k|
-            \     echo 'set nowrap'|
-            \ else|
-            \     setlocal wrap|
-            \     nmap <buffer> j gj|
-            \     nmap <buffer> k gk|
-            \     echo 'set wrap'|
-            \ endif
+            \ silent execute &wrap ? 'set nowrap' : 'set wrap'|
+            \ echo &wrap ? 'lines wrapped' : 'lines unwrapped'
 " ---
 command! ClearSearch
-            \ execute 'let @/=""'|
+            \ silent execute 'let @/=""'|
             \ echo 'cleared last search'
 " ---
 command! RemoveSpaces
-            \ let v:statusmsg = ""|
-            \ execute 'silent verbose %s/\s\+$//e'|
+            \ silent execute 'let v:statusmsg = "" | verbose %s/\s\+$//e'|
             \ echo !empty(v:statusmsg) ? v:statusmsg : 'removed trailing spaces'
 " }}}
 
@@ -246,19 +238,16 @@ map <silent><C-l> )
 map <silent><C-j> }
 map <silent><C-k> {
 " ---
-nnoremap <silent><CR> :tabnew %<CR>
-nnoremap <silent><BS> :tabclose<CR>
-nnoremap <silent><Tab> :buffer#<CR>
+tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><C-n> :tabnext<CR>
 nnoremap <silent><C-p> :tabprev<CR>
-tnoremap <silent><C-q> <C-\><C-n>
+nnoremap <silent><Tab> :buffer#<CR>
+nnoremap <leader>o :tabnew %<CR>
+nnoremap <leader>c :tabclose<CR>
 " ---
-nnoremap <localleader>l :ToggleLineNumbers<CR>
-nnoremap <localleader>b :ToggleBackground<CR>
-nnoremap <localleader>w :ToggleWrap<CR>
-nnoremap <localleader>c :ClearSearch<CR>
-nnoremap <localleader>r :RemoveSpaces<CR>
 nnoremap <localleader>f :Explore<CR>
+nnoremap <localleader>q :call <SID>ToggleQF()<CR>
+nnoremap <localleader>l :call <SID>ToggleLL()<CR>
 " }}}
 
 
