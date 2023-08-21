@@ -23,6 +23,7 @@ while out=$(
             `--expect=ctrl-d `
             `--toggle-sort=ctrl-l `
             `--bind 'esc:' `
+            `--bind 'ctrl-s:toggle' `
             `--bind 'ctrl-h:cancel' `
             `--bind 'ctrl-n:half-page-down' `
             `--bind 'ctrl-p:half-page-up' ); do

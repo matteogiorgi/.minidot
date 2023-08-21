@@ -138,7 +138,7 @@ export BAT_THEME="base16"
 ### Fzf variables
 #################
 
-export FZF_DEFAULT_OPTS='--color=16,bg+:0,fg+:regular:-1,hl+:regular:underline,gutter:-1,pointer:reverse --pointer="  "'
+export FZF_DEFAULT_OPTS='--color=16,bg+:0,fg+:regular:-1,hl+:regular:underline,gutter:-1,pointer:reverse,marker:reverse --pointer="  " --marker=" "'
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 

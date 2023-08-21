@@ -17,6 +17,7 @@ while true; do
     [[ $(type -t __fetch_git_branch) == function ]] && GIT_BRANCH=$(__fetch_git_branch " (%s)") || GIT_BRANCH=""
     FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
             `--ansi `
+            `--no-multi `
             `--preview 'mess {}' `
             `--preview-window 'down:75%' `
             `--prompt="$PWD$GIT_BRANCH > " `
@@ -36,6 +37,7 @@ while true; do
     [[ -n "$FILE" ]] || FILE="."
     CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf `
             `--ansi `
+            `--no-multi `
             `--prompt="$PWD/$FILE > " `
             `--height 100% `
             `--margin 0% `
