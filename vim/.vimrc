@@ -182,15 +182,16 @@ augroup end
 
 
 
-" Funcions {{{
+" Functions {{{
+let g:quickfix = 'cclose'
+let g:loclist = 'lclose'
+" ---
 function! s:ToggleQF()
-    let g:quickfix = !exists('g:quickfix') ? 'cclose' : g:quickfix
     let g:quickfix = g:quickfix ==# 'cclose' ? 'copen' : 'cclose'
     silent execute g:quickfix
 endfunction
 " ---
 function! s:ToggleLL()
-    let g:loclist = !exists('g:loclist') ? 'cclose' : g:loclist
     let g:loclist = g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
     silent execute g:loclist
 endfunction
