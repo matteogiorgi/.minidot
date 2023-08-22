@@ -244,8 +244,8 @@ nnoremap <silent><C-p> :tabprev<CR>
 nnoremap <silent><Tab> :buffer#<CR>
 nnoremap <leader>o :tabnew %<CR>
 nnoremap <leader>c :tabclose<CR>
+nnoremap <leader>e :Explore<CR>
 " ---
-nnoremap <localleader>f :Explore<CR>
 nnoremap <localleader>q :call <SID>ToggleQF()<CR>
 nnoremap <localleader>l :call <SID>ToggleLL()<CR>
 " }}}
