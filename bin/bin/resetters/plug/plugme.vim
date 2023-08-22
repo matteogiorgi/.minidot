@@ -48,7 +48,6 @@ if &rtp =~ 'tagbar'
     endfunction
     " ---
     let g:tagbar_autofocus = 1
-    let g:tagbar_autoclose = 1
     let g:tagbar_map_showproto = "<Tab>"
     " ---
     augroup tagbar_prettyfier
