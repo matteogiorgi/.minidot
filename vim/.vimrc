@@ -201,20 +201,6 @@ endfunction
 
 
 " Commands {{{
-command! ToggleLN
-            \ silent execute &rnu ? 'set nonu nornu' : &nu ? 'set rnu' : 'set nu'|
-            \ echo &rnu ? 'relativenumbers' : &nu ? 'numbers' : 'no-numbers'
-" ---
-command! ToggleBG
-            \ silent execute &bg ==# 'light' ? 'set bg=dark' : 'set bg=light'|
-            \ silent execute "colorscheme " . get(g:, 'colors_name', '')|
-            \ redraw!|redrawstatus!|redrawtabline|
-            \ echo colors_name . ' ' . &background
-" ---
-command! ToggleWrap
-            \ silent execute &wrap ? 'set nowrap' : 'set wrap'|
-            \ echo &wrap ? 'lines wrapped' : 'lines unwrapped'
-" ---
 command! ClearSearch
             \ silent execute 'let @/=""'|
             \ echo 'cleared last search'
@@ -222,6 +208,22 @@ command! ClearSearch
 command! RemoveSpaces
             \ silent execute 'let v:statusmsg = "" | verbose %s/\s\+$//e'|
             \ echo !empty(v:statusmsg) ? v:statusmsg : 'removed trailing spaces'
+" ---
+command! WrapToggle
+            \ silent execute &wrap ? 'set nowrap' : 'set wrap'|
+            \ silent execute &wrap ?'nmap <buffer> j gj|nmap <buffer> k gk' : 'nunmap <buffer> j|nunmap <buffer> k'|
+            \ echo &wrap ? 'lines wrapped' : 'lines unwrapped'
+" ---
+command! NumbersToggle
+            \ silent execute &rnu ? 'set nonu nornu' : &nu ? 'set rnu' : 'set nu'|
+            \ echo &rnu ? 'relativenumbers' : &nu ? 'numbers' : 'no-numbers'
+" ---
+command! BackgroundToggle
+            \ let colorscheme_name = get(g:, 'colors_name', '')|
+            \ silent execute &bg ==# 'light' ? 'set bg=dark' : 'set bg=light'|
+            \ silent execute "colorscheme " . colorscheme_name|
+            \ redraw!|redrawstatus!|redrawtabline|
+            \ echo colorscheme_name . ' ' . &background
 " }}}
 
 
@@ -249,6 +251,12 @@ nnoremap <leader>e :Explore<CR>
 " ---
 nnoremap <localleader>q :call <SID>ToggleQF()<CR>
 nnoremap <localleader>l :call <SID>ToggleLL()<CR>
+" ---
+nnoremap <localleader>c :ClearSearch<CR>
+nnoremap <localleader>r :RemoveSpaces<CR>
+nnoremap <localleader>w :WrapToggle<CR>
+nnoremap <localleader>n :NumbersToggle<CR>
+nnoremap <localleader>b :BackgroundToggle<CR>
 " }}}
 
 

@@ -72,8 +72,8 @@ endfunction
 
 
 
-" ToggleAccent {{{
-function! s:ToggleAccent()
+" AccentToggle {{{
+function! s:AccentToggle()
     let accent_none  = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
     let accent_grave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
     let accent_acute = ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú']
@@ -124,8 +124,8 @@ augroup end
 " Commands & Keymaps {{{
 command! MakeNote call <SID>MakeNote()
 command! ScratchBuffer call <SID>ScratchBuffer()
-nnoremap <silent>' :call <SID>ToggleAccent()<CR>
-nnoremap <localleader>n :MakeNote<CR>
+nnoremap <silent>' :call <SID>AccentToggle()<CR>
+nnoremap <localleader>m :MakeNote<CR>
 nnoremap <localleader>s :ScratchBuffer<CR>
 "}}}
 
