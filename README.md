@@ -13,8 +13,7 @@ Minidot offers a ready&#x2011;to&#x2011;use, batteries&#x2011;included work envi
 
 ```
 git curl wget stow xclip trash-cli htop fzf ripgrep bat chafa poppler-utils wamerican witalian
-dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-mononoki fonts-firacode pandoc
-gnome-keyring
+dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-firacode pandoc gnome-keyring
 ```
 
 For a detailed list of all the available packages, check out Debian and Ubuntu related pages [here](https://www.debian.org/distrib/packages) and [here](https://packages.ubuntu.com).
@@ -24,4 +23,4 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 
 ## More tools
 
-[astronvim](https://astronvim.com/#%EF%B8%8F-installation), [vscode](https://code.visualstudio.com/Download), [vscode&#x2011;insiders](https://code.visualstudio.com/insiders/), [sublime&#x2011;text](https://www.sublimetext.com/docs/linux_repositories.html), [sublime&#x2011;merge](https://www.sublimemerge.com/docs/linux_repositories), [gitkraken](https://www.gitkraken.com/download), [google&#x2011;chrome](https://www.google.com/chrome/), [brave](https://brave.com/linux/), [min](https://minbrowser.org/), [extension&#x2011;manager](https://github.com/mjakeman/extension-manager#-installing), [input&#x2011;remapper](https://github.com/sezanzeb/input-remapper#installation), [tilix](https://gnunn1.github.io/tilix-web/#packages), [terminator](https://gnome-terminator.org/), [nerd&#x2011;fonts](https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0).
+[vscode](https://code.visualstudio.com/Download), [vscode&#x2011;insiders](https://code.visualstudio.com/insiders/), [sublime&#x2011;text](https://www.sublimetext.com/docs/linux_repositories.html), [sublime&#x2011;merge](https://www.sublimemerge.com/docs/linux_repositories), [gitkraken](https://www.gitkraken.com/download), [google&#x2011;chrome](https://www.google.com/chrome/), [brave](https://brave.com/linux/), [min](https://minbrowser.org/), [extension&#x2011;manager](https://github.com/mjakeman/extension-manager#-installing), [input&#x2011;remapper](https://github.com/sezanzeb/input-remapper#installation), [tilix](https://gnunn1.github.io/tilix-web/#packages), [terminator](https://gnome-terminator.org/), [astronvim](https://astronvim.com/#%EF%B8%8F-installation), [nerd&#x2011;fonts](https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0).
