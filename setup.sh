@@ -165,7 +165,6 @@ sudo apt-get install -qq -y \
     tmux \
     vim-gtk3 \
     exuberant-ctags \
-    fonts-mononoki \
     fonts-firacode \
     pandoc \
     gnome-keyring
