@@ -55,11 +55,9 @@
 
 /bin/bin/resetters/*
 !/bin/bin/resetters/code/*
-!/bin/bin/resetters/hevi/*
 !/bin/bin/resetters/plug/*
 !/bin/bin/resetters/subl/*
 !/bin/bin/resetters/reset-code
-!/bin/bin/resetters/reset-hevi
 !/bin/bin/resetters/reset-plug
 !/bin/bin/resetters/reset-subl
 
@@ -68,10 +66,6 @@
 !/bin/bin/resetters/code/vspacecode-keybindings.json
 !/bin/bin/resetters/code/novi-settings.json
 !/bin/bin/resetters/code/novi-keybindings.json
-
-/bin/bin/resetters/hevi/*
-!/bin/bin/resetters/hevi/config.toml
-!/bin/bin/resetters/hevi/hevi.toml
 
 /bin/bin/resetters/plug/*
 !/bin/bin/resetters/plug/plugme.vim
