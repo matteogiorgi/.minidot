@@ -16,4 +16,4 @@ git curl wget stow xclip trash-cli htop fzf ripgrep bat chafa poppler-utils wame
 dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-firacode pandoc gnome-keyring
 ```
 
-For a detailed list of all the available packages, check out Debian and Ubuntu related pages [here](https://www.debian.org/distrib/packages) and [here](https://packages.ubuntu.com). There is an in&#x2011;progress documentation page too: [take a look](DOCS.md), it might be useful.
+For a detailed list of all the available packages, check out Debian and Ubuntu related pages [here](https://www.debian.org/distrib/packages) and [here](https://packages.ubuntu.com). There is a documentation page too: [take a look](DOCS.md), it might be useful.
