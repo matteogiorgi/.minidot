@@ -24,3 +24,10 @@ For a detailed list of all the available packages, check out Debian and Ubuntu r
 ## More tools
 
 [astronvim](https://astronvim.com/#%EF%B8%8F-installation), [vscode](https://code.visualstudio.com/Download), [vscode&#x2011;insiders](https://code.visualstudio.com/insiders/), [sublime&#x2011;text](https://www.sublimetext.com/docs/linux_repositories.html), [sublime&#x2011;merge](https://www.sublimemerge.com/docs/linux_repositories), [gitkraken](https://www.gitkraken.com/download), [google&#x2011;chrome](https://www.google.com/chrome/), [brave](https://brave.com/linux/), [min](https://minbrowser.org/), [extension&#x2011;manager](https://github.com/mjakeman/extension-manager#-installing), [input&#x2011;remapper](https://github.com/sezanzeb/input-remapper#installation), [tilix](https://gnunn1.github.io/tilix-web/#packages), [terminator](https://gnome-terminator.org/).
+
+
+
+
+## Minidoc
+
+There is an in-progress documentation page [here](DOCS.md), it might be useful.
