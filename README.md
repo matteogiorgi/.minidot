@@ -9,18 +9,11 @@ This repo contains a streamlined configuration of my dotfiles, designed to work 
 
 
 
-## Packages included
+## Packages & documentation
 
 ```
 git curl wget stow xclip trash-cli htop fzf ripgrep bat chafa poppler-utils wamerican witalian
 dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-firacode pandoc gnome-keyring
 ```
 
-For a detailed list of all the available packages, check out Debian and Ubuntu related pages [here](https://www.debian.org/distrib/packages) and [here](https://packages.ubuntu.com).
-
-
-
-
-## Minidoc
-
-There is an in-progress documentation page [here](DOCS.md), it might be useful.
+For a detailed list of all the available packages, check out Debian and Ubuntu related pages [here](https://www.debian.org/distrib/packages) and [here](https://packages.ubuntu.com). There is an in&#x2011;progress documentation page too: [take a look](DOCS.md), it might be useful.
