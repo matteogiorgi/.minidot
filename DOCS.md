@@ -20,6 +20,12 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 
 
+## Linux system container manager
+
+In case you need to containerize your system or you want to intall *Minidot* inside a container, you can use [LXD](https://ubuntu.com/lxd): it is very well documented and has a [first&#x2011;steps](https://documentation.ubuntu.com/lxd/en/latest/tutorial/first_steps/#first-steps) page too.
+
+
+
 
 ## Nerd Fonts
 
