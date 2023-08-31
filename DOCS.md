@@ -29,7 +29,7 @@ In case you need to containerize your system or simply do not want to mess with 
 
 ## Nerd Fonts
 
-If you need to use a font with glyphs, you can install one of the *Nerd Fonts* available:
+If you need to use a font with glyphs, you can install one of the Nerd Fonts available:
 
 1. download a [Nerd Font](https://www.nerdfonts.com/font-downloads)
 2. unzip and copy it inside `~/.fonts` or `~/.local/share/fonts`
