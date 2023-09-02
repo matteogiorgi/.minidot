@@ -102,6 +102,7 @@ endfunction
 augroup writer_filetype
     autocmd!
     autocmd FileType markdown,latex,text
+                \ setlocal nonu nornu|
                 \ setlocal wrap conceallevel=2|
                 \ nmap <buffer> j gj|
                 \ nmap <buffer> k gk
@@ -124,6 +125,7 @@ augroup end
 " Commands & Keymaps {{{
 command! MakeNote call <SID>MakeNote()
 command! ScratchBuffer call <SID>ScratchBuffer()
+" ---
 nnoremap <silent>' :call <SID>AccentToggle()<CR>
 nnoremap <localleader>m :MakeNote<CR>
 nnoremap <localleader>s :ScratchBuffer<CR>

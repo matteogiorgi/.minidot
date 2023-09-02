@@ -210,12 +210,12 @@ command! RemoveSpaces
             \ echo !empty(v:statusmsg) ? v:statusmsg : 'removed trailing spaces'
 " ---
 command! WrapToggle
-            \ silent execute &wrap ? 'set nowrap' : 'set wrap'|
+            \ silent execute &wrap ? 'setlocal nowrap' : 'setlocal wrap'|
             \ silent execute &wrap ?'nmap <buffer> j gj|nmap <buffer> k gk' : 'nunmap <buffer> j|nunmap <buffer> k'|
             \ echo &wrap ? 'lines wrapped' : 'lines unwrapped'
 " ---
 command! NumbersToggle
-            \ silent execute &rnu ? 'set nonu nornu' : &nu ? 'set rnu' : 'set nu'|
+            \ silent execute &rnu ? 'setlocal nonu nornu' : &nu ? 'setlocal rnu' : 'setlocal nu'|
             \ echo &rnu ? 'relativenumbers' : &nu ? 'numbers' : 'no-numbers'
 " ---
 command! BackgroundToggle
