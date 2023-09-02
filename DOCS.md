@@ -22,7 +22,7 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 ## Linux system container manager
 
-In case you do not want to mess around with your current configuration or just feel the need to containerize your work environment, you can install *Minidot* inside a container. [LXD](https://ubuntu.com/lxd) is an excellent solution and has a very good documentation too: take a look at its [first&#x2011;steps](https://documentation.ubuntu.com/lxd/en/latest/tutorial/first_steps/#first-steps) page, it's very easy to follow and will get you up and running in no time.
+In case you do not want to mess around with your current configuration or just feel the need to containerize your work environment, you can install *Minidot* inside a container: [LXD](https://ubuntu.com/lxd) is an excellent solution. Take a look at its [first&#x2011;steps](https://documentation.ubuntu.com/lxd/en/latest/tutorial/first_steps/#first-steps) page, it's very easy to follow and will get you up and running in no time.
 
 
 
