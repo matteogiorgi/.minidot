@@ -101,7 +101,7 @@ endfunction
 " Filetype behavior {{{
 augroup writer_filetype
     autocmd!
-    autocmd FileType markdown,latex,text
+    autocmd FileType markdown,tex,text
                 \ setlocal nonu nornu|
                 \ setlocal wrap conceallevel=2|
                 \ nmap <buffer> j gj|
