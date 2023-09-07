@@ -11,7 +11,7 @@
 
 " Checks {{{
 if has('linebreak')
-    let &showbreak='⤷ '
+    let &showbreak='  ~'
 endif
 " ---
 if has('persistent_undo')
@@ -211,7 +211,7 @@ command! RemoveSpaces
 " ---
 command! WrapToggle
             \ silent execute &wrap ? 'setlocal nowrap' : 'setlocal wrap'|
-            \ silent execute &wrap ?'nmap <buffer> j gj|nmap <buffer> k gk' : 'nunmap <buffer> j|nunmap <buffer> k'|
+            \ silent execute &wrap ?'map <buffer> j gj|map <buffer> k gk' : 'unmap <buffer> j|unmap <buffer> k'|
             \ echo &wrap ? 'lines wrapped' : 'lines unwrapped'
 " ---
 command! NumbersToggle
