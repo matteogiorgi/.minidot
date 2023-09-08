@@ -34,9 +34,8 @@ while true; do
             `--bind 'ctrl-p:half-page-up' `
             `--bind 'ctrl-d:preview-half-page-down' `
             `--bind 'ctrl-u:preview-half-page-up' `
-            `--bind 'ctrl-s:execute(nohup subl {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-c:execute(nohup code {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-c:execute(nohup code {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-l:execute(nohup xdg-open {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-o:execute(nohup xdg-open . &>/tmp/fjump.out & disown)')"
     # ---
