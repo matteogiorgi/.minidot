@@ -40,11 +40,11 @@ If you need to use a font with glyphs, you can install one of the Nerd Fonts ava
 
 Since *Minidot* is so minimal, here are some extra tools you might find useful:
 
-- [AstroNvim](https://astronvim.com/#%EF%B8%8F-installation): an aesthetic and feature&#x2011;rich Neovim config
-- [VSCode](https://code.visualstudio.com/Download): Microsoft source&#x2011;code editor
-- [VSCode&#x2011;Insiders](https://code.visualstudio.com/insiders/): pre&#x2011;release build of VSCode
+- [Astro&#x2011;NVim](https://astronvim.com/#%EF%B8%8F-installation): an aesthetic and feature&#x2011;rich Neovim config
+- [Visual&#x2011;Studio&#x2011;Code](https://code.visualstudio.com/Download): Microsoft source&#x2011;code editor
+- [Visual&#x2011;Studio&#x2011;Code&#x2011;Insiders](https://code.visualstudio.com/insiders/): the pre&#x2011;release build of VSCode
 - [GitKraken](https://www.gitkraken.com/download): the world's most powerful suite of Git tools
 - [Google&#x2011;Chrome](https://www.google.com/chrome/): the most popular web browser
-- [Brave](https://brave.com/linux/): a faster, more private chromium&#x2011;based web browser
+- [Brave&#x2011;Browser](https://brave.com/linux/): a faster, more private Chromium&#x2011;based web browser
+- [Input&#x2011;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to change the behaviour of your Linux input devices
 - [Extension&#x2011;Manager](https://github.com/mjakeman/extension-manager#-installing): a utility for browsing and installing GNOME Shell extensions
-- [Input&#x2011;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to change the behaviour of your input devices
