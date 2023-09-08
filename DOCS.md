@@ -29,7 +29,7 @@ In case you do not want to mess around with your current configuration or just f
 
 If you need to use a font with glyphs, you can install one of the Nerd Fonts available:
 
-1. download a [Nerd Font](https://www.nerdfonts.com/font-downloads)
+1. download a [Nerd&bnsp;Font](https://www.nerdfonts.com/font-downloads)
 2. unzip and copy it inside `~/.fonts` or `~/.local/share/fonts`
 3. run the command `fc-cache -fv` to manually rebuild the font cache
 
@@ -40,11 +40,11 @@ If you need to use a font with glyphs, you can install one of the Nerd Fonts ava
 
 Since *Minidot* is so minimal, here are some extra tools you might find useful:
 
-- [Astro&#x2011;NVim](https://astronvim.com/#%EF%B8%8F-installation): an aesthetic and feature&#x2011;rich Neovim config
-- [Visual&#x2011;Studio&#x2011;Code](https://code.visualstudio.com/Download): Microsoft source&#x2011;code editor
-- [Visual&#x2011;Studio&#x2011;Code&#x2011;Insiders](https://code.visualstudio.com/insiders/): the pre&#x2011;release build of VSCode
+- [AstroNVim](https://astronvim.com/#%EF%B8%8F-installation): an aesthetic and feature&#x2011;rich Neovim config
+- [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/Download): Microsoft source&#x2011;code editor
+- [VSCode&nbsp;Insiders](https://code.visualstudio.com/insiders/): the pre&#x2011;release build of VSCode
 - [GitKraken](https://www.gitkraken.com/download): the world's most powerful suite of Git tools
-- [Google&#x2011;Chrome](https://www.google.com/chrome/): the most popular web browser
-- [Brave&#x2011;Browser](https://brave.com/linux/): a faster, more private Chromium&#x2011;based web browser
-- [Input&#x2011;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to change the behaviour of your Linux input devices
-- [Extension&#x2011;Manager](https://github.com/mjakeman/extension-manager#-installing): a utility for browsing and installing GNOME Shell extensions
+- [Google&nbsp;Chrome](https://www.google.com/chrome/): the most popular web browser
+- [Brave&nbsp;Browser](https://brave.com/linux/): a faster, more private Chromium&#x2011;based web browser
+- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to remap the input of your Linux devices
+- [Extension&nbsp;Manager](https://github.com/mjakeman/extension-manager#-installing): a GNOME&#x2011;Shell extensions browser/installer
