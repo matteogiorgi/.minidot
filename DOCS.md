@@ -29,7 +29,7 @@ In case you do not want to mess around with your current configuration or just f
 
 If you need to use a font with glyphs, you can install one of the Nerd Fonts available:
 
-1. download a [Nerd&bnsp;Font](https://www.nerdfonts.com/font-downloads)
+1. download a [Nerd&nbsp;Font](https://www.nerdfonts.com/font-downloads)
 2. unzip and copy it inside `~/.fonts` or `~/.local/share/fonts`
 3. run the command `fc-cache -fv` to manually rebuild the font cache
 
