@@ -18,57 +18,33 @@
         "command": "workbench.action.togglePanel"
     },
     {
-        "key": "alt+n",
-        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
-        "when": "!activeEditorGroupEmpty"
-    },
-    {
-        "key": "alt+n",
-        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
-    },
-    {
-        "key": "alt+p",
-        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
-        "when": "!activeEditorGroupEmpty"
-    },
-    {
-        "key": "alt+p",
-        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
-    },
-    {
-        "key": "alt+shift+a",
-        "command": "editor.action.commentLine",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+shift+s",
+        "key": "alt+l",
         "command": "editor.action.inlineSuggest.trigger",
         "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
     },
     {
-        "key": "alt+shift+n",
+        "key": "alt+j",
         "command": "editor.action.inlineSuggest.showNext",
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
-        "key": "alt+shift+p",
+        "key": "alt+k",
         "command": "editor.action.inlineSuggest.showPrevious",
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
-        "key": "alt+w",
+        "key": "alt+n",
         "command": "editor.action.marker.next",
         "when": "editorFocus"
     },
     {
-        "key": "alt+b",
+        "key": "alt+p",
         "command": "editor.action.marker.prev",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+j",
-        "command": "-workbench.action.togglePanel"
+        "key": "alt+z",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
     }
 ]

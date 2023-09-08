@@ -211,7 +211,7 @@ command! RemoveSpaces
 " ---
 command! WrapToggle
             \ silent execute &wrap ? 'setlocal nowrap' : 'setlocal wrap'|
-            \ silent execute &wrap ?'map <buffer> j gj|map <buffer> k gk' : 'unmap <buffer> j|unmap <buffer> k'|
+            \ silent execute &wrap ?'noremap <buffer> j gj|noremap <buffer> k gk' : 'unmap <buffer> j|unmap <buffer> k'|
             \ echo &wrap ? 'lines wrapped' : 'lines unwrapped'
 " ---
 command! NumbersToggle
@@ -230,23 +230,19 @@ command! BackgroundToggle
 
 
 " Keymaps {{{
+noremap <silent><C-h> (
+noremap <silent><C-l> )
+noremap <silent><C-j> }
+noremap <silent><C-k> {
+" ---
 nnoremap <silent>Y y$
 vnoremap <silent>H <gv
 vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
-map <silent><C-h> (
-map <silent><C-l> )
-map <silent><C-j> }
-map <silent><C-k> {
-" ---
-tnoremap <silent><C-q> <C-\><C-n>
-nnoremap <silent><C-n> :tabnext<CR>
-nnoremap <silent><C-p> :tabprev<CR>
-nnoremap <silent><Tab> :buffer#<CR>
-nnoremap <leader>o :tabnew %<CR>
-nnoremap <leader>c :tabclose<CR>
+tnoremap <silent><C-x> <C-\><C-n>
+nnoremap <leader>w :buffer#<CR>
 nnoremap <leader>e :Explore<CR>
 " ---
 nnoremap <localleader>q :call <SID>ToggleQF()<CR>

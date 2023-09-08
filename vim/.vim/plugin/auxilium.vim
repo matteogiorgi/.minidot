@@ -104,8 +104,8 @@ augroup writer_filetype
     autocmd FileType markdown,tex,text
                 \ setlocal nonu nornu|
                 \ setlocal wrap conceallevel=2|
-                \ map <buffer> j gj|
-                \ map <buffer> k gk
+                \ noremap <buffer> j gj|
+                \ noremap <buffer> k gk
 augroup end
 "}}}
 
