@@ -46,5 +46,5 @@ Since *Minidot* is so minimal, here are some extra tools you might find useful:
 - [GitKraken](https://www.gitkraken.com/download): the world's most powerful suite of Git&#x2011;tools
 - [Google&nbsp;Chrome](https://www.google.com/chrome/): the most popular web browser
 - [Brave](https://brave.com/linux/): a faster, more private Chromium&#x2011;based web browser
-- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to remap the input of your Linux devices
+- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to remap the inpus of your Linux devices
 - [Extension&nbsp;Manager](https://github.com/mjakeman/extension-manager#-installing): a GNOME&#x2011;Shell extensions browser/installer
