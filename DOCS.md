@@ -48,5 +48,3 @@ Since *Minidot* is so minimal, here are some extra tools you might find useful:
 - [Brave](https://brave.com/linux/): a faster, more private chromium&#x2011;based web browser
 - [Extension&#x2011;Manager](https://github.com/mjakeman/extension-manager#-installing): a utility for browsing and installing GNOME Shell extensions
 - [Input&#x2011;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to change the behaviour of your input devices
-- [Tilix](https://gnunn1.github.io/tilix-web/#packages): an advanced GTK3 tiling terminal emulator
-- [Terminator](https://gnome-terminator.org/): another tiling terminal emulator whith lots of features
