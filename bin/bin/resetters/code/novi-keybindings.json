@@ -29,22 +29,22 @@
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
-        "key": "alt+e",
+        "key": "alt+w",
         "command": "editor.action.marker.next",
         "when": "editorFocus"
     },
     {
-        "key": "alt+shift+e",
+        "key": "alt+shift+w",
         "command": "editor.action.marker.prev",
         "when": "editorFocus"
     },
     {
-        "key": "alt+w",
+        "key": "alt+z",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "shift+alt+w",
+        "key": "shift+alt+z",
         "command": "editor.action.blockComment",
         "when": "editorTextFocus && !editorReadonly"
     }
