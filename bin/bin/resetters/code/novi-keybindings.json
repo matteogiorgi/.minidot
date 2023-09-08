@@ -1,44 +1,40 @@
 [
     {
         "key": "alt+a",
-        "command": "workbench.action.toggleActivityBarVisibility"
-    },
-    {
-        "key": "alt+s",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "sideBarFocus"
     },
     {
-        "key": "alt+s",
+        "key": "alt+a",
         "command": "workbench.action.focusSideBar",
         "when": "!sideBarFocus"
     },
     {
-        "key": "alt+d",
-        "command": "workbench.action.togglePanel"
+        "key": "alt+shift+a",
+        "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
-        "key": "alt+l",
+        "key": "alt+s",
         "command": "editor.action.inlineSuggest.trigger",
         "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
     },
     {
-        "key": "alt+j",
+        "key": "alt+s",
         "command": "editor.action.inlineSuggest.showNext",
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
-        "key": "alt+k",
+        "key": "alt+shift+s",
         "command": "editor.action.inlineSuggest.showPrevious",
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
-        "key": "alt+n",
+        "key": "alt+e",
         "command": "editor.action.marker.next",
         "when": "editorFocus"
     },
     {
-        "key": "alt+p",
+        "key": "alt+shift+e",
         "command": "editor.action.marker.prev",
         "when": "editorFocus"
     },

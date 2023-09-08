@@ -56,10 +56,8 @@
 /bin/bin/resetters/*
 !/bin/bin/resetters/code/*
 !/bin/bin/resetters/plug/*
-!/bin/bin/resetters/subl/*
 !/bin/bin/resetters/reset-code
 !/bin/bin/resetters/reset-plug
-!/bin/bin/resetters/reset-subl
 
 /bin/bin/resetters/code/*
 !/bin/bin/resetters/code/vspacecode-settings.json
@@ -69,11 +67,6 @@
 
 /bin/bin/resetters/plug/*
 !/bin/bin/resetters/plug/plugme.vim
-
-/bin/bin/resetters/subl/*
-!/bin/bin/resetters/subl/smerge-settings.json
-!/bin/bin/resetters/subl/subl-keybindings.json
-!/bin/bin/resetters/subl/subl-settings.json
 
 
 
