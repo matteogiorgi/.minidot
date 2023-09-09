@@ -30,7 +30,7 @@ _check () {
     # ---
     if [[ ! -x "$(command -v "${CODE}")" ]]; then
         printf "\n"
-        printf "════════════ We're done here ════════════\n"
+        printf "═══════ Warning: ${CODE} not found ══════\n"
         printf "Install ${CODE} and run this script again\n"
         exit 1
     fi
