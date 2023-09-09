@@ -1,3 +1,5 @@
+# Mini&#x2011;Linux environment
+
 ```
        .-.        __  __ _       _     _       _
     __/   (      |  \/  (_)_ __ (_) __| | ___ | |_
@@ -5,7 +7,7 @@
    u=='/  \      | |  | | | | | | | (_| | (_) | |_
       /_/  \     |_|  |_|_|_| |_|_|\__,_|\___/ \__|
     .-''   |
-   (  ____/__    a minimal Linux environment
+   (  ____/__    you won't need more than this
 ```
 
 This repo contains a streamlined configuration of my dotfiles, designed to work with any Linux distribution based on [Debian](https://www.debian.org/download)/[Ubuntu](https://ubuntu.com/#download) or within a Linux subsystem, such as [Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or [ChromeOS LDE](https://support.google.com/chromebook/answer/9145439?hl=en).
