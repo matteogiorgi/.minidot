@@ -40,11 +40,10 @@ If you need to use a font with glyphs, you can install one of the Nerd Fonts ava
 
 Since *Minidot* is so minimal, here are some extra tools you might find useful:
 
-- [AstroNVim](https://astronvim.com/#%EF%B8%8F-installation): an aesthetic and feature&#x2011;rich Neovim config
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/Download): Microsoft source&#x2011;code editor
 - [VSCode&nbsp;Insiders](https://code.visualstudio.com/insiders/): the pre&#x2011;release build of VSCode
 - [GitKraken](https://www.gitkraken.com/download): the world's most powerful suite of Git&#x2011;tools
 - [Google&nbsp;Chrome](https://www.google.com/chrome/): the most popular web browser
 - [Brave](https://brave.com/linux/): a faster, more private Chromium&#x2011;based web browser
-- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to remap the inputs of your Linux devices
 - [Extension&nbsp;Manager](https://github.com/mjakeman/extension-manager#-installing): a GNOME&#x2011;Shell extensions browser/installer
+- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to remap the inputs of your Linux devices
