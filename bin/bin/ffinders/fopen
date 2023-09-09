@@ -15,7 +15,7 @@ CLICOLOR_FORCE=1
 
 while true; do
     [[ $(type -t __fetch_git_branch) == function ]] && GIT_BRANCH=$(__fetch_git_branch " (%s)") || GIT_BRANCH=""
-    FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
+    FILE="$(rg --color always --sort-files --files --hidden --glob "!.git/**" | fzf `
             `--ansi `
             `--no-multi `
             `--preview 'mess {}' `
@@ -26,16 +26,20 @@ while true; do
             `--reverse `
             `--info=hidden `
             `--bind 'esc:' `
-            `--bind 'ctrl-h:clear-query' `
+            `--bind 'ctrl-h:cancel' `
             `--bind 'ctrl-t:toggle-preview' `
             `--bind 'ctrl-n:half-page-down' `
             `--bind 'ctrl-p:half-page-up' `
             `--bind 'ctrl-d:preview-half-page-down' `
             `--bind 'ctrl-u:preview-half-page-up' `
-            `--bind 'ctrl-l:abort')"
+            `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-c:execute(nohup code {} &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-l:execute(nohup xdg-open {} &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-e:execute(nohup {} &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-o:execute(nohup xdg-open ./$(dirname {}) &>/tmp/fjump.out & disown)')"
     # ---
     [[ -n "$FILE" ]] || FILE="."
-    CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf `
+    CMD="$(\ls --color=always -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf `
             `--ansi `
             `--no-multi `
             `--prompt="$PWD/$FILE > " `
@@ -46,7 +50,7 @@ while true; do
             `--bind 'esc:' `
             `--bind 'ctrl-h:cancel' `
             `--bind 'ctrl-n:half-page-down' `
-            `--bind 'ctrl-p:half-page-up')
+            `--bind 'ctrl-p:half-page-up')"
     # ---
     [[ -n "$CMD" ]] || exit 1
     "${CMD}" "${FILE}" 2>/dev/null
