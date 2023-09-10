@@ -18,7 +18,7 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 - [GitKraken](https://www.gitkraken.com/download): the world's most powerful suite of Git&#x2011;tools
 - [Google&nbsp;Chrome](https://www.google.com/chrome/): the most popular web&#x2011;browser
 - [Brave&nbsp;Browser](https://brave.com/linux/): a faster, more private Chromium&#x2011;based web browser
-- [DrawIO](https://github.com/jgraph/drawio-desktop/releases): useful graph drawing application
+- [Drawio&nbsp;Desktop](https://github.com/jgraph/drawio-desktop/releases): useful graph drawing application
 - [Focus&nbsp;Editor](https://github.com/focus-editor/focus/releases): a simple and fast text editor written in Jai
 
 
