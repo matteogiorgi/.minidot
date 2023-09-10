@@ -14,12 +14,12 @@ In case you do not want to mess around with your current configuration or just f
 Since *Minidot* is so minimal, here are some (multiplatform) extra tools you might find useful:
 
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/Download): Microsoft source&#x2011;code editor
-- [Visual&nbsp;Studio&nbsp;Code&nbsp;Insiders](https://code.visualstudio.com/insiders/): the pre&#x2011;release build of Visual&nbsp;Studio&nbsp;Code
-- [GitKraken](https://www.gitkraken.com/download): the world's most powerful suite of Git&#x2011;tools
-- [Google&nbsp;Chrome](https://www.google.com/chrome/): the most popular web&#x2011;browser
-- [Brave&nbsp;Browser](https://brave.com/linux/): a faster, more private Chromium&#x2011;based web browser
-- [Drawio&nbsp;Desktop](https://github.com/jgraph/drawio-desktop/releases): useful graph drawing application
-- [Focus&nbsp;Editor](https://github.com/focus-editor/focus/releases): a simple and fast text editor written in Jai
+- [Visual&nbsp;Studio&nbsp;Code&nbsp;Insiders](https://code.visualstudio.com/insiders/): pre&#x2011;release build of Visual&nbsp;Studio&nbsp;Code
+- [GitKraken](https://www.gitkraken.com/download): world's most powerful suite of Git&#x2011;tools
+- [Focus&nbsp;Editor](https://github.com/focus-editor/focus/releases): experimental text editor written in Jai
+- [Google&nbsp;Chrome](https://www.google.com/chrome/): most popular web&#x2011;browser
+- [Brave&nbsp;Browser](https://brave.com/linux/): faster, more private Chromium&#x2011;based web browser
+- [Drawio&nbsp;Desktop](https://github.com/jgraph/drawio-desktop/releases): simple graph drawing application
 
 
 
@@ -28,8 +28,8 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 
 In case you are working in Linux natively, you might also consider the following:
 
-- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): a tool to remap the inputs of your Linux devices
-- [Extension&nbsp;Manager](https://mattjakeman.com/apps/extension-manager): a browser/installer for GNOME Shell extensions
+- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): tool to remap the inputs of your Linux devices
+- [Extension&nbsp;Manager](https://mattjakeman.com/apps/extension-manager): browser/installer for GNOME Shell extensions
 - [Tilix&nbsp;Terminal](https://gnunn1.github.io/tilix-web/): feature&#x2011;rich and easily [themeable](https://github.com/storm119/Tilix-Themes) tiling terminal emulator
 - [GNOME&nbsp;Apps](https://apps.gnome.org/): best applications for the GNOME ecosystem
 
