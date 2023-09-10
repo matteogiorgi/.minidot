@@ -29,7 +29,7 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 - [Focus&nbsp;Editor](https://github.com/focus-editor/focus/releases): experimental text editor written in Jai
 - [Google&nbsp;Chrome](https://www.google.com/chrome/): most popular web&#x2011;browser
 - [Brave&nbsp;Browser](https://brave.com/linux/): faster, more private Chromium&#x2011;based web browser
-- [Drawio&nbsp;Desktop](https://github.com/jgraph/drawio-desktop/releases): simple graph drawing application
+- [Drawio&nbsp;Desktop](https://github.com/jgraph/drawio-desktop/releases): diagramming and whiteboarding desktop application
 
 
 
@@ -38,7 +38,7 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 
 In case you are working in Linux natively, you might also consider the following:
 
-- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): tool to change the behaviour of your input devices
+- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): simple tool to change the behaviour of your input devices
 - [Tilix&nbsp;Terminal](https://gnunn1.github.io/tilix-web/): feature&#x2011;rich and easily [themeable](https://github.com/storm119/Tilix-Themes) tiling terminal emulator
 - [Extension&nbsp;Manager](https://mattjakeman.com/apps/extension-manager): browser/installer for GNOME Shell extensions
 - [GNOME&nbsp;Apps](https://apps.gnome.org/): best applications in the GNOME ecosystem
