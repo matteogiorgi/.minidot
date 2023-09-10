@@ -24,7 +24,7 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 
 ### Linux&#x2011;specific
 
-If you are using Linux, you might also want to install these:
+In case you are working in Linux natively, you might also consider the following:
 
 - [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): a tool to remap the inputs of your Linux devices
 - [Extension&nbsp;Manager](https://mattjakeman.com/apps/extension-manager): a browser/installer for GNOME Shell extensions
