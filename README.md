@@ -19,7 +19,7 @@ This repo contains a streamlined configuration of my dotfiles, designed to work 
 
 
 
-## Packages & documentation
+## Packages & docs
 
 ```
 git curl wget stow xclip trash-cli htop fzf ripgrep bat chafa poppler-utils wamerican witalian
