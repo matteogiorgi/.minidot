@@ -1,10 +1,20 @@
-# Minidoc
+# Mini&#x2011;documentation
+
+```
+       .-.        __  __ _       _     _
+    __/   (      |  \/  (_)_ __ (_) __| | ___   ___
+  , '-.____\     | |\/| | | '_ \| |/ _' |/ _ \ / __|
+   u=='/  \      | |  | | | | | | | (_| | (_) | (__
+      /_/  \     |_|  |_|_|_| |_|_|\__,_|\___/ \___|
+    .-''   |
+   (  ____/__    Not a real doc.
+```
 
 Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old configs, install all the packages needed and symlink the *Minidot* files correctly; while the restore script will rollback all the changes and reinstate your previously saved config files.
 
 In case you do not want to mess around with your current configuration or just feel the need to containerize your work environment, you can install *Minidot* inside a container: [LXD](https://ubuntu.com/lxd) is an excellent solution. Take a look at its [first&#x2011;steps](https://documentation.ubuntu.com/lxd/en/latest/tutorial/first_steps/#first-steps) page, it's very easy to follow and will get you up and running in no time.
 
-<img src="vim.png" width="100%">
+<img src="doc.png" width="100%">
 
 
 
