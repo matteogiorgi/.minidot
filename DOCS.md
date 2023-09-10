@@ -18,7 +18,6 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 - [GitKraken](https://www.gitkraken.com/download): the world's most powerful suite of Git&#x2011;tools
 - [Google&nbsp;Chrome](https://www.google.com/chrome/): the most popular web&#x2011;browser
 - [Brave&nbsp;Browser](https://brave.com/linux/): a faster, more private Chromium&#x2011;based web browser
-- [Focus&nbsp;Editor](https://github.com/focus-editor/focus/releases): a simple and fast text editor written in Jai
 
 
 
@@ -29,7 +28,7 @@ If you are using Linux, you might also want to install these:
 
 - [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to remap the inputs of your Linux devices
 - [Extension&nbsp;Manager](https://github.com/mjakeman/extension-manager#-installing): a browser/installer for GNOME Shell extensions
-- [Tilix](https://github.com/gnunn1/tilix): a GTK3 tiling terminal emulator with lots of [themes](https://github.com/storm119/Tilix-Themes)
+- [Tilix&nbsp;Terminal](https://gnunn1.github.io/tilix-web/): feature&#x2011;rich and easy [themable](https://github.com/storm119/Tilix-Themes) tiling terminal emulator
 - [GNOME&nbsp;Apps](https://apps.gnome.org/): best applications for the GNOME ecosystem
 
 
