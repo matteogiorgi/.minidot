@@ -26,9 +26,9 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 
 If you are using Linux, you might also want to install these:
 
-- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#installation): a tool to remap the inputs of your Linux devices
-- [Extension&nbsp;Manager](https://github.com/mjakeman/extension-manager#-installing): a browser/installer for GNOME Shell extensions
-- [Tilix&nbsp;Terminal](https://gnunn1.github.io/tilix-web/): feature&#x2011;rich and easy [themable](https://github.com/storm119/Tilix-Themes) tiling terminal emulator
+- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): a tool to remap the inputs of your Linux devices
+- [Extension&nbsp;Manager](https://mattjakeman.com/apps/extension-manager): a browser/installer for GNOME Shell extensions
+- [Tilix&nbsp;Terminal](https://gnunn1.github.io/tilix-web/): feature&#x2011;rich and easily [themeable](https://github.com/storm119/Tilix-Themes) tiling terminal emulator
 - [GNOME&nbsp;Apps](https://apps.gnome.org/): best applications for the GNOME ecosystem
 
 
