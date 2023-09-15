@@ -217,20 +217,22 @@ if [[ -n "$TMUX" ]]; then
     bind -m vi-command -x '"\C-j": fjump'
     bind -m vi-command -x '"\C-k": fopen'
     bind -m vi-command -x '"\C-l": clear; echo ${PS1@P}'
+    bind -m vi-command -x '"\C-f": tput cnorm; echo ${PS1@P}'
     # ---
     bind -m vi-insert -x '"\C-h": fgit'
     bind -m vi-insert -x '"\C-j": fjump'
     bind -m vi-insert -x '"\C-k": fopen'
     bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
+    bind -m vi-insert -x '"\C-f": tput cnorm; echo ${PS1@P}'
 else
     bind 'set vi-ins-mode-string "\033[00m▘\033[00m"'
     bind 'set vi-cmd-mode-string "\033[91m▖\033[00m"'
     # ---
-    bind -m vi-command -x '"\C-f": tmux'
     bind -m vi-command -x '"\C-l": clear'
+    bind -m vi-command -x '"\C-f": tmux'
     # ---
-    bind -m vi-insert -x '"\C-f": tmux'
     bind -m vi-insert -x '"\C-l": clear'
+    bind -m vi-insert -x '"\C-f": tmux'
 fi
 
 
