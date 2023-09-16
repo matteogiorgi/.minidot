@@ -27,8 +27,8 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 - [Visual&nbsp;Studio&nbsp;Code&nbsp;Insiders](https://code.visualstudio.com/insiders/): pre&#x2011;release build of Visual&nbsp;Studio&nbsp;Code
 - [Google&nbsp;Chrome](https://www.google.com/chrome/): most popular web&#x2011;browser
 - [Brave&nbsp;Browser](https://brave.com/linux/): faster, more private Chromium&#x2011;based web browser
+- [Drawio&nbsp;Desktop](https://github.com/jgraph/drawio-desktop/releases): diagramming and whiteboarding application
 - [GitKraken](https://www.gitkraken.com/download): world's most powerful suite of Git&#x2011;tools
-- [DrawIO&#x2011;Desktop](https://github.com/jgraph/drawio-desktop/releases): diagramming and whiteboarding desktop application
 
 
 
