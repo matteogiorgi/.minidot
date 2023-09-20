@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This script resets VSCode setting using VSpaceCode extensions pack:
-#     [--vime] resets VSCode
+#     [--vime] resets VSCode Vim-like style
 #     [--novi] resets VSCode without Vim goodies
 #     [--zero] removes all VSCode configurations (rm -rf ~/.config/Code/User)
 
@@ -102,7 +102,7 @@ if [[ $# -gt 1 ]]; then
     exit 1
 elif [[ $# -eq 0 ]]; then
     printf "╔═══════════════════ Help ══════════════════╗\n"
-    printf "║ [--vime] reset VSCode                     ║\n"
+    printf "║ [--vime] reset VSCode Vim-like style      ║\n"
     printf "║ [--novi] reset VSCode without Vim goodies ║\n"
     printf "║ [--zero] remove all VSCode configurations ║\n"
     printf "╚═══════════════════════════════════════════╝\n"
