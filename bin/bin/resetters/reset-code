@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
 # This script resets VSCode setting using VSpaceCode extensions pack:
-#     [--code] resets VSCode
+#     [--vime] resets VSCode
 #     [--novi] resets VSCode without Vim goodies
 #     [--zero] removes all VSCode configurations (rm -rf ~/.config/Code/User)
-#     [--code-insiders] resets VSCode Insiders
-#     [--novi-insiders] resets VSCode Insiders without Vim goodies
-#     [--zero-insiders] removes all VSCode Insiders configurations (rm -rf ~/.config/Code\ -\ Insiders/User)
 
 # Here the full set of extensions installed by this script:
 # (for more information visit https://vspacecode.github.io/)
@@ -104,16 +101,13 @@ if [[ $# -gt 1 ]]; then
     printf "Too many arguments: no operations were executed\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
-    printf "╔════════════════════════════ Help ═══════════════════════════╗\n"
-    printf "║ [--code] reset VSCode                                       ║\n"
-    printf "║ [--novi] reset VSCode without Vim goodies                   ║\n"
-    printf "║ [--zero] remove all VSCode configurations                   ║\n"
-    printf "║ [--code-insiders] reset VSCode Insiders                     ║\n"
-    printf "║ [--novi-insiders] reset VSCode Insiders without Vim goodies ║\n"
-    printf "║ [--zero-insiders] remove all VSCode Insiders configurations ║\n"
-    printf "╚═════════════════════════════════════════════════════════════╝\n"
+    printf "╔═══════════════════ Help ══════════════════╗\n"
+    printf "║ [--vime] reset VSCode                     ║\n"
+    printf "║ [--novi] reset VSCode without Vim goodies ║\n"
+    printf "║ [--zero] remove all VSCode configurations ║\n"
+    printf "╚═══════════════════════════════════════════╝\n"
     exit 0
-elif [[ $1 != "--code" && $1 != "--novi" && $1 != "--zero" && $1 != "--code-insiders" && $1 != "--novi-insiders" && $1 != "--zero-insiders" ]]; then
+elif [[ $1 != "--vime" && $1 != "--novi" && $1 != "--zero" ]]; then
     printf "\n"
     printf "══════════════════ Warning ══════════════════\n"
     printf "Unknown argument: no operations were executed\n"
@@ -126,7 +120,7 @@ fi
 ### Ready?
 ##########
 
-read -p "Resetting VSCode/VSCode-Insiders (enter to continue)"
+read -p "Resetting VSCode (enter to continue)"
 
 
 
@@ -143,19 +137,6 @@ if [[ $1 == "--zero" ]]; then
     printf "\n"
     printf "══════════════ We're done here ═════════════\n"
     printf "Enjoy your vanilla VSCode with no extensions\n"
-    exit 0
-fi
-
-
-if [[ $1 == "--zero-insiders" ]]; then
-    OPERATION="REMOVING ALL CODE-INSIDERS CONFIGURATIONS"
-    USER="${HOME}/.config/Code - Insiders/User"
-    CODE="code-insiders"
-    _zero
-    # ---
-    printf "\n"
-    printf "══════════════════ We're done here ══════════════════\n"
-    printf "Enjoy your vanilla VSCode Insiders with no extensions\n"
     exit 0
 fi
 
@@ -188,20 +169,7 @@ if [[ $1 == "--novi" ]]; then
 fi
 
 
-if [[ $1 == "--novi-insiders" ]]; then
-    OPERATION="RESETTING CODE-INSIDERS"
-    USER="${HOME}/.config/Code - Insiders/User"
-    CODE="code-insiders"
-    _novi
-    # ---
-    printf "\n"
-    printf "══════════ We're done here ═════════\n"
-    printf "Enjoy your life with VSCode Insiders\n"
-    exit 0
-fi
-
-
-if [[ $1 == "--code" ]]; then
+if [[ $1 == "--vime" ]]; then
     OPERATION="RESETTING CODE"
     USER="${HOME}/.config/Code/User"
     CODE="code"
@@ -210,19 +178,6 @@ if [[ $1 == "--code" ]]; then
     printf "\n"
     printf "═══════════ We're done here ══════════\n"
     printf "Enjoy your Vim-Styled life with VSCode\n"
-    exit 0
-fi
-
-
-if [[ $1 == "--code-insiders" ]]; then
-    OPERATION="RESETTING CODE-INSIDERS"
-    USER="${HOME}/.config/Code - Insiders/User"
-    CODE="code-insiders"
-    _reset
-    # ---
-    printf "\n"
-    printf "═══════════════ We're done here ═══════════════\n"
-    printf "Enjoy your Vim-Styled life with VSCode Insiders\n"
     exit 0
 fi
 

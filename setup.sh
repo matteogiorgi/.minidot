@@ -189,5 +189,5 @@ stow vim
 ### Finish
 ##########
 
-read -p "    Installation completed ;)"
 printf "\n"
+printf "    Installation completed ;)\n"

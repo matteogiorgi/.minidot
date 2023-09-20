@@ -26,13 +26,12 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 - [Google&nbsp;Chrome](https://www.google.com/chrome/): most popular web&#x2011;browser
 - [Brave&nbsp;Browser](https://brave.com/linux/): faster, more private Chromium&#x2011;based web browser
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/Download): Microsoft source&#x2011;code editor
-- [Visual&nbsp;Studio&nbsp;Code&nbsp;Insiders](https://code.visualstudio.com/insiders/): pre&#x2011;release build of Visual&nbsp;Studio&nbsp;Code
 - [GitKraken](https://www.gitkraken.com/download): world's most powerful suite of Git&#x2011;tools
 
 
 
 
-### Linux&#x2011;specific
+### Linux&#x2011;specifics
 
 In case you are working in Linux natively, you might also consider the following:
 
@@ -49,4 +48,3 @@ If you need to use a font with glyphs, you can install one of the Nerd Fonts ava
 1. download a [Nerd&nbsp;Font](https://www.nerdfonts.com/font-downloads)
 2. unzip and copy it inside `~/.fonts` or `~/.local/share/fonts`
 3. run the command `fc-cache -fv` to manually rebuild the font cache
-

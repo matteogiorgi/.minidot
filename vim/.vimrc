@@ -26,24 +26,13 @@ endif
 
 
 
-" Syntax & colors {{{
-syntax on
-filetype plugin indent on
-" ---
-if filereadable(expand('~/.vim/colors/noctu.vim'))
-    colorscheme noctu
-endif
-" }}}
-
-
-
-
 " Leaders & caret {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = "\\"
 " ---
-" [1] blink-block     [3] blink-underline     [5] blink-bar
-" [2] steady-block    [4] steady-underline    [6] steady-bar
+" [1] blink-block        [4] steady-underline
+" [2] steady-block       [5] blink-bar
+" [3] blink-underline    [6] steady-bar
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 " ---
@@ -111,6 +100,31 @@ if v:version >= 900
     set fillchars+=eob:╺
     set wildoptions=fuzzy,pum,tagfile
 endif
+" ---
+if has('gui_running')
+    set guifont=Fira\ Code\ 8.5
+    set guioptions=i
+    set guicursor+=a:blinkon0
+    set columns=140 lines=60
+    set vb t_vb=
+endif
+" }}}
+
+
+
+
+" Syntax & colors {{{
+syntax on
+filetype plugin indent on
+" ---
+if has('gui_running')
+    if filereadable(expand('~/.vim/colors/hemisu.vim'))
+        set background=dark
+        colorscheme hemisu
+    endif
+elseif filereadable(expand('~/.vim/colors/noctu.vim'))
+    colorscheme noctu
+endif
 " }}}
 
 
@@ -149,6 +163,7 @@ augroup netrw_prettyfier
                 \ if !argc() && exists(':Explore')|
                 \     Explore|
                 \ endif
+    " ---
     " [h] upadir      [<] (de)select     [f] newfile    [c] copy
     " [l] opendir     [>] deselectall    [R] rename     [m] move
     " [.] (un)hide    [d] newdir         [D] delete     [x] execute
@@ -242,8 +257,7 @@ xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
 tnoremap <silent><C-x> <C-\><C-n>
-nnoremap <leader>w :buffer#<CR>
-nnoremap <leader>e :Explore<CR>
+nnoremap <silent><Tab> :buffer#<CR>
 " ---
 nnoremap <localleader>q :call <SID>ToggleQF()<CR>
 nnoremap <localleader>l :call <SID>ToggleLL()<CR>
@@ -253,25 +267,6 @@ nnoremap <localleader>r :RemoveSpaces<CR>
 nnoremap <localleader>w :WrapToggle<CR>
 nnoremap <localleader>n :NumbersToggle<CR>
 nnoremap <localleader>b :BackgroundToggle<CR>
-" }}}
-
-
-
-
-" GUI setup {{{
-if has('gui_running')
-    set guifont=Fira\ Code\ 8.5
-    set guioptions=i
-    set guicursor+=a:blinkon0
-    " ---
-    set columns=140 lines=60
-    set vb t_vb=
-    " ---
-    if filereadable(expand('~/.vim/colors/hemisu.vim'))
-        set background=dark
-        colorscheme hemisu
-    endif
-endif
 " }}}
 
 " vim: fdm=marker:sw=2:sts=2:et

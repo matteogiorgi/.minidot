@@ -176,5 +176,4 @@ sudo apt-get autoremove -qq -y || _error "autoremove"
 ##########
 
 printf "\n"
-read -p "    Restoring completed ;)"
-printf "\n"
+printf "    Restoring completed ;)\n"

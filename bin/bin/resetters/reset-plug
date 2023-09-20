@@ -2,26 +2,20 @@
 
 # This script enhances your Vim with some useful plugins;
 # use the following arguments to run it:
-#
 #     [ --vim9 ] resets all Vim plugins (up to version 9)
 #     [ --rice ] rice your plugme.vim config
 #     [ --zero ] remove all plugins (rm -rf ~/.vim/pack)
 
-# Vim8-plugins:
+# Plugins:
 #     COMMENTARY https://github.com/tpope/vim-commentary
 #     SURROUND   https://github.com/tpope/vim-surround
 #     REPEAT     https://github.com/tpope/vim-repeat
 #     LEXIMA     https://github.com/cohama/lexima.vim
 #     CONTEXT    https://github.com/wellle/context.vim
 #     SIGNIFY    https://github.com/mhinz/vim-signify
-#     UNDOTREE   https://github.com/mbbill/undotree
-#     TAGBAR     https://github.com/preservim/tagbar
 #     ALE        https://github.com/dense-analysis/ale
 #     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
-
-# Vim9-plugins:
-#     FUZZYY  https://github.com/Donaldttt/fuzzyy
-#     COPILOT https://github.com/github/copilot.vim
+#     COPILOT    https://github.com/github/copilot.vim
 
 
 
@@ -172,50 +166,27 @@ PLUGIN="${START}/signify"
 _reset
 
 
-OPERATION="RESETTING UNDOTREE"
-REPOSITORY="https://github.com/mbbill/undotree"
-PLUGIN="${START}/undotree"
-_reset
-
-
-OPERATION="RESETTING TAGBAR"
-REPOSITORY="https://github.com/preservim/tagbar"
-PLUGIN="${START}/tagbar"
-_reset
-
-
 OPERATION="RESETTING ALE"
 REPOSITORY="https://github.com/dense-analysis/ale"
 PLUGIN="${START}/ale"
 _reset
 
 
-# v:version >= 900
-# Fuzzyy FF
-# ---
-if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]]; then
-    OPERATION="RESETTING FUZZYY"
-    REPOSITORY="https://github.com/Donaldttt/fuzzyy"
-    PLUGIN="${START}/fuzzyy"
-    _reset
+OPERATION="RESETTING CTRLP"
+REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim"
+PLUGIN="${START}/ctrlp"
+_reset
 
-    # node >= 16
-    # Copilot LLM
-    # ---
-    if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
-        OPERATION="RESETTING COPILOT"
-        REPOSITORY="https://github.com/github/copilot.vim"
-        PLUGIN="${START}/copilot"
-        _reset
-    fi
 
-# v:version < 900
-# CtrlP FF
+# if (vim >= 9) && (node >= 16)
+# install Copilot GitHub plugin
 # ---
-else
-    OPERATION="RESETTING CTRLP"
-    REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim"
-    PLUGIN="${START}/ctrlp"
+if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && \
+   [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]
+then
+    OPERATION="RESETTING COPILOT"
+    REPOSITORY="https://github.com/github/copilot.vim"
+    PLUGIN="${START}/copilot"
     _reset
 fi
 
