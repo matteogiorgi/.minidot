@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This script resets VSCode setting using VSpaceCode extensions pack:
-#     [--vime] resets VSCode Vim-like style
+#     [--movi] resets VSCode Vim-like style
 #     [--novi] resets VSCode without Vim goodies
 #     [--zero] removes all VSCode configurations (rm -rf ~/.config/Code/User)
 
@@ -102,12 +102,12 @@ if [[ $# -gt 1 ]]; then
     exit 1
 elif [[ $# -eq 0 ]]; then
     printf "╔═══════════════════ Help ══════════════════╗\n"
-    printf "║ [--vime] reset VSCode Vim-like style      ║\n"
+    printf "║ [--movi] reset VSCode Vim-like style      ║\n"
     printf "║ [--novi] reset VSCode without Vim goodies ║\n"
     printf "║ [--zero] remove all VSCode configurations ║\n"
     printf "╚═══════════════════════════════════════════╝\n"
     exit 0
-elif [[ $1 != "--vime" && $1 != "--novi" && $1 != "--zero" ]]; then
+elif [[ $1 != "--movi" && $1 != "--novi" && $1 != "--zero" ]]; then
     printf "\n"
     printf "══════════════════ Warning ══════════════════\n"
     printf "Unknown argument: no operations were executed\n"
@@ -169,7 +169,7 @@ if [[ $1 == "--novi" ]]; then
 fi
 
 
-if [[ $1 == "--vime" ]]; then
+if [[ $1 == "--movi" ]]; then
     OPERATION="RESETTING CODE"
     USER="${HOME}/.config/Code/User"
     CODE="code"
