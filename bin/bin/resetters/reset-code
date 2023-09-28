@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # This script resets VSCode setting using VSpaceCode extensions pack:
-#     [--vim9] resets VSCode Vim-like style
-#     [--novi] resets VSCode without Vim goodies
-#     [--zero] removes all VSCode configurations (rm -rf ~/.config/Code/User)
+#     [ --vim9 ] resets VSCode Vim-like style
+#     [ --novi ] resets VSCode without Vim goodies
+#     [ --zero ] removes all VSCode configurations (rm -rf ~/.config/Code/User)
 
 # Here the full set of extensions installed by this script:
 # (for more information visit https://vspacecode.github.io/)
