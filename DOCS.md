@@ -38,8 +38,8 @@ In case you are working in Linux natively, you might also consider the following
 
 - [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): simple tool to change the behaviour of your input devices
 - [Extension&nbsp;Manager](https://github.com/mjakeman/extension-manager#readme): browser/installer for GNOME Shell extensions
-- [Tilix&nbsp;Terminal](https://gnunn1.github.io/tilix-web/): advanced GTK3 tiling terminal emulator
 - [GNOME&nbsp;Apps](https://apps.gnome.org/): best applications for the GNOME ecosystem
+- [Tilix&nbsp;Terminal](https://gnunn1.github.io/tilix-web/): advanced GTK3 tiling terminal emulator packed with features
 
 
 
