@@ -26,8 +26,8 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 - [Google&nbsp;Chrome](https://www.google.com/chrome/): most popular web&#x2011;browser
 - [Brave&nbsp;Browser](https://brave.com/): faster, more private Chromium&#x2011;based web browser
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
-- [GitKraken](https://www.gitkraken.com/): world's most powerful suite of Git&#x2011;tools
 - [Helix&nbsp;Editor](https://helix-editor.com/): post modern, kakouneish text&#x2011;editor
+- [GitKraken&nbsp;Client](https://www.gitkraken.com/): world's most powerful suite of Git&#x2011;tools
 
 
 
