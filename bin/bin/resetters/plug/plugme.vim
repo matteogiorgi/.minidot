@@ -12,6 +12,15 @@
 
 
 
+" SIGNIFY CONFIG {{{
+if &rtp =~ 'signify'
+    nnoremap <leader>g :SignifyDiff<CR>
+endif
+" }}}
+
+
+
+
 " ALE CONFIG {{{
 if &rtp =~ 'ale'
     let g:ale_completion_enabled = 1
@@ -54,8 +63,10 @@ if &rtp =~ 'ctrlp'
     augroup end
     " ---
     command! Ctags call s:Ctags()
-    nnoremap <leader>f :CtrlP<CR>
-    nnoremap <leader>g :CtrlPQuickfix<CR>
+    nnoremap <leader>q :CtrlPQuickfix<CR>
+    nnoremap <leader>u :CtrlPUndo<CR>
+    nnoremap <leader>i :CtrlPChange<CR>
+    nnoremap <leader>f :CtrlP<space>%:p:h<CR>
     nnoremap <leader>h :CtrlPMRUFiles<CR>
     nnoremap <leader>j :CtrlPBuffer<CR>
     nnoremap <leader>k :CtrlPTag<CR>

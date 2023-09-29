@@ -258,6 +258,9 @@ xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
 tnoremap <silent><C-x> <C-\><C-n>
 nnoremap <silent><Tab> :buffer#<CR>
+nnoremap <leader>e :Explore<CR>
+nnoremap <leader>o :tabnew %<CR>
+nnoremap <leader>c :tabclose<CR>
 " ---
 nnoremap <localleader>q :call <SID>ToggleQF()<CR>
 nnoremap <localleader>l :call <SID>ToggleLL()<CR>
