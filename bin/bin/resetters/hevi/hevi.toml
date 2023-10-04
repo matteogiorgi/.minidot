@@ -63,7 +63,7 @@
 
 [palette]
 my_black      = "#151515"  # Cursorline
-my_gray0      = "#111111"  # Default Background
+my_gray0      = "#101010"  # Default Background
 my_gray1      = "#0e0e0e"  # Ruler
 my_gray2      = "#1a1a1a"  # Lighter Background (Used for status bars, line number and folding marks)
 my_gray3      = "#323232"  # Selection Background
