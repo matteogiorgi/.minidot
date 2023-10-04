@@ -17,7 +17,7 @@ CLICOLOR_FORCE=1
 while true; do
     printf '%s\n' "$PWD" > /tmp/fjump${PARENTPID}
     [[ $(type -t __fetch_git_branch) == function ]] && GIT_BRANCH=$(__fetch_git_branch " (%s)") || GIT_BRANCH=""
-    FILE="$(/bin/ls -a --ignore="." --ignore=".git" --group-directories-first --color=always | fzf `
+    FILE="$(\ls -a --ignore="." --ignore=".git" --group-directories-first --color=always | fzf `
             `--ansi `
             `--no-multi `
             `--preview 'mess {}' `
@@ -29,6 +29,7 @@ while true; do
             `--info=hidden `
             `--bind 'esc:' `
             `--bind 'ctrl-h:cancel' `
+            `--bind 'ctrl-i:print-query' `
             `--bind 'ctrl-t:toggle-preview' `
             `--bind 'ctrl-n:half-page-down' `
             `--bind 'ctrl-p:half-page-up' `
@@ -46,6 +47,7 @@ while true; do
         continue
     fi
     # ---
+    [[ -f "$FILE" ]] || "${EDITOR:=vi}" "${FILE}"
     case $(file --mime-type "${FILE}" -bL) in
         text/* | application/json)
             "${EDITOR:=vi}" "${FILE}"
