@@ -29,6 +29,7 @@ if &rtp =~ 'ale'
     inoremap <silent><C-c> :AleComplete<CR>
     nnoremap <leader>n :ALENextWrap<CR>
     nnoremap <leader>p :ALEPreviousWrap<CR>
+    nnoremap <leader>a :ALEPopulateQuickfix<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
 endif
@@ -54,7 +55,7 @@ if &rtp =~ 'ctrlp'
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_show_hidden = 1
     let g:ctrlp_custom_ignore = {
-                \      'dir': '\v[\/]\.(git|hg|svn)$',
+                \      'dir': '\v[\/]\.(git|hg|svn|mypy_cache)$',
                 \      'file': '\v\.(exe|so|dll)$'
                 \ }
     " ---
@@ -86,7 +87,6 @@ if &rtp =~ 'copilot'
     endfunction
     " ---
     let g:copilot_enabled = v:true
-    nnoremap <leader>a :Copilot panel<CR>
     " ---
     inoremap <silent><C-s> <Plug>(copilot-suggest)
     inoremap <silent><C-d> <Plug>(copilot-dismiss)
