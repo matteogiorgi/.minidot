@@ -204,15 +204,15 @@ let g:quickfix = 'cclose'
 function! s:ToggleLL()
     let g:quickfix = 'cclose'
     let g:loclist = g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
-    silent execute g:quickfix
-    silent execute g:loclist
+    silent! execute g:quickfix
+    silent! execute g:loclist
 endfunction
 " ---
 function! s:ToggleQF()
     let g:loclist = 'lclose'
     let g:quickfix = g:quickfix ==# 'cclose' ? 'copen' : 'cclose'
-    silent execute g:loclist
-    silent execute g:quickfix
+    silent! execute g:loclist
+    silent! execute g:quickfix
 endfunction
 " ---
 function! s:AddLine()
@@ -245,26 +245,26 @@ endfunction
 
 " Commands {{{
 command! ClearSearch
-            \ silent execute 'let @/=""'|
+            \ silent! execute 'let @/=""'|
             \ echo 'cleared last search'
 " ---
 command! RemoveSpaces
-            \ silent execute 'let v:statusmsg = "" | verbose %s/\s\+$//e'|
+            \ silent! execute 'let v:statusmsg = "" | verbose %s/\s\+$//e'|
             \ echo !empty(v:statusmsg) ? v:statusmsg : 'removed trailing spaces'
 " ---
 command! WrapToggle
-            \ silent execute &wrap ? 'setlocal nowrap' : 'setlocal wrap'|
-            \ silent execute &wrap ?'noremap <buffer> j gj|noremap <buffer> k gk' : 'unmap <buffer> j|unmap <buffer> k'|
+            \ silent! execute &wrap ? 'setlocal nowrap' : 'setlocal wrap'|
+            \ silent! execute &wrap ?'noremap <buffer> j gj|noremap <buffer> k gk' : 'unmap <buffer> j|unmap <buffer> k'|
             \ echo &wrap ? 'lines wrapped' : 'lines unwrapped'
 " ---
 command! NumbersToggle
-            \ silent execute &rnu ? 'setlocal nonu nornu' : &nu ? 'setlocal rnu' : 'setlocal nu'|
+            \ silent! execute &rnu ? 'setlocal nonu nornu' : &nu ? 'setlocal rnu' : 'setlocal nu'|
             \ echo &rnu ? 'relativenumbers' : &nu ? 'numbers' : 'no-numbers'
 " ---
 command! BackgroundToggle
             \ let colorscheme_name = get(g:, 'colors_name', '')|
-            \ silent execute &bg ==# 'light' ? 'set bg=dark' : 'set bg=light'|
-            \ silent execute "colorscheme " . colorscheme_name|
+            \ silent! execute &bg ==# 'light' ? 'set bg=dark' : 'set bg=light'|
+            \ silent! execute "colorscheme " . colorscheme_name|
             \ redraw!|redrawstatus!|redrawtabline|
             \ echo colorscheme_name . ' ' . &background
 " }}}
