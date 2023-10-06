@@ -86,8 +86,15 @@ if &rtp =~ 'copilot'
         return textsuggested ==# '' ? '' : split(textsuggested, '[ .()\[\]{}]\zs')[0]
     endfunction
     " ---
+    function! s:CopilotPanel()
+        let l:panel_status = len(filter(range(1, bufnr('$')), 
+                    \ 'bufexists(v:val) && bufname(v:val) =~# "^copilot:///"')) > 0
+        let g:copilot_panel = l:panel_status ? 'close' : 'Copilot panel'
+        silent! execute g:copilot_panel
+    endfunction
+    " ---
     let g:copilot_enabled = v:true
-    nnoremap <localleader>c :Copilot panel<CR>
+    nnoremap <localleader>c :call <SID>CopilotPanel()<CR>
     " ---
     inoremap <silent><C-s> <Plug>(copilot-suggest)
     inoremap <silent><C-d> <Plug>(copilot-dismiss)
