@@ -125,10 +125,7 @@ augroup end
 " Commands & Keymaps {{{
 command! MakeNote call <SID>MakeNote()
 command! ScratchBuffer call <SID>ScratchBuffer()
-" ---
 nnoremap <silent>' :call <SID>AccentToggle()<CR>
-nnoremap <localleader>m :MakeNote<CR>
-nnoremap <localleader>s :ScratchBuffer<CR>
 "}}}
 
 " vim: fdm=marker:sw=2:sts=2:et

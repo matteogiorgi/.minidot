@@ -198,17 +198,45 @@ augroup end
 
 
 " Functions {{{
-let g:quickfix = 'cclose'
 let g:loclist = 'lclose'
+let g:quickfix = 'cclose'
+" ---
+function! s:ToggleLL()
+    let g:quickfix = 'cclose'
+    let g:loclist = g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
+    silent execute g:quickfix
+    silent execute g:loclist
+endfunction
 " ---
 function! s:ToggleQF()
+    let g:loclist = 'lclose'
     let g:quickfix = g:quickfix ==# 'cclose' ? 'copen' : 'cclose'
+    silent execute g:loclist
     silent execute g:quickfix
 endfunction
 " ---
-function! s:ToggleLL()
-    let g:loclist = g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
-    silent execute g:loclist
+function! s:AddLine()
+    let l:current_line = line(".")
+    let l:current_col = col(".")
+    let l:current_text = getline(".")
+    let l:current_bufnr = bufnr("%")
+    let l:current_file = expand("%:p")
+    let l:qf_list = getqflist()
+    let l:qf_entry = {
+        \ 'bufnr': l:current_bufnr,
+        \ 'lnum': l:current_line,
+        \ 'col': l:current_col,
+        \ 'text': l:current_text,
+        \ 'filename': l:current_file
+    \ }
+    call add(l:qf_list, l:qf_entry)
+    call setqflist(l:qf_list)
+    echo 'current line to quickfix'
+endfunction
+" ---
+function! s:EmptyQF()
+    call setqflist([])
+    echo 'emptied quickfix list'
 endfunction
 " }}}
 
@@ -260,17 +288,13 @@ tnoremap <silent><C-x> <C-\><C-n>
 nnoremap <leader>j :buffers!<CR>:buffer<Space>
 nnoremap <leader>k :buffer#<CR>
 nnoremap <leader>e :Explore<CR>
+nnoremap <leader>r :tabclose<CR>
 nnoremap <leader>o :tabnew %<CR>
-nnoremap <leader>c :tabclose<CR>
 " ---
-nnoremap <localleader>q :call <SID>ToggleQF()<CR>
-nnoremap <localleader>l :call <SID>ToggleLL()<CR>
-" ---
-nnoremap <localleader>c :ClearSearch<CR>
-nnoremap <localleader>r :RemoveSpaces<CR>
-nnoremap <localleader>w :WrapToggle<CR>
-nnoremap <localleader>n :NumbersToggle<CR>
-nnoremap <localleader>b :BackgroundToggle<CR>
+nnoremap <localleader>q :call <SID>ToggleLL()<CR>
+nnoremap <localleader>w :call <SID>EmptyQF()<CR>
+nnoremap <leader>q :call <SID>ToggleQF()<CR>
+nnoremap <leader>w :call <SID>AddLine()<CR>
 " }}}
 
 " vim: fdm=marker:sw=2:sts=2:et

@@ -27,8 +27,8 @@ if &rtp =~ 'ale'
     set omnifunc=ale#completion#OmniFunc
     " ---
     inoremap <silent><C-c> :AleComplete<CR>
-    nnoremap <leader>n :ALENextWrap<CR>
-    nnoremap <leader>p :ALEPreviousWrap<CR>
+    nnoremap <silent><C-n> :ALENextWrap<CR>
+    nnoremap <silent><C-p> :ALEPreviousWrap<CR>
     nnoremap <leader>a :ALEPopulateQuickfix<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
@@ -87,7 +87,7 @@ if &rtp =~ 'copilot'
     endfunction
     " ---
     let g:copilot_enabled = v:true
-    nnoremap <leader>w :Copilot panel<CR>
+    nnoremap <leader>p :Copilot panel<CR>
     " ---
     inoremap <silent><C-s> <Plug>(copilot-suggest)
     inoremap <silent><C-d> <Plug>(copilot-dismiss)
