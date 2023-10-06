@@ -87,7 +87,7 @@ if &rtp =~ 'copilot'
     endfunction
     " ---
     let g:copilot_enabled = v:true
-    nnoremap <leader>p :Copilot panel<CR>
+    nnoremap <localleader>c :Copilot panel<CR>
     " ---
     inoremap <silent><C-s> <Plug>(copilot-suggest)
     inoremap <silent><C-d> <Plug>(copilot-dismiss)
