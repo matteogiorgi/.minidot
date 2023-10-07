@@ -284,17 +284,20 @@ vnoremap <silent>L >gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
-tnoremap <silent><C-x> <C-\><C-n>
 nnoremap <leader>j :buffers!<CR>:buffer<Space>
 nnoremap <leader>k :buffer#<CR>
 nnoremap <leader>o :tabnew %<CR>
 nnoremap <leader>c :tabclose<CR>
 " ---
-nnoremap <localleader>q :call <SID>ToggleQF()<CR>
-nnoremap <localleader>w :call <SID>ToggleLL()<CR>
 nnoremap <leader>q :call <SID>ToggleQF()<CR>
 nnoremap <leader>w :call <SID>AddLine()<CR>
 nnoremap <leader>e :call <SID>EmptyQF()<CR>
+" ---
+nnoremap <localleader>q :call <SID>ToggleQF()<CR>
+nnoremap <localleader>w :call <SID>ToggleLL()<CR>
+nnoremap <localleader>e :Explore<CR>
+" ---
+tnoremap <silent><C-x> <C-\><C-n>
 " }}}
 
 " vim: fdm=marker:sw=2:sts=2:et
