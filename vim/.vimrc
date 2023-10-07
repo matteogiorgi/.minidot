@@ -285,7 +285,6 @@ xnoremap <silent>J :move '>+1<CR>gv=gv
 xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
 tnoremap <silent><C-x> <C-\><C-n>
-nnoremap <leader>x :Explore<CR>
 nnoremap <leader>j :buffers!<CR>:buffer<Space>
 nnoremap <leader>k :buffer#<CR>
 nnoremap <leader>o :tabnew %<CR>
