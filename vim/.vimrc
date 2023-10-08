@@ -84,7 +84,7 @@ set esckeys
 " ---
 set path+=**
 set omnifunc=syntaxcomplete#Complete
-set completeopt=menuone,longest,noinsert,noselect
+set completeopt=menuone,preview,noinsert,noselect
 set complete=.,w,b,u,t,i,kspell
 set complete+=k/usr/share/dict/american-english
 set complete+=k/usr/share/dict/italian

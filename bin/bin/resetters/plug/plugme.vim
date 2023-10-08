@@ -26,6 +26,16 @@ if &rtp =~ 'ale'
     let g:ale_completion_enabled = 1
     set omnifunc=ale#completion#OmniFunc
     " ---
+    augroup ale_ominfunc
+        autocmd FileType python setlocal omnifunc=ale#completion#OmniFunc
+    augroup END
+    " ---
+    let g:ale_linters = {'python': ['pylsp', 'flake8']}
+    let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'black']}
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+    let g:ale_fix_on_save = 1
+    let g:ale_lsp_suggestions = 1
+    " ---
     inoremap <silent><C-c> :AleComplete<CR>
     nnoremap <silent><C-n> :ALENextWrap<CR>
     nnoremap <silent><C-p> :ALEPreviousWrap<CR>
