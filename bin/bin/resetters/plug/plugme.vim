@@ -41,7 +41,7 @@ if &rtp =~ 'ale'
     inoremap <silent><C-c> :AleComplete<CR>
     nnoremap <silent><C-n> :ALENextWrap<CR>
     nnoremap <silent><C-p> :ALEPreviousWrap<CR>
-    nnoremap <leader>a :ALEPopulateQuickfix<CR>
+    nnoremap <leader>a :ALEPopulateQuickfix<Bar>let<Space>g:quickfix='copen'<Bar>copen<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
 endif
