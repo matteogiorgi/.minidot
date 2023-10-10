@@ -25,6 +25,7 @@ endif
 if &rtp =~ 'ale'
     let g:ale_completion_enabled = 1
     set omnifunc=ale#completion#OmniFunc
+    set completeopt=menu,menuone,popup,noselect,noinsert
     " ---
     augroup ale_ominfunc
         autocmd FileType python setlocal omnifunc=ale#completion#OmniFunc
