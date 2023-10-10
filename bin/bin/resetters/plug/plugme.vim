@@ -31,9 +31,9 @@ if &rtp =~ 'ale'
         autocmd FileType python setlocal omnifunc=ale#completion#OmniFunc
     augroup END
     " ---
-    let g:ale_linters = {'python': ['pylsp', 'pycodestyle']}
-    let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'black']}
-    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+    let g:ale_linters = {'python': ['pylsp']}
+    let g:ale_fixers = {'python': ['black'], '*': ['remove_trailing_lines', 'trim_whitespace']}
+    let g:ale_echo_msg_format = '[%linter% %severity%] %s'
     let g:ale_virtualtext_cursor = 0
     let g:ale_fix_on_save = 1
     let g:ale_lsp_suggestions = 1
@@ -99,7 +99,7 @@ if &rtp =~ 'copilot'
     endfunction
     " ---
     function! s:CopilotPanel()
-        let l:panel_status = len(filter(range(1, bufnr('$')), 
+        let l:panel_status = len(filter(range(1, bufnr('$')),
                     \ 'bufexists(v:val) && bufname(v:val) =~# "^copilot:///"')) > 0
         let g:copilot_panel = l:panel_status ? 'close' : 'Copilot panel'
         silent! execute g:copilot_panel
