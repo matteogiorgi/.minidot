@@ -124,7 +124,7 @@ augroup end
 
 " Commands & Keymaps {{{
 command! MakeNote call <SID>MakeNote()
-command! ScratchBuffer call <SID>ScratchBuffer()
+nnoremap <localleader>s :call <SID>ScratchBuffer()<CR>
 nnoremap <silent>' :call <SID>AccentToggle()<CR>
 "}}}
 
