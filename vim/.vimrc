@@ -215,7 +215,7 @@ function! s:ToggleLL()
     silent! execute g:loclist
 endfunction
 " ---
-function! s:AddLine()
+function! s:MarkLine()
     let l:current_line = line(".")
     let l:current_col = col(".")
     let l:current_text = getline(".")
@@ -234,9 +234,9 @@ function! s:AddLine()
     echo 'current line to quickfix'
 endfunction
 " ---
-function! s:EmptyQF()
+function! s:ResetQF()
     call setqflist([])
-    echo 'emptied quickfix list'
+    echo 'reset quickfix'
 endfunction
 " }}}
 
@@ -290,13 +290,13 @@ nnoremap <leader>o :tabnew %<CR>
 nnoremap <leader>c :tabclose<CR>
 " ---
 nnoremap <leader>q :call <SID>ToggleQF()<CR>
-nnoremap <leader>w :call <SID>AddLine()<CR>
-nnoremap <leader>e :call <SID>EmptyQF()<CR>
+nnoremap <leader>m :call <SID>MarkLine()<CR>
+nnoremap <leader>r :call <SID>ResetQF()<CR>
 " ---
 nnoremap <localleader>q :call <SID>ToggleQF()<CR>
 nnoremap <localleader>w :call <SID>ToggleLL()<CR>
-nnoremap <localleader>e :Explore<CR>
 " ---
+nnoremap <leader>e :Explore<CR>
 tnoremap <silent><C-x> <C-\><C-n>
 " }}}
 
