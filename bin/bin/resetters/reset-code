@@ -7,13 +7,26 @@
 
 # Here the full set of extensions installed by this script:
 # (for more information visit https://vspacecode.github.io/)
-#     VSPACECODE   https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode
-#     WHICH-KEY    https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey
-#     VIM          https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
-#     FUZZY-SEARCH https://marketplace.visualstudio.com/items?itemName=jacobdufault.fuzzy-search
-#     FILE-BROWSER https://marketplace.visualstudio.com/items?itemName=bodil.file-browser
-#     EDAMAGIT     https://marketplace.visualstudio.com/items?itemName=kahole.magit
 #     MONOKAI-PRO  https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
+#     VSPACECODE   https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode
+#         WHICH-KEY    https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey
+#         VIM          https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+#         FUZZY-SEARCH https://marketplace.visualstudio.com/items?itemName=jacobdufault.fuzzy-search
+#         FILE-BROWSER https://marketplace.visualstudio.com/items?itemName=bodil.file-browser
+#         EDAMAGIT     https://marketplace.visualstudio.com/items?itemName=kahole.magit
+
+# ---
+
+# This very configurations can be also used to rice up your VSCode-Insiders.
+# Copy one of the following as `settings.json` inside `~/.config/Code - Insiders/User`:
+#     ~/bin/resetters/code/novi-settings.json
+#     ~/bin/resetters/code/vspacecode-settings.json
+# Copy one of the following as `keybindings.json` inside `~/.config/Code - Insiders/User`:
+#     ~/bin/resetters/code/novi-keybindings.json
+#     ~/bin/resetters/code/vspacecode-keybindings.json
+# Install the following extensions:
+#     MONOKAI-PRO  https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
+#     VSPACECODE   https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode
 
 
 

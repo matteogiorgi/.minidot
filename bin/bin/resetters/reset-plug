@@ -17,6 +17,11 @@
 #     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
 #     COPILOT    https://github.com/github/copilot.vim
 
+# ---
+
+# This very configurations can be also used to rice up your Neovim.
+# Just remember to use `~/.config/nvim` as your `$VIM` directory.
+
 
 
 

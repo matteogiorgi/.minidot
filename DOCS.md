@@ -33,11 +33,10 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 
 ### Linux&#x2011;specifics
 
-In case you are working in Linux natively, you might also consider the following:
+In case you are working in Linux natively, other than your classic [GNOME&nbsp;Apps](https://apps.gnome.org), you might consider the following:
 
 - [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): simple tool to change the behaviour of your input devices
 - [Extension&nbsp;Manager](https://github.com/mjakeman/extension-manager#readme): browser/installer for GNOME&#x2011;Shell extensions
-- [GNOME&nbsp;Apps](https://apps.gnome.org): collection of the best applications in the GNOME ecosystem
 
 
 
