@@ -19,7 +19,7 @@ In case you do not want to mess around with your current configuration or just f
 
 
 
-## More tools
+## More&nbsp;tools
 
 Since *Minidot* is so minimal, here are some (multiplatform) extra tools you might find useful:
 
@@ -41,10 +41,23 @@ Other than your classic [GNOME&nbsp;Apps](https://apps.gnome.org), you might con
 
 
 
-### Nerd Fonts
+### Nerd&nbsp;Fonts
 
 If you need to use a font with glyphs, you can install one of the Nerd Fonts available:
 
 1. download a [Nerd&nbsp;Font](https://www.nerdfonts.com/font-downloads)
 2. unzip and copy it inside `~/.fonts` or `~/.local/share/fonts`
 3. run the command `fc-cache -fv` to manually rebuild the font cache
+
+
+
+
+### Chrome&nbsp;extensions
+
+For any of the Chromium&#x2011;based browsers, here's some useful extensions to start with:
+
+- [Ublock&nbsp;Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm): efficient blocker, easy on CPU and memory
+- [Free&nbsp;VPN](https://chrome.google.com/webstore/detail/free-vpn-for-chrome-vpn-p/majdfhpaihoncoakbjgbdhglocklcgno): fast and secure VPN service
+- [DeepL&nbsp;Translate](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): accurate language tranlsator
+- [Tabliss](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp): customizable new&#x2011;tab page ([preset](tabliss.json))
+- [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Vim&#x2011;like keyboard shortcuts
