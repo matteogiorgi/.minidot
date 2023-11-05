@@ -27,7 +27,7 @@ Since *Minidot* is so minimal, here are some (cross&#x2011;platform) extra tools
 - [Brave&nbsp;Browser](https://brave.com/): faster, more private Chromium&#x2011;based web browser
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
 - [GitKraken&nbsp;Client](https://www.gitkraken.com/): world's most powerful suite of Git&#x2011;tools
-- [Alacritty&nbsp;Terminal](https://alacritty.org/): fast and flexible OpenGL terminal emulator, with [presets](alacritty.yml)
+- [Alacritty&nbsp;Terminal](https://alacritty.org/): fast and flexible OpenGL terminal emulator
 - [Xournal&nbsp;Plus&nbsp;Plus](https://xournalpp.github.io/): notetaking software with PDF annotation support
 
 
@@ -59,7 +59,7 @@ If you need to use a font with glyphs, you can install one of the Nerd Fonts ava
 For any of the Chromium&#x2011;based browsers, here's some useful extension to start with:
 
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Vim&#x2011;like keyboard shortcuts
-- [Tabliss](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp): customizable new&#x2011;tab page, with [presets](tabliss.json)
+- [Tabliss](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp): customizable new&#x2011;tab page, with [presets](https://raw.githubusercontent.com/matteogiorgi/.minidot/master/tabliss.json)
 - [Ublock&nbsp;Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm): efficient blocker, easy on resources
 - [Free&nbsp;VPN](https://chrome.google.com/webstore/detail/free-vpn-for-chrome-vpn-p/majdfhpaihoncoakbjgbdhglocklcgno): fast and secure VPN service
 - [DeepL&nbsp;Translate](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): accurate language tranlsator
