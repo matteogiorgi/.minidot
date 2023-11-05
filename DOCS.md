@@ -31,7 +31,7 @@ Since *Minidot* is so minimal, here are some (multiplatform) extra tools you mig
 
 
 
-### Linux&#x2011;specifics
+### Linux&#x2011;specific
 
 Other than your classic [GNOME&nbsp;Apps](https://apps.gnome.org), you might consider the following:
 
