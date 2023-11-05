@@ -27,7 +27,7 @@ Since *Minidot* is so minimal, here are some (cross&#x2011;platform) extra tools
 - [Brave&nbsp;Browser](https://brave.com/): faster, more private Chromium&#x2011;based web browser
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
 - [GitKraken&nbsp;Client](https://www.gitkraken.com/): world's most powerful suite of Git&#x2011;tools
-- [Alacritty&nbsp;Terminal](https://alacritty.org/): fast and flexible OpenGL terminal emulator
+- [Alacritty&nbsp;Terminal](https://alacritty.org/): fast and flexible OpenGL terminal emulator, with [presets](alacritty.yml)
 - [Xournal&nbsp;Plus&nbsp;Plus](https://xournalpp.github.io/): notetaking software with PDF annotation support
 
 
