@@ -56,7 +56,7 @@ If you need to use a font with glyphs, you can install one of the Nerd Fonts ava
 
 For any of the Chromium&#x2011;based browsers, here's some useful extension to start with:
 
-- [Ublock&nbsp;Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm): efficient blocker, easy resources
+- [Ublock&nbsp;Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm): efficient blocker, easy on resources
 - [Free&nbsp;VPN](https://chrome.google.com/webstore/detail/free-vpn-for-chrome-vpn-p/majdfhpaihoncoakbjgbdhglocklcgno): fast and secure VPN service
 - [DeepL&nbsp;Translate](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): accurate language tranlsator
 - [Tabliss](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp): customizable new&#x2011;tab page, with [presets](https://raw.githubusercontent.com/matteogiorgi/.minidot/master/tabliss.json)
