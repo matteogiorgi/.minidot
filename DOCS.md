@@ -54,7 +54,7 @@ If you need to use a font with glyphs, you can install one of the Nerd Fonts ava
 
 ### Chrome&nbsp;extensions
 
-For any of the Chromium&#x2011;based browsers, here's some useful extensions to start with:
+For any of the Chromium&#x2011;based browsers, here's some useful extension to start with:
 
 - [Ublock&nbsp;Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm): efficient blocker, easy resources
 - [Free&nbsp;VPN](https://chrome.google.com/webstore/detail/free-vpn-for-chrome-vpn-p/majdfhpaihoncoakbjgbdhglocklcgno): fast and secure VPN service
