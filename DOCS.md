@@ -23,7 +23,7 @@ In case you do not want to mess around with your current configuration or just f
 
 Since *Minidot* is so minimal, here are some (cross&#x2011;platform) extra tools you might find useful:
 
-- [Google&nbsp;Chrome](https://www.google.com/chrome/): most popular web&#x2011;browser
+- [Google&nbsp;Chrome](https://www.google.com/chrome/): most popular web browser
 - [Brave&nbsp;Browser](https://brave.com/): faster, more private Chromium&#x2011;based web browser
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
 - [GitKraken&nbsp;Client](https://www.gitkraken.com/): world's most powerful suite of Git&#x2011;tools
