@@ -28,7 +28,7 @@ Since *Minidot* is so minimal, here are some (cross&#x2011;platform) extra tools
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
 - [GitKraken&nbsp;Client](https://www.gitkraken.com/): world's most powerful suite of Git&#x2011;tools
 - [Alacritty&nbsp;Terminal](https://alacritty.org/): fast and flexible OpenGL terminal emulator
-- [Xournal&nbsp;Plus&nbsp;Plus](https://xournalpp.github.io/): handwriting notetaking software with PDF annotation support
+- [Xournal&nbsp;Plus&nbsp;Plus](https://xournalpp.github.io/): notetaking software with PDF annotation support
 
 
 
