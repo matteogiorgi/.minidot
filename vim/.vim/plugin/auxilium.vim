@@ -79,25 +79,18 @@ function! s:AccentToggle()
     let accent_acute = ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú']
     " ---
     let character = matchstr(getline('.'), '\%' . col('.') . 'c.')
-    let is_uppercase = character == toupper(character)
-    let position_none  = match(map(accent_none, 'tolower(v:val)'), tolower(character))
-    let position_grave = match(map(accent_grave, 'tolower(v:val)'), tolower(character))
-    let position_acute = match(map(accent_acute, 'tolower(v:val)'), tolower(character))
+    let position = index(accent_none + accent_grave + accent_acute, character)
     " ---
-    if position_none != -1
-        let new_char = accent_grave[position_none]
-    elseif position_grave != -1
-        let new_char = accent_acute[position_grave]
-    elseif position_acute != -1
-        let new_char = accent_none[position_acute]
-    else
-        return
+    if position != -1
+        if position < 10 " accent_none
+            let new_char = accent_grave[position % 10]
+        elseif position < 20 " accent_grave
+            let new_char = accent_acute[position % 10]
+        else " accent_acute
+            let new_char = accent_none[position % 10]
+        endif
+        execute ':normal! r' . new_char
     endif
-    " ---
-    if is_uppercase
-        let new_char = toupper(new_char)
-    endif
-    execute ':normal! r' . new_char
 endfunction
 "}}}
 
