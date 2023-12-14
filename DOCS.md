@@ -64,3 +64,4 @@ For any of the Chromium&#x2011;based browsers, here's some useful extension to s
 - [Free&nbsp;VPN](https://chrome.google.com/webstore/detail/free-vpn-for-chrome-vpn-p/majdfhpaihoncoakbjgbdhglocklcgno): fast and secure VPN service
 - [DeepL&nbsp;Translate](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): accurate language tranlsator
 - [Media&nbsp;Player](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj): HTML5 video and audio player
+- [Voice&nbsp;Control](https://chromewebstore.google.com/detail/eollffkcakegifhacjnlnegohfdlidhn): voice control enhancement for [ChatGPT](https://chat.openai.com/)
