@@ -65,6 +65,11 @@
         "when": "editorFocus"
     },
     {
+        "key": "alt+i",
+        "command": "inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+    },
+    {
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
     },
