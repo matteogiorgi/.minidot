@@ -117,11 +117,13 @@ endif
 syntax on
 filetype plugin indent on
 " ---
-"  you can differentiate between gui
-"  and terminal with has('gui_running')
-if filereadable(expand('~/.vim/colors/hemisu.vim'))
-    set background=dark
-    colorscheme hemisu
+if has('gui_running')
+    if filereadable(expand('~/.vim/colors/hemisu.vim'))
+        set background=dark
+        colorscheme hemisu
+    endif
+elseif filereadable(expand('~/.vim/colors/noctu.vim'))
+    colorscheme noctu
 endif
 " }}}
 
