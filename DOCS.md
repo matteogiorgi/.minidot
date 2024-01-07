@@ -62,6 +62,3 @@ For any of the Chromium&#x2011;based browsers, here's some useful extension to s
 - [Tabliss](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp): customizable new&#x2011;tab page, with [presets](https://raw.githubusercontent.com/matteogiorgi/.minidot/master/tabliss.json)
 - [Ublock&nbsp;Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm): efficient blocker, easy on resources
 - [Free&nbsp;VPN](https://chromewebstore.google.com/detail/1vpn-free-vpn/akcocjjpkmlniicdeemdceeajlmoabhg?utm_source=ext_app_menu): fast and secure VPN service
-- [DeepL&nbsp;Translate](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): accurate language tranlsator
-- [Media&nbsp;Player](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj): HTML5 video and audio player
-<!-- - [Voice&nbsp;Type](https://chromewebstore.google.com/detail/voicetype/jgofhdodppnlhijhmefpagmbpdkdfena): simple and secure web&#x2011;dictation -->
