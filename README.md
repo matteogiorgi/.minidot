@@ -22,8 +22,9 @@ This repo contains a streamlined configuration of my dotfiles, designed to work 
 ## Packages & docs
 
 ```
-git curl wget stow xclip trash-cli htop fzf ripgrep bat chafa poppler-utils wamerican witalian
-dash bash bash-completion tmux vim-gtk3 exuberant-ctags fonts-firacode pandoc gnome-keyring
+git curl wget stow xclip trash-cli htop fzf ripgrep bat chafa poppler-utils
+wamerican witalian dash bash bash-completion tmux vim-gtk3 exuberant-ctags
+fonts-firacode pandoc gnome-keyring
 ```
 
 For a detailed list of all the available packages, check out Debian and Ubuntu related pages [here](https://www.debian.org/distrib/packages) and [there](https://packages.ubuntu.com). Further documentation about *Minidot* can be found inside [**`DOCS.md`**](DOCS.md), take a look for more info.
