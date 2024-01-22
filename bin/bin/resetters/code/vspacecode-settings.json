@@ -51,7 +51,7 @@
             "icon": "terminal-tmux"
         }
     },
-    "terminal.integrated.defaultProfile.linux": "dash",
+    "terminal.integrated.defaultProfile.linux": "bash",
     "workbench.editor.showTabs": false,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Monokai Pro",
