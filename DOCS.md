@@ -12,8 +12,6 @@
 
 Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old configs, install all the packages needed and symlink the *Minidot* files correctly; while the restore script will rollback all the changes and reinstate your previously saved config files.
 
-In case you do not want to mess around with your current configuration or just feel the need to containerize your work environment, you can install *Minidot* inside a container: [LXD](https://ubuntu.com/lxd) is an excellent solution. Take a look at its [first&#x2011;steps](https://documentation.ubuntu.com/lxd/en/latest/tutorial/first_steps/#first-steps) page, it's very easy to follow and will get you up and running in no time.
-
 <img src="doc.png" width="100%">
 
 
@@ -21,38 +19,19 @@ In case you do not want to mess around with your current configuration or just f
 
 ## More&nbsp;tools
 
-Since *Minidot* is so minimal, here are some (cross&#x2011;platform) extra tools you might find useful:
+Since *Minidot* is so minimal, here are some extra tools you might find useful:
 
 - [Brave&nbsp;Browser](https://brave.com/): fast Chromium&#x2011;based web browser
 - [Visual&nbsp;Studio&nbsp;Code](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
 - [Alacritty&nbsp;Terminal](https://alacritty.org/): fast and flexible OpenGL terminal emulator
 - [Xournal&nbsp;Plus&nbsp;Plus](https://xournalpp.github.io/): notetaking app with PDF annotation support
+- [LXD&nbsp;Manager](https://ubuntu.com/lxd): modern Linux container menagement tool
+- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): simple Linux input device controller
 
 
 
 
-### Linux&#x2011;specific
-
-Other than your classic [GNOME&nbsp;Apps](https://apps.gnome.org), you might consider the following:
-
-- [Input&nbsp;Remapper](https://github.com/sezanzeb/input-remapper#readme): simple tool to change the behaviour of your input devices
-- [Extension&nbsp;Manager](https://github.com/mjakeman/extension-manager#readme): browser/installer for GNOME&#x2011;Shell extensions
-
-
-
-
-### Nerd&nbsp;Fonts
-
-If you need to use a font with glyphs, you can install one of the Nerd Fonts available:
-
-1. download a [Nerd&nbsp;Font](https://www.nerdfonts.com/font-downloads)
-2. unzip and copy it inside `~/.fonts` or `~/.local/share/fonts`
-3. run the command `fc-cache -fv` to manually rebuild the font cache
-
-
-
-
-### Chrome&nbsp;extensions
+## Chrome&nbsp;extensions
 
 For any of the Chromium&#x2011;based browsers, here's some useful extension to start with:
 

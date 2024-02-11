@@ -10,7 +10,7 @@
    (  ____/__    If they are minimal, we are mini.
 ```
 
-This repo contains a streamlined configuration of my dotfiles, designed to work with any Linux distribution based on [Debian](https://www.debian.org/download)/[Ubuntu](https://ubuntu.com/#download) or within a Linux subsystem, such as [Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or [ChromeOS LDE](https://support.google.com/chromebook/answer/9145439?hl=en).
+This repo contains a streamlined configuration of my dotfiles, designed to work with any Linux distribution based on [Debian](https://www.debian.org)/[Ubuntu](https://ubuntu.com) or within a Linux subsystem, such as [Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl) or [ChromeOS LDE](https://support.google.com/chromebook/answer/9145439?hl=en).
 
 *Minidot* offers a ready&#x2011;to&#x2011;use, batteries&#x2011;included work environment but if you need more gear, you can always rely on `apt`/[`snap`](https://snapcraft.io/docs/installing-snapd)/[`flatpak`](https://flatpak.org/setup/) or download any deb package and install it via `dpkg`.
 
