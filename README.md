@@ -21,13 +21,10 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 ## More&nbsp;tools
 
-Since *Minidot* is so minimal, here are some extra tools you might find useful:
-
 - [Brave](https://brave.com/): fast Chromium&#x2011;based web browser
     + [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Vim&#x2011;like keyboard shortcuts
     + [Tabliss](https://chrome.google.com/webstore/detail/tabliss-a-beautiful-new-t/hipekcciheckooncpjeljhnekcoolahp): customizable new&#x2011;tab page, with [presets](https://raw.githubusercontent.com/matteogiorgi/.minidot/master/tabliss.json)
 - [VSCode](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
 - [Alacritty](https://alacritty.org/): fast and flexible OpenGL terminal emulator
 - [Xournal++](https://xournalpp.github.io/): notetaking app with PDF annotation support
-- [LXD](https://ubuntu.com/lxd): modern Linux container menagement tool
 - [Remapper](https://github.com/sezanzeb/input-remapper#readme): simple Linux input device controller
