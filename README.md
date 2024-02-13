@@ -19,7 +19,7 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 <img align="right" width="250" src="alien.gif">
 
-#### Need some more gear?
+### Need more gear?
 
 - [Brave](https://brave.com/): fast Chromium&#x2011;based web browser
     + [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Vim&#x2011;like keyboard shortcuts
