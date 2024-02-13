@@ -102,7 +102,7 @@ if v:version >= 900
 endif
 " ---
 if has('gui_running')
-    set guifont=Fira\ Code\ 8.5
+    set guifont=Fira\ Code\ 8
     set guioptions=i
     set guicursor+=a:blinkon0
     set columns=140 lines=60
