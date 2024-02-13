@@ -17,7 +17,7 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 
 
-<img align="right" width="200" src="alien.gif">
+<img align="right" width="250" src="alien.gif">
 
 #### Need some more gear?
 
