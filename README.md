@@ -17,6 +17,7 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 
 
+<img align="right" width="160" src="alien.gif">
 #### Need some more gear?
 
 - [Brave](https://brave.com/): fast Chromium&#x2011;based web browser
@@ -26,5 +27,3 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 - [Alacritty](https://alacritty.org/): fast and flexible OpenGL terminal emulator
 - [Xournal++](https://xournalpp.github.io/): notetaking app with PDF annotation support
 - [Remapper](https://github.com/sezanzeb/input-remapper#readme): simple Linux input device controller
-
-<img src="vim.png" width="100%">
