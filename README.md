@@ -17,7 +17,8 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 
 
-<img align="right" width="160" src="alien.gif">
+<img align="right" width="200" src="alien.gif">
+
 #### Need some more gear?
 
 - [Brave](https://brave.com/): fast Chromium&#x2011;based web browser
