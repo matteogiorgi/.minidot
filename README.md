@@ -19,7 +19,7 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 <img align="right" width="250" src="alien.gif">
 
-## Need more gear?
+### Need more gear?
 
 - [Remapper](https://github.com/sezanzeb/input-remapper): simple Linux input device controller
 - [Guake](https://github.com/Guake/guake)/[Yakuake](https://github.com/KDE/yakuake): drop&#x2011;down GNOME/KDE terminal emulator
