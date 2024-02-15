@@ -23,7 +23,7 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 - [Remapper](https://github.com/sezanzeb/input-remapper): simple Linux input device controller
 - [Guake](https://github.com/Guake/guake)/[Yakuake](https://github.com/KDE/yakuake): drop&#x2011;down GNOME/KDE terminal emulator
-- [Xournal++](https://xournalpp.github.io/): notetaking app with PDF annotation support
+- [Xournal](https://xournalpp.github.io/): notetaking app with PDF annotation support
 - [VSCode](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
 - [Brave](https://brave.com/): fast Chromium&#x2011;based web browser
     + [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Vim&#x2011;like keyboard shortcuts
