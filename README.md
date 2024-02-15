@@ -1,17 +1,17 @@
-# The ultimate `dotfiles`
+# The ultimate dotfiles
 
 This repo contains a streamlined configuration of my dotfiles, designed to work with any Linux distribution based on [Debian](https://www.debian.org)/[Ubuntu](https://ubuntu.com) or within a Linux subsystem, such as [Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl) or [ChromeOS LDE](https://support.google.com/chromebook/answer/9145439?hl=en).
 
-Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old configs, install all the packages needed and symlink the *Minidot* files correctly; while the restore script will rollback all the changes and reinstate your previously saved config files.
+Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old configs, install all the packages needed and symlink the *.minidot* files correctly; while the restore script will rollback all the changes and reinstate your previously saved config files.
 
 ```
-       .-.        __  __ _       _     _       _
-    __/   (      |  \/  (_)_ __ (_) __| | ___ | |_
-  , '-.____\     | |\/| | | '_ \| |/ _' |/ _ \| __|
-   u=='/  \      | |  | | | | | | | (_| | (_) | |_
-      /_/  \     |_|  |_|_|_| |_|_|\__,_|\___/ \__|
+       .-.                    _       _     _       _
+    __/   (         _ __ ___ (_)_ __ (_) __| | ___ | |_
+  , '-.____\       | '_ ' _ \| | '_ \| |/ _' |/ _ \| __|
+   u=='/  \       _| | | | | | | | | | | (_| | (_) | |_
+      /_/  \     (_)_| |_| |_|_|_| |_|_|\__,_|\___/ \__|
     .-''   |
-   (  ____/__    If they are minimal, we are mini.
+   (  ____/__      If they are minimal, we are mini :]
 ```
 
 
