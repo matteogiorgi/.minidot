@@ -1,4 +1,4 @@
-# Mini&#x2011;dotfiles
+# The ultimate `dotfiles`
 
 This repo contains a streamlined configuration of my dotfiles, designed to work with any Linux distribution based on [Debian](https://www.debian.org)/[Ubuntu](https://ubuntu.com) or within a Linux subsystem, such as [Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl) or [ChromeOS LDE](https://support.google.com/chromebook/answer/9145439?hl=en).
 
@@ -19,7 +19,7 @@ Just run `setup.sh`/`restore.sh` scripts. The setup will backup any of your old 
 
 <img align="right" width="250" src="alien.gif">
 
-### Need more gear?
+## Need more gear?
 
 - [Remapper](https://github.com/sezanzeb/input-remapper): simple Linux input device controller
 - [Guake](https://github.com/Guake/guake)/[Yakuake](https://github.com/KDE/yakuake): drop&#x2011;down GNOME/KDE terminal emulator
