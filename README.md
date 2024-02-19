@@ -1,20 +1,9 @@
 # The ultimate dotfiles
 
-This repo contains a streamlined configuration of working Linux dotfiles, designed to work with any [Debian](https://www.debian.org) distribution. The `setup.sh` script will backup any of your old configs, install all the packages needed and symlink the *.minidot* files correctly; while `restore.sh` will rollback all the changes and reinstate your previously saved config files.
-
-```
-                           _       _     _       _
-      .-.        _ __ ___ (_)_ __ (_) __| | ___ | |_
-      OO|       | '_ ' _ \| | '_ \| |/ _' |/ _ \| __|
-     /  \      _| | | | | | | | | | | (_| | (_) | |_
-    (\__/)    (_)_| |_| |_|_|_| |_|_|\__,_|\___/ \__|
-```
+This repo contains a streamlined configuration of working Linux dotfiles, designed to work with any [Debian](https://www.debian.org) distribution. The `setup.sh` script will backup any of your old configs, install the packages needed and symlink the *.minidot* files correctly; `restore.sh` will rollback all the changes and reinstate your previously saved config files.
 
 
-
-
-<div align="right" style="display: inline-block; width: 200px;"></div>
-<img align="right" height="200" src="https://www.debian.org/logos/officiallogo-nd.svg">
+<img align="right" src="https://www.debian.org/logos/button-mini.png">
 
 ### Need more gear?
 
