@@ -1,14 +1,9 @@
+<img align="right" src="https://www.debian.org/logos/button-4.gif">
+
 # The ultimate dotfiles
 
-This repo contains a streamlined configuration of working Linux dotfiles, designed to work with any [Debian](https://www.debian.org) distribution. The `setup.sh` script will backup any of your old configs, install the packages needed and symlink the *.minidot* files correctly; `restore.sh` will rollback all the changes and reinstate your previously saved config files.
+This repo contains a streamlined configuration of working Linux dotfiles, designed to work with any [Debian](https://www.debian.org) distro. Run `setup.sh` to backup any of your old configs, install the dependencies and symlink all the files correctly; the `restore.sh` script will rollback all the changes and reinstate your previously saved config files.
 
+Apps not included but quite useful are: [Visual&#x2011;Studio&#x2011;Code](https://code.visualstudio.com) and [Input&#x2011;Remapper](https://github.com/sezanzeb/input-remapper).
 
-<img align="right" src="https://www.debian.org/logos/button-mini.png">
-
-### Need more gear?
-
-- [Remapper](https://github.com/sezanzeb/input-remapper): simple Linux input device controller
-- [Guake](https://github.com/Guake/guake)/[Yakuake](https://github.com/KDE/yakuake): drop&#x2011;down terminal emulator
-- [Xournal](https://xournalpp.github.io/): notetaking app with PDF annotation support
-- [VSCode](https://code.visualstudio.com/): Microsoft source&#x2011;code editor
-- [Brave](https://brave.com/): fast Chromium&#x2011;based web browser
+`enjoy`
