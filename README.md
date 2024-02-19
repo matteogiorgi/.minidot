@@ -15,11 +15,8 @@ This repo contains a streamlined configuration of working dotfiles, designed to 
 
 
 
-<!-- <img align="right" height="200" src="https://www.debian.org/logos/officiallogo-nd.svg"> -->
-<div align="left">
-  <img src="https://www.debian.org/logos/officiallogo-nd.svg" height="200">
-  <div style="display: inline-block; width: 50px;"></div> <!-- Spazio bianco aggiunto come un div vuoto -->
-</div>
+<div align="right" style="display: inline-block; width: 200px;"></div>
+<img align="right" height="200" src="https://www.debian.org/logos/officiallogo-nd.svg">
 
 ### Need more gear?
 
