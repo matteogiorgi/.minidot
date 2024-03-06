@@ -11,6 +11,11 @@
     },
     {
         "key": "shift+alt+w",
+        "command": "actions.find",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "shift+alt+w",
         "command": "workbench.action.terminal.focusFind",
         "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
     },
@@ -72,11 +77,6 @@
         "key": "alt+p",
         "command": "editor.action.marker.prev",
         "when": "editorFocus"
-    },
-    {
-        "key": "alt+x",
-        "command": "actions.find",
-        "when": "editorFocus || editorIsOpen"
     },
     // Default keybindings (removed)
     {
