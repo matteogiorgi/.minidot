@@ -1,4 +1,19 @@
 [
+    // Personal keybindings (new)
+    {
+        "key": "alt+q",
+        "command": "inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+    },
+    {
+        "key": "alt+w",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "shift+alt+w",
+        "command": "workbench.action.terminal.focusFind",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+    },
     {
         "key": "alt+a",
         "command": "workbench.action.toggleSidebarVisibility",
@@ -29,16 +44,6 @@
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
-        "key": "alt+w",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+shift+w",
-        "command": "editor.action.marker.prev",
-        "when": "editorFocus"
-    },
-    {
         "key": "alt+z",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
@@ -47,5 +52,25 @@
         "key": "shift+alt+z",
         "command": "editor.action.blockComment",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+x",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+shift+x",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
+    },
+    // Default keybindings (removed)
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-workbench.action.terminal.focusFind",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
     }
 ]

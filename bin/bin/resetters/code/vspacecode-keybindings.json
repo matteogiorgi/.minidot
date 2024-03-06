@@ -1,6 +1,19 @@
 [
-    // Personal Keybindings
-    // Aside from VSpaceCode
+    // Personal keybindings (new)
+    {
+        "key": "alt+q",
+        "command": "inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+    },
+    {
+        "key": "alt+w",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "shift+alt+w",
+        "command": "workbench.action.terminal.focusFind",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+    },
     {
         "key": "alt+a",
         "command": "workbench.action.toggleActivityBarVisibility"
@@ -14,10 +27,6 @@
         "key": "alt+s",
         "command": "workbench.action.focusSideBar",
         "when": "!sideBarFocus"
-    },
-    {
-        "key": "alt+d",
-        "command": "workbench.action.togglePanel"
     },
     {
         "key": "alt+h",
@@ -65,13 +74,24 @@
         "when": "editorFocus"
     },
     {
-        "key": "alt+i",
-        "command": "inlineChat.start",
-        "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+        "key": "alt+x",
+        "command": "actions.find",
+        "when": "editorFocus || editorIsOpen"
     },
+    // Default keybindings (removed)
     {
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-actions.find",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-workbench.action.terminal.focusFind",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
     },
     // Trigger vspacecode in empty editor group
     {
