@@ -286,7 +286,7 @@ xnoremap <silent>K :move '<-2<CR>gv=gv
 " ---
 nnoremap <leader>j :buffers!<CR>:buffer<Space>
 nnoremap <leader>k :buffer#<CR>
-nnoremap <leader>o :tabnew %<CR>
+nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>c :tabclose<CR>
 " ---
 nnoremap <leader>q :call <SID>ToggleQF()<CR>
