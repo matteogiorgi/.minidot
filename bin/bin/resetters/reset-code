@@ -1,106 +1,17 @@
 #!/usr/bin/env bash
 
-# This script resets VSCode setting using VSpaceCode extensions pack:
-#     [ --vim9 ] resets VSCode Vim-like style
-#     [ --novi ] resets VSCode without Vim goodies
+# This script resets your VSCode setting files;
+# use the following arguments to run it:
+#     [ --novi ] resets VSCode with few goodies
+#     [ --rice ] rice your VSCode config files
 #     [ --zero ] removes all VSCode configurations (rm -rf ~/.config/Code/User)
 
-# Here the full set of extensions installed by this script:
-# (for more information visit https://vspacecode.github.io/)
-#     MONOKAI-PRO  https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
-#     VSPACECODE   https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode
-#         WHICH-KEY    https://marketplace.visualstudio.com/items?itemName=VSpaceCode.whichkey
-#         VIM          https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
-#         FUZZY-SEARCH https://marketplace.visualstudio.com/items?itemName=jacobdufault.fuzzy-search
-#         FILE-BROWSER https://marketplace.visualstudio.com/items?itemName=bodil.file-browser
-#         EDAMAGIT     https://marketplace.visualstudio.com/items?itemName=kahole.magit
-
-# ---
+# Extension:
+#     GITHUB-COPILOT  https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+#     MONOKAI-PRO     https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
 
 # This very configurations can be also used to rice up your VSCode-Insiders.
-# Copy one of the following as `settings.json` inside `~/.config/Code - Insiders/User`:
-#     ~/bin/resetters/code/novi-settings.json
-#     ~/bin/resetters/code/vspacecode-settings.json
-# Copy one of the following as `keybindings.json` inside `~/.config/Code - Insiders/User`:
-#     ~/bin/resetters/code/novi-keybindings.json
-#     ~/bin/resetters/code/vspacecode-keybindings.json
-# Install the following extensions:
-#     MONOKAI-PRO  https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
-#     VSPACECODE   https://marketplace.visualstudio.com/items?itemName=VSpaceCode.vspacecode
-
-
-
-
-### Functions
-#############
-
-_check () {
-    # if $CODE is non executable,
-    # install $CODE and run rscode again.
-    # ---
-    if [[ ! -x "$(command -v "${CODE}")" ]]; then
-        printf "\n"
-        printf "═══════ Warning: ${CODE} not found ══════\n"
-        printf "Install ${CODE} and run this script again\n"
-        exit 1
-    fi
-}
-
-
-_reset () {
-    # remove all the extensions present and
-    # install a full mint configuration
-    # ---
-    _check
-    printf "%s\n" "${OPERATION}"
-    # ---
-    LIST=$("${CODE}" --list-extensions)
-    for EXTENSION in $LIST; do
-        "${CODE}" --uninstall-extension "${EXTENSION}" &>/dev/null
-    done
-    # ---
-    "${CODE}" --install-extension vspacecode.vspacecode &>/dev/null
-    "${CODE}" --install-extension github.copilot &>/dev/null
-    "${CODE}" --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    cat "${CONF}/vspacecode-settings.json" > "${USER}/settings.json"
-    cat "${CONF}/vspacecode-keybindings.json" > "${USER}/keybindings.json"
-}
-
-
-_novi () {
-    # remove all the extensions present and install
-    # a simple configuration without Vim goodies
-    # ---
-    _check
-    printf "%s\n" "${OPERATION}"
-    # ---
-    LIST=$("${CODE}" --list-extensions)
-    for EXTENSION in $LIST; do
-        "${CODE}" --uninstall-extension "${EXTENSION}" &>/dev/null
-    done
-    # ---
-    "${CODE}" --install-extension github.copilot &>/dev/null
-    "${CODE}" --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    cat "${CONF}/novi-settings.json" > "${USER}/settings.json"
-    cat "${CONF}/novi-keybindings.json" > "${USER}/keybindings.json"
-}
-
-
-_zero () {
-    # remove all the extensions and configurations
-    # previously installed to get a clean $CODE
-    # ---
-    _check
-    printf "%s\n" "${OPERATION}"
-    # ---
-    LIST=$("${CODE}" --list-extensions)
-    for EXTENSION in $LIST; do
-        "${CODE}" --uninstall-extension "${EXTENSION}" &>/dev/null
-    done
-    # ---
-    [[ -f "${USER}/settings.json" ]] && rm -f "${USER}/settings.json"
-    [[ -f "${USER}/keybindings.json" ]] && rm -f "${USER}/keybindings.json"
-}
+# Just remember to use `~/.config/Code - Insiders/User` as your base directory.
 
 
 
@@ -108,19 +19,27 @@ _zero () {
 ### First things first
 ######################
 
+if [[ ! -x "$(command -v code)" ]]; then
+    printf "\n"
+    printf "═══════ Warning: VSCode not found ══════\n"
+    printf "Install VSCode and run this script again\n"
+    exit 1
+fi
+
+
 if [[ $# -gt 1 ]]; then
     printf "\n"
     printf "═══════════════════ Warning ═══════════════════\n"
     printf "Too many arguments: no operations were executed\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
-    printf "╔═══════════════════ Help ══════════════════╗\n"
-    printf "║ [--vim9] reset VSCode Vim-like style      ║\n"
-    printf "║ [--novi] reset VSCode without Vim goodies ║\n"
-    printf "║ [--zero] remove all VSCode configurations ║\n"
-    printf "╚═══════════════════════════════════════════╝\n"
+    printf "╔════════════════════════════ Help ═══════════════════════════╗\n"
+    printf "║ [ --novi ] resets VSCode with few goodies                   ║\n"
+    printf "║ [ --rice ] rice your VSCode config files                    ║\n"
+    printf "║ [ --zero ] remove all config (rm -rf ~/.config/Code/User/*) ║\n"
+    printf "╚═════════════════════════════════════════════════════════════╝\n"
     exit 0
-elif [[ $1 != "--vim9" && $1 != "--novi" && $1 != "--zero" ]]; then
+elif [[ $1 != "--novi" && $1 != "--rice" && $1 != "--zero" ]]; then
     printf "\n"
     printf "══════════════════ Warning ══════════════════\n"
     printf "Unknown argument: no operations were executed\n"
@@ -138,14 +57,25 @@ read -p "Resetting VSCode (enter to continue)"
 
 
 
+### ~/.config/Code/User
+#######################
+
+BASE=${HOME}/.config/Code/User
+[[ -d "${BASE}" ]] || mkdir -p "${BASE}"
+
+
+
+
 ### Zero
 ########
 
 if [[ $1 == "--zero" ]]; then
-    OPERATION="REMOVING ALL CODE CONFIGURATIONS"
-    USER="${HOME}/.config/Code/User"
-    CODE="code"
-    _zero
+    printf "REMOVING ALL VSCODE CONFIG\n"
+    for EXTENSION in $(code --list-extensions); do
+        code --uninstall-extension "${EXTENSION}" &>/dev/null
+    done
+    rm -f "${BASE}/settings.json"
+    rm -f "${BASE}/keybindings.json"
     # ---
     printf "\n"
     printf "══════════════ We're done here ═════════════\n"
@@ -156,45 +86,36 @@ fi
 
 
 
-### ~/bin/resetters/code
-########################
+### Rice
+########
 
-# VSpaceCode configuration files (settings and keybindings) folder
-# and a numeric counter to check if at least one operation was executed.
-CONF="${HOME}/bin/resetters/code"
-
-
-
-
-### Reset configurations
-########################
-
-if [[ $1 == "--novi" ]]; then
-    OPERATION="RESETTING CODE"
-    USER="${HOME}/.config/Code/User"
-    CODE="code"
-    _novi
+if [[ $1 == "--rice" ]]; then
+    "${EDITOR:=vi}" -p "${BASE}/settings.json" "${BASE}/keybindings.json"
     # ---
     printf "\n"
-    printf "═════ We're done here ═════\n"
-    printf "Enjoy your life with VSCode\n"
+    printf "════════════ We're done here ════════════\n"
+    printf "Are you happy now? Stop wasting your time\n"
     exit 0
 fi
 
 
-if [[ $1 == "--vim9" ]]; then
-    OPERATION="RESETTING CODE"
-    USER="${HOME}/.config/Code/User"
-    CODE="code"
-    _reset
-    # ---
-    printf "\n"
-    printf "═══════════ We're done here ══════════\n"
-    printf "Enjoy your Vim-Styled life with VSCode\n"
-    exit 0
-fi
+
+
+### Novi
+########
+
+printf "RESETTING VSCODE WITH FEW GOODIES\n"
+for EXTENSION in $(code --list-extensions); do
+    code --uninstall-extension "${EXTENSION}" &>/dev/null
+done
+code --install-extension github.copilot &>/dev/null
+code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+# ---
+CODE="${HOME}/bin/resetters/code"
+cat "${CODE}/settings.json" > "${BASE}/settings.json"
+cat "${CODE}/keybindings.json" > "${BASE}/keybindings.json"
 
 
 printf "\n"
-printf "═══════════════════ Warning ═══════════════════\n"
-printf "Something went wrong: you should never see this\n"
+printf "═════════ We're done here ═════════\n"
+printf "Enjoy your Non-Vim life with VSCode\n"

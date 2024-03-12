@@ -17,25 +17,8 @@
 #     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
 #     COPILOT    https://github.com/github/copilot.vim
 
-# ---
-
 # This very configurations can be also used to rice up your Neovim.
 # Just remember to use `~/.config/nvim` as your `$VIM` directory.
-
-
-
-
-### Functions
-#############
-
-_reset () {
-    # if the plugin exists we git pull,
-    # otherwise we git clone from GitHub
-    # ---
-    printf "\n"
-    printf "%s\n" "${OPERATION}"
-    [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone "${REPOSITORY}" "${PLUGIN}"
-}
 
 
 
@@ -45,8 +28,8 @@ _reset () {
 
 if [[ ! -x "$(command -v "vim")" ]]; then
     printf "\n"
-    printf "════════════════════ Warning ════════════════════\n"
-    printf "Vim is not installed: no operations were executed\n"
+    printf "═══════ Warning: Vim not found ══════\n"
+    printf "Install Vim and run this script again\n"
     exit 1
 fi
 
@@ -123,17 +106,21 @@ fi
 
 
 
-### ~/.vim/pack/plugins/start
-#############################
+### Reset configurations
+########################
+
+_reset () {
+    # if the plugin exists we git pull,
+    # otherwise we git clone from GitHub
+    # ---
+    printf "\n"
+    printf "%s\n" "${OPERATION}"
+    [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone "${REPOSITORY}" "${PLUGIN}"
+}
 
 START="${VIM}/pack/plugins/start"
 [[ -d "${START}" ]] || mkdir -p "${START}"
 
-
-
-
-### Reset configurations
-########################
 
 OPERATION="RESETTING COMMENTARY"
 REPOSITORY="https://github.com/tpope/vim-commentary"
