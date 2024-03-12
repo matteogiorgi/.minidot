@@ -58,10 +58,8 @@
 !/bin/bin/resetters/reset-plug
 
 /bin/bin/resetters/code/*
-!/bin/bin/resetters/code/vspacecode-settings.json
-!/bin/bin/resetters/code/vspacecode-keybindings.json
-!/bin/bin/resetters/code/novi-settings.json
-!/bin/bin/resetters/code/novi-keybindings.json
+!/bin/bin/resetters/code/settings.json
+!/bin/bin/resetters/code/keybindings.json
 
 /bin/bin/resetters/plug/*
 !/bin/bin/resetters/plug/plugme.vim
