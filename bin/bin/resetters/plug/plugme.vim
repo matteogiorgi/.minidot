@@ -31,7 +31,7 @@ if &rtp =~ 'ale'
         autocmd FileType python setlocal omnifunc=ale#completion#OmniFunc
     augroup END
     " ---
-    let g:ale_linters = {'python': ['pylsp']}
+    let g:ale_linters = {'cpp': ['gcc'], 'c': ['gcc'], 'bash': ['shellcheck'], 'python': ['pylsp']}
     let g:ale_fixers = {'python': ['black'], '*': ['remove_trailing_lines', 'trim_whitespace']}
     let g:ale_echo_msg_format = '[%linter% %severity%] %s'
     let g:ale_virtualtext_cursor = 0
