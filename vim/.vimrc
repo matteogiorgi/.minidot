@@ -60,7 +60,7 @@ set nowrap nospell
 set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
-set cursorline noerrorbells novisualbell
+set nocursorline noerrorbells novisualbell
 set cursorlineopt=number,line
 set splitbelow splitright
 set equalalways
@@ -131,32 +131,6 @@ endif
 
 
 " Prettyfiers {{{
-augroup linenumber_prettyfier
-    autocmd!
-    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
-                \ if &number == 1|
-                \     set relativenumber|
-                \ endif|
-                \ set cursorline
-    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
-                \ if &number == 1|
-                \     set norelativenumber|
-                \ endif|
-                \ set nocursorline
-augroup end
-" ---
-augroup cursorcolumn_prettyfier
-    autocmd!
-    autocmd InsertEnter *
-                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
-                \     let &colorcolumn = '121,'.join(range(121,999),',')|
-                \ endif
-    autocmd InsertLeave *
-                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
-                \     set colorcolumn=|
-                \ endif
-augroup end
-" ---
 augroup netrw_prettyfier
     autocmd!
     autocmd VimEnter *

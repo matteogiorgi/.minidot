@@ -97,6 +97,39 @@ endfunction
 
 
 
+" Prettyfiers {{{
+set cursorline
+" ---
+augroup linenumber_prettyfier
+    autocmd!
+    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
+                \ if &number == 1|
+                \     set relativenumber|
+                \ endif|
+                \ set cursorline
+    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
+                \ if &number == 1|
+                \     set norelativenumber|
+                \ endif|
+                \ set nocursorline
+augroup end
+" ---
+augroup cursorcolumn_prettyfier
+    autocmd!
+    autocmd InsertEnter *
+                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
+                \     let &colorcolumn = '121,'.join(range(121,999),',')|
+                \ endif
+    autocmd InsertLeave *
+                \ if &filetype != 'text' && &filetype != 'markdown' && &filetype != 'tex'|
+                \     set colorcolumn=|
+                \ endif
+augroup end
+"}}}
+
+
+
+
 " Filetype behavior {{{
 augroup writer_filetype
     autocmd!
