@@ -2,16 +2,12 @@
 
 # This script resets your VSCode setting files;
 # use the following arguments to run it:
-#     [ --novi ] reset VSCode with few goodies
-#     [ --rice ] rice your VSCode config files
-#     [ --zero ] remove all config (rm -rf ~/.config/Code/User/*)
+#     [ --novi ] reset VSCode base config
+#     [ --zero ] make VSCode vanilla
 
 # Extension:
 #     GITHUB-COPILOT  https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
 #     MONOKAI-PRO     https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
-
-# This very configurations can be also used to rice up your VSCode-Insiders.
-# Just remember to use `~/.config/Code - Insiders/User` as your base directory.
 
 
 
@@ -29,20 +25,19 @@ fi
 
 if [[ $# -gt 1 ]]; then
     printf "\n"
-    printf "═══════════════════ Warning ═══════════════════\n"
-    printf "Too many arguments: no operations were executed\n"
+    printf "════════ Warning: too many args ════════\n"
+    printf "Pay attention, no operation was executed\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
-    printf "╔════════════════════════════ Help ═══════════════════════════╗\n"
-    printf "║ [ --novi ] reset VSCode with few goodies                    ║\n"
-    printf "║ [ --rice ] rice your VSCode config files                    ║\n"
-    printf "║ [ --zero ] remove all config (rm -rf ~/.config/Code/User/*) ║\n"
-    printf "╚═════════════════════════════════════════════════════════════╝\n"
+    printf "╔════════════════ Help ═══════════════╗\n"
+    printf "║ [ --novi ] reset VSCode base config ║\n"
+    printf "║ [ --zero ] make VSCode vanilla      ║\n"
+    printf "╚═════════════════════════════════════╝\n"
     exit 0
-elif [[ $1 != "--novi" && $1 != "--rice" && $1 != "--zero" ]]; then
+elif [[ $1 != "--novi" && $1 != "--zero" ]]; then
     printf "\n"
-    printf "══════════════════ Warning ══════════════════\n"
-    printf "Unknown argument: no operations were executed\n"
+    printf "═════════ Warning: unknown arg ═════════\n"
+    printf "Pay attention, no operation was executed\n"
     exit 1
 fi
 
@@ -53,15 +48,15 @@ fi
 ##########
 
 read -p "Resetting VSCode (enter to continue)"
-
-
-
-
-### ~/.config/Code/User
-#######################
-
+# ---
 BASE=${HOME}/.config/Code/User
 [[ -d "${BASE}" ]] || mkdir -p "${BASE}"
+# ---
+_clean () {
+    for EXTENSION in $(code --list-extensions); do
+        code --uninstall-extension "${EXTENSION}" &>/dev/null
+    done
+}
 
 
 
@@ -71,30 +66,13 @@ BASE=${HOME}/.config/Code/User
 
 if [[ $1 == "--zero" ]]; then
     printf "REMOVING ALL VSCODE CONFIG\n"
-    for EXTENSION in $(code --list-extensions); do
-        code --uninstall-extension "${EXTENSION}" &>/dev/null
-    done
+    _clean
     rm -f "${BASE}/settings.json"
     rm -f "${BASE}/keybindings.json"
     # ---
     printf "\n"
-    printf "══════════════ We're done here ═════════════\n"
-    printf "Enjoy your vanilla VSCode with no extensions\n"
-    exit 0
-fi
-
-
-
-
-### Rice
-########
-
-if [[ $1 == "--rice" ]]; then
-    "${EDITOR:=vi}" -p "${BASE}/settings.json" "${BASE}/keybindings.json"
-    # ---
-    printf "\n"
-    printf "════════════ We're done here ════════════\n"
-    printf "Are you happy now? Stop wasting your time\n"
+    printf "══════════ We're done ══════════\n"
+    printf "Try to enjoy your vanilla VSCode\n"
     exit 0
 fi
 
@@ -104,10 +82,8 @@ fi
 ### Novi
 ########
 
-printf "RESETTING VSCODE WITH FEW GOODIES\n"
-for EXTENSION in $(code --list-extensions); do
-    code --uninstall-extension "${EXTENSION}" &>/dev/null
-done
+printf "RESETTING VSCODE BASE CONFIG\n"
+_clean
 code --install-extension github.copilot &>/dev/null
 code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 # ---
@@ -117,5 +93,5 @@ cat "${CODE}/keybindings.json" > "${BASE}/keybindings.json"
 
 
 printf "\n"
-printf "═════════ We're done here ═════════\n"
-printf "Enjoy your Non-Vim life with VSCode\n"
+printf "══════════ We're done ══════════\n"
+printf "Enjoy your noVi life with VSCode\n"

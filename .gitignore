@@ -62,7 +62,28 @@
 !/bin/bin/resetters/code/keybindings.json
 
 /bin/bin/resetters/plug/*
-!/bin/bin/resetters/plug/plugme.vim
+!/bin/bin/resetters/plug/colors/*
+!/bin/bin/resetters/plug/plugin/*
+
+/bin/bin/resetters/plug/colors/*
+!/bin/bin/resetters/plug/colors/hemisu.vim
+!/bin/bin/resetters/plug/colors/noctu.vim
+
+
+/bin/bin/resetters/plug/plugin/*
+!/bin/bin/resetters/plug/plugin/notes/*
+!/bin/bin/resetters/plug/plugin/notes/auxilium.vim
+!/bin/bin/resetters/plug/plugin/notes/plugme.vim
+
+/bin/bin/resetters/plug/plugin/notes/*
+!/bin/bin/resetters/plug/plugin/notes/assets/*
+
+/bin/bin/resetters/plug/plugin/notes/assets/*
+!/bin/bin/resetters/plug/plugin/notes/assets/before.html
+!/bin/bin/resetters/plug/plugin/notes/assets/footer.html
+!/bin/bin/resetters/plug/plugin/notes/assets/header.html
+!/bin/bin/resetters/plug/plugin/notes/assets/linked2html.lua
+!/bin/bin/resetters/plug/plugin/notes/assets/makenote
 
 
 
@@ -96,27 +117,4 @@
 #######
 
 /vim/*
-!/vim/.vim
 !/vim/.vimrc
-
-/vim/.vim/*
-!/vim/.vim/colors
-!/vim/.vim/plugin
-
-/vim/.vim/colors/*
-!/vim/.vim/colors/hemisu.vim
-!/vim/.vim/colors/noctu.vim
-
-/vim/.vim/plugin/*
-!/vim/.vim/plugin/notes
-!/vim/.vim/plugin/auxilium.vim
-
-/vim/.vim/plugin/notes/*
-!/vim/.vim/plugin/notes/assets
-
-/vim/.vim/plugin/notes/assets/*
-!/vim/.vim/plugin/notes/assets/before.html
-!/vim/.vim/plugin/notes/assets/footer.html
-!/vim/.vim/plugin/notes/assets/header.html
-!/vim/.vim/plugin/notes/assets/linked2html.lua
-!/vim/.vim/plugin/notes/assets/makenote

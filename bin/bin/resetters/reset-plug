@@ -2,9 +2,8 @@
 
 # This script enhances your Vim with some useful plugins;
 # use the following arguments to run it:
-#     [ --vim9 ] reset all Vim plugins (up to version 9)
-#     [ --rice ] rice your plugme.vim config
-#     [ --zero ] remove all plugins (rm -rf ~/.vim/pack)
+#     [ --vim9 ] reset Vim base config
+#     [ --zero ] make Vim (almost) vanilla
 
 # Plugins:
 #     COMMENTARY https://github.com/tpope/vim-commentary
@@ -16,9 +15,6 @@
 #     ALE        https://github.com/dense-analysis/ale
 #     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
 #     COPILOT    https://github.com/github/copilot.vim
-
-# This very configurations can be also used to rice up your Neovim.
-# Just remember to use `~/.config/nvim` as your `$VIM` directory.
 
 
 
@@ -36,20 +32,19 @@ fi
 
 if [[ $# -gt 1 ]]; then
     printf "\n"
-    printf "═══════════════════ Warning ═══════════════════\n"
-    printf "Too many arguments: no operations were executed\n"
+    printf "════════ Warning: too many args ════════\n"
+    printf "Pay attention, no operation was executed\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
-    printf "╔═══════════════════════ Help ═══════════════════════╗\n"
-    printf "║ [ --vim9 ] reset all Vim plugins (up to version 9) ║\n"
-    printf "║ [ --rice ] rice your plugme.vim config             ║\n"
-    printf "║ [ --zero ] remove all plugins (rm -rf ~/.vim/pack) ║\n"
-    printf "╚════════════════════════════════════════════════════╝\n"
+    printf "╔════════════════ Help ════════════════╗\n"
+    printf "║ [ --vim9 ] reset Vim base config     ║\n"
+    printf "║ [ --zero ] make Vim (almost) vanilla ║\n"
+    printf "╚══════════════════════════════════════╝\n"
     exit 0
-elif [[ $1 != "--vim9" && $1 != "--rice" && $1 != "--zero" ]]; then
+elif [[ $1 != "--vim9" && $1 != "--zero" ]]; then
     printf "\n"
-    printf "══════════════════ Warning ══════════════════\n"
-    printf "Unknown argument: no operations were executed\n"
+    printf "═════════ Warning: unknown arg ═════════\n"
+    printf "Pay attention, no operation was executed\n"
     exit 1
 fi
 
@@ -60,15 +55,16 @@ fi
 ##########
 
 read -p "Resetting Vim plugins (enter to continue)"
-
-
-
-
-### ~/.vim
-##########
-
+# ---
 VIM=${HOME}/.vim
 [[ -d "${VIM}" ]] || mkdir -p "${VIM}"
+# ---
+_reset () {
+    printf "\n"
+    printf "%s\n" "${OPERATION}"
+    [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull \
+                         || git clone "${REPOSITORY}" "${PLUGIN}"
+}
 
 
 
@@ -77,48 +73,28 @@ VIM=${HOME}/.vim
 ########
 
 if [[ $1 == "--zero" ]]; then
-    printf "REMOVING ALL PLUGINS\n"
+    printf "REMOVING (ALMOST) ALL VIM CONFIG\n"
+    rm -rf "${VIM}/colors" &>/dev/null
+    rm -rf "${VIM}/plugin" &>/dev/null
     rm -rf "${VIM}/pack" &>/dev/null
-    rm -f "${VIM}/plugin/plugme.vim" &>/dev/null
     # ---
     printf "\n"
-    printf "═══════════ We're done here ══════════\n"
-    printf "Enjoy your vanilla Vim with no plugins\n"
+    printf "════════════ We're done ════════════\n"
+    printf "Enjoy your chad (almost) vanilla Vim\n"
     exit 0
 fi
 
 
 
 
-### Rice
+### Vim9
 ########
 
-if [[ $1 == "--rice" ]]; then
-    PLUGME="${VIM}/plugin/plugme.vim"
-    [[ -f "${PLUGME}" ]] && "${EDITOR:=vi}" "${PLUGME}" || echo "Plug me first!"
-    # ---
-    printf "\n"
-    printf "════════════ We're done here ════════════\n"
-    printf "Are you happy now? Stop wasting your time\n"
-    exit 0
-fi
-
-
-
-
-### Reset configurations
-########################
-
-_reset () {
-    # if the plugin exists we git pull,
-    # otherwise we git clone from GitHub
-    # ---
-    printf "\n"
-    printf "%s\n" "${OPERATION}"
-    [[ -d "${PLUGIN}" ]] && git -C "${PLUGIN}" pull || git clone "${REPOSITORY}" "${PLUGIN}"
-}
-
+printf "RESETTING VIM BASE CONFIG\n"
+PLUG="${HOME}/bin/resetters/plug"
 START="${VIM}/pack/plugins/start"
+[[ -d "${VIM}/colors" ]] || cp -r "${PLUG}/colors" "${VIM}/colors"
+[[ -d "${VIM}/plugin" ]] || cp -r "${PLUG}/plugin" "${VIM}/plugin"
 [[ -d "${START}" ]] || mkdir -p "${START}"
 
 
@@ -183,13 +159,6 @@ then
 fi
 
 
-# add a simple vimscript that configure
-# some keymaps and few more little things
-# ---
-PLUGME="${HOME}/bin/resetters/plug/plugme.vim"
-cat "${PLUGME}" > "${HOME}/.vim/plugin/plugme.vim"
-
-
 printf "\n"
-printf "══════════ We're done here ══════════\n"
-printf "Enjoy your Vim-Plugged life with Vim9\n"
+printf "══════════ We're done ══════════\n"
+printf "Enjoy your Plugged life with Vim\n"
