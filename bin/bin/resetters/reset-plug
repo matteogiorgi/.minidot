@@ -2,7 +2,7 @@
 
 # This script enhances your Vim with some useful plugins;
 # use the following arguments to run it:
-#     [ --vim9 ] resets all Vim plugins (up to version 9)
+#     [ --vim9 ] reset all Vim plugins (up to version 9)
 #     [ --rice ] rice your plugme.vim config
 #     [ --zero ] remove all plugins (rm -rf ~/.vim/pack)
 

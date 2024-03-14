@@ -45,13 +45,9 @@
         "bash": {
             "path": "/bin/bash",
             "icon": "terminal-bash"
-        },
-        "tmux": {
-            "path": "/bin/tmux",
-            "icon": "terminal-tmux"
         }
     },
-    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.linux": "dash",
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Monokai Pro",

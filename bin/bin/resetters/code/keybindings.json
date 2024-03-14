@@ -1,18 +1,13 @@
 [
-    // NEW KEYBINDINGS
     {
         "key": "alt+a",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "sideBarFocus"
-    },
-    {
-        "key": "alt+a",
-        "command": "workbench.action.focusSideBar",
-        "when": "!sideBarFocus"
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
     },
     {
         "key": "alt+shift+a",
-        "command": "workbench.action.toggleActivityBarVisibility"
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
     },
     {
         "key": "alt+s",
@@ -38,34 +33,5 @@
         "key": "shift+alt+z",
         "command": "editor.action.blockComment",
         "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+w",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+shift+w",
-        "command": "editor.action.marker.prev",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+x",
-        "command": "workbench.action.togglePanel"
-    },
-    {
-        "key": "shift+alt+x",
-        "command": "workbench.action.terminal.focusFind",
-        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
-    },
-    // REMOVED KEYBINDINGS
-    {
-        "key": "ctrl+j",
-        "command": "-workbench.action.togglePanel"
-    },
-    {
-        "key": "ctrl+f",
-        "command": "-workbench.action.terminal.focusFind",
-        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
     }
 ]

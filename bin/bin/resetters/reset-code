@@ -2,9 +2,9 @@
 
 # This script resets your VSCode setting files;
 # use the following arguments to run it:
-#     [ --novi ] resets VSCode with few goodies
+#     [ --novi ] reset VSCode with few goodies
 #     [ --rice ] rice your VSCode config files
-#     [ --zero ] removes all VSCode configurations (rm -rf ~/.config/Code/User)
+#     [ --zero ] remove all config (rm -rf ~/.config/Code/User/*)
 
 # Extension:
 #     GITHUB-COPILOT  https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
@@ -34,7 +34,7 @@ if [[ $# -gt 1 ]]; then
     exit 1
 elif [[ $# -eq 0 ]]; then
     printf "╔════════════════════════════ Help ═══════════════════════════╗\n"
-    printf "║ [ --novi ] resets VSCode with few goodies                   ║\n"
+    printf "║ [ --novi ] reset VSCode with few goodies                    ║\n"
     printf "║ [ --rice ] rice your VSCode config files                    ║\n"
     printf "║ [ --zero ] remove all config (rm -rf ~/.config/Code/User/*) ║\n"
     printf "╚═════════════════════════════════════════════════════════════╝\n"
