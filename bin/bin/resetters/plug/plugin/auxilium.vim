@@ -99,10 +99,7 @@ endfunction
 
 " Prettyfiers {{{
 set cursorline
-" ---
-augroup netrw_prettyfier
-    autocmd FileType netrw setlocal cursorline
-augroup end
+autocmd FileType netrw setlocal cursorline
 " ---
 augroup linenumber_prettyfier
     autocmd!
