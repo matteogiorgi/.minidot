@@ -144,6 +144,7 @@ augroup netrw_prettyfier
     autocmd FileType netrw
                 \ setlocal nocursorline|
                 \ setlocal bufhidden=wipe|
+                \ nunmap <buffer> i|
                 \ nmap <buffer> h -<esc>|
                 \ nmap <buffer> l <cr>|
                 \ nmap <buffer> . gh|
