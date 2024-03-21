@@ -102,7 +102,9 @@ if v:version >= 900
 endif
 " ---
 if has('gui_running')
-    set guifont=Fira\ Code\ 8
+    if system('fc-list') =~ 'Fira Code'
+        set guifont=Fira\ Code\ 8
+    endif
     set guioptions=i
     set guicursor+=a:blinkon0
     set columns=140 lines=60
@@ -116,15 +118,6 @@ endif
 " Syntax & colors {{{
 syntax on
 filetype plugin indent on
-" ---
-if has('gui_running')
-    if filereadable(expand('~/.vim/colors/hemisu.vim'))
-        set background=dark
-        colorscheme hemisu
-    endif
-elseif filereadable(expand('~/.vim/colors/noctu.vim'))
-    colorscheme noctu
-endif
 " }}}
 
 
@@ -174,36 +167,21 @@ augroup end
 
 
 " Functions {{{
-let g:quickfix = 'cclose'
-let g:loclist = 'lclose'
-" ---
 function! s:ToggleQF()
     let g:loclist = 'lclose'
-    let g:quickfix = g:quickfix ==# 'cclose' ? 'copen' : 'cclose'
+    let g:quickfix = !exists("g:quickfix") || g:quickfix ==# 'cclose' ? 'copen' : 'cclose'
     silent! execute g:loclist
     silent! execute g:quickfix
 endfunction
 " ---
-function! s:ToggleLL()
-    let g:quickfix = 'cclose'
-    let g:loclist = g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
-    silent! execute g:quickfix
-    silent! execute g:loclist
-endfunction
-" ---
-function! s:MarkLine()
-    let l:current_line = line(".")
-    let l:current_col = col(".")
-    let l:current_text = getline(".")
-    let l:current_bufnr = bufnr("%")
-    let l:current_file = expand("%:p")
+function! s:MarkLineQF()
     let l:qf_list = getqflist()
     let l:qf_entry = {
-        \ 'bufnr': l:current_bufnr,
-        \ 'lnum': l:current_line,
-        \ 'col': l:current_col,
-        \ 'text': l:current_text,
-        \ 'filename': l:current_file
+        \ 'bufnr': bufnr("%"),
+        \ 'lnum': line("."),
+        \ 'col': col("."),
+        \ 'text': getline("."),
+        \ 'filename': expand("%:p"),
     \ }
     call add(l:qf_list, l:qf_entry)
     call setqflist(l:qf_list)
@@ -265,12 +243,9 @@ nnoremap <leader>k :buffer#<CR>
 nnoremap <leader>o :tabnew %<CR>
 nnoremap <leader>c :tabclose<CR>
 " ---
-nnoremap <leader>q :call <SID>ToggleQF()<CR>
-nnoremap <leader>m :call <SID>MarkLine()<CR>
+nnoremap <leader>a :call <SID>ToggleQF()<CR>
+nnoremap <leader>m :call <SID>MarkLineQF()<CR>
 nnoremap <leader>r :call <SID>ResetQF()<CR>
-" ---
-nnoremap <localleader>q :call <SID>ToggleQF()<CR>
-nnoremap <localleader>w :call <SID>ToggleLL()<CR>
 " ---
 nnoremap <leader>e :Explore<CR>
 tnoremap <silent><C-x> <C-\><C-n>

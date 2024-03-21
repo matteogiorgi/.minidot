@@ -21,6 +21,20 @@ let g:auxilium = 1
 
 
 
+" Colors {{{
+if has('gui_running')
+    if filereadable(expand('~/.vim/colors/hemisu.vim'))
+        set background=dark
+        colorscheme hemisu
+    endif
+elseif filereadable(expand('~/.vim/colors/noctu.vim'))
+    colorscheme noctu
+endif
+" }}}
+
+
+
+
 " MakeNote {{{
 function! s:MakeNote()
     let l:path_file    = expand('%:p')

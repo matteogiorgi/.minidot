@@ -27,6 +27,13 @@ endif
 
 " ALE CONFIG {{{
 if &rtp =~ 'ale'
+    function! s:ToggleLL()
+        let g:quickfix = 'cclose'
+        let g:loclist = !exists("g:loclist") || g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
+        silent! execute g:quickfix
+        silent! execute g:loclist
+    endfunction
+    " ---
     let g:ale_completion_enabled = 1
     set omnifunc=ale#completion#OmniFunc
     set completeopt=menu,menuone,popup,noselect,noinsert
@@ -45,7 +52,7 @@ if &rtp =~ 'ale'
     inoremap <silent><C-c> :AleComplete<CR>
     nnoremap <silent><C-l> :ALENextWrap<CR>
     nnoremap <silent><C-h> :ALEPreviousWrap<CR>
-    nnoremap <leader>a :ALEPopulateQuickfix<Bar>let<Space>g:quickfix='copen'<Bar>copen<CR>
+    nnoremap <localleader>a :call <SID>ToggleLL()<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
 endif
@@ -80,7 +87,7 @@ if &rtp =~ 'ctrlp'
     augroup end
     " ---
     command! Ctags call s:Ctags()
-    nnoremap <leader>q :CtrlPQuickfix<CR>
+    nnoremap <leader>a :CtrlPQuickfix<CR>
     nnoremap <leader>u :CtrlPUndo<CR>
     nnoremap <leader>i :CtrlPChange<CR>
     nnoremap <leader>f :CtrlP<space>%:p:h<CR>
