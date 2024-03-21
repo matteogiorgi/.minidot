@@ -142,6 +142,7 @@ augroup netrw_prettyfier
     " [l] opendir     [>] deselectall    [R] rename     [m] move
     " [.] (un)hide    [d] newdir         [D] delete     [x] execute
     autocmd FileType netrw
+                \ setlocal nocursorline|
                 \ setlocal bufhidden=wipe|
                 \ nmap <buffer> h -<esc>|
                 \ nmap <buffer> l <cr>|

@@ -14,7 +14,11 @@
 
 " SIGNIFY CONFIG {{{
 if &rtp =~ 'signify'
+    nnoremap <silent><C-n> <plug>(signify-next-hunk)
+    nnoremap <silent><C-p> <plug>(signify-prev-hunk)
     nnoremap <leader>g :SignifyDiff<CR>
+    nnoremap <leader>v :SignifyHunkDiff<CR>
+    nnoremap <leader>b :SignifyHunkUndo<CR>
 endif
 " }}}
 
@@ -28,7 +32,7 @@ if &rtp =~ 'ale'
     set completeopt=menu,menuone,popup,noselect,noinsert
     " ---
     augroup ale_ominfunc
-        autocmd FileType python setlocal omnifunc=ale#completion#OmniFunc
+        autocmd FileType python,c,bash setlocal omnifunc=ale#completion#OmniFunc
     augroup END
     " ---
     let g:ale_linters = {'python': ['pylsp'], 'c': ['gcc'], 'bash': ['shellcheck']}
@@ -39,8 +43,8 @@ if &rtp =~ 'ale'
     let g:ale_lsp_suggestions = 1
     " ---
     inoremap <silent><C-c> :AleComplete<CR>
-    nnoremap <silent><C-n> :ALENextWrap<CR>
-    nnoremap <silent><C-p> :ALEPreviousWrap<CR>
+    nnoremap <silent><C-l> :ALENextWrap<CR>
+    nnoremap <silent><C-h> :ALEPreviousWrap<CR>
     nnoremap <leader>a :ALEPopulateQuickfix<Bar>let<Space>g:quickfix='copen'<Bar>copen<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
