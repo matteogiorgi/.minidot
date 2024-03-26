@@ -188,6 +188,8 @@ cat <<EOT > $HOME/.bash_extras
 ##################################
 
 set -o vi
+bind 'set show-mode-in-prompt on'
+# ---
 if [[ -n "$TMUX" ]]; then
     bind 'set vi-ins-mode-string ">>"'
     bind 'set vi-cmd-mode-string "<<"'

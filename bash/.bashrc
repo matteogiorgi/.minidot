@@ -201,7 +201,6 @@ bind 'set completion-prefix-display-length 3'  # 3 char as common prefix in comp
 bind 'set mark-symlinked-directories on'       # symlink dir completion to have a slash
 bind 'set visible-stats on'                    # completions appending characters indicating file type
 bind 'set colored-stats on'                    # completions using different colors
-bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
 
 
 
