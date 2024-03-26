@@ -221,7 +221,18 @@ fi
 ### Launch system fetcher (sfetch/mfetch)
 #########################################
 
-[[ -f $HOME/bin/fetchers/sfetch ]] && $HOME/bin/fetchers/sfetch
+# -> ~/bin/fetchers/sfetch
+# -> ~/bin/fetchers/mfetch
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+# ---
+printf "${YLW}%s${NC}"            "  __  __ _       _     _       _   "
+printf "\n${YLW}%s ${RED}%s${NC}" " |  \/  (_)_ __ (_) __| | ___ | |_ " "  Matteo Giorgi (Geoteo)"
+printf "\n${YLW}%s ${RED}%s${NC}" " | |\/| | | '_ \| |/ _' |/ _ \| __|" "  https://www.geoteo.net"
+printf "\n${YLW}%s ${RED}%s${NC}" " | |  | | | | | | | (_| | (_) | |_ " "  GitHub -> matteogiorgi/.minidot"
+printf "\n${YLW}%s${NC}\n\n"      " |_|  |_|_|_| |_|_|\__,_|\___/ \__|"
 EOT
 
 
