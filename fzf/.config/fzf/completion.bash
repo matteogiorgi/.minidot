@@ -27,6 +27,7 @@ if [[ $- =~ i ]]; then
         }
     fi
 
+
     if ! declare -f _fzf_compgen_dir > /dev/null; then
         _fzf_compgen_dir() {
             command find -L "$1" \
@@ -40,6 +41,7 @@ if [[ $- =~ i ]]; then
     # (printf '\e[5n')
     bind '"\e[0n": redraw-current-line'
 
+
     __fzf_comprun() {
         if [ "$(type -t _fzf_comprun 2>&1)" = function ]; then
             _fzf_comprun "$@"
@@ -52,10 +54,12 @@ if [[ $- =~ i ]]; then
         fi
     }
 
+
     __fzf_orig_completion_filter() {
         sed 's/^\(.*-F\) *\([^ ]*\).* \([^ ]*\)$/export _fzf_orig_completion_\3="\1 %s \3 #\2"; [[ "\1" = *" -o nospace "* ]] \&\& [[ ! "$__fzf_nospace_commands" = *" \3 "* ]] \&\& __fzf_nospace_commands="$__fzf_nospace_commands \3 ";/' |
         awk -F= '{OFS = FS} {gsub(/[^A-Za-z0-9_= ;]/, "_", $1);}1'
     }
+
 
     _fzf_opts_completion() {
         local cur prev opts
@@ -128,6 +132,7 @@ if [[ $- =~ i ]]; then
       return 0
     }
 
+
     _fzf_handle_dynamic_completion() {
         local cmd orig_var orig ret orig_cmd orig_complete
         cmd="$1"
@@ -155,6 +160,7 @@ if [[ $- =~ i ]]; then
             return $ret
         fi
     }
+
 
     __fzf_generic_path_completion() {
         local cur base dir leftover matches trigger cmd
@@ -196,6 +202,7 @@ if [[ $- =~ i ]]; then
           _fzf_handle_dynamic_completion "$cmd" "$@"
         fi
     }
+
 
     _fzf_complete() {
         # Split arguments around --
@@ -244,18 +251,22 @@ if [[ $- =~ i ]]; then
         fi
     }
 
+
     _fzf_path_completion() {
         __fzf_generic_path_completion _fzf_compgen_path "-m" "" "$@"
     }
+
 
     # Deprecated. No file only completion.
     _fzf_file_completion() {
         _fzf_path_completion "$@"
     }
 
+
     _fzf_dir_completion() {
         __fzf_generic_path_completion _fzf_compgen_dir "" "/" "$@"
     }
+
 
     _fzf_complete_kill() {
         [ -n "${COMP_WORDS[COMP_CWORD]}" ] && return 1
@@ -271,6 +282,7 @@ if [[ $- =~ i ]]; then
         fi
     }
 
+
     _fzf_host_completion() {
         _fzf_complete +m -- "$@" < <(
             cat <(cat ~/.ssh/config ~/.ssh/config.d/* /etc/ssh/ssh_config 2> /dev/null | command grep -i '^\s*host\(name\)\? ' | awk '{for (i = 2; i <= NF; i++) print $1 " " $i}' | command grep -v '[*?]') \
@@ -280,17 +292,20 @@ if [[ $- =~ i ]]; then
         )
     }
 
+
     _fzf_var_completion() {
         _fzf_complete -m -- "$@" < <(
             declare -xp | sed 's/=.*//' | sed 's/.* //'
         )
     }
 
+
     _fzf_alias_completion() {
         _fzf_complete -m -- "$@" < <(
             alias | sed 's/=.*//' | sed 's/.* //'
         )
     }
+
 
     # fzf options
     complete -o default -F _fzf_opts_completion fzf
@@ -316,6 +331,7 @@ if [[ $- =~ i ]]; then
         _fzf_completion_loader=1
     fi
 
+
     __fzf_defc() {
         local cmd func opts orig_var orig def
         cmd="$1"
@@ -331,6 +347,7 @@ if [[ $- =~ i ]]; then
         fi
     }
 
+
     # Anything
     for cmd in $a_cmds; do
         __fzf_defc "$cmd" _fzf_path_completion "-o default -o bashdefault"
@@ -344,7 +361,9 @@ if [[ $- =~ i ]]; then
     # Kill completion
     complete -F _fzf_complete_kill -o default -o bashdefault kill
 
+    # ---
     unset cmd d_cmds a_cmds x_cmds
+
 
     _fzf_setup_completion() {
         local kind fn cmd
@@ -365,6 +384,7 @@ if [[ $- =~ i ]]; then
             esac
         done
     }
+
 
     # Environment variables / Aliases / Hosts
     _fzf_setup_completion 'var'   export unset

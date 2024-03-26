@@ -38,7 +38,6 @@ _banner () {
     printf "\n${YLW}%s${NC}\n\n"      "    |_|  |_|_|_| |_|_|\__,_|\___/ \__|"
 }
 
-# ---
 
 _warning () {
     if [ "$(id -u)" = 0 ]; then
@@ -51,7 +50,6 @@ _warning () {
     fi
 }
 
-# ---
 
 _error () {
     clear
@@ -59,7 +57,6 @@ _error () {
     exit 1
 }
 
-# ---
 
 _clean () {
     if [[ -L $1 ]]; then
@@ -69,7 +66,6 @@ _clean () {
     fi
 }
 
-# ---
 
 _backup () {
     # bash
@@ -105,12 +101,14 @@ _backup () {
 clear
 _banner
 _warning
-# ---
+
+
 if ! uname -a | grep -qE 'Debian' &> /dev/null; then
     read -p "    WARNING: this is not a Debian distro (enter to continue)"
     echo
 fi
-# ---
+
+
 if [[ ! -d $HOME/.minidot-restore ]]; then
     mkdir $HOME/.minidot-restore
     RESTORE="$HOME/.minidot-restore"
@@ -119,7 +117,8 @@ else
     printf "    Launch ./restore.sh first\n\n"
     exit 1
 fi
-# ---
+
+
 read -p "    Confirm to start the '.minidot' setup script (enter to continue)"
 printf "\n"
 
