@@ -184,19 +184,13 @@ fi
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
 
-# launch system fetcher
-[[ -f $HOME/bin/fetchers/sfetch ]] && $HOME/bin/fetchers/sfetch
 
 
 
+## Completion and other settings
+## (no ~/.inputrc for this part)
+################################
 
-## Keybindings and set modes (vi mode)
-## I do not use ~/.inputrc for this config
-##########################################
-
-set -o vi
-PROMPT=${PS1@P}
-# ---
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 # ---
@@ -208,32 +202,6 @@ bind 'set mark-symlinked-directories on'       # symlink dir completion to have 
 bind 'set visible-stats on'                    # completions appending characters indicating file type
 bind 'set colored-stats on'                    # completions using different colors
 bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
-# ---
-if [[ -n "$TMUX" ]]; then
-    bind 'set vi-ins-mode-string ">>"'
-    bind 'set vi-cmd-mode-string "<<"'
-    # ---
-    bind -m vi-command -x '"\C-h": fgit'
-    bind -m vi-command -x '"\C-j": fjump'
-    bind -m vi-command -x '"\C-k": fopen'
-    bind -m vi-command -x '"\C-l": clear; echo ${PS1@P}'
-    bind -m vi-command -x '"\C-f": tput cnorm; echo ${PS1@P}'
-    # ---
-    bind -m vi-insert -x '"\C-h": fgit'
-    bind -m vi-insert -x '"\C-j": fjump'
-    bind -m vi-insert -x '"\C-k": fopen'
-    bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
-    bind -m vi-insert -x '"\C-f": tput cnorm; echo ${PS1@P}'
-else
-    bind 'set vi-ins-mode-string "▘"'
-    bind 'set vi-cmd-mode-string "▖"'
-    # ---
-    bind -m vi-command -x '"\C-l": clear'
-    bind -m vi-command -x '"\C-f": tmux'
-    # ---
-    bind -m vi-insert -x '"\C-l": clear'
-    bind -m vi-insert -x '"\C-f": tmux'
-fi
 
 
 

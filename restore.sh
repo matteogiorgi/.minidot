@@ -93,8 +93,8 @@ clear
 _banner
 _warning
 # ---
-if ! uname -a | grep -qE 'Debian|Ubuntu' &> /dev/null; then
-    read -p "    WARNING: this is not a Debian or Ubuntu distro (enter to continue)"
+if ! uname -a | grep -qE 'Debian' &> /dev/null; then
+    read -p "    WARNING: this is not a Debian distro (enter to continue)"
     echo
 fi
 # ---
@@ -112,8 +112,8 @@ printf "\n"
 
 
 
-### Remove symlinks
-###################
+### Restore + symlinks + ~/.bash_extras
+#######################################
 
 stow -D bash
 stow -D bin
@@ -123,6 +123,7 @@ stow -D vim
 # ---
 _restore
 [[ -d $RESTORE ]] && rm -rf $RESTORE
+[[ -f $HOME/.bash_extras ]] && rm -f $HOME/.bash_extras
 
 
 

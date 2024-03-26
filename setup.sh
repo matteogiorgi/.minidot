@@ -106,8 +106,8 @@ clear
 _banner
 _warning
 # ---
-if ! uname -a | grep -qE 'Debian|Ubuntu' &> /dev/null; then
-    read -p "    WARNING: this is not a Debian or Ubuntu distro (enter to continue)"
+if ! uname -a | grep -qE 'Debian' &> /dev/null; then
+    read -p "    WARNING: this is not a Debian distro (enter to continue)"
     echo
 fi
 # ---
@@ -172,8 +172,8 @@ sudo apt-get install -qq -y \
 
 
 
-### Backup + add symlinks
-#########################
+### Backup + symlinks + ~/.bash_extras
+######################################
 
 _backup
 # ---
@@ -182,6 +182,46 @@ stow bin
 stow fzf
 stow tmux
 stow vim
+# ---
+cat <<EOT > $HOME/.bash_extras
+### Modes (vi/emacs) & keybindings
+##################################
+
+set -o vi
+if [[ -n "$TMUX" ]]; then
+    bind 'set vi-ins-mode-string ">>"'
+    bind 'set vi-cmd-mode-string "<<"'
+    # ---
+    bind -m vi-command -x '"\C-h": fgit'
+    bind -m vi-command -x '"\C-j": fjump'
+    bind -m vi-command -x '"\C-k": fopen'
+    bind -m vi-command -x '"\C-l": clear; echo ${PS1@P}'
+    bind -m vi-command -x '"\C-f": tput cnorm; echo ${PS1@P}'
+    # ---
+    bind -m vi-insert -x '"\C-h": fgit'
+    bind -m vi-insert -x '"\C-j": fjump'
+    bind -m vi-insert -x '"\C-k": fopen'
+    bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
+    bind -m vi-insert -x '"\C-f": tput cnorm; echo ${PS1@P}'
+else
+    bind 'set vi-ins-mode-string "▘"'
+    bind 'set vi-cmd-mode-string "▖"'
+    # ---
+    bind -m vi-command -x '"\C-l": clear'
+    bind -m vi-command -x '"\C-f": tmux'
+    # ---
+    bind -m vi-insert -x '"\C-l": clear'
+    bind -m vi-insert -x '"\C-f": tmux'
+fi
+
+
+
+
+### Launch system fetcher (sfetch/mfetch)
+#########################################
+
+[[ -f $HOME/bin/fetchers/sfetch ]] && $HOME/bin/fetchers/sfetch
+EOT
 
 
 
