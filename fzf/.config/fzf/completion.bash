@@ -16,7 +16,7 @@
 
 
 if [[ $- =~ i ]]; then
-    # To use custom commands instead of find,
+    # to use custom commands instead of find,
     # override _fzf_compgen_{path,dir}
     if ! declare -f _fzf_compgen_path > /dev/null; then
         _fzf_compgen_path() {
@@ -37,7 +37,7 @@ if [[ $- =~ i ]]; then
     fi
 
 
-    # To redraw line after fzf closes
+    # to redraw line after fzf closes
     # (printf '\e[5n')
     bind '"\e[0n": redraw-current-line'
 
@@ -108,7 +108,7 @@ if [[ $- =~ i ]]; then
             --print-query
             --expect
             --sync"
-
+      # ---
       case "${prev}" in
           --tiebreak)
               COMPREPLY=( $(compgen -W "length begin end index" -- "$cur") )
@@ -123,12 +123,12 @@ if [[ $- =~ i ]]; then
               return 0
               ;;
       esac
-
+      # ---
       if [[ "$cur" =~ ^-|\+ ]]; then
           COMPREPLY=( $(compgen -W "${opts}" -- "$cur") )
           return 0
       fi
-
+      # ---
       return 0
     }
 
@@ -146,7 +146,7 @@ if [[ $- =~ i ]]; then
             orig_complete=$(complete -p "$orig_cmd" 2> /dev/null)
             _completion_loader "$@"
             ret=$?
-
+            # ---
             # _completion_loader may not have
             # updated completion for the command
             if [ "$(complete -p "$orig_cmd" 2> /dev/null)" != "$orig_complete" ]; then
@@ -171,7 +171,7 @@ if [[ $- =~ i ]]; then
         if [[ "$cur" == *"$trigger" ]]; then
             base=${cur:0:${#cur}-${#trigger}}
             eval "base=$base"
-
+            # ---
             [[ $base = *"/"* ]] && dir="$base"
             while true; do
                 if [ -z "$dir" ] || [ -d "$dir" ]; then
@@ -205,7 +205,7 @@ if [[ $- =~ i ]]; then
 
 
     _fzf_complete() {
-        # Split arguments around --
+        # split arguments around --
         local args rest str_arg i sep
         args=("$@")
         sep=
@@ -225,19 +225,19 @@ if [[ $- =~ i ]]; then
             shift
             rest=("$@")
         fi
-
+        # ---
         local cur selected trigger cmd post
         post="$(caller 0 | awk '{print $2}')_post"
         type -t "$post" > /dev/null 2>&1 || post=cat
-
+        # ---
         cmd="${COMP_WORDS[0]//[^A-Za-z0-9_=]/_}"
         trigger=${FZF_COMPLETION_TRIGGER-'**'}
         cur="${COMP_WORDS[COMP_CWORD]}"
         if [[ "$cur" == *"$trigger" ]]; then
             cur=${cur:0:${#cur}-${#trigger}}
             selected=$(FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_COMPLETION_OPTS $str_arg" __fzf_comprun "${rest[0]}" "${args[@]}" -q "$cur" | $post | tr '\n' ' ')
-
-            # Strip trailing space not to repeat "-o nospace"
+            # ---
+            # strip trailing space not to repeat "-o nospace"
             selected=${selected% }
             if [ -n "$selected" ]; then
                 COMPREPLY=("$selected")
@@ -257,8 +257,8 @@ if [[ $- =~ i ]]; then
     }
 
 
-    # Deprecated. No file only completion.
     _fzf_file_completion() {
+        # deprecated: no file only completion
         _fzf_path_completion "$@"
     }
 
@@ -270,12 +270,12 @@ if [[ $- =~ i ]]; then
 
     _fzf_complete_kill() {
         [ -n "${COMP_WORDS[COMP_CWORD]}" ] && return 1
-
+        # ---
         local selected
         selected=$(command ps -ef | sed 1d | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-50%} --min-height 15 --reverse $FZF_DEFAULT_OPTS $FZF_COMPLETION_OPTS --preview 'echo {}' --preview-window down:3:wrap" __fzf_comprun "kill" -m | awk '{print $2}' | tr '\n' ' ')
         selected=${selected% }
         printf '\e[5n'
-
+        # ---
         if [ -n "$selected" ]; then
             COMPREPLY=( "$selected" )
             return 0
@@ -309,7 +309,6 @@ if [[ $- =~ i ]]; then
 
     # fzf options
     complete -o default -F _fzf_opts_completion fzf
-
     d_cmds="${FZF_COMPLETION_DIR_COMMANDS:-cd pushd rmdir}"
     a_cmds="
         awk cat diff diff3
@@ -322,11 +321,11 @@ if [[ $- =~ i ]]; then
         svn tar unzip zip"
     x_cmds="kill"
 
-    # Preserve existing completion
+    # preserve existing completion
     eval "$(complete |
         sed -E '/-F/!d; / _fzf/d; '"/ ($(echo $d_cmds $a_cmds $x_cmds | sed 's/ /|/g; s/+/\\+/g'))$/"'!d' |
         __fzf_orig_completion_filter)"
-
+    # ---
     if type _completion_loader > /dev/null 2>&1; then
         _fzf_completion_loader=1
     fi
@@ -348,20 +347,18 @@ if [[ $- =~ i ]]; then
     }
 
 
-    # Anything
+    # anything
     for cmd in $a_cmds; do
         __fzf_defc "$cmd" _fzf_path_completion "-o default -o bashdefault"
     done
 
-    # Directory
+    # directory
     for cmd in $d_cmds; do
         __fzf_defc "$cmd" _fzf_dir_completion "-o nospace -o dirnames"
     done
 
-    # Kill completion
+    # kill completion
     complete -F _fzf_complete_kill -o default -o bashdefault kill
-
-    # ---
     unset cmd d_cmds a_cmds x_cmds
 
 
@@ -386,7 +383,7 @@ if [[ $- =~ i ]]; then
     }
 
 
-    # Environment variables / Aliases / Hosts
+    # environment-variables / aliases / hosts
     _fzf_setup_completion 'var'   export unset
     _fzf_setup_completion 'alias' unalias
     _fzf_setup_completion 'host'  ssh telnet

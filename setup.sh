@@ -31,11 +31,11 @@ NC='\033[0m'
 ########################
 
 _banner () {
-    printf "\n${YLW}%s${NC}"          "     __  __ _       _     _       _   "
-    printf "\n${YLW}%s ${RED}%s${NC}" "    |  \/  (_)_ __ (_) __| | ___ | |_ " "  Matteo Giorgi (Geoteo)"
-    printf "\n${YLW}%s ${RED}%s${NC}" "    | |\/| | | '_ \| |/ _' |/ _ \| __|" "  https://www.geoteo.net"
-    printf "\n${YLW}%s ${RED}%s${NC}" "    | |  | | | | | | | (_| | (_) | |_ " "  https://github.com/matteogiorgi/.minidot"
-    printf "\n${YLW}%s${NC}\n\n"      "    |_|  |_|_|_| |_|_|\__,_|\___/ \__|"
+    printf "\n${YLW}%s${NC}"          "                 _       _     _       _   "
+    printf "\n${YLW}%s ${RED}%s${NC}" "       _ __ ___ (_)_ __ (_) __| | ___ | |_ " "  Matteo Giorgi (Geoteo)"
+    printf "\n${YLW}%s ${RED}%s${NC}" "      | '_ ' _ \| | '_ \| |/ _' |/ _ \| __|" "  https://www.geoteo.net"
+    printf "\n${YLW}%s ${RED}%s${NC}" "     _| | | | | | | | | | | (_| | (_) | |_ " "  https://github.com/matteogiorgi/.minidot"
+    printf "\n${YLW}%s${NC}\n\n"      "    (_)_| |_| |_|_|_| |_|_|\__,_|\___/ \__|"
 }
 
 
