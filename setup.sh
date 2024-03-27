@@ -183,44 +183,7 @@ stow tmux
 stow vim
 # ---
 cat <<EOT > $HOME/.bash_extras
-### Modes (vi/emacs) & keybindings
-##################################
-
-set -o vi
-bind 'set show-mode-in-prompt on'
-# ---
-if [[ -n "$TMUX" ]]; then
-    bind 'set vi-ins-mode-string ">>"'
-    bind 'set vi-cmd-mode-string "<<"'
-    # ---
-    bind -m vi-command -x '"\C-h": fgit'
-    bind -m vi-command -x '"\C-j": fjump'
-    bind -m vi-command -x '"\C-k": fopen'
-    bind -m vi-command -x '"\C-l": clear; echo ${PS1@P}'
-    bind -m vi-command -x '"\C-f": tput cnorm; echo ${PS1@P}'
-    # ---
-    bind -m vi-insert -x '"\C-h": fgit'
-    bind -m vi-insert -x '"\C-j": fjump'
-    bind -m vi-insert -x '"\C-k": fopen'
-    bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
-    bind -m vi-insert -x '"\C-f": tput cnorm; echo ${PS1@P}'
-else
-    bind 'set vi-ins-mode-string "▘"'
-    bind 'set vi-cmd-mode-string "▖"'
-    # ---
-    bind -m vi-command -x '"\C-l": clear'
-    bind -m vi-command -x '"\C-f": tmux'
-    # ---
-    bind -m vi-insert -x '"\C-l": clear'
-    bind -m vi-insert -x '"\C-f": tmux'
-fi
-
-
-
-
-### Launch system fetcher (sfetch/mfetch)
-#########################################
-
+# system fetcher
 [[ -f $HOME/bin/fetchers/sfetch ]] && $HOME/bin/fetchers/sfetch
 EOT
 

@@ -187,12 +187,15 @@ fi
 
 
 
-## Completion and other settings
-## (no ~/.inputrc for this part)
-################################
+## Mode, completion and other settings
+## (no ~/.inputrc is used for this part)
+########################################
 
-bind 'TAB:menu-complete'
-bind '"\e[Z":menu-complete-backward'
+set -o vi                                      # vi mode enabled (default emacs)
+bind 'set show-mode-in-prompt on'              # show vi mode in prompt
+# ---
+bind 'TAB:menu-complete'                       # auto completion on tab
+bind '"\e[Z":menu-complete-backward'           # auto completion (backward) on shift+tab
 # ---
 bind 'set show-all-if-ambiguous on'            # completions listed immediately
 bind 'set show-all-if-unmodified on'           # completions with no partial completion
@@ -201,6 +204,38 @@ bind 'set completion-prefix-display-length 3'  # 3 char as common prefix in comp
 bind 'set mark-symlinked-directories on'       # symlink dir completion to have a slash
 bind 'set visible-stats on'                    # completions appending characters indicating file type
 bind 'set colored-stats on'                    # completions using different colors
+
+
+
+
+### Key bindings for vi mode inside/ouside tmux
+###############################################
+
+if [[ -n "$TMUX" ]]; then
+    bind 'set vi-ins-mode-string ">>"'
+    bind 'set vi-cmd-mode-string "<<"'
+    # ---
+    bind -m vi-command -x '"\C-h": fgit'
+    bind -m vi-command -x '"\C-j": fjump'
+    bind -m vi-command -x '"\C-k": fopen'
+    bind -m vi-command -x '"\C-l": clear; echo ${PS1@P}'
+    bind -m vi-command -x '"\C-f": tput cnorm; echo ${PS1@P}'
+    # ---
+    bind -m vi-insert -x '"\C-h": fgit'
+    bind -m vi-insert -x '"\C-j": fjump'
+    bind -m vi-insert -x '"\C-k": fopen'
+    bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
+    bind -m vi-insert -x '"\C-f": tput cnorm; echo ${PS1@P}'
+else
+    bind 'set vi-ins-mode-string "▘"'
+    bind 'set vi-cmd-mode-string "▖"'
+    # ---
+    bind -m vi-command -x '"\C-l": clear'
+    bind -m vi-command -x '"\C-f": tmux'
+    # ---
+    bind -m vi-insert -x '"\C-l": clear'
+    bind -m vi-insert -x '"\C-f": tmux'
+fi
 
 
 
