@@ -102,13 +102,17 @@ if v:version >= 900
 endif
 " ---
 if has('gui_running')
-    if system('fc-list') =~ 'Fira Code'
-        set guifont=Fira\ Code\ 8
-    endif
     set guioptions=i
     set guicursor+=a:blinkon0
     set columns=140 lines=60
     set vb t_vb=
+    " ---
+    if system('fc-list') =~ 'Fira Code'
+        set guifont=Fira\ Code\ 8
+    endif
+    " ---
+    command! GuiFont
+          \ silent! execute 'set guifont=*'
 endif
 " }}}
 

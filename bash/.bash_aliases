@@ -11,15 +11,15 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alFtr'
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
-alias xcopy="xclip-copyfile"
-alias xpasta="xclip-pastefile"
-alias xcut="xclip-cutfile"
-alias stow="stow -S"
-alias restow="stow -R"
-alias unstow="stow -D"
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias xcopy='xclip-copyfile'
+alias xpasta='xclip-pastefile'
+alias xcut='xclip-cutfile'
+alias stow='stow -S'
+alias restow='stow -R'
+alias unstow='stow -D'
 
 # functions
-alias fjump="_fjump"
+alias fjump='_fjump'

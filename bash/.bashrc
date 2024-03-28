@@ -127,9 +127,9 @@ fi
 ### Environment variables
 #########################
 
-export TERM="xterm-256color"
-export SHELL="/bin/bash"
-export PAGER="/bin/less -~"
+export TERM='xterm-256color'
+export SHELL='/bin/bash'
+export PAGER='/bin/less -~'
 export BAT_THEME="base16"
 
 
