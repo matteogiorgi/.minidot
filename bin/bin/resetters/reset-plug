@@ -6,15 +6,15 @@
 #     [ --zero ] make Vim (almost) vanilla
 
 # Plugins:
-#     COMMENTARY https://github.com/tpope/vim-commentary
-#     SURROUND   https://github.com/tpope/vim-surround
-#     REPEAT     https://github.com/tpope/vim-repeat
-#     LEXIMA     https://github.com/cohama/lexima.vim
-#     CONTEXT    https://github.com/wellle/context.vim
-#     SIGNIFY    https://github.com/mhinz/vim-signify
-#     ALE        https://github.com/dense-analysis/ale
-#     CTRLP      https://github.com/ctrlpvim/ctrlp.vim
-#     COPILOT    https://github.com/github/copilot.vim
+#     COMMENTARY  https://github.com/tpope/vim-commentary
+#     SURROUND    https://github.com/tpope/vim-surround
+#     REPEAT      https://github.com/tpope/vim-repeat
+#     LEXIMA      https://github.com/cohama/lexima.vim
+#     CONTEXT     https://github.com/wellle/context.vim
+#     SIGNIFY     https://github.com/mhinz/vim-signify
+#     ALE         https://github.com/dense-analysis/ale
+#     CTRLP       https://github.com/ctrlpvim/ctrlp.vim
+#     COPILOT     https://github.com/github/copilot.vim
 
 
 
@@ -99,49 +99,49 @@ START="${VIM}/pack/plugins/start"
 
 
 OPERATION="RESETTING COMMENTARY"
-REPOSITORY="https://github.com/tpope/vim-commentary"
+REPOSITORY="https://github.com/tpope/vim-commentary.git"
 PLUGIN="${START}/commentary"
 _reset
 
 
 OPERATION="RESETTING SURROUND"
-REPOSITORY="https://github.com/tpope/vim-surround"
+REPOSITORY="https://github.com/tpope/vim-surround.git"
 PLUGIN="${START}/surround"
 _reset
 
 
 OPERATION="RESETTING REPEAT"
-REPOSITORY="https://github.com/tpope/vim-repeat"
+REPOSITORY="https://github.com/tpope/vim-repeat.git"
 PLUGIN="${START}/repeat"
 _reset
 
 
 OPERATION="RESETTING LEXIMA"
-REPOSITORY="https://github.com/cohama/lexima.vim"
+REPOSITORY="https://github.com/cohama/lexima.vim.git"
 PLUGIN="${START}/lexima"
 _reset
 
 
 OPERATION="RESETTING CONTEXT"
-REPOSITORY="https://github.com/wellle/context.vim"
+REPOSITORY="https://github.com/wellle/context.vim.git"
 PLUGIN="${START}/context"
 _reset
 
 
 OPERATION="RESETTING SIGNIFY"
-REPOSITORY="https://github.com/mhinz/vim-signify"
+REPOSITORY="https://github.com/mhinz/vim-signify.git"
 PLUGIN="${START}/signify"
 _reset
 
 
 OPERATION="RESETTING ALE"
-REPOSITORY="https://github.com/dense-analysis/ale"
+REPOSITORY="https://github.com/dense-analysis/ale.git"
 PLUGIN="${START}/ale"
 _reset
 
 
 OPERATION="RESETTING CTRLP"
-REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim"
+REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim.git"
 PLUGIN="${START}/ctrlp"
 _reset
 
@@ -153,7 +153,7 @@ if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && \
    [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]
 then
     OPERATION="RESETTING COPILOT"
-    REPOSITORY="https://github.com/github/copilot.vim"
+    REPOSITORY="https://github.com/github/copilot.vim.git"
     PLUGIN="${START}/copilot"
     _reset
 fi
