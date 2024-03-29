@@ -215,15 +215,15 @@ if [[ -n "$TMUX" ]]; then
     bind 'set vi-ins-mode-string ">>"'
     bind 'set vi-cmd-mode-string "<<"'
     # ---
-    bind -m vi-command -x '"\C-h": fgit'
     bind -m vi-command -x '"\C-j": fjump'
-    bind -m vi-command -x '"\C-k": fopen'
+    bind -m vi-command -x '"\C-k": fgit'
+    bind -m vi-command -x '"\C-o": fopen'
     bind -m vi-command -x '"\C-l": clear; echo ${PS1@P}'
     bind -m vi-command -x '"\C-f": tput cnorm; echo ${PS1@P}'
     # ---
-    bind -m vi-insert -x '"\C-h": fgit'
     bind -m vi-insert -x '"\C-j": fjump'
-    bind -m vi-insert -x '"\C-k": fopen'
+    bind -m vi-insert -x '"\C-k": fgit'
+    bind -m vi-insert -x '"\C-o": fopen'
     bind -m vi-insert -x '"\C-l": clear; echo ${PS1@P}'
     bind -m vi-insert -x '"\C-f": tput cnorm; echo ${PS1@P}'
 else

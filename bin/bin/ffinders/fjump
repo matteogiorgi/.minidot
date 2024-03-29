@@ -29,8 +29,7 @@ while true; do
             `--info=hidden `
             `--bind 'esc:' `
             `--bind 'ctrl-h:cancel' `
-            `--bind 'ctrl-i:print-query' `
-            `--bind 'ctrl-t:toggle-preview' `
+            `--bind 'ctrl-s:toggle-preview' `
             `--bind 'ctrl-n:half-page-down' `
             `--bind 'ctrl-p:half-page-up' `
             `--bind 'ctrl-d:preview-half-page-down' `
@@ -38,8 +37,8 @@ while true; do
             `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-c:execute(nohup code {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-l:execute(nohup xdg-open {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-e:execute(nohup {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-o:execute(nohup xdg-open . &>/tmp/fjump.out & disown)')"
+            `--bind 'ctrl-o:execute(nohup xdg-open . &>/tmp/fjump.out & disown)' `
+            `--bind 'ctrl-i:print-query')"
     # ---
     [[ -n "$FILE" ]] || exit 1
     if [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]]; then
