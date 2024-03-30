@@ -163,6 +163,7 @@ sudo apt-get install -qq -y \
     bash-completion \
     tmux \
     vim-gtk3 \
+    micro \
     exuberant-ctags \
     fonts-firacode \
     pandoc \
@@ -183,8 +184,38 @@ stow tmux
 stow vim
 # ---
 cat <<EOT > $HOME/.bash_extras
-# system fetcher
+### System fetcher (sfetch/mfetch)
+##################################
+
 [[ -f $HOME/bin/fetchers/sfetch ]] && $HOME/bin/fetchers/sfetch
+
+
+
+
+### Chafa logo (uncomment and set LOGO path)
+############################################
+
+# CHAFA="/bin/chafa --dither diffusion --dither-grain 1 --dither-intensity 10 --size 25x25"
+# LOGO="$HOME/Pictures/debian.png"
+# ${CHAFA} "${LOGO}"
+
+
+
+
+### Prompt mode (uncomment to override vi with emacs)
+#####################################################
+
+# set -o emacs
+# bind 'set show-mode-in-prompt off'
+
+
+
+
+### Default editor (uncomment to override vi with micro)
+########################################################
+
+# export EDITOR="/bin/micro"
+# export VISUAL="/bin/micro"
 EOT
 
 

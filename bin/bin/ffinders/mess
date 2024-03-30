@@ -10,10 +10,10 @@ if [[ "$*" == "" ]]; then
 fi
 # ---
 FILE="$*"
-LESS="/bin/less -R -~"
-BAT="/bin/batcat --style numbers,changes --color=always"
-CHAFA="/bin/chafa --dither diffusion --dither-grain 1 --dither-intensity 10"
-LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
+LESS="/usr/bin/less -R -~"
+BAT="/usr/bin/batcat --style numbers,changes --color=always"
+CHAFA="/usr/bin/chafa --dither diffusion --dither-grain 1 --dither-intensity 10"
+LIST="/usr/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
 
 [[ -L "$FILE" && -d "$FILE" ]] && ${LIST} "$(readlink $FILE)" | ${LESS} && exit

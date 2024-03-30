@@ -42,5 +42,5 @@ fi
 ### Environment variables
 #########################
 
-export EDITOR="/bin/vim"
-export VISUAL="/bin/vim"
+export EDITOR="/usr/bin/vi"
+export VISUAL="/usr/bin/vi"

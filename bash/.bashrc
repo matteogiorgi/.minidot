@@ -128,8 +128,8 @@ fi
 #########################
 
 export TERM='xterm-256color'
-export SHELL='/bin/bash'
-export PAGER='/bin/less -~'
+export SHELL='/usr/bin/bash'
+export PAGER='/usr/bin/less -~'
 export BAT_THEME="base16"
 
 
@@ -139,7 +139,7 @@ export BAT_THEME="base16"
 #################
 
 export FZF_DEFAULT_OPTS='--color=16,bg+:0,fg+:regular:-1,hl+:regular:underline,gutter:-1,pointer:reverse,marker:reverse --pointer="  " --marker=" "'
-export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
+export FZF_ALT_C_COMMAND='/usr/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
 
