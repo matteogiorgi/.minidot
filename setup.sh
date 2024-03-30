@@ -206,7 +206,6 @@ cat <<EOT > $HOME/.bash_extras
 #####################################################
 
 # set -o emacs
-# bind 'set show-mode-in-prompt off'
 
 
 
