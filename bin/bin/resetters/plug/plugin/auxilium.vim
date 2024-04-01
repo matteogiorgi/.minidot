@@ -113,20 +113,15 @@ endfunction
 
 " Prettyfiers {{{
 set cursorline
-autocmd FileType netrw setlocal cursorline
+" ---
+augroup netrw_prettyfier
+    autocmd FileType netrw setlocal cursorline
+augroup end
 " ---
 augroup linenumber_prettyfier
     autocmd!
-    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
-                \ if &number == 1|
-                \     set relativenumber|
-                \ endif|
-                \ set cursorline
-    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
-                \ if &number == 1|
-                \     set norelativenumber|
-                \ endif|
-                \ set nocursorline
+    autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set cursorline
+    autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set nocursorline
 augroup end
 " ---
 augroup cursorcolumn_prettyfier

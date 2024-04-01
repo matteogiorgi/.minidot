@@ -111,8 +111,7 @@ if has('gui_running')
         set guifont=Fira\ Code\ 8
     endif
     " ---
-    command! GuiFont
-          \ silent! execute 'set guifont=*'
+    command! GuiFont silent! execute 'set guifont=*'
 endif
 " }}}
 
@@ -164,6 +163,18 @@ augroup netrw_prettyfier
     let g:netrw_preview = 0
     let g:netrw_alto = 1
     let g:netrw_altv = 0
+augroup end
+" ---
+augroup linenumber_prettyfier
+    autocmd!
+    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
+                \ if &number == 1|
+                \     set relativenumber|
+                \ endif
+    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
+                \ if &number == 1|
+                \     set norelativenumber|
+                \ endif
 augroup end
 " }}}
 
