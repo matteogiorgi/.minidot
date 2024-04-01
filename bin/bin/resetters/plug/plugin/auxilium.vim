@@ -119,7 +119,6 @@ augroup netrw_prettyfier
 augroup end
 " ---
 augroup linenumber_prettyfier
-    autocmd!
     autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set cursorline
     autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set nocursorline
 augroup end
