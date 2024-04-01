@@ -62,7 +62,6 @@ _restore () {
     [[ -f $RESTORE/.bash_logout ]] && mv $RESTORE/.bash_logout $HOME
     [[ -f $RESTORE/.bash_profile ]] && mv $RESTORE/.bash_profile $HOME
     [[ -f $RESTORE/.bashrc ]] && mv $RESTORE/.bashrc $HOME
-    [[ -f $RESTORE/.git-prompt.sh ]] && mv $RESTORE/.git-prompt.sh $HOME
     [[ -f $RESTORE/.profile ]] && mv $RESTORE/.profile $HOME
     # ---
     # bin
@@ -75,9 +74,7 @@ _restore () {
     [[ -f $RESTORE/.tmux.conf ]] && mv $RESTORE/.tmux.conf $HOME
     # ---
     # vim
-    [[ -d $RESTORE/.vim ]] && mv $RESTORE/.vim $HOME
     [[ -f $RESTORE/.vimrc ]] && mv $RESTORE/.vimrc $HOME
-    [[ -f $RESTORE/.gvimrc ]] && mv $RESTORE/.gvimrc $HOME
 }
 
 

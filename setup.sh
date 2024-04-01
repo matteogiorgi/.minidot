@@ -74,7 +74,6 @@ _backup () {
     [[ -f $HOME/.bash_logout ]] && _clean $HOME/.bash_logout
     [[ -f $HOME/.bash_profile ]] && _clean $HOME/.bash_profile
     [[ -f $HOME/.bashrc ]] && _clean $HOME/.bashrc
-    [[ -f $HOME/.git-prompt.sh ]] && _clean $HOME/.git-prompt.sh
     [[ -f $HOME/.profile ]] && _clean $HOME/.profile
     # ---
     # bin
@@ -87,9 +86,7 @@ _backup () {
     [[ -f $HOME/.tmux.conf ]] && _clean $HOME/.tmux.conf
     # ---
     # vim
-    [[ -d $HOME/.vim ]] && _clean $HOME/.vim
     [[ -f $HOME/.vimrc ]] && _clean $HOME/.vimrc
-    [[ -f $HOME/.gvimrc ]] && _clean $HOME/.gvimrc
 }
 
 
