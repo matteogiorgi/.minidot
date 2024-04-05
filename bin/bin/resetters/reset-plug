@@ -159,6 +159,12 @@ then
 fi
 
 
+OPERATION="RESETTING CODEIUM"
+REPOSITORY="https://github.com/Exafunction/codeium.vim.git"
+PLUGIN="${START}/codeium"
+_reset
+
+
 printf "\n"
 printf "══════════ We're done ══════════\n"
 printf "Enjoy your Plugged life with Vim\n"
