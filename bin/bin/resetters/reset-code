@@ -29,10 +29,10 @@ if [[ $# -gt 1 ]]; then
     printf "Pay attention, no operation was executed\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
-    printf "╔═════════════════ Help ════════════════╗\n"
-    printf "║ [ --novi ] reset VSCode base config   ║\n"
-    printf "║ [ --zero ] make VSCode almost vanilla ║\n"
-    printf "╚═══════════════════════════════════════╝\n"
+    printf "╔══════════════════ Help ═════════════════╗\n"
+    printf "║ [ --novi ] reset VSCode base config     ║\n"
+    printf "║ [ --zero ] make VSCode (almost) vanilla ║\n"
+    printf "╚═════════════════════════════════════════╝\n"
     exit 0
 elif [[ $1 != "--novi" && $1 != "--zero" ]]; then
     printf "\n"
