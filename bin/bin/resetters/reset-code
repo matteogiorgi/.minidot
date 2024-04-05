@@ -5,7 +5,7 @@
 #     [ --novi ] reset VSCode base config
 #     [ --zero ] make VSCode (almost) vanilla
 
-# Novi extensions:
+# noVi extensions:
 #     PYTHON           https://marketplace.visualstudio.com/items?itemName=ms-python.python
 #     BLACK-FORMATTER  https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter
 #     C/C++            https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
@@ -88,7 +88,7 @@ fi
 
 
 
-### Novi
+### noVi
 ########
 
 printf "RESETTING VSCODE BASE CONFIG\n"
