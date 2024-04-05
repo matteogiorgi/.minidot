@@ -29,10 +29,10 @@ if [[ $# -gt 1 ]]; then
     printf "Pay attention, no operation was executed\n"
     exit 1
 elif [[ $# -eq 0 ]]; then
-    printf "╔════════════════ Help ═══════════════╗\n"
-    printf "║ [ --novi ] reset VSCode base config ║\n"
-    printf "║ [ --zero ] make VSCode vanilla      ║\n"
-    printf "╚═════════════════════════════════════╝\n"
+    printf "╔═════════════════ Help ════════════════╗\n"
+    printf "║ [ --novi ] reset VSCode base config   ║\n"
+    printf "║ [ --zero ] make VSCode almost vanilla ║\n"
+    printf "╚═══════════════════════════════════════╝\n"
     exit 0
 elif [[ $1 != "--novi" && $1 != "--zero" ]]; then
     printf "\n"
@@ -49,7 +49,8 @@ fi
 
 read -p "Resetting VSCode (enter to continue)"
 # ---
-BASE=${HOME}/.config/Code/User
+CODE="${HOME}/bin/resetters/code"
+BASE="${HOME}/.config/Code/User"
 [[ -d "${BASE}" ]] || mkdir -p "${BASE}"
 # ---
 _clean () {
@@ -65,14 +66,15 @@ _clean () {
 ########
 
 if [[ $1 == "--zero" ]]; then
-    printf "REMOVING ALL VSCODE CONFIG\n"
+    printf "REMOVING (ALMOST) ALL VSCODE CONFIG\n"
     _clean
-    rm -f "${BASE}/settings.json"
-    rm -f "${BASE}/keybindings.json"
+    code --install-extension Codeium.codeium &>/dev/null
+    cat "${CODE}/zero/settings.json" > "${BASE}/settings.json"
+    cat "${CODE}/zero/keybindings.json" > "${BASE}/keybindings.json"
     # ---
     printf "\n"
-    printf "══════════ We're done ══════════\n"
-    printf "Try to enjoy your vanilla VSCode\n"
+    printf "═══════════ We're done ═══════════\n"
+    printf "Enjoy your (almost) vanilla VSCode\n"
     exit 0
 fi
 
@@ -86,10 +88,8 @@ printf "RESETTING VSCODE BASE CONFIG\n"
 _clean
 code --install-extension github.copilot &>/dev/null
 code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-# ---
-CODE="${HOME}/bin/resetters/code"
-cat "${CODE}/settings.json" > "${BASE}/settings.json"
-cat "${CODE}/keybindings.json" > "${BASE}/keybindings.json"
+cat "${CODE}/novi/settings.json" > "${BASE}/settings.json"
+cat "${CODE}/novi/keybindings.json" > "${BASE}/keybindings.json"
 
 
 printf "\n"

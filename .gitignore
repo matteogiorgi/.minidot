@@ -58,8 +58,16 @@
 !/bin/bin/resetters/reset-plug
 
 /bin/bin/resetters/code/*
-!/bin/bin/resetters/code/settings.json
-!/bin/bin/resetters/code/keybindings.json
+!/bin/bin/resetters/code/novi
+!/bin/bin/resetters/code/zero
+
+/bin/bin/resetters/code/novi/*
+!/bin/bin/resetters/code/novi/settings.json
+!/bin/bin/resetters/code/novi/keybindings.json
+
+/bin/bin/resetters/code/zero/*
+!/bin/bin/resetters/code/zero/settings.json
+!/bin/bin/resetters/code/zero/keybindings.json
 
 /bin/bin/resetters/plug/*
 !/bin/bin/resetters/plug/colors/*
