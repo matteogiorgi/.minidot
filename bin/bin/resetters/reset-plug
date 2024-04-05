@@ -57,9 +57,9 @@ fi
 
 read -p "Resetting Vim plugins (enter to continue)"
 # ---
+VIM=${HOME}/.vim
 PLUG="${HOME}/bin/resetters/plug"
 START="${VIM}/pack/plugins/start"
-VIM=${HOME}/.vim
 [[ -d "${VIM}" ]] || mkdir -p "${VIM}"
 # ---
 _reset () {
