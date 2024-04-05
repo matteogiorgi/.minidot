@@ -5,7 +5,7 @@
 #     [ --vim9 ] reset Vim base config
 #     [ --zero ] make Vim (almost) vanilla
 
-# Plugins:
+# Vim9 plugins:
 #     COMMENTARY  https://github.com/tpope/vim-commentary
 #     SURROUND    https://github.com/tpope/vim-surround
 #     REPEAT      https://github.com/tpope/vim-repeat
@@ -15,6 +15,7 @@
 #     ALE         https://github.com/dense-analysis/ale
 #     CTRLP       https://github.com/ctrlpvim/ctrlp.vim
 #     COPILOT     https://github.com/github/copilot.vim
+#     CODEIUM     https://github.com/Exafunction/codeium.vim
 
 
 

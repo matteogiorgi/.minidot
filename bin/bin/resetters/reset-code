@@ -5,9 +5,16 @@
 #     [ --novi ] reset VSCode base config
 #     [ --zero ] make VSCode (almost) vanilla
 
-# Extension:
-#     GITHUB-COPILOT  https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
-#     MONOKAI-PRO     https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
+# Novi extensions:
+#     PYTHON           https://marketplace.visualstudio.com/items?itemName=ms-python.python
+#     BLACK-FORMATTER  https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter
+#     C/C++            https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
+#     SHELLCHECK       https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck
+#     GITHUB-COPILOT   https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+#     MONOKAI-PRO      https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
+
+# Zero extensions:
+#     CODEIUM         https://marketplace.visualstudio.com/items?itemName=Codeium.codeium
 
 
 
@@ -86,9 +93,11 @@ fi
 
 printf "RESETTING VSCODE BASE CONFIG\n"
 _clean
-code --install-extension github.copilot &>/dev/null
 code --install-extension ms-python.python &>/dev/null
 code --install-extension ms-python.black-formatter &>/dev/null
+code --install-extension ms-vscode.cpptools &>/dev/null
+code --install-extension timonwong.shellcheck &>/dev/null
+code --install-extension github.copilot &>/dev/null
 code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 cat "${CODE}/novi/settings.json" > "${BASE}/settings.json"
 cat "${CODE}/novi/keybindings.json" > "${BASE}/keybindings.json"
