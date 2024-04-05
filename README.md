@@ -1,4 +1,4 @@
- <link rel="shortcut icon" type="image/x-icon" href="debian.svg">
+ <link rel="shortcut icon" type="image/x-icon" href="https://www.debian.org/logos/openlogo-nd.svg">
 
 # The ultimate dotfiles
 
