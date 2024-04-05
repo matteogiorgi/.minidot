@@ -1,13 +1,3 @@
 theme: jekyll-theme-primer
-
-github:
-    private: false
-    license:
-        name: GPL-3.0
-    source:
-        branch: "master"
-        path: "/"
-    repository_url: "https://github.com/matteogiorgi/.minidot"
-
-title: .minidot: the ultimate dotfiles
+title: Minidot: the ultimate dotfiles
 description: a streamlined configuration of GNU/Linux
