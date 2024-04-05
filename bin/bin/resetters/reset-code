@@ -3,7 +3,7 @@
 # This script resets your VSCode setting files;
 # use the following arguments to run it:
 #     [ --novi ] reset VSCode base config
-#     [ --zero ] make VSCode vanilla
+#     [ --zero ] make VSCode (almost) vanilla
 
 # Extension:
 #     GITHUB-COPILOT  https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
@@ -87,6 +87,8 @@ fi
 printf "RESETTING VSCODE BASE CONFIG\n"
 _clean
 code --install-extension github.copilot &>/dev/null
+code --install-extension ms-python.python &>/dev/null
+code --install-extension ms-python.black-formatter &>/dev/null
 code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 cat "${CODE}/novi/settings.json" > "${BASE}/settings.json"
 cat "${CODE}/novi/keybindings.json" > "${BASE}/keybindings.json"

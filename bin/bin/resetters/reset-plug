@@ -56,6 +56,8 @@ fi
 
 read -p "Resetting Vim plugins (enter to continue)"
 # ---
+PLUG="${HOME}/bin/resetters/plug"
+START="${VIM}/pack/plugins/start"
 VIM=${HOME}/.vim
 [[ -d "${VIM}" ]] || mkdir -p "${VIM}"
 # ---
@@ -91,8 +93,6 @@ fi
 ########
 
 printf "RESETTING VIM BASE CONFIG\n"
-PLUG="${HOME}/bin/resetters/plug"
-START="${VIM}/pack/plugins/start"
 [[ -d "${VIM}/colors" ]] || cp -r "${PLUG}/colors" "${VIM}/colors"
 [[ -d "${VIM}/plugin" ]] || cp -r "${PLUG}/plugin" "${VIM}/plugin"
 [[ -d "${START}" ]] || mkdir -p "${START}"

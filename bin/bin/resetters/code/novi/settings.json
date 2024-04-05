@@ -59,5 +59,9 @@
     "workbench.editor.closeEmptyGroups": true,
     "workbench.list.openMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "none",
-    "workbench.tree.indent": 20
+    "workbench.tree.indent": 20,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    }
 }
