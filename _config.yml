@@ -1,5 +1,3 @@
-title: .minidot: the ultimate dotfiles
-description: a streamlined configuration of GNU/Linux
 theme: jekyll-theme-primer
 
 github:
@@ -10,3 +8,6 @@ github:
         branch: "master"
         path: "/"
     repository_url: "https://github.com/matteogiorgi/.minidot"
+
+title: .minidot: the ultimate dotfiles
+description: a streamlined configuration of GNU/Linux
