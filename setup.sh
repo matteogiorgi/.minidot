@@ -193,7 +193,7 @@ cat <<EOT > $HOME/.bash_extras
 ############################################
 
 # CHAFA="/bin/chafa --dither diffusion --dither-grain 1 --dither-intensity 10 --size 25x25"
-# LOGO="$HOME/Pictures/debian.png"
+# LOGO="$HOME/.minidot/debian.svg"
 # ${CHAFA} "${LOGO}"
 
 
