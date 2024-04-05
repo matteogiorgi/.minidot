@@ -1,2 +1,3 @@
 theme: jekyll-theme-primer
-title: A `mini` configuration of GNU/Linux
+title: A mini configuration of Debian
+description: The ultimate dotfiles
