@@ -147,23 +147,23 @@ PLUGIN="${START}/ctrlp"
 _reset
 
 
-# if (vim >= 9) && (node >= 16)
-# install Copilot GitHub plugin
+# if vim>=9 add some AI-Completion:
+# 1. copilot.vim (if node>=16 is installed)
+# 2. codeium.vim (as a free alternative)
 # ---
-if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && \
-   [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]
-then
-    OPERATION="RESETTING COPILOT"
-    REPOSITORY="https://github.com/github/copilot.vim.git"
-    PLUGIN="${START}/copilot"
-    _reset
+if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]]; then
+    if [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]; then
+        OPERATION="RESETTING COPILOT"
+        REPOSITORY="https://github.com/github/copilot.vim.git"
+        PLUGIN="${START}/copilot"
+        _reset
+    else
+        OPERATION="RESETTING CODEIUM"
+        REPOSITORY="https://github.com/Exafunction/codeium.vim.git"
+        PLUGIN="${START}/codeium"
+        _reset
+    fi
 fi
-
-
-OPERATION="RESETTING CODEIUM"
-REPOSITORY="https://github.com/Exafunction/codeium.vim.git"
-PLUGIN="${START}/codeium"
-_reset
 
 
 printf "\n"
