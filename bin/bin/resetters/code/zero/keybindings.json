@@ -1,9 +1,5 @@
 [
     {
-        "key": "alt+t",
-        "command": "workbench.action.toggleActivityBarVisibility"
-    },
-    {
         "key": "alt+a",
         "command": "editor.action.marker.next",
         "when": "editorFocus"
@@ -37,5 +33,13 @@
         "key": "shift+alt+z",
         "command": "editor.action.blockComment",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+b",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
+        "key": "shift+alt+b",
+        "command": "breadcrumbs.toggle"
     }
 ]

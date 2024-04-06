@@ -1,6 +1,6 @@
 {
     "keyboard.dispatch": "keyCode",
-    "breadcrumbs.enabled": true,
+    "breadcrumbs.enabled": false,
     "telemetry.telemetryLevel": "off",
     "security.workspace.trust.enabled": false,
     "security.workspace.trust.emptyWindow": false,
