@@ -2,8 +2,8 @@
 
 # This script resets your VSCode setting files;
 # use the following arguments to run it:
-#     [ --novi ] reset VSCode base config
-#     [ --zero ] make VSCode (almost) vanilla
+#     [ --novi ]  reset VSCode base config
+#     [ --zero ]  make VSCode (almost) vanilla
 
 # noVi extensions:
 #     PYTHON           https://marketplace.visualstudio.com/items?itemName=ms-python.python
@@ -12,9 +12,6 @@
 #     SHELLCHECK       https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck
 #     GITHUB-COPILOT   https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
 #     MONOKAI-PRO      https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode
-
-# Zero extensions:
-#     CODEIUM         https://marketplace.visualstudio.com/items?itemName=Codeium.codeium
 
 
 
@@ -75,7 +72,6 @@ _clean () {
 if [[ $1 == "--zero" ]]; then
     printf "REMOVING (ALMOST) ALL VSCODE CONFIG\n"
     _clean
-    code --install-extension Codeium.codeium &>/dev/null
     cat "${CODE}/zero/settings.json" > "${BASE}/settings.json"
     cat "${CODE}/zero/keybindings.json" > "${BASE}/keybindings.json"
     # ---

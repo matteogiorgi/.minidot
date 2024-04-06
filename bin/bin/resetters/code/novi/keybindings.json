@@ -1,5 +1,9 @@
 [
     {
+        "key": "alt+t",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
         "key": "alt+a",
         "command": "editor.action.marker.next",
         "when": "editorFocus"

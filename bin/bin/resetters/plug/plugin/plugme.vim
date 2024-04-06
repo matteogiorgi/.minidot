@@ -116,7 +116,6 @@ if &rtp =~ 'copilot'
         silent! execute g:copilot_panel
     endfunction
     " ---
-    let g:codeium_enabled = v:false
     let g:copilot_enabled = v:true
     nnoremap <localleader>c :call <SID>CopilotPanel()<CR>
     " ---
@@ -126,17 +125,6 @@ if &rtp =~ 'copilot'
     inoremap <silent><C-j> <Plug>(copilot-next)
     inoremap <silent><C-k> <Plug>(copilot-previous)
     inoremap <script><expr> <C-l> <SID>SuggestWord()
-elseif &rtp =~ 'codeium'
-    let g:copilot_enabled = v:false
-    let g:codeium_enabled = v:true
-    let g:codeium_disable_bindings = 1
-    " ---
-    inoremap <silent><C-s> <Cmd>call codeium#Complete()<CR>
-    inoremap <silent><C-d> <Cmd>call codeium#Clear()<CR>
-    inoremap <silent><C-h> <C-w>
-    inoremap <silent><C-j> <Cmd>call codeium#CycleCompletions(1)<CR>
-    inoremap <silent><C-k> <Cmd>call codeium#CycleCompletions(-1)<CR>
-    inoremap <script><silent><nowait><expr> <C-l> codeium#Accept()
 endif
 " }}}
 
