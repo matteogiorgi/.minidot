@@ -9,7 +9,7 @@
 
 
 
-" Checks {{{
+" CHECKS {{{
 if has('linebreak')
     let &showbreak='  ~'
 endif
@@ -21,20 +21,6 @@ if has('persistent_undo')
     set undodir=$HOME/.vim/undodir
     set undofile
 endif
-" }}}
-
-
-
-
-" Leaders & caret {{{
-let g:mapleader = "\<Space>"
-let g:maplocalleader = "\\"
-" ---
-" [1] blink-block        [4] steady-underline
-" [2] steady-block       [5] blink-bar
-" [3] blink-underline    [6] steady-bar
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
 " ---
 if has('python3')
     let g:python3_host_prog = '/usr/bin/python3'
@@ -44,7 +30,24 @@ endif
 
 
 
-" Set options {{{
+" LEADERS, CARET, SYNTAX {{{
+let g:mapleader = "\<Space>"
+let g:maplocalleader = "\\"
+" ---
+" [1] blink-block        [4] steady-underline
+" [2] steady-block       [5] blink-bar
+" [3] blink-underline    [6] steady-bar
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+" ---
+syntax on
+filetype plugin indent on
+" }}}
+
+
+
+
+" SET OPTIONS {{{
 set exrc
 set title
 set shell=bash
@@ -110,23 +113,44 @@ if has('gui_running')
     if system('fc-list') =~ 'Fira Code'
         set guifont=Fira\ Code\ 8
     endif
-    " ---
-    command! GuiFont silent! execute 'set guifont=*'
 endif
 " }}}
 
 
 
 
-" Syntax & colors {{{
-syntax on
-filetype plugin indent on
+" FUNCTIONS {{{
+function! s:ToggleQF()
+    let g:loclist = 'lclose'
+    let g:quickfix = !exists("g:quickfix") || g:quickfix ==# 'cclose' ? 'copen' : 'cclose'
+    silent! execute g:loclist
+    silent! execute g:quickfix
+endfunction
+" ---
+function! s:MarkLineQF()
+    let l:qf_list = getqflist()
+    let l:qf_entry = {
+        \ 'bufnr': bufnr("%"),
+        \ 'lnum': line("."),
+        \ 'col': col("."),
+        \ 'text': getline("."),
+        \ 'filename': expand("%:p"),
+    \ }
+    call add(l:qf_list, l:qf_entry)
+    call setqflist(l:qf_list)
+    echo 'current line to quickfix'
+endfunction
+" ---
+function! s:ResetQF()
+    call setqflist([])
+    echo 'reset quickfix'
+endfunction
 " }}}
 
 
 
 
-" Prettyfiers {{{
+" AUGROUP {{{
 augroup netrw_prettyfier
     autocmd!
     autocmd VimEnter *
@@ -140,7 +164,6 @@ augroup netrw_prettyfier
     autocmd FileType netrw
                 \ setlocal nocursorline|
                 \ setlocal bufhidden=wipe|
-                \ nmap <buffer> i <Nop>|
                 \ nmap <buffer> h -<esc>|
                 \ nmap <buffer> l <cr>|
                 \ nmap <buffer> . gh|
@@ -181,67 +204,29 @@ augroup end
 
 
 
-" Functions {{{
-function! s:ToggleQF()
-    let g:loclist = 'lclose'
-    let g:quickfix = !exists("g:quickfix") || g:quickfix ==# 'cclose' ? 'copen' : 'cclose'
-    silent! execute g:loclist
-    silent! execute g:quickfix
-endfunction
-" ---
-function! s:MarkLineQF()
-    let l:qf_list = getqflist()
-    let l:qf_entry = {
-        \ 'bufnr': bufnr("%"),
-        \ 'lnum': line("."),
-        \ 'col': col("."),
-        \ 'text': getline("."),
-        \ 'filename': expand("%:p"),
-    \ }
-    call add(l:qf_list, l:qf_entry)
-    call setqflist(l:qf_list)
-    echo 'current line to quickfix'
-endfunction
-" ---
-function! s:ResetQF()
-    call setqflist([])
-    echo 'reset quickfix'
-endfunction
-" }}}
-
-
-
-
-" Commands {{{
+" COMMANDS {{{
 command! ClearSearch
             \ silent! execute 'let @/=""'|
             \ echo 'cleared last search'
 " ---
-command! RemoveSpaces
+command! ClearSpaces
             \ silent! execute 'let v:statusmsg = "" | verbose %s/\s\+$//e'|
-            \ echo !empty(v:statusmsg) ? v:statusmsg : 'removed trailing spaces'
+            \ echo !empty(v:statusmsg) ? v:statusmsg : 'cleared trailing spaces'
 " ---
-command! WrapToggle
+command! LineWrap
             \ silent! execute &wrap ? 'setlocal nowrap' : 'setlocal wrap'|
             \ silent! execute &wrap ?'noremap <buffer> j gj|noremap <buffer> k gk' : 'unmap <buffer> j|unmap <buffer> k'|
             \ echo &wrap ? 'lines wrapped' : 'lines unwrapped'
 " ---
-command! NumbersToggle
-            \ silent! execute &rnu ? 'setlocal nonu nornu' : &nu ? 'setlocal rnu' : 'setlocal nu'|
-            \ echo &rnu ? 'relativenumbers' : &nu ? 'numbers' : 'no-numbers'
-" ---
-command! BackgroundToggle
-            \ let colorscheme_name = get(g:, 'colors_name', '')|
-            \ silent! execute &bg ==# 'light' ? 'set bg=dark' : 'set bg=light'|
-            \ silent! execute "colorscheme " . colorscheme_name|
-            \ redraw!|redrawstatus!|redrawtabline|
-            \ echo colorscheme_name . ' ' . &background
+if has('gui_running')
+    command! GuiFont silent! execute 'set guifont=*'
+endif
 " }}}
 
 
 
 
-" Keymaps {{{
+" KEYMAPS {{{
 noremap <silent><C-h> (
 noremap <silent><C-l> )
 noremap <silent><C-j> }

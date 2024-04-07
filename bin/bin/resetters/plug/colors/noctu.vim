@@ -18,7 +18,7 @@
 
 
 
-" Scheme setup {{{
+" SETUP {{{
 set notermguicolors
 set t_Co=16
 " ---
@@ -29,12 +29,12 @@ endif
 " ---
 let g:colors_name="noctu"
 set background=dark
-"}}}
+" }}}
 
 
 
 
-" Vim UI {{{
+" VIM UI {{{
 hi Normal        ctermfg=15  ctermbg=NONE
 hi Cursor        ctermfg=0   ctermbg=14
 hi CursorLine                ctermbg=0     cterm=NONE
@@ -79,12 +79,12 @@ hi! link Question      MoreMsg
 hi! link ModeMsg       MoreMsg
 hi! link TabLineFill   StatusLineNC
 hi! link SpecialKey    NonText
-"}}}
+" }}}
 
 
 
 
-" Generic syntax {{{
+" SYNTAX {{{
 hi Delimiter   ctermfg=7
 hi Comment     ctermfg=8                 cterm=italic
 hi Underlined  ctermfg=4                 cterm=underline
@@ -104,6 +104,6 @@ hi PreProc     ctermfg=8                 cterm=bold
 " ---
 hi! link Operator  Delimiter
 hi! link Error     ErrorMsg
-"}}}
+" }}}
 
 " vim: fdm=marker:sw=2:sts=2:et

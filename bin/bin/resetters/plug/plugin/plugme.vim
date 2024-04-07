@@ -12,7 +12,18 @@
 
 
 
-" SIGNIFY CONFIG {{{
+" INIT {{{
+if exists("g:plugme")
+    finish
+endif
+" ---
+let g:plugme = 1
+"}}}
+
+
+
+
+" SIGNIFY {{{
 if &rtp =~ 'signify'
     nnoremap <silent><C-n> <plug>(signify-next-hunk)
     nnoremap <silent><C-p> <plug>(signify-prev-hunk)
@@ -25,7 +36,7 @@ endif
 
 
 
-" ALE CONFIG {{{
+" ALE {{{
 if &rtp =~ 'ale'
     function! s:ToggleLL()
         let g:quickfix = 'cclose'
@@ -61,7 +72,7 @@ endif
 
 
 
-" CTRLP CONFIG
+" CTRLP {{{
 if &rtp =~ 'ctrlp'
     function! s:Ctags()
         if !executable('ctags')
@@ -101,7 +112,7 @@ endif
 
 
 
-" COPILOT/CODEIUM CONFIG {{{
+" COPILOT {{{
 if &rtp =~ 'copilot'
     function! s:SuggestWord()
         let suggestion = copilot#Accept("")

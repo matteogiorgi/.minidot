@@ -30,7 +30,7 @@ let g:colors_name="hemisu"
 
 
 
-" THE COLORS {{{
+" COLORS {{{
 " Check more Xterm256 color names for console Vim at:
 " https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
 
@@ -107,7 +107,7 @@ endif
 
 
 
-" UTILITY FUNCTION {{{
+" FUNCTIONS {{{
 function! s:h(group, style)
   execute "highlight" a:group
         \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")

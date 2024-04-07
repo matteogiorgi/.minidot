@@ -10,18 +10,19 @@
 
 
 
-" Check {{{
+" INIT {{{
 if exists("g:auxilium")
     finish
 endif
 " ---
 let g:auxilium = 1
-"}}}
+set cursorline
+" }}}
 
 
 
 
-" Colors {{{
+" COLORS {{{
 if has('gui_running')
     if filereadable(expand('~/.vim/colors/hemisu.vim'))
         set background=dark
@@ -35,12 +36,11 @@ endif
 
 
 
-" MakeNote {{{
+" FUNCTIONS {{{
 function! s:MakeNote()
     let l:path_file    = expand('%:p')
     let l:path_parent  = expand('%:p:h')
     let l:path_notes   = l:path_parent . '/notes'
-    " ---
     let $FILE   = fnamemodify(l:path_file, ':p')
     let $PARENT = fnamemodify(l:path_parent, ':p')
     let $PREFIX = fnamemodify(l:path_parent, ':t')
@@ -61,37 +61,11 @@ function! s:MakeNote()
     redrawtabline
     echo 'notes archived in ' . l:path_notes
 endfunction
-"}}}
-
-
-
-
-" ScratchBuffer {{{
-function! s:ScratchBuffer()
-    let target_buffer = bufnr('/tmp/scratchbuffer')
-    let target_window = bufwinnr(target_buffer)
-    " ---
-    if target_buffer != -1 && target_window != -1
-        execute target_window . 'wincmd w'
-    else
-        execute 'edit /tmp/scratchbuffer'
-        setlocal bufhidden=wipe
-        setlocal nobuflisted
-        setlocal noswapfile
-        setlocal filetype=text
-    endif
-endfunction
-"}}}
-
-
-
-
-" AccentToggle {{{
-function! s:AccentToggle()
+" ---
+function! s:Accents()
     let accent_none  = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
     let accent_grave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
     let accent_acute = ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú']
-    " ---
     let character = matchstr(getline('.'), '\%' . col('.') . 'c.')
     let position = index(accent_none + accent_grave + accent_acute, character)
     " ---
@@ -106,14 +80,40 @@ function! s:AccentToggle()
         execute ':normal! r' . new_char
     endif
 endfunction
-"}}}
-
-
-
-
-" Prettyfiers {{{
-set cursorline
 " ---
+function! s:LineNumbers()
+    silent! execute &rnu ? 'setlocal nonu nornu' : &nu ? 'setlocal rnu' : 'setlocal nu'
+    echo &rnu ? 'relativenumbers' : &nu ? 'numbers' : 'no-numbers'
+endfunction
+" ---
+function! s:Background()
+    let colorscheme_name = get(g:, 'colors_name', '')
+    silent! execute &bg ==# 'light' ? 'set bg=dark' : 'set bg=light'
+    silent! execute "colorscheme " . colorscheme_name
+    redraw!|redrawstatus!|redrawtabline
+    echo colorscheme_name . ' ' . &background
+endfunction
+" ---
+function! s:ScratchBuffer()
+    let target_buffer = bufnr('/tmp/scratchbuffer')
+    let target_window = bufwinnr(target_buffer)
+    " ---
+    if target_buffer != -1 && target_window != -1
+        execute target_window . 'wincmd w'
+    else
+        execute 'edit /tmp/scratchbuffer'
+        setlocal bufhidden=wipe
+        setlocal nobuflisted
+        setlocal noswapfile
+        setlocal filetype=text
+    endif
+endfunction
+" }}}
+
+
+
+
+" AUGROUPS {{{
 augroup netrw_prettyfier
     autocmd FileType netrw setlocal cursorline
 augroup end
@@ -134,12 +134,7 @@ augroup cursorcolumn_prettyfier
                 \     set colorcolumn=|
                 \ endif
 augroup end
-"}}}
-
-
-
-
-" Filetype behavior {{{
+" ---
 augroup writer_filetype
     autocmd!
     autocmd FileType markdown,tex,text
@@ -148,25 +143,22 @@ augroup writer_filetype
                 \ noremap <buffer> j gj|
                 \ noremap <buffer> k gk
 augroup end
-"}}}
-
-
-
-
-" Autosave behavior {{{
+" ---
 augroup scratchbuffer_autosave
     autocmd!
     autocmd TextChanged,TextChangedI /tmp/scratchbuffer silent write
 augroup end
-"}}}
+" }}}
 
 
 
 
-" Commands & Keymaps {{{
+" COMMANDS & KEYMAPS {{{
 command! MakeNote call <SID>MakeNote()
+nnoremap <silent>' :call <SID>Accents()<CR>
+nnoremap <localleader>n :call <SID>LineNumbers()<CR>
+nnoremap <localleader>b :call <SID>Background()<CR>
 nnoremap <localleader>s :call <SID>ScratchBuffer()<CR>
-nnoremap <silent>' :call <SID>AccentToggle()<CR>
-"}}}
+" }}}
 
 " vim: fdm=marker:sw=2:sts=2:et
