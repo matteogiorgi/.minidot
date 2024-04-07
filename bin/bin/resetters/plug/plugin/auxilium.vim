@@ -38,9 +38,9 @@ endif
 
 " FUNCTIONS {{{
 function! s:MakeNote()
-    let l:path_file    = expand('%:p')
-    let l:path_parent  = expand('%:p:h')
-    let l:path_notes   = l:path_parent . '/notes'
+    let l:path_file   = expand('%:p')
+    let l:path_parent = expand('%:p:h')
+    let l:path_notes  = l:path_parent . '/notes'
     let $FILE   = fnamemodify(l:path_file, ':p')
     let $PARENT = fnamemodify(l:path_parent, ':p')
     let $PREFIX = fnamemodify(l:path_parent, ':t')
