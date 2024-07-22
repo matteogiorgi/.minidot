@@ -1,3 +1,14 @@
+# .MINIDOT IS NO LONGER MANTEINED
+
+This repo is obsolite and no longer in use: I have decided to split my work environment into three.
+Take a look at my *Personal Debian Environment*:
+- [pde-base](https://github.com/matteogiorgi/pde-base)
+- [pde-plug](https://github.com/matteogiorgi/pde-plug)
+- [pde-tile](https://github.com/matteogiorgi/pde-tile)
+
+
+
+
 <link rel="shortcut icon" type="image/x-icon" href="https://www.debian.org/logos/openlogo-nd.svg">
 
 ### A portable Debian environment
